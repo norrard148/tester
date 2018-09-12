@@ -39,6 +39,12 @@ h1, h2, h3, h4, a, input {
     font-weight: normal;
     margin: 0;
     color: #282828;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.69;
+    letter-spacing: normal;
+    text-align: left;
 }
 
 

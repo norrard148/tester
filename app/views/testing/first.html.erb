@@ -1,11 +1,75 @@
+<div class="testing-first-start">
+
+</div>
 <div class="testing-first-top">
+    <div class="testing-first-top-box active">
     <h1>기본 정보 등록</h1>
+    </div>
+    <ion-icon name="play"></ion-icon>
+    <div class="testing-first-top-box">
     <h1>테스트 정보 입력</h1>
+    </div>
+    <ion-icon name="play"></ion-icon>
+    <div class="testing-first-top-box">
     <h1>검토 및 제출</h1>
+    </div>
 </div>
 
 
 <div class="testing-first-middle">
+    <div class="testing-first-middle-top">
+        <h1>* 목표 설정 : 최대 3개  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  * 타겟 설정 : 목표 당 3개 &nbsp;&nbsp;&nbsp;&nbsp;   * 테스터 수 : 목표 당 5명<Br>
+        추가 테스트 진행을 원하시면 별도 문의 부탁드립니다. &nbsp;(약간의 추가금액이 발생합니다.)</h1>
+        <button>
+        <h2>도움이 필요하신가요?</h2>
+        </button>
+    </div>
+    <%$a=0%>
     <%= render "box"%>
     <%= render "box"%>
+    <%= render "box"%>
+</div>
+
+<div class="testing-first-bottom">
+   <div class="testing-first-bottom-top">
+    
+        <button>
+            <%= link_to "목표를 추가하고 싶으신가요?", testing_first1_path, :remote => true %>
+        </button>
+        <div class="testing-first-bottom-top-right d-flex flex-column  ">
+        <%$b=1%>
+        <%while $b<=$a%>
+            <div class="d-flex justify-content-between align-items-center w-100">
+                <h1>목표 <%=$b%>. 리워드 </h1>
+                <h2>1,500p</h2>
+            </div>
+            <%$b+=1%>
+            <%end%>
+        </div>
+       
+    </div>
+    <div class="testing-first-bottom-middle">
+        <div class="testing-first-bottom-top-right d-flex flex-column ">
+            <div class="d-flex justify-content-between align-items-center w-100">
+                <h1>테스트 비용 합계</h1>
+                <h2>1,500p</h2>
+            </div>
+            <div class="d-flex justify-content-between align-items-center w-100">
+                <h1>프로모션 할인 </h1>
+                <h2>1,500p</h2>
+            </div>
+        </div>
+    </div>
+    <div class="testing-first-bottom-bottom">
+        <div class="w-100 d-flex flex-column w-100 align-items-end">
+            <div class="testing-first-bottom-top-right d-flex flex-column">
+                <div class="d-flex justify-content-between align-items-center w-100">
+                    <h1>결제 금액</h1>
+                    <h2>1,500p</h2>
+                </div>
+            </div>
+        </div>
+        <button><h1>완료하기</h1></button>
+        
+    </div>
 </div>
