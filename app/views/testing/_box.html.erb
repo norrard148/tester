@@ -1,0 +1,30 @@
+<div class="accordion" id="accordionExample">
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h5 class="mb-0 d-flex align-items-center h-100">
+                <button class="d-flex card-button" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <h1>목표를 입력해주세요.</h1>
+                <img>
+                </button>
+            </h5>
+        </div>
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+                <section class="card-body-1">
+                    <div>
+                        <h1>예상 시간*</h1>
+                        <div></div>
+                    </div>
+                     <div class="">
+                        <label>타겟명*</label>
+                        <input  placeholder="20대 후반 여성">
+                    </div>
+                </section>
+                <%= render "card"%>
+                <div class="card-submit">
+                    <button>+타겟 추가하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
