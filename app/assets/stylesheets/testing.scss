@@ -18,7 +18,7 @@
         width: 100%;
         height: auto;
         opacity: 0.35;
-        
+        top: 0;
     }
     .img {
         position: relative;
@@ -37,6 +37,9 @@
         font-size: 20px;
     }
 }
+
+
+
 
 .testing-first-top {
     display:flex;
@@ -120,7 +123,7 @@ ion-icon {
     input { 
         font-size: 18px;
     }
-    .email {
+    .url {
         height: 50px;
         width: 80%;
     }
@@ -128,8 +131,12 @@ ion-icon {
 
 .testing-first-bottom {
     margin-top: 80px;
-    margin-bottom: 150px;
+    position: relative;  
+    width: 1006px;
+    display:flex;
+    justify-content: center;
     button {
+        margin-bottom: 150px;
         width: 350px;
         height: 60px;
         font-size: 23px;
@@ -229,12 +236,21 @@ ion-icon {
     .card-submit {
         width: 100%;
         padding: 0 36px 36px 36px;
-        button {
+        a {
+            cursor:pointer;
             background-color: #ff5500;
             border:none;
+            text-align:center;
+            display:flex;
+            align-items: center;
+            justify-content: center;
             height: 40px;
-            font-size: 16px;
-            color: white;
+            width: 100%;
+            h1 {
+                color: white;
+                font-size: 16px;
+
+            }
         }
     }
 }
@@ -267,7 +283,10 @@ ion-icon {
         text-align:center;
         -webkit-appearance: none;
     }
-   
+    option {
+        text-align:center;
+        width: 100%;
+    }
 }
 .card-body-1-left-minute {
     width: 112px;
@@ -349,20 +368,7 @@ ion-icon {
     }
 
 }
-.card-body-2-left-box:nth-child(2):after {
-    content: '>';
-    color: #333;
-    font: normal normal normal 30px/1 FontAwesome;
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    transform: rotate(90deg);
-    right: 11px;
-    /*Adjust for position however you want*/
-    top: 0;
-    position: absolute;
-    pointer-events: none;
-}
+
 .card-body-2-left-box.sex {
     input {
         margin: 0;
@@ -439,6 +445,7 @@ ion-icon {
     width: 1006px;
     display:flex;
     flex-direction: column;
+    position: relative;
     h1 {
         font-size: 14px;
     }
@@ -614,6 +621,7 @@ ion-icon {
 .testing-third-bottom {
     margin-top: 84px;
     width: 1006px;
+    position: relative;
     h1 {
         font-size: 18px;
     }
@@ -635,6 +643,7 @@ ion-icon {
             padding: 0;
             border: 1.5px solid rgba(0,0,0,0.4);
             border-radius:3px;
+            color: white;
         }
         h1 {
             margin-left: 20px;

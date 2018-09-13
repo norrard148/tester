@@ -1,0 +1,40 @@
+var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+var regPhone = /^((01[1|6|7|8|9])[1-9]+[0-9]{6,7})|(010[1-9][0-9]{7})$/;
+var regUrl = /^(https?|ftp|torrent|image|irc):\/\/(-\.)?([^\s\/?\.#-]+\.?)+(\/[^\s]*)?$/i;
+
+var brandname = document.getElementById('brandname').value;
+var name = document.getElementById('name').value;
+var phone_number = document.getElementById('phone-number').value;
+var email = document.getElementById('email').value;
+var url = document.getElementById('url').value;
+phone_number = phone_number.split('-').join('');
+
+if (brandname == '') {
+        alert("회사명은 필수 입력 사항입니다.");
+        
+}
+else if (name == '') {
+        alert("담당자명은 필수 입력 사항입니다.");
+
+}
+else if (phone_number == '') {
+        alert("담당자 연락처는 필수 입력 사항입니다.");
+}
+else if (!regPhone.test(phone_number)) {
+    alert("올바른 전화 번호를 입력하세요");
+}
+else if (email == '') {
+    alert("담당자 이메일은 필수 입력 사항입니다.");
+}
+else if (!re.test(email)) {
+            alert("올바른 이메일 주소를 입력하세요");
+}
+else if (url == '') {
+    alert("URL은 필수 입력 사항입니다.");
+}
+else if (!regUrl.test(url)) {
+            alert("올바른 URL 주소를 입력하세요");
+}
+else {
+    document.getElementById("first-form").submit();
+}
