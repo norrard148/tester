@@ -1,15 +1,11 @@
 class TestingController < ApplicationController
   def first
   end
-<<<<<<< HEAD
   def firsttest
     respond_to do |format|               
     format.js
     end   
   end
-=======
-
->>>>>>> c29e4b51f32109261548ad2ef55fa630f866d904
   def second
     if params[:brandname] == nil then redirect_to "/" end
   end
@@ -35,17 +31,4 @@ class TestingController < ApplicationController
     end        
   end 
 
-<<<<<<< HEAD
-=======
-  def index
-  end 
-
-  def aboutus
-  end
-
-  private
-  def t_params
-    params.require(:first).permit(:target)
-  end
->>>>>>> c29e4b51f32109261548ad2ef55fa630f866d904
 end
