@@ -3,7 +3,8 @@ class TestingController < ApplicationController
   end
   def second
   end
-
+  def third
+  end
   def first1
     respond_to do |format|               
       format.js
