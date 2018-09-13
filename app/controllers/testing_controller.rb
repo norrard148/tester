@@ -20,6 +20,9 @@ class TestingController < ApplicationController
   def aboutus
   end
 
+  def works
+  end
+
   private
   def t_params
     params.require(:first).permit(:target)
