@@ -12,13 +12,16 @@
                 </button>
             </h5>
         </div>
-        <div id="collapse<%=$a%>" class="collapse<% if $a == 1 then%><%='show'%><%end%>" aria-labelledby="heading<%=$a%>" data-parent="#accordionExample<%=$a%>" aria-expanded="false">
+        <div id="collapse<%=$a%>" class="collapse show" aria-labelledby="heading<%=$a%>" data-parent="#accordionExample<%=$a%>" aria-expanded="false">
+        <%$c["purpose" + $a.to_s() +"cardnumber"] = 0 %>
             <div class="card-body">
-                <%= render "card1"%>
-                <%= render "card2"%>
-                <%= render "card2"%>
+                <div class="w-100">
+                    <%= render "card1"%>
+                    <%= render "card2"%>
+                </div>
+
                 <div class="card-submit">
-                    <button>+타겟 추가하기</button>
+                    <a><h1>+타겟 추가하기</h1></a>
                 </div>
             </div>
         </div>

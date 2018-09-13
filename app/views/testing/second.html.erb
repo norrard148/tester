@@ -1,4 +1,6 @@
 <%=render "top"%>
+
+
 <div class="testing-first-top">
     <div class="testing-first-top-box ">
     <h1>기본 정보 등록</h1>
@@ -23,16 +25,22 @@
         </button>
     </div>
     <%$a=0%>
+    <%$c=Hash.new %>
+    <form action="/testing/third" id="second-form" name="second-form" class="second-form">
+    <input type="hidden" value="<%=params[:brandname]%>" name="[customer][brandname]">
+    <input type="hidden" value="<%=params[:name]%>" name="[customer][name]">
+    <input type="hidden" value="<%=params[:phonenumber]%>" name="[customer][phonenumber]">
+    <input type="hidden" value="<%=params[:email]%>" name="[customer][email]">
+    <input type="hidden" value="<%=params[:url]%>" name="[customer][url]">
     <%= render "second-box"%>
-    <%= render "second-box"%>
-    <%= render "second-box"%>
+    </form>
 </div>
 
 <div class="testing-second-bottom">
    <div class="testing-second-bottom-top">
     
         <button>
-            <%= link_to "목표를 추가하고 싶으신가요?", testing_first1_path, :remote => true %>
+            <%= link_to "목표를 추가하고 싶으신가요?", testing_second1_path, :remote => true %>
         </button>
         <div class="testing-second-bottom-top-right d-flex flex-column  ">
         <%$b=1%>
@@ -67,7 +75,20 @@
                 </div>
             </div>
         </div>
-        <input value="완료하기" type="button" onclick="TwoSubmit()"/>
-
+        <input id="complete" value="완료하기" type="button"/>
     </div>
 </div>
+<script>
+    $(document).on('click', '.card-submit a', function(){   
+        var a = $(this).parent().parent().parent().attr("id");
+        var b = a.replace(/[^0-9]/g,"");
+        $.ajax ({
+            url: "/testing/second2",
+            method: "get",
+            data: {"b" : b}
+        });
+    });
+    $("#complete").click(function() {
+        $(".second-form").submit();
+    })
+</script>
