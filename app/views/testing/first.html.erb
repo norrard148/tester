@@ -1,12 +1,15 @@
+
+
 <div class="testing-first-start">
 
 </div>
+
 <div class="testing-first-top">
-    <div class="testing-first-top-box active">
+    <div class="testing-first-top-box ">
     <h1>기본 정보 등록</h1>
     </div>
     <ion-icon name="play"></ion-icon>
-    <div class="testing-first-top-box">
+    <div class="testing-first-top-box active">
     <h1>테스트 정보 입력</h1>
     </div>
     <ion-icon name="play"></ion-icon>
@@ -69,7 +72,16 @@
                 </div>
             </div>
         </div>
-        <button><h1>완료하기</h1></button>
-        
+        <input value="완료하기" type="button" onclick="TwoSubmit()"/>
+
     </div>
 </div>
+
+
+<script>
+function TwoSubmit()
+{
+   document.firsta.submit();
+document.firstb.submit();
+}
+</script>
