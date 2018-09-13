@@ -1,11 +1,111 @@
+<%=render "top"%>
 <div class="testing-first-top">
+    <div class="testing-first-top-box active ">
     <h1>기본 정보 등록</h1>
+    </div>
+    <ion-icon name="play"></ion-icon>
+    <div class="testing-first-top-box">
     <h1>테스트 정보 입력</h1>
+    </div>
+    <ion-icon name="play"></ion-icon>
+    <div class="testing-first-top-box">
     <h1>검토 및 제출</h1>
+    </div>
 </div>
-
 
 <div class="testing-first-middle">
-    <%= render "box"%>
-    <%= render "box"%>
+    <div class="testing-first-middle-left"> 
+            <div class="">
+                <label>회사명*</label>
+                <input id="brandname" placeholder="카카오" name="target">
+            </div>
+            <div class="">
+                <label>담당자명*</label>
+                <input id="name" placeholder="김○○" name="target">
+            </div>
+            <div class="">
+                <label>담당자 연락처*</label>
+                <input id="phone-number" placeholder="010-1234-5678" name="target">
+            </div>
+            <div >
+                <label>담당자 이메일*</label>
+                <input id="email" placeholder="kakao@kakao.com" name="target">
+            </div>
+    </div>
+    <div class="testing-first-middle-right">
+        <div class="d-flex flex-column">
+            <label class="first">테스트 매체*</label>
+            <div class="d-flex justify-content-start">
+                <span class="d-flex align-items-center">
+                    <input name="group3" type="radio"/>
+                    <h1>데스크탑</h1>
+                </span>
+                <span class="d-flex align-items-center">
+                    <input name="group3" type="radio"/>
+                    <h1>모바일</h1>
+                </span>
+            </div>
+        </div>
+        <div class="d-flex flex-column">
+                <label>테스트 종류*</label>
+                <div class="d-flex justify-content-start">
+                <span class="d-flex align-items-center">
+                    <input name="group3" type="radio"/>
+                    <h1>이미지 프로토타입</h1>
+                </span>
+                <span class="d-flex align-items-center">
+                    <input name="group3" type="radio"/>
+                    <h1>구동가능한 제품 또는 시제품</h1>
+                </span>
+                
+                </div>
+        </div>
+        <div class="d-flex flex-column ">
+            <label>URL*</label>
+            <input class="email" id="url" placeholder="http://melon.com">
+        </div>
+    </div>
 </div>
+
+<div class="testing-first-bottom">
+    <button id="start">시작하기</button>
+</div>
+
+
+<script>
+    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    var regPhone = /^((01[1|6|7|8|9])[1-9]+[0-9]{6,7})|(010[1-9][0-9]{7})$/;
+    var regUrl = /^(https?|ftp|torrent|image|irc):\/\/(-\.)?([^\s\/?\.#-]+\.?)+(\/[^\s]*)?$/i;
+    $("#start").click(function () {
+        var brandname = document.getElementById('brandname').value;
+        var name = document.getElementById('name').value;
+        var phone_number = document.getElementById('phone-number').value;
+        var email = document.getElementById('email').value;
+        var url = document.getElementById('url').value;
+        phone_number = phone_number.split('-').join('');
+        if (brandname == '') {
+             alert("회사명은 필수입력 사항입니다.");
+        }
+        else if (name == '') {
+             alert("담당자명은 필수입력 사항입니다.");
+        }
+        else if (phone_number == '') {
+             alert("담당자 연락처는 필수입력 사항입니다.");
+        }
+        else if (!regPhone.test(phone_number)) {
+            alert("올바른 전화 번호를 입력하세요");
+        }
+        else if (email == '') {
+            alert("담당자 이메일은 필수입력 사항입니다.");
+        }
+        else if (!re.test(email)) {
+                    alert("올바른 이메일 주소를 입력하세요");
+        }
+        else if (url == '') {
+            alert("URL은 필수입력 사항입니다.");
+        }
+        else if (!regUrl.test(url)) {
+                    alert("올바른 URL 주소를 입력하세요");
+        }
+    })
+</script>
