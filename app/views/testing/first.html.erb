@@ -1,4 +1,5 @@
 <%=render "top"%>
+<div class=" testing w-100 d-flex flex-column align-items-center">
 <form id="first-form" name="first_form" action="/testing/second" method="get">
 <div class="testing-first-top">
     <div class="testing-first-top-box active ">
@@ -75,3 +76,14 @@
     </button>
     </a>
 </div>  
+
+</div>
+
+<script>
+if(navigator.userAgent.match(/Mobile|iP(hone|od)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)){
+    console.log("Mobile"); 
+    $(".testing").remove();
+} else {
+    console.log("PC");
+}
+</script>

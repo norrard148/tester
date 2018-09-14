@@ -1,4 +1,5 @@
 <%=render "top"%>
+<div class="testing w-100 d-flex flex-column align-items-center">
 
 
 <div class="testing-first-top">
@@ -78,7 +79,7 @@
         <input id="complete" value="완료하기" type="button"/>
     </div>
 </div>
-
+</div>
 <script>
     $(document).on('click', '.card-submit a', function(){   
         var a = $(this).parent().parent().parent().attr("id");
@@ -95,4 +96,13 @@
     $(document).on("click",".card-header", function() {
         $(this).children("section").children("button").children(".purpose-arrow").toggleClass("arrow-rotate")
     })
+</script>
+
+<script>
+if(navigator.userAgent.match(/Mobile|iP(hone|od)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)){
+    console.log("Mobile"); 
+    $(".testing").remove();
+} else {
+    console.log("PC");
+}
 </script>
