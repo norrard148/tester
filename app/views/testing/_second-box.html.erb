@@ -2,15 +2,15 @@
 <div class="accordion" id="accordionExample<%=$a+=1%>">
     <div class="card">
         <div class="card-header" id="heading<%=$a%>">
-            <h5 class="mb-0 d-flex align-items-center h-100">
+            <section class="mb-0 d-flex align-items-center h-100">
                 <button class="card-button collapsed" type="button" data-toggle="collapse" data-target="#collapse<%=$a%>"  aria-controls="collapse<%=$a%>">
                 <div>
                 <h1>목표 (<%=$a%>)</h1>
                 <h2>목표를 입력해주세요.</h2>
                 </div>
-                <img>
+                <%=image_tag("big-arrow-fold.svg", :class=>"purpose-arrow")%>
                 </button>
-            </h5>
+            </section>
         </div>
         <div id="collapse<%=$a%>" class="collapse show" aria-labelledby="heading<%=$a%>" data-parent="#accordionExample<%=$a%>" aria-expanded="false">
         <%$c["purpose" + $a.to_s() +"cardnumber"] = 0 %>

@@ -38,7 +38,6 @@
 
 <div class="testing-second-bottom">
    <div class="testing-second-bottom-top">
-    
         <button>
             <%= link_to "목표를 추가하고 싶으신가요?", testing_second1_path, :remote => true %>
         </button>
@@ -78,6 +77,7 @@
         <input id="complete" value="완료하기" type="button"/>
     </div>
 </div>
+
 <script>
     $(document).on('click', '.card-submit a', function(){   
         var a = $(this).parent().parent().parent().attr("id");
@@ -90,5 +90,8 @@
     });
     $("#complete").click(function() {
         $(".second-form").submit();
+    });
+    $(document).on("click",".card-header", function() {
+        $(this).children("section").children("button").children(".purpose-arrow").toggleClass("arrow-rotate")
     })
 </script>

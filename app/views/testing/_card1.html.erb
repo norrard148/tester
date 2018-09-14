@@ -4,15 +4,25 @@
         <label>예상 시간*</label>
         <div class="d-flex align-items-center">
             <div class="card-body-1-left-hour">
-                <select>
-                    <option>1</option>
+                <select onchange="hourchange(this)">
+                <%@time=0%>
+                <%while @time < 60%>
+                    <option value="<%=@time%>"><%=@time%></option>
+                    <%@time+=1%>
+                <%end%>
                 </select>
+                <span class="select-hour"><h1>0</h1></span>
             </div>
             <h1>분</h1>
             <div class="card-body-1-left-minute">
-                <select>
-                    <option>1</option>
+                <select onchange="minutechange(this)">
+                <%@time=0%>
+                <%while @time < 60%>
+                    <option value="<%=@time%>"><%=@time%></option>
+                    <%=@time+=1%>
+                <%end%>
                 </select>
+                <span class="select-minute"><h1>0</h1></span>
             </div>
             <h1>초</h1>
         </div>
@@ -22,3 +32,11 @@
         <input type="text" name="[purpose][purpose<%=$a%>][goal]" >
     </div>
 </section>
+<script>
+     function minutechange(a) {
+    $(a).parent().children(".select-minute").children("h1").text(a.value);
+    }
+    function hourchange(a) {
+    $(a).parent().children(".select-hour").children("h1").text(a.value);
+    }
+</script>
