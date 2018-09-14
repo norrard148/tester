@@ -761,45 +761,48 @@ ion-icon {
     border-color: #fff;
     color: #4bb43c;
 }
-
+.works-container {
+    width: 900px;
+    height: 350px;
+    display: block;
+    position: relative;
+    background-color: lightgrey;
+    margin-top: 200px;
+    margin-left: 200px;
+    
+}
 .works-small-box {
     background-color: white;
     width: 350px;
     height: 350px;
     position: absolute;
-    left: 40px;
-    top: 175px;
+    left: -100px;
+    top: -170px;
     box-shadow: inset 0 0 0 3px #e0dedb;
+}
+.works-container2 {
+    width: 900px;
+    height: 350px;
+    display: block;
+    position: relative;
+    background-color: lightgrey;
+    margin-top: 200px;
+    margin-left: 100px;
 }
 .works-small-box2 {
     background-color: white;
     width: 350px;
     height: 350px;
     position: absolute;
-    left: 805px;
-    top: 175px;
+    left: 650px;
+    top: -170px;
     box-shadow: inset 0 0 0 3px #e0dedb;
 }
-.works-container {
-    width: 1010px;
-    height: 350px;
-    display: block;
-    margin-left: 10rem;
-    margin-right: 2rem;
-    background-color: lightgrey;
-}
-.works-container2 {
-    width: 1010px;
-    height: 350px;
-    display: block;
-    margin-left: 2rem;
-    margin-right: 10rem;
-    background-color: lightgrey;
-}
+
 .draw {
     -webkit-transition: color 0.25s;
     transition: color 0.25s;
-    position: relative;
+    // position: relative;
 }
 .draw::before, .draw::after {
     border: 3px solid transparent;
