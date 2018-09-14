@@ -1,15 +1,15 @@
 <%=render "top"%>
 <div class=" testing w-100 d-flex flex-column align-items-center">
-<form id="first-form" name="first_form" action="/testing/second" method="get">
+<form  class="w-100 d-flex flex-column align-items-center" id="first-form" name="first_form" action="/testing/second" method="get">
 <div class="testing-first-top">
     <div class="testing-first-top-box active ">
     <h1>기본 정보 등록</h1>
     </div>
-    <ion-icon name="play"></ion-icon>
+    <%=image_tag("testing-top-arrow.svg")%>
     <div class="testing-first-top-box">
     <h1>테스트 정보 입력</h1>
     </div>
-    <ion-icon name="play"></ion-icon>
+    <%=image_tag("testing-top-arrow.svg")%>
     <div class="testing-first-top-box">
     <h1>검토 및 제출</h1>
     </div>
@@ -39,11 +39,18 @@
             <label class="first">테스트 매체*</label>
             <div class="d-flex justify-content-start">
                 <span class="d-flex align-items-center">
-                    <input name="media" value="desktop" type="radio"/>
+                    <div class="position-relative media">
+                        <input name="media" value="desktop" type="radio" checked="checked"/>
+                        <span class="big"><span class="small"></span></span>
+                    </div>
                     <h1>데스크탑</h1>
                 </span>
+               
                 <span class="d-flex align-items-center">
-                    <input name="media" value="mobile" type="radio"/>
+                    <div class="position-relative media">
+                        <input name="media" value="mobile" type="radio"/>
+                        <span class="big"><span class="small"></span></span>
+                    </div>
                     <h1>모바일</h1>
                 </span>
             </div>
@@ -52,11 +59,17 @@
                 <label>테스트 종류*</label>
                 <div class="d-flex justify-content-start">
                 <span class="d-flex align-items-center">
-                    <input name="testtype" value="image-pro"type="radio"/>
+                    <div class="position-relative media">
+                        <input name="testtype" value="image-pro"type="radio"  checked="checked"/>
+                        <span class="big"><span class="small"></span></span>
+                    </div>
                     <h1>이미지 프로토타입</h1>
                 </span>
                 <span class="d-flex align-items-center">
-                    <input name="testtype" value="product"type="radio"/>
+                    <div class="position-relative media">
+                        <input name="testtype" value="product" type="radio"/>
+                        <span class="big"><span class="small"></span></span>
+                    </div>
                     <h1>구동가능한 제품 또는 시제품</h1>
                 </span>
                 

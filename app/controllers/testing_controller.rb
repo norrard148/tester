@@ -10,12 +10,20 @@ class TestingController < ApplicationController
     if params[:brandname] == nil then redirect_to "/" end
   end
   def second1
+    @purpose_count = params[:purpose_count]
     respond_to do |format|               
       format.js
     end 
   end
   def second2
-    @b = params[:b]
+    @target_count = params[:target_count]
+    @purpose_number = params[:purpose_number]
+    respond_to do |format|               
+      format.js
+    end 
+  end
+  def second3
+    @purpose_count = params[:purpose_count]
     respond_to do |format|               
       format.js
     end 

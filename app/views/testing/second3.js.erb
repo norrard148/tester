@@ -1,0 +1,22 @@
+var calculate;
+var labor_price = 1800/3600; 
+var total = 0;
+<%@purnum=0%>
+<%while @purnum != @purpose_count.to_i()%>
+<%@purnum+=1%>
+
+calculate = Number($(".minute<%=@purnum%> option:selected").val()*60)+Number($(".second<%=@purnum%> option:selected").val());
+
+var tarnum = 1
+var plus = 0;
+while ($(`.testernumber-<%=@purnum%>-${tarnum}`).length == 1) {
+plus = plus + Number($(`.testernumber-<%=@purnum%>-${tarnum} option:selected`).val());
+tarnum +=1;
+
+}
+
+total += plus*calculate*labor_price;
+$(".reward-<%=@purnum%>").text((plus*calculate*labor_price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "P");
+<%end%>
+$(".reward-sum").text( total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+ "P");
+$(".reward-pay").text( total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "P");

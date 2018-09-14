@@ -4,39 +4,30 @@
         <label>예상 시간*</label>
         <div class="d-flex align-items-center">
             <div class="card-body-1-left-hour">
-                <select onchange="hourchange(this)" name="[purpose][purpose<%=$a%>][hour]" form="second-form">
+                <select class="minute<%=$a%> ui dropdown" onchange="minutechange(this)" name="[purpose][purpose<%=$a%>][minute]" form="second-form">
                 <%@time=0%>
                 <%while @time < 60%>
                     <option value="<%=@time%>"><%=@time%></option>
                     <%@time+=1%>
                 <%end%>
                 </select>
-                <span class="select-hour"><h1>0</h1></span>
+               
             </div>
             <h1>분</h1>
             <div class="card-body-1-left-minute">
-                <select onchange="minutechange(this)" name="[purpose][purpose<%=$a%>][minute]" form="second-form">
+                <select class="second<%=$a%> ui dropdown" onchange="secondchange(this)" name="[purpose][purpose<%=$a%>][second]" form="second-form">
                 <%@time=0%>
                 <%while @time < 60%>
                     <option value="<%=@time%>"><%=@time%></option>
                     <%=@time+=1%>
                 <%end%>
                 </select>
-                <span class="select-minute"><h1>0</h1></span>
             </div>
             <h1>초</h1>
         </div>
     </div>
     <div class="card-body-1-right d-flex flex-column">
         <label>이 목표를 통해 어떤 것을 알고 싶으신가요?</label>
-        <input type="text" name="[purpose][purpose<%=$a%>][goal]" >
+        <input type="text" name="[purpose][purpose<%=$a%>][goal]">
     </div>
 </section>
-<script>
-     function minutechange(a) {
-    $(a).parent().children(".select-minute").children("h1").text(a.value);
-    }
-    function hourchange(a) {
-    $(a).parent().children(".select-hour").children("h1").text(a.value);
-    }
-</script>
