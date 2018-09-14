@@ -31,4 +31,17 @@ class TestingController < ApplicationController
     end        
   end 
 
+  def index
+  end 
+
+  def aboutus
+  end
+
+  def works
+  end
+
+  private
+  def t_params
+    params.require(:first).permit(:target)
+  end
 end

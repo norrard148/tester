@@ -905,6 +905,84 @@ ion-icon {
     border-color: #fff;
     color: #4bb43c;
 }
+.works-container {
+    width: 900px;
+    height: 350px;
+    display: block;
+    position: relative;
+    background-color: lightgrey;
+    margin-top: 200px;
+    margin-left: 200px;
+    
+}
+.works-small-box {
+    background-color: white;
+    width: 350px;
+    height: 350px;
+    position: absolute;
+    left: -100px;
+    top: -170px;
+    box-shadow: inset 0 0 0 3px #e0dedb;
+}
+.works-container2 {
+    width: 900px;
+    height: 350px;
+    display: block;
+    position: relative;
+    background-color: lightgrey;
+    margin-top: 200px;
+    margin-left: 100px;
+}
+.works-small-box2 {
+    background-color: white;
+    width: 350px;
+    height: 350px;
+    position: absolute;
+    left: 650px;
+    top: -170px;
+    box-shadow: inset 0 0 0 3px #e0dedb;
+}
+
+.draw {
+    -webkit-transition: color 0.25s;
+    transition: color 0.25s;
+    // position: relative;
+}
+.draw::before, .draw::after {
+    border: 3px solid transparent;
+    width: 0;
+    height: 0;
+    position: absolute;
+    content: "";
+}
+.draw::before {
+    top: 0;
+    left: 0;
+}
+.draw::after {
+    bottom: 0;
+    right: 0;
+}
+
+.btb-active.draw::before, .btb-active.draw::after, .draw:hover::before, .draw:hover::after {
+    width: 350px;
+    height: 350px;
+}
+.btb-active.draw::before, .draw:hover::before {
+    border-top-color: #e8454a;
+    border-right-color: #e8454a;
+    -webkit-transition: width 0.25s ease-out,height 0.25s ease-out 0.25s;
+    transition: width 0.25s ease-out,height 0.25s ease-out 0.25s;
+    box-sizing: border-box;
+}
+.btb-active.draw::after, .draw:hover::after {
+    border-bottom-color: #e8454a;
+    border-left-color: #e8454a;
+    -webkit-transition: border-color 0s ease-out 0.5s,width 10s ease-out 0.5s,height 0.25s ease-out 0.75s;
+    transition: border-color 0s ease-out 0.5s,width 0.25s ease-out 0.5s,height 0.25s ease-out 0.75s;
+    box-sizing: border-box;
+}
+
 #test div {
     opacity: 0;
     -webkit-transition: opacity 2s ease-in;
