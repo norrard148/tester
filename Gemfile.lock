@@ -200,7 +200,11 @@ DEPENDENCIES
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
   jbuilder (~> 2.5)
+<<<<<<< HEAD
+  jquery-rails
+=======
   less-rails
+>>>>>>> 2c810c73777d791fba72f92832012659f5a35066
   listen (>= 3.0.5, < 3.2)
   puma (~> 3.7)
   rails (~> 5.1.6)

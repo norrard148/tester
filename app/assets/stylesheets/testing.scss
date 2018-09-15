@@ -1129,7 +1129,7 @@
     position: relative;
     background-color: lightgrey;
     margin-top: 200px;
-    margin-left: 200px;
+    margin-left: 150px;
     
 }
 .works-small-box {
@@ -1148,7 +1148,7 @@
     position: relative;
     background-color: lightgrey;
     margin-top: 200px;
-    margin-left: 100px;
+    margin-left: 50px;
 }
 .works-small-box2 {
     background-color: white;
@@ -1223,4 +1223,14 @@
     top  : 3rem;
     width   : 12%;  /* or 100px */
     border-bottom: 2px solid #e8454a;
+}
+.hideme {
+    opacity: 0;
+    margin-top: 30px;
+    // max-width: 100%;
+}
+.hideme2 {
+    opacity: 0;
+    margin-top: 30px;
+    max-width: 100%;
 }
