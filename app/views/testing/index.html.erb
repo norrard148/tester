@@ -1,4 +1,6 @@
-
+<script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type = "text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" charset="utf-8"></script>
+<script type = "text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" charset="utf-8"></script>
 <!-- 첫번째 박스 -->
 <div class="index-box" style="height: 1000px;">
   <%= image_tag("dummy1.jpg", class:"bg")%>
@@ -16,11 +18,11 @@
     </div>
 </div>
 <!-- 두번째 박스 -->
-<div class="d-flex flex-column justify-content-center align-items-center" style="height: 700px;" id="test">
-    <div><p class="h2">크라우드 소싱을 이용한 UX,UI 검증 플랫폼</p></div>
+<div class="d-flex flex-column justify-content-center align-items-center" style="height: 700px;">
+    <div class="hideme"><p class="h2">크라우드 소싱을 이용한 UX,UI 검증 플랫폼</p></div>
     <div class="container">
         <div class="row mt-5 mb-5">
-            <div class="col-lg mr-5">
+            <div class="col-lg mr-5  hideme2 card1">
                 <div class="card" style="width: 13rem; border: none;">
                     <%= image_tag('W_img_main_icon_1.svg', class:"card-img-top", style:"height: 180px; width: 100px; margin: 0 auto;")%>
                     <div class="card-body">
@@ -28,7 +30,7 @@
                     </div>
                 </div>
             </div> 
-            <div class="col-lg mr-5">  
+            <div class="col-lg mr-5  hideme2 card2">  
                 <div class="card" style="width: 13rem; border: none;">
                     <%= image_tag('W_img_main_icon_2.svg', class:"card-img-top", style:"height: 180px; width: 100px; margin: 0 auto;")%>
                     <div class="card-body">
@@ -36,7 +38,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg">  
+            <div class="col-lg hideme2 card2">  
                 <div class="card" style="width: 13rem; border: none;">
                     <%= image_tag('W_img_main_icon_3.svg', class:"card-img-top", style:"height: 180px; width: 100px; margin: 0 auto;")%>
                     <div class="card-body">
@@ -46,21 +48,55 @@
             </div>  
         </div>
     </div>
-    <div><p class="h6 mt-4">지금까지 더 테스터와 함께한 기업들 ></p></div>
+    <div class="hideme"><p class="h6 mt-4">지금까지 더 테스터와 함께한 기업들 ></p></div>
 </div>
 
 <!-- 세번째 박스-->
 <div class="d-flex flex-column justify-content-center align-items-center index-third-box" style="height: 500px;">
-    <div><p class="h2 text-white">고객 관점에서 생각하기, 많이 어려우셨죠?</p></div>
-    <div class="mt-4">
-        <p class="h6 text-center text-white ">이제는 생략하지 마세요. 잠시 미뤄두었던, 잊고 있었던 고객 중심의 가치를 찾아드립니다.</p>
-        <p class="h6 text-center text-white">UX,UI 컨설팅과 온라인 서비스의 기획, 디자인을 맡겨주세요.</p>
-    </div>
-    <div class="index-third-box-button" style="margin-top: 80px;">
-        <p class="text-center" style="margin-top: 18px;"><%= link_to'컨설팅, 외주 의뢰하기', root_path ,class:"h4"%></p>
+    <div class="d-flex flex-column justify-content-center align-items-center hideme">    
+        <div><p class="h2 text-white">고객 관점에서 생각하기, 많이 어려우셨죠?</p></div>
+        <div class="mt-4">
+            <p class="h6 text-center text-white ">이제는 생략하지 마세요. 잠시 미뤄두었던, 잊고 있었던 고객 중심의 가치를 찾아드립니다.</p>
+            <p class="h6 text-center text-white">UX,UI 컨설팅과 온라인 서비스의 기획, 디자인을 맡겨주세요.</p>
+        </div>
+        <div class="index-third-box-button" style="margin-top: 80px;">
+            <p class="text-center" style="margin-top: 18px;"><%= link_to'컨설팅, 외주 의뢰하기', root_path ,class:"h4"%></p>
+        </div>
     </div>
 </div>
 
+
 <script type="text/javascript">
-    $("#test div").addClass("load");
+$(document).ready(function() {
+    /* 1 */
+    $(window).scroll( function(){
+        /* 2 */
+        $('.hideme').each( function(i){
+            var bottom_of_object = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+            /* 3 */
+            if( bottom_of_window > bottom_of_object ){
+                $(this).animate({'opacity':'1', 'margin-bottom':'0px'},2000);
+            }
+        }); 
+    });
+});
+$(document).ready(function() {
+    /* 1 */
+    $(window).scroll( function(){
+        /* 2 */
+        $('.container').each( function(i){
+            var bottom_of_object = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+            /* 3 */
+            if( bottom_of_window > bottom_of_object ){
+                $('.card1').animate({'opacity':'1', 'margin-bottom':'0px'},1400).queue(function() {
+                    $('.card2').animate({'opacity':'1', 'margin-bottom':'0px'},1400).queue(function() {
+                        $('.card3').animate({'opacity':'1', 'margin-bottom':'0px'},1400);
+                    });
+                });
+            };
+        }); 
+    });
+});
 </script>
