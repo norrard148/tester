@@ -150,7 +150,18 @@
 </section>
 <%else%> 
 <script>
-$('#target-alert').modal('toggle');
+alertify.alert()
+            .setting({
+                'frameless':false,
+                'title':"타겟 추가 제한",
+                'closableByDimmer':true,
+                'closable': false,
+                modal: false,
+                transition:'pulse',
+                'pinnable': false,
+                message: '타겟은 한 목표당 최대 3개만 추가할 수 있습니다.',
+                'label':'Ok'
+            }).show();
 </script>
 <%end%>
 
@@ -161,10 +172,9 @@ $('#target-alert').modal('toggle');
     }
 
     $('.ui.dropdown').dropdown();
-   
-    var a=0;
-    $(`<%=image_tag("small-arrow-unfold.svg", :class=>"select-arrow")%>`).appendTo($(".select-content .ui.dropdown"));
-    $(document).on("click",".select-content .ui.dropdown",function() {
+    $(".select-arrow").remove();
+    $('<img src="<%=asset_path('small-arrow-unfold.svg')%>" class="select-arrow">').appendTo($(".select-content .ui.dropdown"));
+    $(document).on("click",".select-content .ui.dropdown", function() {
         if ($(this).hasClass("active")) {
             $(this).children(".select-arrow").addClass("arrow-rotate")
             $(this).parent().addClass("select-content-focus")

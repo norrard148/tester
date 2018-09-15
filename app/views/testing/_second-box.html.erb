@@ -61,5 +61,20 @@
         </div>
     </div>
 </div>
-<%else end%>
+<%else%>
+<script>
+   alertify.alert()
+            .setting({
+                'frameless':false,
+                'title':"목표 추가 제한",
+                'closableByDimmer':true,
+                'closable': false,
+                modal: false,
+                transition:'pulse',
+                'pinnable': false,
+                message: '목표는 최대 3개만 추가할 수 있습니다.',
+                'label':'Ok'
+            }).show();
+</script>
+<%end%>
 <%end%>
