@@ -171,8 +171,13 @@ $('#target-alert').modal('toggle');
         }
         else {
             $(this).children(".select-arrow").removeClass("arrow-rotate")
-                 $(this).parent().removeClass("select-content-focus")
+            $(this).parent().removeClass("select-content-focus")
         }
     })
-    
+    $("body").click(function(d) {
+        if (!$(d.target).hasClass("select-content")) {
+            $(".select-arrow").removeClass("arrow-rotate")
+            $(".select-content").removeClass("select-content-focus");
+        }
+    })
 </script>
