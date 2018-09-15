@@ -41,9 +41,9 @@
             </div>
             <div class="card-body-2-left-box">
                 <label>테스터 수*</label>
-                <div class="position-relative">
+                <div class="position-relative select-content">
                 
-                <select class="ui dropdown form-control testernumber-<%=$a%>-<%=i%>" name="[purpose][purpose<%=$a%>][exp<%=i%>][testernumber]" form="second-form" onclick="arrow_rotate()">
+                <select class="testernumber ui dropdown select-arrow-control testernumber-<%=$a%>-<%=i%>" onclick="select_arrow_rotate(this)" name="[purpose][purpose<%=$a%>][exp<%=i%>][testernumber]" form="second-form">
                         <option value="0" checked="checked">선택</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -52,7 +52,7 @@
                         <option value="5">5</option>
                          
                 </select>       
-                <%=image_tag("small-arrow-unfold.svg", :class=>"select-arrow")%>
+             
                 </div>
             </div>
             <div class="card-body-2-left-box sex">
@@ -85,8 +85,8 @@
             <div class="card-body-2-left-box" >
                 <label>연령대</label>
                 <span class="d-flex justify-content-between">
-                    <div class="position-relative select-box">
-                    <select class=" ui dropdown" name="[purpose][purpose<%=$a%>][exp<%=i%>][age]" form="second-form">
+                    <div class="position-relative select-box select-content">
+                    <select class=" ui dropdown select-arrow-control" onclick="select_arrow_rotate(this)" name="[purpose][purpose<%=$a%>][exp<%=i%>][age]" form="second-form">
                         <option value="none" checked="checked">선택</option>
                         <option value="10">10대</option>
                         <option value="20">20대</option>
@@ -95,22 +95,22 @@
                         <option value="50">50대</option>
                         <option value="60">60대</option>
                     </select>
-                    <%=image_tag("small-arrow-unfold.svg", :class=>"select-arrow")%>
+                    
                     </div>
-                    <div class="position-relative select-box">
-                    <select class="ui dropdown">
+                    <div class="position-relative select-box select-content">
+                    <select class="ui dropdown select-arrow-control" onclick="select_arrow_rotate(this)" >
                         <option value="none" checked="checked">선택</option>
                         <option value="초반">초반</option>
                         <option value="중반">중반</option>
                         <option value="후반">후반</option>
                         <option value="무관">무관</option>
                     </select>
-                    <%=image_tag("small-arrow-unfold.svg", :class=>"select-arrow")%>
+                    
                     </div>
                 </span>
             </div>  
             <div class="card-body-2-left-box">
-                <label>싱세 기준</label>
+                <label>상세 기준</label>
                 <input placeholder="SNS를 자주 이용하는 사람" name="[purpose][purpose<%=$a%>][exp<%=i%>][detail]">
             </div> 
         </div>
@@ -159,5 +159,20 @@ $('#target-alert').modal('toggle');
         $(".select-arrow").toggleClass("arrow-rotate");
         console.log("dd")
     }
+
     $('.ui.dropdown').dropdown();
+   
+    var a=0;
+    $(`<%=image_tag("small-arrow-unfold.svg", :class=>"select-arrow")%>`).appendTo($(".select-content .ui.dropdown"));
+    $(document).on("click",".select-content .ui.dropdown",function() {
+        if ($(this).hasClass("active")) {
+            $(this).children(".select-arrow").addClass("arrow-rotate")
+            $(this).parent().addClass("select-content-focus")
+        }
+        else {
+            $(this).children(".select-arrow").removeClass("arrow-rotate")
+                 $(this).parent().removeClass("select-content-focus")
+        }
+    })
+    
 </script>

@@ -1,0 +1,49 @@
+
+var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+var regPhone = /^((01[1|6|7|8|9])[1-9]+[0-9]{6,7})|(010[1-9][0-9]{7})$/;
+var regUrl = /^(https?|ftp|torrent|image|irc):\/\/(-\.)?([^\s\/?\.#-]+\.?)+(\/[^\s]*)?$/i;
+
+
+$(".purpose").each(function(element){
+    if ($(this).val() == '') {
+            alertify.alert()
+            .setting({
+                'frameless':false,
+                'title':"회사명 작성 오류",
+                'closableByDimmer':true,
+                'closable': false,
+                modal: false,
+                transition:'pulse',
+                'pinnable': false,
+                message: '회사명은 필수 입력 사항입니다.',
+                'label':'Ok',
+                'onok': function(){ alertify.message('Confirmed!')
+                }
+            }).show();
+            
+    }
+    else { 
+        $(".testernumber").each(function(element){
+            if ($(this).val() == '') {
+                alertify.alert()
+                .setting({
+                    'frameless':false,
+                    'title':"회사명 작성 오류",
+                    'closableByDimmer':true,
+                    'closable': false,
+                    modal: false,
+                    transition:'pulse',
+                    'pinnable': false,
+                    message: '회ddd은 필수 입력 사항입니다.',
+                    'label':'Ok',
+                    'onok': function(){ alertify.message('Confirmed!')
+                    }
+                }).show();
+            }
+        });
+    }
+
+  
+
+});
+

@@ -112,13 +112,15 @@
     });
    
     $("#complete").click(function() {
-        $(".second-form").submit();
-    });
+         $.ajax({
+            url: "/testing/secondtest",
+            method: "get"
+        })
+    }); 
     $(document).on("click",".card-header", function() {
         $(this).children("section").children("button").children(".purpose-arrow").toggleClass("arrow-rotate")
     })
     setInterval(function () {
-    
         $.ajax({
             url: "/testing/second3",
             method: "get",
@@ -128,12 +130,4 @@
     }, 1000);
 </script>
 
-<script>
-    if(navigator.userAgent.match(/Mobile|iP(hone|od)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)){
-        console.log("Mobile"); 
-        $(".testing").remove();
-    } else {
-        console.log("PC");
-    }
-    
-</script>
+

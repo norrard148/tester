@@ -373,10 +373,10 @@
     .ui.dropdown .menu>.item {
         text-align: center;
         width: calc(100%);
+       
     }
     ::-webkit-scrollbar {
-        width: 10px;
-        display:none;
+      display: none;
     }
     .ui.selection.dropdown .menu {
         border-radius: 21px;
@@ -385,6 +385,15 @@
     }
     .ui.upward.selection.dropdown.visible, .ui.active.upward.selection.dropdown {
         border-radius: 21px!important;        
+    }
+    .select-arrow {
+        position: absolute;
+        z-index: 500;
+        right: 15px;
+        top: 13px;
+        height: 20px;
+        width: auto;
+        pointer-events: none;
     }
 }
 .card-body-1-left-hour {
@@ -416,6 +425,7 @@
         z-index: 4;
         opacity: 0;
     }
+    
 }
 
 .card-body-1-right {
@@ -542,11 +552,15 @@
         right: 0;
         transition: transform 0.15s linear 0s;
         fill: grey;
+        z-index:500;
+        
     }
     .select-box {
         width: 45%;
     }
+    
     .ui.selection.dropdown {
+        
         min-width: initial;
         width: 101%;
         border:1px solid white;
@@ -563,14 +577,26 @@
     .dropdown.icon {
         display: none;
     }
+    .visible {
+        display: block!important;
+        // z-index: 400;
+    }
 }
 
-
-
-
+.select-content {
+        z-index: 500;
+}
+.select-content-focus {
+    z-index:600;
+}
+.rotate-select {
+    z-index:400;
+}
 .arrow-rotate {
     transform: rotateX(180deg);
+    z-index: 500;
 }
+
 .card-body-2-left-box.sex {
     input {
         margin: 0;

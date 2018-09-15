@@ -11,7 +11,7 @@
                     <%@time+=1%>
                 <%end%>
                 </select>
-               
+                <%=image_tag("testing-topbottom-arrow.svg", :class=>"select-arrow")%>
             </div>
             <h1>분</h1>
             <div class="card-body-1-left-minute">
@@ -22,12 +22,13 @@
                     <%=@time+=1%>
                 <%end%>
                 </select>
+                <%=image_tag("testing-topbottom-arrow.svg", :class=>"select-arrow")%>
             </div>
             <h1>초</h1>
         </div>
     </div>
     <div class="card-body-1-right d-flex flex-column">
         <label>이 목표를 통해 어떤 것을 알고 싶으신가요?</label>
-        <input type="text" name="[purpose][purpose<%=$a%>][goal]">
+        <input class="purpose" type="text" name="[purpose][purpose<%=$a%>][goal]">
     </div>
 </section>

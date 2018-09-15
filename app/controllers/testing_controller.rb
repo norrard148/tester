@@ -28,7 +28,11 @@ class TestingController < ApplicationController
       format.js
     end 
   end
-
+  def secondtest
+    respond_to do |format|               
+      format.js
+    end 
+  end
   def third
     if params[:customer] == nil then redirect_to "/" end
   end
