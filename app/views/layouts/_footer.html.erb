@@ -1,5 +1,5 @@
 <footer>
-<%=image_tag("testing_up_btn.svg", :class=>"footer-up-btn", :onclick=>"moveTop()")%>
+<%=image_tag("footer-up-btn.svg", :class=>"footer-up-btn", :onclick=>"moveTop()")%>
     <div class="footer-top d-flex align-items-center">
         <a href="">서비스소개</a>
         <h1>|</h1>
@@ -20,4 +20,9 @@
     function moveTop() {
         $('html, body').animate({scrollTop : 0}, 600);
     }
+    $(".footer-up-btn").hover(function() {
+         $(".footer-up-btn").attr({"src": "<%=asset_path("footer-up-btn-hover.svg")%>"})
+    },function() {
+        $(".footer-up-btn").attr({"src": "<%=asset_path("footer-up-btn.svg")%>"})
+    })
 </script>

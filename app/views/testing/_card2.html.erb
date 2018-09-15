@@ -1,35 +1,56 @@
 
-<%$c["purpose" + $a.to_s() +"cardnumber"]+=1%>
-<%i=$c["purpose" + $a.to_s() +"cardnumber"]%>
-<%if @b == nil then @b = $a end%>
+<%judge = defined? @purpose_number %>
+<%if judge == nil%>
+<% then %>
+<%else%>
+<%$a=@purpose_number.to_i()%>
+<%end%>
+
+<%judgeb = defined? @target_count %>
+<%if judgeb == nil%>
+<% then %>
+<%i=1%>
+<%else%>
+<%i=@target_count.to_i()+1%>
+<%end%>
+
+<%if i != 4%>
+<%then%>
 <section class="card-body-2">
         <div class="card-body-2-target">
             <h1>타겟 <%=i%></h1>
         </div>
         <div class="card-body-2-left">
+        <%if $a == 1 && i == 1 then %>
             <div class="card-body-2-left-ask">
                 <h1>?</h1>
-                
+                <div class="card-body-2-left-ask-box">
+                    <h2>누가 이 목표를 할지 알려주세요!</h2>
+                    <h3>* 타겟명은 테스트 결과 리포트에 들어갈 별명입니다.</h3>
+                    <h3>* 상세 기준은 성별과 연령대 이외에
+                    추가 기준이 있다면 알려주세요:)</h3>
+                    <h3>* 너무 표본이 적은 테스터는 어려워요ㅠㅠ</h3>
+                    <h3>ex. 람보르기니를 소유한 소상공인</h3>
+                </div>
             </div>
-            
+        <%else end%>
+           
             <div class="card-body-2-left-box first">
                 <label>타겟명*</label>
-                <input placeholder="20대 후반 여성"  type="text" name="[purpose][purpose<%=@b%>][exp<%=i%>][target]">
+                <input placeholder="20대 후반 여성"  type="text" name="[purpose][purpose<%=$a%>][exp<%=i%>][target]">
             </div>
             <div class="card-body-2-left-box">
                 <label>테스터 수*</label>
-                <div class="position-relative select-box">
-                <select class="form-control" name="[purpose][purpose<%=@b%>][exp<%=i%>][testernumber]" form="second-form" onclick="arrow_rotate()">
-                        <option value="0">선택</option>
+                <div class="position-relative">
+                
+                <select class="ui dropdown form-control testernumber-<%=$a%>-<%=i%>" name="[purpose][purpose<%=$a%>][exp<%=i%>][testernumber]" form="second-form" onclick="arrow_rotate()">
+                        <option value="0" checked="checked">선택</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
                         <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>           
+                         
                 </select>       
                 <%=image_tag("small-arrow-unfold.svg", :class=>"select-arrow")%>
                 </div>
@@ -39,14 +60,14 @@
                 <div>
                 <span class="d-flex align-items-center">
                     <div class="position-relative">
-                    <input name="[purpose][purpose<%=@b%>][exp<%=i%>][sex]" value="no matter" type="radio" checked="checked"/>
+                    <input name="[purpose][purpose<%=$a%>][exp<%=i%>][sex]" value="무관" type="radio" checked="checked"/>
                     <span class="big"><span class="small"></span></span>
                     </div >
                     <h1>무관</h1>
                 </span>
                 <span class="d-flex align-items-center">
                     <div class="position-relative">
-                    <input name="[purpose][purpose<%=@b%>][exp<%=i%>][sex]" value="female" type="radio"/>
+                    <input name="[purpose][purpose<%=$a%>][exp<%=i%>][sex]" value="female" type="radio"/>
                     <span class="big"><span class="small"></span></span>
                     
                     </div>
@@ -54,7 +75,7 @@
                 </span>
                 <span class="d-flex align-items-center">
                     <div class="position-relative">
-                    <input name="[purpose][purpose<%=@b%>][exp<%=i%>][sex]" value="male" type="radio"/>
+                    <input name="[purpose][purpose<%=$a%>][exp<%=i%>][sex]" value="male" type="radio"/>
                     <span class="big"><span class="small"></span></span>
                     </div>
                     <h1>남자</h1>
@@ -65,7 +86,7 @@
                 <label>연령대</label>
                 <span class="d-flex justify-content-between">
                     <div class="position-relative select-box">
-                    <select class="form-control" name="[purpose][purpose<%=@b%>][exp<%=i%>][age]" form="second-form">
+                    <select class=" ui dropdown" name="[purpose][purpose<%=$a%>][exp<%=i%>][age]" form="second-form">
                         <option value="none" checked="checked">선택</option>
                         <option value="10">10대</option>
                         <option value="20">20대</option>
@@ -73,16 +94,15 @@
                         <option value="40">40대</option>
                         <option value="50">50대</option>
                         <option value="60">60대</option>
-                        <option value="70">70대</option>
-                        <option value="80">80대</option>
                     </select>
                     <%=image_tag("small-arrow-unfold.svg", :class=>"select-arrow")%>
                     </div>
                     <div class="position-relative select-box">
-                    <select class="form-control">
-                        <option value="무관" checked="checked">무관</option>
-                        <option value="무관">무관</option>
-                        <option value="무관">무관</option>
+                    <select class="ui dropdown">
+                        <option value="none" checked="checked">선택</option>
+                        <option value="초반">초반</option>
+                        <option value="중반">중반</option>
+                        <option value="후반">후반</option>
                         <option value="무관">무관</option>
                     </select>
                     <%=image_tag("small-arrow-unfold.svg", :class=>"select-arrow")%>
@@ -91,37 +111,53 @@
             </div>  
             <div class="card-body-2-left-box">
                 <label>싱세 기준</label>
-                <input placeholder="SNS를 자주 이용하는 사람" name="[purpose][purpose<%=@b%>][exp<%=i%>][detail]">
+                <input placeholder="SNS를 자주 이용하는 사람" name="[purpose][purpose<%=$a%>][exp<%=i%>][detail]">
             </div> 
         </div>
         <div class="card-body-2-right">
+            <%if $a == 1 && i == 1 then %>
             <div class="card-body-2-left-ask">
                 <h1>?</h1>
+                <div class="card-body-2-left-ask-box">
+                    <h2>테스터에게 궁금한점을 적어주세요!</h2>
+                    <h3>- 목표를 달성한 테스터, 달성에 실패한
+                    테스터에게 각각 2개씩 질문하실 수 있어요.</h3>
+                    <h3>- 질문에 대한 답변은 테스트 결과 리포트에서
+                    확인가능합니다!</h3>
+                </div>
             </div>
+            <%else end%>  
             <div class="card-body-2-right-box first">
                 <span><h1>목표를 달성한 경우</h1><h2>인터뷰 질문 (1)</h2></span>
-                <input placeholder="테스터에게 할 질문을 입력해주세요." name="[purpose][purpose<%=@b%>][exp<%=i%>][question1]">
+                <input placeholder="테스터에게 할 질문을 입력해주세요." name="[purpose][purpose<%=$a%>][exp<%=i%>][question1]">
             </div>
 
             <div class="card-body-2-right-box">
                 <span><h1>목표를 달성한 경우</h1><h2>인터뷰 질문 (2)</h2></span>
-                <input placeholder="테스터에게 할 질문을 입력해주세요." name="[purpose][purpose<%=@b%>][exp<%=i%>][question2]">
+                <input placeholder="테스터에게 할 질문을 입력해주세요." name="[purpose][purpose<%=$a%>][exp<%=i%>][question2]">
             </div>
 
             <div class="card-body-2-right-box">
                 <span><h1>목표를 실패한 경우</h1><h2>인터뷰 질문 (1)</h2></span>
-                <input placeholder="테스터에게 할 질문을 입력해주세요." name="[purpose][purpose<%=@b%>][exp<%=i%>][question3]">
+                <input placeholder="테스터에게 할 질문을 입력해주세요." name="[purpose][purpose<%=$a%>][exp<%=i%>][question3]">
             </div>
 
             <div class="card-body-2-right-box">
                 <span><h1>목표를 실패한 경우</h1><h2>인터뷰 질문 (2)</h2></span>
-                <input placeholder="테스터에게 할 질문을 입력해주세요." name="[purpose][purpose<%=@b%>][exp<%=i%>][question4]">
+                <input placeholder="테스터에게 할 질문을 입력해주세요." name="[purpose][purpose<%=$a%>][exp<%=i%>][question4]">
             </div>
         </div>
 </section>
+<%else%> 
+<script>
+$('#target-alert').modal('toggle');
+</script>
+<%end%>
+
 <script>
     function arrow_rotate() {
         $(".select-arrow").toggleClass("arrow-rotate");
         console.log("dd")
     }
+    $('.ui.dropdown').dropdown();
 </script>

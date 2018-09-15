@@ -5,47 +5,64 @@
     <div class="testing-first-top-box ">
     <h1>기본 정보 등록</h1>
     </div>
-    <ion-icon name="play"></ion-icon>
+    <%=image_tag("testing-top-arrow.svg")%>
     <div class="testing-first-top-box">
     <h1>테스트 정보 입력</h1>
     </div>
-    <ion-icon name="play"></ion-icon>
+    <%=image_tag("testing-top-arrow.svg")%>
     <div class="testing-first-top-box active">
     <h1>검토 및 제출</h1>
     </div>
 </div>
-
-
+<%@total_test =0%>
+<%@total_reward = 0%>
+<%@total_purpose = 0%>
+<%params['purpose'].each do |a,b|%>
+    <%@testernumber=0%>
+    <%@total_purpose+=1%>
+    <%b.each do |c,d|%>
+    <%if c != "goal" then%>
+    <%@testernumber+=d['testernumber'].to_i()%>
+    <%end%>
+    <%end%>
+    <%@total_test += @testernumber%>
+    <%@total_reward += (@testernumber.to_i()*(b['minute'].to_i()*60+b['second'].to_i())*1/2)%>
+<%end%>
 <div class="testing-sthird-middle">
     <div class="testing-third-middle-top">
         <div class="d-flex flex-column align-items-center">
             <h1>총 목표수</h1>
-            <h2>2</h2>
+            <h2><%=@total_purpose%></h2>
         </div>
         <span></span>
         <div class="d-flex flex-column align-items-center">
             <h1>총 테스터수</h1>
-            <h2>10</h2>
+            <h2><%=@total_test%></h2>
         </div>
         <span></span>
         <div class="d-flex flex-column align-items-center">
             <h1>총 리워드</h1>
-            <h2>0P</h2>
+            <h2><%=@total_reward%>P</h2>
         </div>
     </div>
     <%=render 'third-box'%>
 </div>
 <div class="testing-third-bottom">
+    <form>
     <h1>추가 텍스트 입력</h1>
     <textarea placeholder="추가적으로 테스터들에게 궁금하거나 문의하실 사항이 있으시면 자유롭게 적어주세요.&#13;&#10;이 내용은 모든 테스트 진행을 마친 후, 각 테스터들에게 제공됩니다.&#13;&#10; *500자 내외"></textarea>
     <section class="d-flex align-items-center">
-        <input type="checkbox">
+        <label>
+            <input type="checkbox">
+            <span  class="contract" ></span>
+        </label>
         <h1>더 테스터의 이용약관에 동의합니다.</h1>
         <button>이용약관 보기</button>
     </section>
-    <form action="/testing/third" method="get" name="first">
+    <div action="/testing/third" method="get" name="first">
         <input value="수정하기" type="submit"/>
         <input value="제출하기" type="submit"/>
+    </div>
     </form>
 </div>
 </div>
