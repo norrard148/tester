@@ -1123,7 +1123,7 @@
         width: 352px;
         height: 67px;
         border: 1.5px solid white;
-        border-radius: 8px; 
+        border-radius: 10px; 
         cursor: pointer;           
         }
     .index-button:hover {
@@ -1145,7 +1145,7 @@
     height: 67px;
     border-style: solid;
     border-width: 1.5px;
-    border-radius: 8px;
+    border-radius: 10px;
     border-color: #fff;
     color: #fff;
     cursor: pointer;
@@ -1182,6 +1182,15 @@
 // }
 .aboutus-box-button:hover {
     color: #4bb43c;
+}
+
+.aboutus-label {
+    border-radius: 20px;
+    background-color: #282828;
+    width: 118px;
+    height: 32px;
+    color: #fff;
+    margin-bottom: 0;
 }
 .works-container {
     width: 1000px;
@@ -1289,11 +1298,23 @@
 }
 .hideme {
     opacity: 0;
-    margin-top: 30px;
+    // margin-top: 30px;
     // max-width: 100%;
 }
 .hideme2 {
     opacity: 0;
-    margin-top: 30px;
+    // margin-top: 30px;
     max-width: 100%;
+}
+
+.recruit-img {
+    width: 146px;
+    height: 146px;
+}
+
+.noto {
+    font-family: 'Noto Sans KR', sans-serif;
+    h1, h2, h3, h4, h5, h6, p, a, li, div {
+        font-weight: lighter;
+    }
 }
