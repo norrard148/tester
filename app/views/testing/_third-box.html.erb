@@ -20,7 +20,8 @@
                     <%@testernumber+=d['testernumber'].to_i()%>
                     <%end%>
                     <%end%>
-                    <%=(@testernumber.to_i()*(b['minute'].to_i()*60+b['second'].to_i())*1/2).to_s()+"P"%>
+                    <%= number_with_delimiter((@testernumber.to_i()*(b['minute'].to_i()*60+b['second'].to_i())*1/2).to_s(), :delimiter => ',') %>
+                    p
                     </h3>
             </span>
             <h4>|<h4>
