@@ -17,6 +17,7 @@
             }
             else {
                 $(".minute option:selected").each(function(element){
+                    $(".minute")
                     if ($(this).val() == '0') {
                         alertify.alert()
                         .setting({

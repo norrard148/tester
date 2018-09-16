@@ -1095,9 +1095,11 @@
         width: 352px;
         height: 67px;
         border: 1.5px solid white;
-        border-radius: 8px;            
+        border-radius: 8px; 
+        cursor: pointer;           
         }
     .index-button:hover {
+        text-decoration: none;
         background-color:#282828;
         color:#fff;
         border-color: #282828;
@@ -1118,29 +1120,39 @@
     border-radius: 8px;
     border-color: #fff;
     color: #fff;
+    cursor: pointer;
 }
 .index-third-box-button:hover {
     background-color: #fff;
     border-color: #fff;
     color: #e8454a;
 }
-
+.index-button:hover {
+    color: #e8454a;
+}
 .aboutus-box {
     background-color: #4bb43c;
     width: 100%;
 }
-.aboutus-box-button {
+.aboutus-button {
     width: 352px;
     height: 67px;
     border-style: solid;
     border-width: 1.5px;
-    border-radius: 8px;
+    border-radius: 10px;
     border-color: #fff;
     color: #fff;
+    cursor: pointer;
 }
-.aboutus-box-button:hover {
+.aboutus-button:hover {
     background-color: #fff;
     border-color: #fff;
+    color: #4bb43c;
+}
+// .aboutus-box-button {
+//     color: #fff;
+// }
+.aboutus-box-button:hover {
     color: #4bb43c;
 }
 .works-container {
@@ -1180,45 +1192,47 @@
     top: -170px;
     box-shadow: inset 0 0 0 3px #e0dedb;
 }
-
-.draw {
-    -webkit-transition: color 0.25s;
-    transition: color 0.25s;
-    // position: relative;
+.hover {
+    width: 100%;
+    display:flex;
+    justify-content: center;
 }
-.draw::before, .draw::after {
-    border: 3px solid transparent;
-    width: 0;
-    height: 0;
+
+.works-box:after, .works-box:before {
+    border: 3px  solid transparent;
     position: absolute;
     content: "";
 }
-.draw::before {
+.works-box:after {
     top: 0;
     left: 0;
+    width: 0%;
+    height: 0%;
 }
-.draw::after {
-    bottom: 0;
+.works-box:before {
     right: 0;
+    bottom: 0;
+    width: 0%;
+    height: 0%;
+}
+.draw:before {
+    transition: width 0.25s linear 0.5s, border-bottom-color 0s linear 0.5s, height 0.25s linear 0.75s, border-left-color 0s linear 0.75s;
+    width: 100%;
+    height: 100%;
+    border-bottom-color: red;
+    border-left-color:red;
+}
+.draw:after {
+    width: 100%;
+    transition: width 0.25s linear 0s, border-top-color 0s linear 0s, height 0.25s linear 0.25s, border-right-color 0s linear 0.25s;
+    height: 100%;
+    border-top-color: red;
+    border-right-color:red;
 }
 
-.btb-active.draw::before, .btb-active.draw::after, .draw:hover::before, .draw:hover::after {
-    width: 350px;
-    height: 350px;
-}
-.btb-active.draw::before, .draw:hover::before {
-    border-top-color: #e8454a;
-    border-right-color: #e8454a;
-    -webkit-transition: width 0.25s ease-out,height 0.25s ease-out 0.25s;
-    transition: width 0.25s ease-out,height 0.25s ease-out 0.25s;
-    box-sizing: border-box;
-}
-.btb-active.draw::after, .draw:hover::after {
-    border-bottom-color: #e8454a;
-    border-left-color: #e8454a;
-    -webkit-transition: border-color 0s ease-out 0.5s,width 10s ease-out 0.5s,height 0.25s ease-out 0.75s;
-    transition: border-color 0s ease-out 0.5s,width 0.25s ease-out 0.5s,height 0.25s ease-out 0.75s;
-    box-sizing: border-box;
+.btb-active{
+    box-shadow: inset 0 0 0 3px red;
+
 }
 
 // #test div {
