@@ -7,6 +7,7 @@ class TestingController < ApplicationController
     end  
   end
   def second
+    return error(t('invalid_recaptcha')) unless recaptcha_valid?
     @permitted_params = params.permit(:brandname, :name, :phonenumber, :email, :media, :testtype, :url)
     if @permitted_params[:brandname].empty? || @permitted_params[:name].empty? || @permitted_params[:phonenumber].empty? || @permitted_params[:email].empty? || @permitted_params[:media].empty? || @permitted_params[:testtype].empty? || @permitted_params[:url].empty? 
       then
@@ -39,9 +40,36 @@ class TestingController < ApplicationController
     end 
   end
   def third
-    if params[:customer] == nil then redirect_to "/" end
+    params.permit! 
+    @params = params
+    @permitted_params = params.require(:customer).permit(:brandname, :name, :phonenumber, :email, :media, :testtype, :url)
+    @permitted_params2 = params.require(:purpose)
+    @dl = [:brandname, :name, :phonenumber, :email, :media, :testtype, :url]
+    @c = false
+    @dl.each do |a|
+      if @permitted_params.has_key?(a)
+      then 
+        if @permitted_params[a].empty? 
+        then
+          @c = true
+        else
+        end
+      else
+        @c = true
+      end
+    end
+    if @permitted_params2.empty?
+      @c = true
+    else
+    end
+    if @c== true 
+    then
+      redirect_to "/"
+    end
   end
-  
+  def submit
+    redirect_to "/"
+  end
   def first1
     respond_to do |format|               
       format.js

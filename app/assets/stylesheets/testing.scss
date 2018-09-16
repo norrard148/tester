@@ -979,7 +979,7 @@
         margin-left: 20px;
         font-size: 18px;
     }
-    button {
+    div {
         margin-left: 20px;
         width: 150px;
         height: 34px;
@@ -988,11 +988,17 @@
         border: 1.5px solid rgba(0,0,0,0.4);
         cursor: pointer;
         outline:none;
+        h1 {
+            font-size: 18px;
+        }
     }
-    button:hover {
+    div:hover {
+        h1 {
+            color: white;
+        }
         background-color:#282828;
-        color: white;
     }
+    
     label {
         margin: 0;
         height: 20px;
@@ -1043,6 +1049,8 @@
 .testing-third-bottom-bottom {
     margin-bottom: 80px;
     margin-top: 80px;
+    display:flex;
+    justify-content: center;
     input {
         margin: 0 20px;
         width: 300px;
@@ -1058,6 +1066,26 @@
         color: white;
     }
 }
+
+.testing-third-loading {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0, 0.6);
+    display:none;
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.testing-submitted {
+    display:none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 500px;
+}
+
 .index-box {
     // display: table;
     // width: 100%;
