@@ -1048,7 +1048,7 @@
         width: 352px;
         height: 67px;
         border: 1.5px solid white;
-        border-radius: 8px; 
+        border-radius: 10px; 
         cursor: pointer;           
         }
     .index-button:hover {
@@ -1070,7 +1070,7 @@
     height: 67px;
     border-style: solid;
     border-width: 1.5px;
-    border-radius: 8px;
+    border-radius: 10px;
     border-color: #fff;
     color: #fff;
     cursor: pointer;
@@ -1107,6 +1107,15 @@
 // }
 .aboutus-box-button:hover {
     color: #4bb43c;
+}
+
+.aboutus-label {
+    border-radius: 20px;
+    background-color: #282828;
+    width: 118px;
+    height: 32px;
+    color: #fff;
+    margin-bottom: 0;
 }
 .works-container {
     width: 1000px;
@@ -1152,13 +1161,11 @@
     // position: relative;
 }
 .draw{
-    border: 3px solid transparent;
+    // border: 3px solid transparent;
     width: 0;
     height: 0;
     position: absolute;
     content: "";
-    transition: border-color 0s ease-out 0.5s,width 0.25s ease-out 0.5s,height 0.25s ease-out 0.75s;
-  
 }
 .draw::before {
     top: 0;
@@ -1173,14 +1180,15 @@
     width: 350px;
     height: 350px;
 }
-.btb-active {
+
+.btb-active.draw::before, .draw:hover::before {
     border-top-color: #e8454a;
     border-right-color: #e8454a;
     -webkit-transition: width 0.25s ease-out,height 0.25s ease-out 0.25s;
     transition: width 0.25s ease-out,height 0.25s ease-out 0.25s;
     box-sizing: border-box;
 }
-.btb-active2 {
+.btb-active2.draw::after, .draw:hover::after {
     border-bottom-color: #e8454a;
     border-left-color: #e8454a;
     -webkit-transition: border-color 0s ease-out 0.5s,width 10s ease-out 0.5s,height 0.25s ease-out 0.75s;
@@ -1214,11 +1222,23 @@
 }
 .hideme {
     opacity: 0;
-    margin-top: 30px;
+    // margin-top: 30px;
     // max-width: 100%;
 }
 .hideme2 {
     opacity: 0;
-    margin-top: 30px;
+    // margin-top: 30px;
     max-width: 100%;
+}
+
+.recruit-img {
+    width: 146px;
+    height: 146px;
+}
+
+.noto {
+    font-family: 'Noto Sans KR', sans-serif;
+    h1, h2, h3, h4, h5, h6, p, a, li, div {
+        font-weight: lighter;
+    }
 }
