@@ -7,7 +7,7 @@ class TestingController < ApplicationController
     end  
   end
   def second
-    return error(t('invalid_recaptcha')) unless recaptcha_valid?
+ 
     @permitted_params = params.permit(:brandname, :name, :phonenumber, :email, :media, :testtype, :url)
     if @permitted_params[:brandname].empty? || @permitted_params[:name].empty? || @permitted_params[:phonenumber].empty? || @permitted_params[:email].empty? || @permitted_params[:media].empty? || @permitted_params[:testtype].empty? || @permitted_params[:url].empty? 
       then
