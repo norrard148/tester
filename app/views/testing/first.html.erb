@@ -75,12 +75,7 @@
 </div>
 
 <script>
-if(navigator.userAgent.match(/Mobile|iP(hone|od)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)){
-    console.log("Mobile"); 
-    $(".testing").remove();
-} else {
-    console.log("PC");
-}
+
 $(".testing-first-bottom button").click(function() {
          $.ajax({
             url: "/testing/firsttest",
