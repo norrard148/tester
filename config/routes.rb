@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'testing/second3'
   get 'testing/secondtest'  
   get 'testing/third'
-  get 'testing/submit'
+  post 'testing/submit'
   get 'testing/first1'
   get 'testing/aboutus'
   get 'testing/works'

@@ -68,7 +68,7 @@ class TestingController < ApplicationController
     end
   end
   def submit
-    redirect_to "/"
+    
   end
   def first1
     respond_to do |format|               

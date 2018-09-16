@@ -58,11 +58,13 @@
             <textarea name="message" placeholder="추가적으로 테스터들에게 궁금하거나 문의하실 사항이 있으시면 자유롭게 적어주세요.&#13;&#10;이 내용은 모든 테스트 진행을 마친 후, 각 테스터들에게 제공됩니다.&#13;&#10; *500자 내외"></textarea>
         </div>
         <div class="testing-third-bottom-middle d-flex align-items-center">
+            <section class="d-flex align-items-center">
             <label>
                 <input type="checkbox" name="agree" value="agree">
                 <span  class="contract" ></span>
             </label>
             <h1>더 테스터의 이용약관에 동의합니다.</h1>
+            </section>
             <div><h1>이용약관 보기<h1></div>
         </div>
         </form>
@@ -76,36 +78,36 @@
     <%=image_tag("preloader.svg")%>
 </div>
 
-<div class="testing-submitted" action="/testing/submit" type="hidden" method="get">
-    <h1>제출되었습니다!</h1>
-</div>
-
+<form type="hidden" action="/testing/submit" method="post" class="submit" >
+</form>
 <script>
     $("#submit").click(function() {
-         
-        $.ajax({
-            url: "https://script.google.com/macros/s/AKfycbw-GuG6SCIQbmALOfBmcOTOOHCg3dAXhOqe7NYJFg/exec",
-            type: 'POST',
-            data: $(".third-form").serialize(),
-            beforeSend: function(e) {
-                $(".testing-third-loading").css({"display":"flex"});
-                $(".testing-third-loading").css({"display":"flex"});
-            },
-            error : function(error) {
-                $(".testing-third-loading").css({"display":"none"});
-            },
-            success : function(data) {
-                $(".submitted").submit();
-                $(".testing-third-loading").css({"display":"none"});
-                $(".testing-submitted").css({"display":"flex"});
-                $(".testing").remove();
-            },
-            fail: function() {
-                $(".testing-third-loading").css({"display":"none"});
-            },
-            complete : function() {  
-            }
-        })        
+        var authe = true;
+        if (authe) {
+            $.ajax({
+                url: "https://script.google.com/macros/s/AKfycbw-GuG6SCIQbmALOfBmcOTOOHCg3dAXhOqe7NYJFg/exec",
+                type: 'POST',
+                data: $(".third-form").serialize(),
+                beforeSend: function(e) {
+                    authe = false;
+                    $(".testing-third-loading").css({"display":"flex"});
+                    $(".testing-third-loading").css({"display":"flex"});
+                },
+                error : function(error) {
+                    $(".testing-third-loading").css({"display":"none"});
+                    authe = false;
+                },
+                success : function(data) {
+                    $(".submit").submit();
+                },
+                fail: function() {
+                    authe = false;
+                    $(".testing-third-loading").css({"display":"none"});
+                },
+                complete : function() {  
+                }
+            })        
+        }
            
     });
 </script>
