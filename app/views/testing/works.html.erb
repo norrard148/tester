@@ -12,9 +12,11 @@
 
 <!-- animation box-->
 <div class="h1" style="margin-top:80px; margin-bottom:130px;">Project</div>
+<div class="hover"id="hover0" >
 <div style="width: 1200px; height: 600px;">
     <div class="works-container" >
-        <div class="works-small-box draw">
+        <div class="works-small-box works-box" id="draw1">
+            <div class="trans"></div>
             <div class="works-box-in"><p class="h2 text-center">Project A</p></div>
             <div style="margin-top: 7rem;"><p class="h5 text-center">기본 테스트 진행</p></div>
         </div>
@@ -23,10 +25,11 @@
         <p class="h6 text-right" style="padding-right: 70px;">특정한 기능을 고객이 잘 사용할 수 있는지 확인하고 싶을 때 등</p>
     </div>
 </div>
-
+</div>
+<div class="hover" id="hover1">
 <div style="width: 1200px; height: 600px;">
     <div class="works-container2">
-        <div class="works-small-box2 draw">
+        <div class="works-small-box2 works-box" id="draw2">
             <div class="works-box-in"><p class="h2 text-center">Project B</p></div>
             <div style="margin-top: 6rem;">
                 <p class="h5 text-center">사전 컨설팅</p>
@@ -38,10 +41,11 @@
         <p class="h6 text-left" style="padding-left: 70px;">런칭 일정이 촉박하여 UX, UI에 대한 충분한 고민을 하지 못했을 때, 효율적인 테스트를 원할 때</p>
     </div>
 </div>
-
+</div>
+<div class="hover" id="hover2">
 <div style="width: 1200px; height: 600px; margin-bottom: 100px; ">
     <div class="works-container">
-        <div class="works-small-box draw">
+        <div class="works-small-box works-box" id="draw3">
             <div class="works-box-in"><p class="h2 text-center">Project C</p></div>
             <div style="margin-top: 5rem;">
                 <p class="h5 text-center">사전 컨설팅</p>
@@ -53,7 +57,8 @@
         <p class="h6 text-right" style="padding-right: 70px;">런칭 전 테스트를 진행할 때, 리뉴얼 진행 할 때, 초기 개발 단계일 때 등</p>   
     </div>
 </div>
-
+</div>
+<div  class="hover" id="hover3" >
 <div class="d-flex flex-column justify-content-center align-items-center index-third-box" style="height: 500px;">
     <div><p class="h2 text-white">최고의 서비스가 고객에게 잘 전달 될 수 있도록</p></div>
     <div class="mt-4">
@@ -64,22 +69,31 @@
         <p class="text-center" style="margin-top: 18px;"><%= link_to'컨설팅, 외주 의뢰하기', root_path ,class:"h4 index-button", style:"text-decoration: none;"%></p>
     </div>
 </div>
-
-<%# <script type="text/javascript">
+</div>
+<script type="text/javascript">
 $(document).ready(function() {
-    /* 1 */
-    $(window).scroll( function(){
-        /* 2 */
-        $('.draw').each( function(i){
-            var bottom_of_object = $(this).offset().top + $(this).outerHeight();
-            var bottom_of_window = $(window).scrollTop() + $(window).height();
-            /* 3 */
-            if( bottom_of_window > bottom_of_object ){
-                $(this).addClass("btb-active", 1500).queue(function() {
-                    $(this).addClass("btb-active2", 1500);
-                });
-            };
-        }); 
-    });
+    $(window).scroll(function() {
+        var bottom_of_object0 = $("#hover0").offset().top;
+        var bottom_of_object1 = $("#hover1").offset().top;
+        var bottom_of_object2 = $("#hover2").offset().top;
+        var bottom_of_object3 = $("#hover3").offset().top;
+        var bottom_of_window = $(window).scrollTop() + $(window).height();
+        if( bottom_of_window > bottom_of_object0 ){
+            $("#draw1").addClass("draw")
+        };
+        if( bottom_of_window > bottom_of_object1 ){
+            $("#draw1").addClass("btb-active")
+            $("#draw2").addClass("draw")
+        };
+        if( bottom_of_window > bottom_of_object2 ){
+            $("#draw2").addClass("btb-active")
+             $("#draw3").addClass("draw")
+        };
+        if( bottom_of_window > bottom_of_object3 ){
+            $("#draw3").addClass("btb-active")
+          
+        };
+
+    })
 });
 </script> %>

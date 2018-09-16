@@ -1,95 +1,75 @@
-<%=render "top"%>
-<div class=" testing w-100 d-flex flex-column align-items-center">
-<form  class="w-100 d-flex flex-column align-items-center" id="first-form" name="first_form" action="/testing/second" method="get">
-<div class="testing-first-top">
-    <div class="testing-first-top-box active ">
-    <h1>기본 정보 등록</h1>
-    </div>
-    <%=image_tag("testing-top-arrow.svg")%>
-    <div class="testing-first-top-box">
-    <h1>테스트 정보 입력</h1>
-    </div>
-    <%=image_tag("testing-top-arrow.svg")%>
-    <div class="testing-first-top-box">
-    <h1>검토 및 제출</h1>
-    </div>
-</div>
-
-<div class="testing-first-middle">
-    <div class="testing-first-middle-left"> 
-            <div class="">
-                <label>회사명*</label>
-                <input id="brandname" placeholder="카카오" name="brandname">
-            </div>
-            <div class="">
-                <label>담당자명*</label>
-                <input id="name" placeholder="김○○" name="name">
-            </div>
-            <div class="">
-                <label>담당자 연락처*</label>
-                <input id="phone-number" placeholder="010-1234-5678" name="phonenumber">
-            </div>
-            <div >
-                <label>담당자 이메일*</label>
-                <input id="email" placeholder="kakao@kakao.com" name="email">
-            </div>
-    </div>
-    <div class="testing-first-middle-right">
-        <div class="d-flex flex-column">
-            <label class="first">테스트 매체*</label>
-            <div class="d-flex justify-content-start">
-                <span class="d-flex align-items-center">
-                    <div class="position-relative media">
-                        <input name="media" value="desktop" type="radio" checked="checked"/>
-                        <span class="big"><span class="small"></span></span>
-                    </div>
-                    <h1>데스크탑</h1>
-                </span>
-               
-                <span class="d-flex align-items-center">
-                    <div class="position-relative media">
-                        <input name="media" value="mobile" type="radio"/>
-                        <span class="big"><span class="small"></span></span>
-                    </div>
-                    <h1>모바일</h1>
-                </span>
-            </div>
-        </div>
-        <div class="d-flex flex-column">
-                <label>테스트 종류*</label>
-                <div class="d-flex justify-content-start">
-                <span class="d-flex align-items-center">
-                    <div class="position-relative media">
-                        <input name="testtype" value="image-pro"type="radio"  checked="checked"/>
-                        <span class="big"><span class="small"></span></span>
-                    </div>
-                    <h1>이미지 프로토타입</h1>
-                </span>
-                <span class="d-flex align-items-center">
-                    <div class="position-relative media">
-                        <input name="testtype" value="product" type="radio"/>
-                        <span class="big"><span class="small"></span></span>
-                    </div>
-                    <h1>구동가능한 제품 또는 시제품</h1>
-                </span>
-                
+<%=render "testing-start"%>
+<div class="testing w-100 d-flex flex-column align-items-center">
+    <form  class="w-100 d-flex flex-column align-items-center" id="first-form" name="first_form" action="/testing/second" method="get">
+        <%= render partial: "testing-top", locals: { testing: 'first' }%>
+        <div class="testing-first-top">
+            <div class="testing-first-top-left"> 
+                <div class="testing-first-top-left-box">
+                    <label>회사명*</label>
+                    <input id="brandname" placeholder="카카오" name="brandname">
                 </div>
+                <div class="testing-first-top-left-box">
+                    <label>담당자명*</label>
+                    <input id="name" placeholder="김○○" name="name">
+                </div>
+                <div class="testing-first-top-left-box">
+                    <label>담당자 연락처*</label>
+                    <input id="phone-number" placeholder="010-1234-5678" name="phonenumber">
+                </div>
+                <div class="testing-first-top-left-box">
+                    <label>담당자 이메일*</label>
+                    <input id="email" placeholder="kakao@kakao.com" name="email">
+                </div>
+            </div>
+            <div class="testing-first-top-right">
+                <div class="testing-first-top-right-box media">
+                    <label class="first">테스트 매체*</label>
+                    <div class="d-flex justify-content-start">
+                        <div class="d-flex align-items-center">
+                            <div class="position-relative media">
+                                <input name="media" value="desktop" type="radio" checked="checked"/>
+                                <span class="big"><span class="small"></span></span>
+                            </div>
+                            <h1>데스크탑</h1>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="position-relative media">
+                                <input name="media" value="mobile" type="radio"/>
+                                <span class="big"><span class="small"></span></span>
+                            </div>
+                            <h1>모바일</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="testing-first-top-right-box testtype">
+                    <label>테스트 종류*</label>
+                    <div class="d-flex justify-content-start">
+                        <div class="d-flex align-items-center">
+                            <div class="position-relative testtype">
+                                <input name="testtype" value="image-pro"type="radio"  checked="checked"/>
+                                <span class="big"><span class="small"></span></span>
+                            </div>
+                            <h1>이미지 프로토타입</h1>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="position-relative testtype">
+                                <input name="testtype" value="product" type="radio"/>
+                                <span class="big"><span class="small"></span></span>
+                            </div>
+                            <h1>구동가능한 제품 또는 시제품</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="testing-first-top-right-box url">
+                    <label>URL*</label>
+                    <input class="url" id="url" name="url" placeholder="http://melon.com">
+                </div>
+            </div>
         </div>
-        <div class="d-flex flex-column">
-            <label>URL*</label>
-            <input class="url" id="url" name="url" placeholder="http://melon.com">
-        </div>
-    </div>
-</div>
-</form>
-<div class="testing-first-bottom">
-    <a href="/testing/firsttest" data-remote="true" id="start">
-    <button>
-    시작하기
-    </button>
-    </a>
-</div>  
-
+    </form>
+    <div class="testing-first-bottom">
+            <button>시작하기</button>
+    </div>  
 </div>
 
 <script>
@@ -99,4 +79,10 @@ if(navigator.userAgent.match(/Mobile|iP(hone|od)|BlackBerry|IEMobile|Kindle|NetF
 } else {
     console.log("PC");
 }
+$(".testing-first-bottom button").click(function() {
+         $.ajax({
+            url: "/testing/firsttest",
+            method: "get"
+        })
+    }); 
 </script>

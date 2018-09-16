@@ -1,8 +1,8 @@
 <%$b=0%>
 <%params['purpose'].each do |a,b|%>
 <%$b+=1%>
- <div class="testing-third-middle-box">
-    <div class="testing-third-middle-box-top">
+ <div class="testing-third-top-box">
+    <div class="testing-third-top-box-top">
        
         <h1>목표 <%=$b%>. <%=b['goal']%></h1>
         <section>
@@ -20,7 +20,8 @@
                     <%@testernumber+=d['testernumber'].to_i()%>
                     <%end%>
                     <%end%>
-                    <%=(@testernumber.to_i()*(b['minute'].to_i()*60+b['second'].to_i())*1/2).to_s()+"P"%>
+                    <%= number_with_delimiter((@testernumber.to_i()*(b['minute'].to_i()*60+b['second'].to_i())*1/2).to_s(), :delimiter => ',') %>
+                    p
                     </h3>
             </span>
             <h4>|<h4>
@@ -43,11 +44,11 @@
     <%@target=0%>
     <%b.each do |c,d|%>
         <%if c != "goal"  && c!= 'second' && c!='minute' then%>
-            <div class="testing-third-middle-box-middle">
-                <div class="testing-third-middle-box-middle-target">
+            <div class="testing-third-top-box-middle">
+                <div class="testing-third-top-box-middle-target">
                     <h1>타겟 <%=@target+=1%></h1>
                 </div>
-                <div class="testing-third-middle-box-middle-left">
+                <div class="testing-third-top-box-middle-left">
                     <h1><%=if d['target'] == '' then "타겟명" else d['target'] end%></h1>
                     <secction class="w-100">
                         <span class="w-100">
@@ -68,7 +69,7 @@
                         </span>
                     </section>
                 </div>
-                <div class="testing-third-middle-box-middle-right">
+                <div class="testing-third-top-box-middle-right">
                 <section class="d-flex justify-content-between">
                     <span>
                         <h2>성별</h2>

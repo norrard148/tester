@@ -49,11 +49,6 @@ h1, h2, h3, h4, a, input {
     text-align: left;
 }
 
-button, input {
-    cursor: pointer;
-}
-
-
 
 
 
@@ -62,11 +57,12 @@ button, input {
 
 
 .navbar {
-    height: 50px;
+
     position:absolute;
     top: 0;
     width: 100%;
     z-index: 1000;
+    padding: 0;
     background-color:transparent;
     justify-content: space-around;
 }
