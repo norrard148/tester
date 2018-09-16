@@ -289,8 +289,11 @@
 
         width: 100%;
     }
+    .testing-first-top {
+        margin-top: 20px;
+    }
 }
-@media (max-width: 800px) {
+@media (max-width: 1006px) {
 
     .testing-first-top-left, .testing-first-top-right {
         width: 90%;
@@ -1326,8 +1329,10 @@
         flex-direction: column;
     }
 }
-
-
+/*aboutus*/
+@media (max-width:1000) {
+    
+}
 .index-box {
     // display: table;
     // width: 100%;
@@ -1382,6 +1387,197 @@
     width: 100%;
 }
 
+
+/*index-top*/
+.index-top {
+    height: 1000px;
+    width: 100%;
+    position: relative;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    h1, h2 {
+        position: relative;
+        color: white;
+        text-align: center;
+        padding: 0 80px;
+    }
+    h1 {
+        font-size: 40px;
+        margin-top: 100px;
+        
+    }
+    h2 {
+        margin-top: 30px;
+        font-size: 20px;
+    }
+    button {
+        height: 70px;
+        width: 350px;
+        margin-top: 170px;
+        margin-bottom: 110px;
+        border: 1px solid white;
+        border-radius: 10px;
+        background-color: transparent;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        p {
+            font-size :23px;
+            margin-bottom: 0;
+        }
+        
+    }
+}
+.index-top-bg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0.35;
+    top: 0;
+    z-index:0;
+}
+/*ddd*/
+.index-middle {
+    width: 100%;
+    h1 {
+        font-size: 40px;
+        text-align:center;
+        margin-top: 140px;
+    }
+    p {
+        font-size: 23px;
+        text-align:center;
+    }
+    h3 {
+        margin-bottom: 140px;
+        text-align:center;
+        font-size: 17px;
+    }
+}
+.index-middle-box {
+    width: 100%;
+    margin: 120px 0;
+    display: flex;
+    justify-content: center;
+    
+    // align-items: flex-start;
+    
+}
+.index-middle-box-content {
+    opacity: 0;
+    margin: 0 40px;
+    img {
+        height: 100px;
+        width: auto;
+        margin-bottom: 20px;
+    }
+    
+    
+}
+
+/*idnex-bottom*/
+.index-bottom {
+    width: 100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #e8454a;
+    h1, h2, p {
+        color:white;
+    }
+    h1 {
+        font-size: 40px;
+        margin-top: 110px;
+        text-align:center;
+        opacity: 0;
+        
+    }
+    h2 {
+        margin-top: 40px;
+        font-size: 20px;
+        margin-bottom: 110px;
+        text-align:center;
+        opacity: 0;
+    }
+    button {
+        opacity: 0;
+        height: 70px;
+        width: 350px;
+        margin-bottom: 110px;
+        border: 1px solid white;
+        border-radius: 10px;
+        background-color: transparent;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        p {
+            font-size :23px;
+            margin-bottom: 0;
+        }
+        
+    }
+}
+
+@media (max-width: 900px) {
+    .index-top {
+        button {
+            display:none;
+        }
+        height: 500px;
+        h1 {
+            padding: 0 10px;
+            font-size: 28px;
+        }
+        h2 {
+            padding: 0 40px;
+            font-sizE: 14px;
+        }
+    }
+    .index-middle-box {
+        flex-direction: column;
+        align-items: center;
+        margin: 15px 0;
+    }
+    .index-middle-box-content {
+     
+        width: 100%;
+        margin: 15px 0 ;
+        img {
+            width: 50vw;
+            height: auto;
+        }
+    }
+    .index-middle {
+        h1 {
+            margin-top: 70px;
+            padding: 0 30px;
+
+        }
+        h3 {
+            margin-bottom: 70px;
+        }
+    }
+    .index-bottom {
+        padding: 0px 50px;
+        h1 {
+            font-size: 28px;
+            margin-top: 70px;
+        }
+        H2 {
+            font-size: 14PX;
+            margin-bottom: 45px;
+        }
+        button {
+            width: 100%;
+            margin-bottom: 80px;
+        }
+    }
+}
+
 .index-third-box-button {
     width: 352px;
     height: 67px;
@@ -1403,6 +1599,7 @@
 .aboutus-box {
     background-color: #4bb43c;
     width: 100%;
+    padding: 40px;
 }
 .aboutus-button {
     width: 352px;
