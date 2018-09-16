@@ -14,9 +14,9 @@
 //= require turbolinks
 //= require_tree .
 
-if(navigator.userAgent.match(/Mobile|iP(hone|od)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)){
-    console.log("Mobile"); 
-} else {
-    console.log("PC");
-    $(".testing").remove();
-}
+// if(navigator.userAgent.match(/Mobile|iP(hone|od)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)){
+//     console.log("Mobile"); 
+// } else {
+//     console.log("PC");
+//     $(".testing").remove();
+// }
