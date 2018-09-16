@@ -1,62 +1,37 @@
-<%=render "top"%>
+<%=render "testing-start"%>
 <div class="testing w-100 d-flex flex-column align-items-center">
-
-
-<div class="testing-first-top">
-    <div class="testing-first-top-box ">
-    <h1>기본 정보 등록</h1>
+    <%= render partial: "testing-top", locals: { testing: 'second' }%>
+    <div class="testing-second-top">
+        <div class="testing-second-top-top">
+            <h1>* 목표 설정 : 최대 3개  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  * 타겟 설정 : 목표 당 최대 3개 &nbsp;&nbsp;&nbsp;&nbsp;   * 테스터 수 : 타겟 당 최대 5명<Br>
+            추가 테스트 진행을 원하시면 별도 문의 부탁드립니다. &nbsp;(약간의 추가금액이 발생합니다.)</h1>
+            <button>
+            <h2>도움이 필요하신가요?</h2>
+            </button>
+        </div> 
+        <form action="/testing/third" id="second-form" name="second-form" class="second-form">
+            <input type="hidden" value="<%=params[:brandname]%>" name="[customer][brandname]">
+            <input type="hidden" value="<%=params[:name]%>" name="[customer][name]">
+            <input type="hidden" value="<%=params[:phonenumber]%>" name="[customer][phonenumber]">
+            <input type="hidden" value="<%=params[:email]%>" name="[customer][email]">
+            <input type="hidden" value="<%=params[:url]%>" name="[customer][url]">
+            <%= render "second-box"%>
+        </form>
     </div>
-    <%=image_tag("testing-top-arrow.svg")%>
-    <div class="testing-first-top-box active">
-    <h1>테스트 정보 입력</h1>
-    </div>
-    <%=image_tag("testing-top-arrow.svg")%>
-    <div class="testing-first-top-box">
-    <h1>검토 및 제출</h1>
-    </div>
-</div>
-
-
-<div class="testing-second-middle">
-    <div class="testing-second-middle-top">
-        <h1>* 목표 설정 : 최대 3개  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  * 타겟 설정 : 목표 당 최대 3개 &nbsp;&nbsp;&nbsp;&nbsp;   * 테스터 수 : 타겟 당 최대 5명<Br>
-        추가 테스트 진행을 원하시면 별도 문의 부탁드립니다. &nbsp;(약간의 추가금액이 발생합니다.)</h1>
-        <button>
-        <h2>도움이 필요하신가요?</h2>
-        </button>
-    </div>
-    
-    <%$a%>
-    <%$a=0%>
-    <%$c=Hash.new() %>
-    <form action="/testing/third" id="second-form" name="second-form" class="second-form">
-    <input type="hidden" value="<%=params[:brandname]%>" name="[customer][brandname]">
-    <input type="hidden" value="<%=params[:name]%>" name="[customer][name]">
-    <input type="hidden" value="<%=params[:phonenumber]%>" name="[customer][phonenumber]">
-    <input type="hidden" value="<%=params[:email]%>" name="[customer][email]">
-    <input type="hidden" value="<%=params[:url]%>" name="[customer][url]">
-    <%= render "second-box"%>
-    </form>
-</div>
-
 <div class="testing-second-bottom">
    <div class="testing-second-bottom-top">
-        <button  class="purpose-add">
-            <%# <%= link_to "목표를 추가하고 싶으신가요?", testing_second1_path, :data => { :purpose_count => $a}, :remote => true %> 
+        <button class="purpose-add">
             <h3>목표를 추가하고 싶으신가요?</h3>
         </button>
-        <div class="testing-second-bottom-top-right d-flex flex-column first">
-      
+        <div class="testing-second-bottom-top-right first">
             <div class=" d-flex justify-content-between align-items-center w-100">
                 <h1>목표 1. 리워드 </h1>
                 <h2 class="reward-1">0P</h2>
             </div>
-           
         </div>
-   
     </div>
     <div class="testing-second-bottom-middle">
-        <div class="testing-second-bottom-top-right d-flex flex-column ">
+        <div class="testing-second-bottom-top-right">
             <div class="d-flex justify-content-between align-items-center w-100">
                 <h1>테스트 비용 합계</h1>
                 <h2 class="reward-sum">0P</h2>
@@ -68,19 +43,18 @@
         </div>
     </div>
     <div class="testing-second-bottom-bottom">
-        <div class="w-100 d-flex flex-column w-100 align-items-end">
-            <div class="testing-first-bottom-top-right d-flex flex-column">
+        <div class="w-100 d-flex flex-column align-items-end">
+            <div class="testing-first-bottom-top-right">
                 <div class="d-flex justify-content-between align-items-center w-100">
                     <h1>결제 금액</h1>
                     <h2 class="reward-pay">0P</h2>
                 </div>
             </div>
         </div>
-        <input id="complete" value="완료하기" type="button"/>
+        <button id="complete">완료하기</button>
     </div>
 </div>
 </div>
-
 
 <!-- Modal -->
 <div id="target-alert" class="ui modal">
@@ -98,22 +72,23 @@
 
 <script>
     $(document).on('click', '.purpose-add', function(){   
-        var a = $(".accordion").length;
+        var purpose_count = $(".accordion").length;
         console.log($(".accordion").length);
         $.ajax ({
             url: "/testing/second1",
             method: "get",
-            data: {"purpose_count" : a}
+            data: {"purpose_count" : purpose_count}
         });
     });
     $(document).on('click', '.card-submit a', function(){   
         var a = $(this).parent().parent().parent().attr("id");
-        var b = a.replace(/[^0-9]/g,"");
-        var d = $(`#accordionExample${b} .card-body-2`).length;
+        var purpose_number = a.replace(/[^0-9]/g,"");
+        var target_count = $(`#accordionExample${purpose_number} .card-body-2`).length;
+        var purpose_count = $(".accordion").length;
         $.ajax ({
             url: "/testing/second2",
             method: "get",
-            data: {"target_count" : d, "purpose_number" : b}
+            data: {"target_count" : target_count, "purpose_number" : purpose_number, "purpose_count": purpose_count}
         });
     });
    

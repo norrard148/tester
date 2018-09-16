@@ -1,23 +1,12 @@
 
-<%=render "top"%>
+<%=render "testing-start"%>
 <div class="testing w-100 d-flex flex-column align-items-center">
-<div class="testing-first-top">
-    <div class="testing-first-top-box ">
-    <h1>기본 정보 등록</h1>
-    </div>
-    <%=image_tag("testing-top-arrow.svg")%>
-    <div class="testing-first-top-box">
-    <h1>테스트 정보 입력</h1>
-    </div>
-    <%=image_tag("testing-top-arrow.svg")%>
-    <div class="testing-first-top-box active">
-    <h1>검토 및 제출</h1>
-    </div>
-</div>
-<%@total_test =0%>
-<%@total_reward = 0%>
-<%@total_purpose = 0%>
-<%params['purpose'].each do |a,b|%>
+<%@testing_page = {"third"=>"third"}%>
+    <%= render partial: "testing-top", locals: { testing: 'third' }%>
+    <%@total_test =0%>
+    <%@total_reward = 0%>
+    <%@total_purpose = 0%>
+    <%params['purpose'].each do |a,b|%>
     <%@testernumber=0%>
     <%@total_purpose+=1%>
     <%b.each do |c,d|%>
@@ -27,52 +16,46 @@
     <%end%>
     <%@total_test += @testernumber%>
     <%@total_reward += (@testernumber.to_i()*(b['minute'].to_i()*60+b['second'].to_i())*1/2)%>
-<%end%>
-<div class="testing-sthird-middle">
-    <div class="testing-third-middle-top">
-        <div class="d-flex flex-column align-items-center">
-            <h1>총 목표수</h1>
-            <h2><%=@total_purpose%></h2>
+    <%end%>
+    <div class="testing-third-top">
+        <div class="testing-third-top-top">
+            <div class="d-flex flex-column align-items-center">
+                <h1>총 목표수</h1>
+                <h2><%=@total_purpose%></h2>
+            </div>
+            <span></span>
+            <div class="d-flex flex-column align-items-center">
+                <h1>총 테스터수</h1>
+                <h2><%=@total_test%></h2>
+            </div>
+            <span></span>
+            <div class="d-flex flex-column align-items-center">
+                <h1>총 리워드</h1>
+                <h2><%=@total_reward%>P</h2>
+            </div>
         </div>
-        <span></span>
-        <div class="d-flex flex-column align-items-center">
-            <h1>총 테스터수</h1>
-            <h2><%=@total_test%></h2>
-        </div>
-        <span></span>
-        <div class="d-flex flex-column align-items-center">
-            <h1>총 리워드</h1>
-            <h2><%=@total_reward%>P</h2>
-        </div>
+        <%=render 'third-box'%>
     </div>
-    <%=render 'third-box'%>
-</div>
-<div class="testing-third-bottom">
-    <form>
-    <h1>추가 텍스트 입력</h1>
-    <textarea placeholder="추가적으로 테스터들에게 궁금하거나 문의하실 사항이 있으시면 자유롭게 적어주세요.&#13;&#10;이 내용은 모든 테스트 진행을 마친 후, 각 테스터들에게 제공됩니다.&#13;&#10; *500자 내외"></textarea>
-    <section class="d-flex align-items-center">
-        <label>
-            <input type="checkbox">
-            <span  class="contract" ></span>
-        </label>
-        <h1>더 테스터의 이용약관에 동의합니다.</h1>
-        <button>이용약관 보기</button>
-    </section>
-    <div action="/testing/third" method="get" name="first">
-        <input value="수정하기" type="submit"/>
-        <input value="제출하기" type="submit"/>
+    <div class="testing-third-bottom">
+        <form action="/testing/third">
+        <div class="testing-third-bottom-top">
+            <h1>추가 텍스트 입력</h1>
+            <textarea placeholder="추가적으로 테스터들에게 궁금하거나 문의하실 사항이 있으시면 자유롭게 적어주세요.&#13;&#10;이 내용은 모든 테스트 진행을 마친 후, 각 테스터들에게 제공됩니다.&#13;&#10; *500자 내외"></textarea>
+        </div>
+        <div class="testing-third-bottom-middle d-flex align-items-center">
+            <label>
+                <input type="checkbox">
+                <span  class="contract" ></span>
+            </label>
+            <h1>더 테스터의 이용약관에 동의합니다.</h1>
+            <button>이용약관 보기</button>
+        </div>
+        <div class="testing-third-bottom-bottom" action="/testing/third" method="get" name="first">
+            <input value="수정하기" type="submit"/>
+            <input value="제출하기" type="submit"/>
+        </div>
+        </form>
     </div>
-    </form>
-</div>
 </div>
 
 
-<script>
-if(navigator.userAgent.match(/Mobile|iP(hone|od)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)){
-    console.log("Mobile"); 
-    $(".testing").remove();
-} else {
-    console.log("PC");
-}
-</script>

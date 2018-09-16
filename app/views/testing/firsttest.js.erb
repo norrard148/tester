@@ -20,9 +20,8 @@ if (brandname == '') {
             transition:'pulse',
             'pinnable': false,
             message: '회사명은 필수 입력 사항입니다.',
-            'label':'Ok',
-            'onok': function(){ alertify.message('Confirmed!')
-            }
+            'label':'Ok'
+            
         }).show();
         
 }
@@ -37,9 +36,7 @@ else if (name == '') {
             transition:'pulse',
             'pinnable': false,
             message: '담당자명은 필수 입력 사항입니다.',
-            'label':'Ok',
-            'onok': function(){ alertify.message('Confirmed!')
-            }
+            'label':'Ok'
         }).show();
 }
 else if (phone_number == '') {
@@ -53,9 +50,7 @@ else if (phone_number == '') {
             transition:'pulse',
             'pinnable': false,
             message: '담당자 연락처는 필수 입력 사항입니다.',
-            'label':'Ok',
-            'onok': function(){ alertify.message('Confirmed!')
-            }
+            'label':'Ok'
         }).show();
 }
 else if (!regPhone.test(phone_number)) {
@@ -69,9 +64,7 @@ else if (!regPhone.test(phone_number)) {
             transition:'pulse',
             'pinnable': false,
             message: '올바른 전화번호를 입력하세요.',
-            'label':'Ok',
-            'onok': function(){ alertify.message('Confirmed!')
-            }
+            'label':'Ok'
         }).show();
 }
 else if (email == '') {
@@ -85,13 +78,10 @@ else if (email == '') {
             transition:'pulse',
             'pinnable': false,
             message: '담당자 이메일은 필수 입력 사항입니다.',
-            'label':'Ok',
-            'onok': function(){ alertify.message('Confirmed!')
-            }
+            'label':'Ok'
         }).show();
 }
 else if (!re.test(email)) {
-
             alertify.alert()
         .setting({
             'frameless':false,
@@ -102,9 +92,7 @@ else if (!re.test(email)) {
             transition:'pulse',
             'pinnable': false,
             message: '올바른 이메일 주소를 입력하세요.',
-            'label':'Ok',
-            'onok': function(){ alertify.message('Confirmed!')
-            }
+            'label':'Ok'
         }).show();
 }
 else if (url == '') {
@@ -118,9 +106,7 @@ else if (url == '') {
             transition:'pulse',
             'pinnable': false,
             message: 'URL은 필수 입력 사항입니다.',
-            'label':'Ok',
-            'onok': function(){ alertify.message('Confirmed!')
-            }
+            'label':'Ok'
         }).show();
 }
 else if (!regUrl.test(url)) {
@@ -135,9 +121,7 @@ else if (!regUrl.test(url)) {
             transition:'pulse',
             'pinnable': false,
             message: '올바른 URL 주소를 입력하세요.',
-            'label':'Ok',
-            'onok': function(){ alertify.message('Confirmed!')
-            }
+            'label':'Ok'
         }).show();
 }
 else {

@@ -1,53 +1,58 @@
 
-<%judge = defined? @purpose_count %>
-<%if judge == nil%>
-<% then %>
-<div class="accordion" id="accordionExample<%=$a+=1%>">
-    <div class="card">
-        <div class="card-header" id="heading<%=$a%>">
-            <section class="mb-0 d-flex align-items-center h-100">
-                <button class="card-button collapsed" type="button" data-toggle="collapse" data-target="#collapse<%=$a%>"  aria-controls="collapse<%=$a%>">
-                <div>
-                <h1>목표 (<%=$a%>)</h1>
-                <h2>목표를 입력해주세요.</h2>
-                </div>
-                <%=image_tag("big-arrow-fold.svg", :class=>"purpose-arrow")%>
-                </button>
-            </section>
-        </div>
-        <div id="collapse<%=$a%>" class="collapse show" aria-labelledby="heading<%=$a%>" data-parent="#accordionExample<%=$a%>" aria-expanded="false">
-        <%$c["purpose" + $a.to_s() +"cardnumber"] = 0 %>
-            <div class="card-body">
-                <div class="w-100">
-                    <%= render "card1"%>
-                    <%= render "card2"%>
-                </div>
+<%purpose_count = defined? @purpose_count %>
+<%if purpose_count == nil%>
+    <% then %>
+    <%@purpose_generator=1%>
+    <%@purpose_number = @purpose_generator%>
+    <div class="accordion" id="accordionExample<%=@purpose_generator%>">
+        <div class="card">
+            <div class="card-header" id="heading<%=@purpose_generator%>">
+                <section class="mb-0 d-flex align-items-center h-100">
+                    <button class="card-button collapsed" type="button" data-toggle="collapse" data-target="#collapse<%=@purpose_generator%>"  aria-controls="collapse<%=@purpose_generator%>">
+                    <div>
+                    <h1>목표 (<%=@purpose_generator%>)</h1>
+                    <h2>목표를 입력해주세요.</h2>
+                    </div>
+                    <%=image_tag("big-arrow-fold.svg", :class=>"purpose-arrow")%>
+                    </button>
+                </section>
+            </div>
+            <div id="collapse<%=@purpose_generator%>" class="collapse show" aria-labelledby="heading<%=@purpose_generator%>" data-parent="#accordionExample<%=@purpose_generator%>" aria-expanded="false">
 
-                <div class="card-submit">
-                    <a><h1>+ 타겟 추가하기</h1></a>
+                <div class="card-body">
+                    <div class="w-100">
+                        
+                        <%= render "card1"%>
+                        <%= render "card2"%>
+                    </div>
+
+                    <div class="card-submit">
+                        <a><h1>+ 타겟 추가하기</h1></a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 <%else%>
-<%$a=@purpose_count.to_i()%>
-<%if $a !=3%>
-<div class="accordion" id="accordionExample<%=$a+=1%>">
+<%@purpose_generator=@purpose_count.to_i()%>
+<%@purpose_generator +=1%>
+<%@purpose_number = @purpose_generator%>
+<%if @purpose_generator !=4%>
+<div class="accordion" id="accordionExample<%=@purpose_generator%>">
     <div class="card">
-        <div class="card-header" id="heading<%=$a%>">
+        <div class="card-header" id="heading<%=@purpose_generator%>">
             <section class="mb-0 d-flex align-items-center h-100">
-                <button class="card-button collapsed" type="button" data-toggle="collapse" data-target="#collapse<%=$a%>"  aria-controls="collapse<%=$a%>">
+                <button class="card-button collapsed" type="button" data-toggle="collapse" data-target="#collapse<%=@purpose_generator%>"  aria-controls="collapse<%=@purpose_generator%>">
                 <div>
-                <h1>목표 (<%=$a%>)</h1>
+                <h1>목표 (<%=@purpose_generator%>)</h1>
                 <h2>목표를 입력해주세요.</h2>
                 </div>
                 <%=image_tag("big-arrow-fold.svg", :class=>"purpose-arrow")%>
                 </button>
             </section>
         </div>
-        <div id="collapse<%=$a%>" class="collapse show" aria-labelledby="heading<%=$a%>" data-parent="#accordionExample<%=$a%>" aria-expanded="false">
-        <%$c["purpose" + $a.to_s() +"cardnumber"] = 0 %>
+        <div id="collapse<%=@purpose_generator%>" class="collapse show" aria-labelledby="heading<%=@purpose_generator%>" data-parent="#accordionExample<%=@purpose_generator%>" aria-expanded="false">
+        <%$c["purpose" + @purpose_generator.to_s() +"cardnumber"] = 0 %>
             <div class="card-body">
                 <div class="w-100">
                     <%= render "card1"%>

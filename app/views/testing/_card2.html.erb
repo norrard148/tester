@@ -1,27 +1,20 @@
 
-<%judge = defined? @purpose_number %>
-<%if judge == nil%>
+<%target_count = defined? @target_count %>
+<%if target_count == nil%>
 <% then %>
+<%@target_generator=1%>
 <%else%>
-<%$a=@purpose_number.to_i()%>
+<%@target_generator=@target_count.to_i()+1%>
 <%end%>
 
-<%judgeb = defined? @target_count %>
-<%if judgeb == nil%>
-<% then %>
-<%i=1%>
-<%else%>
-<%i=@target_count.to_i()+1%>
-<%end%>
-
-<%if i != 4%>
+<%if @target_generator != 4%>
 <%then%>
 <section class="card-body-2">
         <div class="card-body-2-target">
-            <h1>타겟 <%=i%></h1>
+            <h1>타겟 <%=@target_generator%></h1>
         </div>
         <div class="card-body-2-left">
-        <%if $a == 1 && i == 1 then %>
+        <%if @purpose_number== 1 && @target_generator == 1 then %>
             <div class="card-body-2-left-ask">
                 <h1>?</h1>
                 <div class="card-body-2-left-ask-box">
@@ -37,13 +30,13 @@
            
             <div class="card-body-2-left-box first">
                 <label>타겟명*</label>
-                <input placeholder="20대 후반 여성"  type="text" name="[purpose][purpose<%=$a%>][exp<%=i%>][target]">
+                <input class="target" placeholder="20대 후반 여성"  type="text" name="[purpose][purpose<%=@purpose_number%>][exp<%=@target_generator%>][target]">
             </div>
             <div class="card-body-2-left-box">
                 <label>테스터 수*</label>
                 <div class="position-relative select-content">
                 
-                <select class="testernumber ui dropdown select-arrow-control testernumber-<%=$a%>-<%=i%>" onclick="select_arrow_rotate(this)" name="[purpose][purpose<%=$a%>][exp<%=i%>][testernumber]" form="second-form">
+                <select class="testernumber ui dropdown select-arrow-control testernumber-<%=@purpose_number%>-<%=@target_generator%>" onclick="select_arrow_rotate(this)" name="[purpose][purpose<%=@purpose_number%>][exp<%=@target_generator%>][testernumber]" form="second-form">
                         <option value="0" checked="checked">선택</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -60,14 +53,14 @@
                 <div>
                 <span class="d-flex align-items-center">
                     <div class="position-relative">
-                    <input name="[purpose][purpose<%=$a%>][exp<%=i%>][sex]" value="무관" type="radio" checked="checked"/>
+                    <input name="[purpose][purpose<%=@purpose_number%>][exp<%=@target_generator%>][sex]" value="무관" type="radio" checked="checked"/>
                     <span class="big"><span class="small"></span></span>
                     </div >
                     <h1>무관</h1>
                 </span>
                 <span class="d-flex align-items-center">
                     <div class="position-relative">
-                    <input name="[purpose][purpose<%=$a%>][exp<%=i%>][sex]" value="female" type="radio"/>
+                    <input name="[purpose][purpose<%=@purpose_number%>][exp<%=@target_generator%>][sex]" value="female" type="radio"/>
                     <span class="big"><span class="small"></span></span>
                     
                     </div>
@@ -75,7 +68,7 @@
                 </span>
                 <span class="d-flex align-items-center">
                     <div class="position-relative">
-                    <input name="[purpose][purpose<%=$a%>][exp<%=i%>][sex]" value="male" type="radio"/>
+                    <input name="[purpose][purpose<%=@purpose_number%>][exp<%=@target_generator%>][sex]" value="male" type="radio"/>
                     <span class="big"><span class="small"></span></span>
                     </div>
                     <h1>남자</h1>
@@ -86,7 +79,7 @@
                 <label>연령대</label>
                 <span class="d-flex justify-content-between">
                     <div class="position-relative select-box select-content">
-                    <select class=" ui dropdown select-arrow-control" onclick="select_arrow_rotate(this)" name="[purpose][purpose<%=$a%>][exp<%=i%>][age]" form="second-form">
+                    <select class="age ui dropdown select-arrow-control" onclick="select_arrow_rotate(this)" name="[purpose][purpose<%=@purpose_number%>][exp<%=@target_generator%>][age]" form="second-form">
                         <option value="none" checked="checked">선택</option>
                         <option value="10">10대</option>
                         <option value="20">20대</option>
@@ -98,7 +91,7 @@
                     
                     </div>
                     <div class="position-relative select-box select-content">
-                    <select class="ui dropdown select-arrow-control" onclick="select_arrow_rotate(this)" >
+                    <select class="age2 ui dropdown select-arrow-control" onclick="select_arrow_rotate(this)" >
                         <option value="none" checked="checked">선택</option>
                         <option value="초반">초반</option>
                         <option value="중반">중반</option>
@@ -111,11 +104,11 @@
             </div>  
             <div class="card-body-2-left-box">
                 <label>상세 기준</label>
-                <input placeholder="SNS를 자주 이용하는 사람" name="[purpose][purpose<%=$a%>][exp<%=i%>][detail]">
+                <input class="detail" placeholder="SNS를 자주 이용하는 사람" name="[purpose][purpose<%=@purpose_number%>][exp<%=@target_generator%>][detail]">
             </div> 
         </div>
         <div class="card-body-2-right">
-            <%if $a == 1 && i == 1 then %>
+            <%if @purpose_number == 1 && @target_generator == 1 then %>
             <div class="card-body-2-left-ask">
                 <h1>?</h1>
                 <div class="card-body-2-left-ask-box">
@@ -129,22 +122,22 @@
             <%else end%>  
             <div class="card-body-2-right-box first">
                 <span><h1>목표를 달성한 경우</h1><h2>인터뷰 질문 (1)</h2></span>
-                <input placeholder="테스터에게 할 질문을 입력해주세요." name="[purpose][purpose<%=$a%>][exp<%=i%>][question1]">
+                <input placeholder="테스터에게 할 질문을 입력해주세요." name="[purpose][purpose<%=@purpose_number%>][exp<%=@target_generator%>][question1]">
             </div>
 
             <div class="card-body-2-right-box">
                 <span><h1>목표를 달성한 경우</h1><h2>인터뷰 질문 (2)</h2></span>
-                <input placeholder="테스터에게 할 질문을 입력해주세요." name="[purpose][purpose<%=$a%>][exp<%=i%>][question2]">
+                <input placeholder="테스터에게 할 질문을 입력해주세요." name="[purpose][purpose<%=@purpose_number%>][exp<%=@target_generator%>][question2]">
             </div>
 
             <div class="card-body-2-right-box">
                 <span><h1>목표를 실패한 경우</h1><h2>인터뷰 질문 (1)</h2></span>
-                <input placeholder="테스터에게 할 질문을 입력해주세요." name="[purpose][purpose<%=$a%>][exp<%=i%>][question3]">
+                <input placeholder="테스터에게 할 질문을 입력해주세요." name="[purpose][purpose<%=@purpose_number%>][exp<%=@target_generator%>][question3]">
             </div>
 
             <div class="card-body-2-right-box">
                 <span><h1>목표를 실패한 경우</h1><h2>인터뷰 질문 (2)</h2></span>
-                <input placeholder="테스터에게 할 질문을 입력해주세요." name="[purpose][purpose<%=$a%>][exp<%=i%>][question4]">
+                <input placeholder="테스터에게 할 질문을 입력해주세요." name="[purpose][purpose<%=@purpose_number%>][exp<%=@target_generator%>][question4]">
             </div>
         </div>
 </section>
@@ -172,7 +165,7 @@ alertify.alert()
     }
 
     $('.ui.dropdown').dropdown();
-    $(".select-arrow").remove();
+    $(".select-content .select-arrow").remove();
     $('<img src="<%=asset_path('small-arrow-unfold.svg')%>" class="select-arrow">').appendTo($(".select-content .ui.dropdown"));
     $(document).on("click",".select-content .ui.dropdown", function() {
         if ($(this).hasClass("active")) {

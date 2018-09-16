@@ -1,10 +1,10 @@
 
 <section class="card-body-1">
-    <div class=" card-body-1-left d-flex flex-column">
+    <div class="card-body-1-left d-flex flex-column">
         <label>예상 시간*</label>
         <div class="d-flex align-items-center">
             <div class="card-body-1-left-hour">
-                <select class="minute<%=$a%> ui dropdown" onchange="minutechange(this)" name="[purpose][purpose<%=$a%>][minute]" form="second-form">
+                <select class="minute minute<%=@purpose_generator%> ui dropdown" name="[purpose][purpose<%=@purpose_generator%>][minute]" form="second-form">
                 <%@time=0%>
                 <%while @time < 60%>
                     <option value="<%=@time%>"><%=@time%></option>
@@ -15,7 +15,7 @@
             </div>
             <h1>분</h1>
             <div class="card-body-1-left-minute">
-                <select class="second<%=$a%> ui dropdown" onchange="secondchange(this)" name="[purpose][purpose<%=$a%>][second]" form="second-form">
+                <select class="second second<%=@purpose_generator%> ui dropdown"  name="[purpose][purpose<%=@purpose_generator%>][second]" form="second-form">
                 <%@time=0%>
                 <%while @time < 60%>
                     <option value="<%=@time%>"><%=@time%></option>
@@ -29,6 +29,6 @@
     </div>
     <div class="card-body-1-right d-flex flex-column">
         <label>이 목표를 통해 어떤 것을 알고 싶으신가요?</label>
-        <input class="purpose" type="text" name="[purpose][purpose<%=$a%>][goal]">
+        <input class="purpose" type="text" name="[purpose][purpose<%=@purpose_generator%>][goal]">
     </div>
 </section>
