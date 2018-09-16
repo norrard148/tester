@@ -1048,9 +1048,11 @@
         width: 352px;
         height: 67px;
         border: 1.5px solid white;
-        border-radius: 8px;            
+        border-radius: 8px; 
+        cursor: pointer;           
         }
     .index-button:hover {
+        text-decoration: none;
         background-color:#282828;
         color:#fff;
         border-color: #282828;
@@ -1071,29 +1073,39 @@
     border-radius: 8px;
     border-color: #fff;
     color: #fff;
+    cursor: pointer;
 }
 .index-third-box-button:hover {
     background-color: #fff;
     border-color: #fff;
     color: #e8454a;
 }
-
+.index-button:hover {
+    color: #e8454a;
+}
 .aboutus-box {
     background-color: #4bb43c;
     width: 100%;
 }
-.aboutus-box-button {
+.aboutus-button {
     width: 352px;
     height: 67px;
     border-style: solid;
     border-width: 1.5px;
-    border-radius: 8px;
+    border-radius: 10px;
     border-color: #fff;
     color: #fff;
+    cursor: pointer;
 }
-.aboutus-box-button:hover {
+.aboutus-button:hover {
     background-color: #fff;
     border-color: #fff;
+    color: #4bb43c;
+}
+// .aboutus-box-button {
+//     color: #fff;
+// }
+.aboutus-box-button:hover {
     color: #4bb43c;
 }
 .works-container {
@@ -1139,12 +1151,14 @@
     transition: color 0.25s;
     // position: relative;
 }
-.draw::before, .draw::after {
+.draw{
     border: 3px solid transparent;
     width: 0;
     height: 0;
     position: absolute;
     content: "";
+    transition: border-color 0s ease-out 0.5s,width 0.25s ease-out 0.5s,height 0.25s ease-out 0.75s;
+  
 }
 .draw::before {
     top: 0;
@@ -1155,18 +1169,18 @@
     right: 0;
 }
 
-.btb-active.draw::before, .btb-active.draw::after, .draw:hover::before, .draw:hover::after {
+.btb-active, .draw{
     width: 350px;
     height: 350px;
 }
-.btb-active.draw::before, .draw:hover::before {
+.btb-active {
     border-top-color: #e8454a;
     border-right-color: #e8454a;
     -webkit-transition: width 0.25s ease-out,height 0.25s ease-out 0.25s;
     transition: width 0.25s ease-out,height 0.25s ease-out 0.25s;
     box-sizing: border-box;
 }
-.btb-active.draw::after, .draw:hover::after {
+.btb-active2 {
     border-bottom-color: #e8454a;
     border-left-color: #e8454a;
     -webkit-transition: border-color 0s ease-out 0.5s,width 10s ease-out 0.5s,height 0.25s ease-out 0.75s;

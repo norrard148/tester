@@ -1,5 +1,5 @@
 <div class="index-box" style="height: 785px;">
-    <%= image_tag("dummy1.jpg", class:"bg")%>
+    <%= image_tag("dummy1.jpg", {:class=>"bg"})%>
     <%=image_tag("W_img_title_works.svg", {:class=>"img"})%>
     <div style="margin-top: 80px;">
         <p class="h1 word">"고객 중심의 가치를 전달합니다."</p>
@@ -14,7 +14,7 @@
 <div class="h1" style="margin-top:80px; margin-bottom:130px;">Project</div>
 <div style="width: 1200px; height: 600px;">
     <div class="works-container" >
-        <div class="works-small-box draw btb-active">
+        <div class="works-small-box draw">
             <div class="works-box-in"><p class="h2 text-center">Project A</p></div>
             <div style="margin-top: 7rem;"><p class="h5 text-center">기본 테스트 진행</p></div>
         </div>
@@ -61,7 +61,25 @@
         <p class="h6 text-center text-white">더 테스터를 통해 효율적으로 서비스를 제작해보세요.</p>
     </div>
     <div class="index-third-box-button" style="margin-top: 90px;">
-        <p class="text-center" style="margin-top: 18px;"><%= link_to'컨설팅, 외주 의뢰하기', root_path ,class:"h4"%></p>
+        <p class="text-center" style="margin-top: 18px;"><%= link_to'컨설팅, 외주 의뢰하기', root_path ,class:"h4 index-button", style:"text-decoration: none;"%></p>
     </div>
 </div>
 
+<script type="text/javascript">
+$(document).ready(function() {
+    /* 1 */
+    $(window).scroll( function(){
+        /* 2 */
+        $('.draw').each( function(i){
+            var bottom_of_object = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+            /* 3 */
+            if( bottom_of_window > bottom_of_object ){
+                $(this).addClass("btb-active", 1500).queue(function() {
+                    $(this).addClass("btb-active2", 1500);
+                });
+            };
+        }); 
+    });
+});
+</script>
