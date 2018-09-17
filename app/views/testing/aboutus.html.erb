@@ -1,11 +1,14 @@
-<div class="testing-start" >
-    <%= image_tag("dummy1.jpg", class:"testing-start-bg")%>
-    <%=image_tag("W_img_title_aboutus.svg", {:class=>"testing-start-img"})%>
-    <h1 class="h1 word">"최고의 서비스는 완벽하게 디자인 되어야 한다."</h1>
-    <h2 class="h5 text-center word">아무리 좋은 기능을 갖추어도 고객이 불편함을 느낀다면 해당 서비스는 사라집니다.</h2>
-    <h2 class="h5 text-center word">고객이 서비스를 잘 이용할 수 있는지, 어떤 불편함을 겪고 있는지 신뢰도 높은 결과를 제공해 드립니다.</h2>
-    <h2 class="h5 text-center word">고객 중심의 디자인이 최고의 서비스를 완성합니다.</h2>
- 
+<div class="index-box" style="height: 785px;">
+    <%= image_tag("dummy1.jpg", class:"bg")%>
+    <%=image_tag("W_img_title_aboutus.svg", {:class=>"img"})%>
+    <div style="margin-top: 80px;">
+        <p class="h1 word">"최고의 서비스는 완벽하게 디자인 되어야 한다."</p>
+    </div>
+    <div class="mt-3">
+        <p class="h5 text-center word">아무리 좋은 기능을 갖추어도 고객이 불편함을 느낀다면 해당 서비스는 사라집니다.</p>
+        <p class="h5 text-center word">고객이 서비스를 잘 이용할 수 있는지, 어떤 불편함을 겪고 있는지 신뢰도 높은 결과를 제공해 드립니다.</p>
+        <p class="h5 text-center word">고객 중심의 디자인이 최고의 서비스를 완성합니다.</p>
+    </div>
 </div>
 
 <div>
@@ -17,7 +20,7 @@
     </div>
     <div class="container">
         <div class="row mt-5 mb-5">
-            <div class="col-lg hideme2 card1 d-flex justify-content-center">
+            <div class="col-lg mr-5 hideme2 card1">
                 <div class="card" style="width: 14rem; border: none;">
                     <%= image_tag('W_img_about_icon_1.svg', class:"card-img-top", style:"height: 180px; width: 100px; margin: 0 auto;")%>
                     <div class="card-body">
@@ -30,7 +33,7 @@
                     </div>
                 </div>
             </div> 
-            <div class="col-lg hideme2 card2 d-flex justify-content-center">  
+            <div class="col-lg mr-5 hideme2 card2">  
                 <div class="card" style="width: 14rem; border: none;">
                     <%= image_tag('W_img_about_icon_2.svg', class:"card-img-top", style:"height: 180px; width: 100px; margin: 0 auto;")%>
                     <div class="card-body">
@@ -42,7 +45,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg hideme2 card3 d-flex justify-content-center">  
+            <div class="col-lg hideme2 card3">  
                 <div class="card" style="width: 14rem; border: none;">
                     <%= image_tag('W_img_about_icon_3.svg', class:"card-img-top", style:"height: 180px; width: 100px; margin: 0 auto;")%>
                     <div class="card-body">
@@ -58,6 +61,17 @@
     </div>
 </div>
 
+<div class="container">
+    <p class="h1 text-center hideme" style="margin-top: 8rem; margin-bottom: 2rem;">그래서 더 테스터가 필요합니다.</p>
+    <div class="row mb-5">
+        <div class="col-lg-6 hideme ml-5">
+            <%= image_tag('computer.png')%>
+        </div>
+        <div class="col-lg-4 hideme">
+            <%= image_tag('phone.png')%>
+        </div>
+    </div>
+</div>
 
 <div class="container">
     <p class="h1 text-center hideme" style="margin-top: 8rem; margin-bottom: 2rem;">그래서 더 테스터가 필요합니다.</p>
@@ -89,7 +103,7 @@
     </div>
 </div>
 
-<div class="d-flex row" style="margin-bottom: 7rem;">
+<div class="d-flex" style="margin-bottom: 7rem;">
     <div class="card mr-2 hideme2 card1" style="width: 15rem; height: 21rem;">
         <%= image_tag('dummy2.jpg', class:'card-img-top')%>
         <div class="card-body">
@@ -134,19 +148,24 @@ $(document).ready(function() {
     $(window).scroll( function(){
         /* 2 */
         $('.hideme').each( function(i){
-            var bottom_of_object1 = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_object = $(this).offset().top + $(this).outerHeight();
             var bottom_of_window = $(window).scrollTop() + $(window).height();
             /* 3 */
-            if( bottom_of_window > bottom_of_object1 ){
+            if( bottom_of_window > bottom_of_object ){
                 $(this).animate({'opacity':'1'},1500);
             }
         }); 
+    });
+});
+$(document).ready(function() {
+    /* 1 */
+    $(window).scroll( function(){
         /* 2 */
         $('.container').each( function(i){
-            var bottom_of_object2 = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_object = $(this).offset().top + $(this).outerHeight();
             var bottom_of_window = $(window).scrollTop() + $(window).height();
             /* 3 */
-            if( bottom_of_window > bottom_of_object2 ){
+            if( bottom_of_window > bottom_of_object ){
                 $('.card1').animate({'opacity':'1'},800).queue(function() {
                     $('.card2').animate({'opacity':'1'},800).queue(function() {
                         $('.card3').animate({'opacity':'1'},800).queue(function() {
