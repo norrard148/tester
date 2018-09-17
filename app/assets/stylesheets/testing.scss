@@ -1290,3 +1290,10 @@
         font-weight: lighter;
     }
 }
+
+.recruit-input {
+    border-bottom: 1px solid gray;
+}
+textarea:focus, input:focus{
+    outline: none;
+}
