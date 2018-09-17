@@ -25,11 +25,13 @@
                     <%= image_tag('W_img_about_icon_1.svg', class:"card-img-top", style:"height: 180px; width: 100px; margin: 0 auto;")%>
                     <div class="card-body">
                         <h5 class="card-title text-center">내부직원, 지인에게 부탁</h5>
-                        <p class="card-text"><ul class="ml-4">
+                        <div class="card-text">
+                        <ul class="ml-4">
                             <li>스타트업</li>
                             <li>시간과 인력 절감</li>
                             <li>타겟 고객 의견 반영 미비</li>
-                            </ul></p>
+                        </ul>
+                        </div>
                     </div>
                 </div>
             </div> 
@@ -38,10 +40,12 @@
                     <%= image_tag('W_img_about_icon_2.svg', class:"card-img-top", style:"height: 180px; width: 100px; margin: 0 auto;")%>
                     <div class="card-body">
                         <h5 class="card-title text-center">자체 테스트 진행</h5>
-                        <p class="card-text text-center"><ul class="ml-5">
+                        <div class="card-text">
+                        <ul class="ml-5">
                             <li>테스터 모집, 사례 비용</li>
                             <li>테스트 진행 및 결과 정리<br>시간, 인력 소요</li>
-                            </ul></p>
+                        </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -50,10 +54,13 @@
                     <%= image_tag('W_img_about_icon_3.svg', class:"card-img-top", style:"height: 180px; width: 100px; margin: 0 auto;")%>
                     <div class="card-body">
                         <h5 class="card-title text-center">UX 컨설팅 의뢰</h5>
-                        <p class="card-text text-center"><ul class="ml-5">
-                            <li>높은 신뢰도</li>
-                            <li>높은 비용<br>(500~3,000만원)</li>
-                            </ul></p>
+                        <div class="card-text">
+                            <ul class="ml-5">
+                                <li>높은 신뢰도</li>
+                                <li>높은 비용</li>
+                                <li>(500~3,000만원)</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>  
@@ -91,7 +98,7 @@
         <div class="col-lg-4 hideme">
             <div class="aboutus-label"><p class="h4 text-center">테스터</p></div>
             <div class="d-flex">
-                <div><<%= image_tag('W_img_about_mobile.svg')%></div>
+                <div><%= image_tag('W_img_about_mobile.svg')%></div>
                 <div class="d-flex flex-column">
                     <div>서비스 경험</div>
                     <div></div>
