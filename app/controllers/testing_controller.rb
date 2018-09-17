@@ -1,5 +1,9 @@
 class TestingController < ApplicationController
   def first
+    respond_to do |format|
+      format.html
+      format.js
+    end  
   end
   def firsttest
     respond_to do |format|
@@ -7,12 +11,18 @@ class TestingController < ApplicationController
     end  
   end
   def second
- 
+    
     @permitted_params = params.permit(:brandname, :name, :phonenumber, :email, :media, :testtype, :url)
     if @permitted_params[:brandname].empty? || @permitted_params[:name].empty? || @permitted_params[:phonenumber].empty? || @permitted_params[:email].empty? || @permitted_params[:media].empty? || @permitted_params[:testtype].empty? || @permitted_params[:url].empty? 
       then
       redirect_to "/"
+    else
+      respond_to do |format|
+        format.html
+        format.js
+      end 
     end
+    
   end
   def second1
     @purpose_count = params[:purpose_count]
@@ -77,12 +87,24 @@ class TestingController < ApplicationController
   end 
 
   def index
+    respond_to do |format|
+      format.html
+      format.js
+    end 
   end 
 
   def aboutus
+    respond_to do |format|
+      format.html
+      format.js
+    end 
   end
 
   def works
+    respond_to do |format|
+      format.html
+      format.js
+    end 
   end
 
   def recruit

@@ -72,29 +72,5 @@
 </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function() {
-    $(window).scroll(function() {
-        var bottom_of_object0 = $("#hover0").offset().top;
-        var bottom_of_object1 = $("#hover1").offset().top;
-        var bottom_of_object2 = $("#hover2").offset().top;
-        var bottom_of_object3 = $("#hover3").offset().top;
-        var bottom_of_window = $(window).scrollTop() + $(window).height();
-        if( bottom_of_window > bottom_of_object0 ){
-            $("#draw1").addClass("draw")
-        };
-        if( bottom_of_window > bottom_of_object1 ){
-            $("#draw1").addClass("btb-active")
-            $("#draw2").addClass("draw")
-        };
-        if( bottom_of_window > bottom_of_object2 ){
-            $("#draw2").addClass("btb-active")
-             $("#draw3").addClass("draw")
-        };
-        if( bottom_of_window > bottom_of_object3 ){
-            $("#draw3").addClass("btb-active")
-          
-        };
 
-    })
-});
 </script>
