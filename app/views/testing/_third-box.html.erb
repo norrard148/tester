@@ -43,7 +43,7 @@
     </div>
     <%@target=0%>
     <%b.each do |c,d|%>
-        <%if c != "goal"  && c!= 'second' && c!='minute' then%>
+        <%if c != "goal"  && c!= 'second' && c!='minute' && c!= "purpose-is" then%>
             <div class="testing-third-top-box-middle">
                 <div class="testing-third-top-box-middle-target">
                     <h1>타겟 <%=@target+=1%></h1>

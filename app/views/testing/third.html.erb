@@ -43,7 +43,7 @@
         <%end%>
         <%@params[:purpose].each do |a,b|%>
             <%b.each do |c, d |%>
-                <%if c =="minute" || c == "second" || c == "goal"%>
+                <%if c =="minute" || c == "second" || c == "goal" || c== "purpose-is"%>
                 <%then%>
                     <input name="<%=a%>-<%=c%>" value="<%=d%>" type="hidden">
                 <%else%>
@@ -80,6 +80,8 @@
 
 <form type="hidden" action="/testing/submit" method="post" class="submit" >
 </form>
+<form type="hidden" action="/testing/first" method="get" class="modify" >
+</form>
 <script>
     $("#submit").click(function() {
         var authe = true;
@@ -110,4 +112,7 @@
         }
            
     });
+    $("#modify").click(function() {
+        $(".modify").submit();
+        });
 </script>

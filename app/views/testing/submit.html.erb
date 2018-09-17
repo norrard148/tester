@@ -1,5 +1,15 @@
 <%=render "testing-start"%>
 
 <div class="testing-submitted" >
-    <h1>제출되었습니다!</h1>
+    <%=image_tag("submit.PNG")%>
+    <h1>제출이 완료되었습니다.</h1>
+    <h2>담당 매니저가 접수 내용을 확인한 후,<br>
+    별 다른 이상이 없을 시 테스트 진행을 도와드릴거예요.<br>
+    테스트 기간은 5~6일 정도 소요됩니다. </h2>
 </div>
+
+<script>
+    var offset = $(".testing-submitted").offset().top;
+    $('html, body').animate({scrollTop : offset}, 100);
+
+</script>

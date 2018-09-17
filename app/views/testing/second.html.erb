@@ -73,9 +73,9 @@
 </div>
 
 <script>
+ $("#purpose-is").focus();
     $(document).on('click', '.purpose-add', function(){   
         var purpose_count = $(".accordion").length;
-        
         $.ajax ({
             url: "/testing/second1",
             method: "get",
@@ -100,8 +100,8 @@
             method: "get"
         })
     }); 
-    $(document).on("click",".card-header", function() {
-        $(this).children("section").children("button").children(".purpose-arrow").toggleClass("arrow-rotate")
+    $(document).on("click",".card-button", function() {
+        $(this).children(".purpose-arrow").toggleClass("arrow-rotate")
     })
     setInterval(function () {
         $.ajax({

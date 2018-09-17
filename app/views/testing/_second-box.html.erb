@@ -7,12 +7,12 @@
     <div class="accordion" id="accordionExample<%=@purpose_generator%>">
         <div class="card">
             <div class="card-header" id="heading<%=@purpose_generator%>">
-                <section class="mb-0 d-flex align-items-center h-100">
-                    <button class="card-button collapsed" type="button" data-toggle="collapse" data-target="#collapse<%=@purpose_generator%>"  aria-controls="collapse<%=@purpose_generator%>">
-                    <div>
+                <section class="mb-0 d-flex align-items-center h-100 w-100">
+                    <div class="card-header-left">
                     <h1>목표 (<%=@purpose_generator%>)</h1>
-                    <h2>목표를 입력해주세요.</h2>
+                    <input placeholder="목표를 입력해주세요." id="purpose-is" name="[purpose][purpose<%=@purpose_generator%>][purpose-is]">
                     </div>
+                    <button class="card-button collapsed" type="button" data-toggle="collapse" data-target="#collapse<%=@purpose_generator%>"  aria-controls="collapse<%=@purpose_generator%>">
                     <%=image_tag("big-arrow-fold.svg", :class=>"purpose-arrow")%>
                     </button>
                 </section>
@@ -41,14 +41,14 @@
 <div class="accordion" id="accordionExample<%=@purpose_generator%>">
     <div class="card">
         <div class="card-header" id="heading<%=@purpose_generator%>">
-            <section class="mb-0 d-flex align-items-center h-100">
-                <button class="card-button collapsed" type="button" data-toggle="collapse" data-target="#collapse<%=@purpose_generator%>"  aria-controls="collapse<%=@purpose_generator%>">
-                <div>
-                <h1>목표 (<%=@purpose_generator%>)</h1>
-                <h2>목표를 입력해주세요.</h2>
-                </div>
-                <%=image_tag("big-arrow-fold.svg", :class=>"purpose-arrow")%>
-                </button>
+            <section class="mb-0 d-flex align-items-center h-100 w-100">
+                <div class="card-header-left">
+                    <h1>목표 (<%=@purpose_generator%>)</h1>
+                    <input placeholder="목표를 입력해주세요.">
+                    </div>
+                    <button class="card-button collapsed" type="button" data-toggle="collapse" data-target="#collapse<%=@purpose_generator%>"  aria-controls="collapse<%=@purpose_generator%>">
+                    <%=image_tag("big-arrow-fold.svg", :class=>"purpose-arrow")%>
+                    </button>
             </section>
         </div>
         <div id="collapse<%=@purpose_generator%>" class="collapse show" aria-labelledby="heading<%=@purpose_generator%>" data-parent="#accordionExample<%=@purpose_generator%>" aria-expanded="false">
@@ -67,19 +67,6 @@
     </div>
 </div>
 <%else%>
-<script>
-   alertify.alert()
-            .setting({
-                'frameless':false,
-                'title':"목표 추가 제한",
-                'closableByDimmer':true,
-                'closable': false,
-                modal: false,
-                transition:'pulse',
-                'pinnable': false,
-                message: '목표는 최대 3개만 추가할 수 있습니다.',
-                'label':'Ok'
-            }).show();
-</script>
+
 <%end%>
 <%end%>

@@ -178,3 +178,40 @@ footer {
     }
   
 }
+
+
+
+/*alertify*/
+.alertify .ajs-header {
+    background-color:  white;
+    color: #282828;
+    border:none;
+}
+
+.alertify .ajs-footer {
+    background-color:  white;
+    border: none;
+}
+
+.alertify .ajs-button {
+    
+}
+
+.alertify .ajs-footer .ajs-buttons .ajs-button  {
+    background-color:  white;
+    color: #282828;
+    outline:none;
+    cursor: pointer;
+    // border-radius: 5px;
+}
+.alertify .ajs-footer .ajs-buttons .ajs-button:hover {
+   
+}
+
+.alertify .ajs-footer .ajs-buttons .ajs-button.ajs-ok {
+    color: #282828;
+}
+.alertify .ajs-footer .ajs-buttons .ajs-button.ajs-ok:hover {
+    color: rgba(0,0,0,0.6);
+}
+
