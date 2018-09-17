@@ -14,6 +14,8 @@
             <input type="hidden" value="<%=params[:name]%>" name="[customer][name]">
             <input type="hidden" value="<%=params[:phonenumber]%>" name="[customer][phonenumber]">
             <input type="hidden" value="<%=params[:email]%>" name="[customer][email]">
+            <input type="hidden" value="<%=params[:media]%>" name="[customer][media]">
+            <input type="hidden" value="<%=params[:testtype]%>" name="[customer][testtype]">
             <input type="hidden" value="<%=params[:url]%>" name="[customer][url]">
             <%= render "second-box"%>
         </form>
@@ -44,7 +46,7 @@
     </div>
     <div class="testing-second-bottom-bottom">
         <div class="w-100 d-flex flex-column align-items-end">
-            <div class="testing-first-bottom-top-right">
+            <div class="testing-second-bottom-top-right">
                 <div class="d-flex justify-content-between align-items-center w-100">
                     <h1>결제 금액</h1>
                     <h2 class="reward-pay">0P</h2>

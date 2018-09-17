@@ -9,11 +9,12 @@ Rails.application.routes.draw do
   get 'testing/second3'
   get 'testing/secondtest'  
   get 'testing/third'
+  post 'testing/submit'
   get 'testing/first1'
   get 'testing/aboutus'
   get 'testing/works'
   get 'testing/recruit'
   get 'testing/contact'
-  root 'testing#first'
+  root 'testing#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

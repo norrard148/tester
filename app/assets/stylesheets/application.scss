@@ -15,7 +15,9 @@
  *= require_self
  */
 
-
+html {
+    font-size: 15px;
+}
 body {
     display: flex;
     flex-direction: column;
@@ -53,43 +55,61 @@ h1, h2, h3, h4, a, input {
 
 
 /*header*/
-
-
-
 .navbar {
-
     position:absolute;
     top: 0;
     width: 100%;
     z-index: 1000;
     padding: 0;
+    padding-top: 30px;
     background-color:transparent;
     justify-content: space-around;
+    a {
+        font-size:  17px;
+        margin: 0 5px;
+    }
 }
 
 .navbar-brand {
-    margin-top: 30px;
     img {
         height: 40px;
         width: auto;
     }
 }
+.navbar-toggler {
+    border: none;
+    color:white;
+ 
+}
+.navbar-toggler:focus {
+    outline: none;
+}
+.navbar-light .navbar-toggler-icon {
+    color:white;
+    background-image: none;
+    width: 45px;
+    height: 45px;
+    margin-top:10px;
+}
 .navbar-collapse {
-    margin-top: 46px;
-    width: auto;
-    flex-grow: 0;
-    display:flex;
-    justify-content: flex-end;
+    width:initial;
+    flex-grow:0;
+}
+.navbar-nav {
+    flex-direction: row;
+    justify-content: center;
+    align-items:center;
 }
 
-
 .nav-item {
+  
     font-size: 17px;
 }
 .navbar-light .navbar-nav .nav-link {
     color: white;
 
 }
+
 
 /*footer*/
 
@@ -106,7 +126,6 @@ footer {
     position:relative;
     bottom: 0;
     width: 100%;
-    height: 196px;
     background-color: black;
     display:flex;
     flex-direction: column;
@@ -119,11 +138,13 @@ footer {
 
     h2 {
         color: #646464;
+        margin-bottom: 30px;
     }
 }
 
 .footer-top {
-    margin-bottom: 40px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     h1 {
         margin: 0 10px;
     }
@@ -141,4 +162,19 @@ footer {
     h1 {
         margin: 0 10px;
     }
+}
+
+@media (max-width: 1100px){
+    .footer-up-btn {
+        display:none;
+    }
+    
+}
+@media (max-width: 800px) {
+    .footer-middle {
+        flex-direction: column;
+        align-items:center;
+        justify-content: center;
+    }
+  
 }

@@ -37,25 +37,77 @@
         <%=render 'third-box'%>
     </div>
     <div class="testing-third-bottom">
-        <form action="/testing/third">
+        <form  class="third-form" method="POST" action="https://script.google.com/macros/s/AKfycbw-GuG6SCIQbmALOfBmcOTOOHCg3dAXhOqe7NYJFg/exec">
+        <%@params[:customer].each do |a,b|%>
+            <input name="<%=a%>" value="<%=b%>" type="hidden">
+        <%end%>
+        <%@params[:purpose].each do |a,b|%>
+            <%b.each do |c, d |%>
+                <%if c =="minute" || c == "second" || c == "goal"%>
+                <%then%>
+                    <input name="<%=a%>-<%=c%>" value="<%=d%>" type="hidden">
+                <%else%>
+                    <%d.each do |e,f|%>
+                        <input name="<%=a%>-<%=c%>-<%=e%>" value="<%=f%>" type="hidden">
+                    <%end%>
+                <%end%>
+            <%end%>
+        <%end%>
         <div class="testing-third-bottom-top">
             <h1>추가 텍스트 입력</h1>
-            <textarea placeholder="추가적으로 테스터들에게 궁금하거나 문의하실 사항이 있으시면 자유롭게 적어주세요.&#13;&#10;이 내용은 모든 테스트 진행을 마친 후, 각 테스터들에게 제공됩니다.&#13;&#10; *500자 내외"></textarea>
+            <textarea name="message" placeholder="추가적으로 테스터들에게 궁금하거나 문의하실 사항이 있으시면 자유롭게 적어주세요.&#13;&#10;이 내용은 모든 테스트 진행을 마친 후, 각 테스터들에게 제공됩니다.&#13;&#10; *500자 내외"></textarea>
         </div>
         <div class="testing-third-bottom-middle d-flex align-items-center">
+            <section class="d-flex align-items-center">
             <label>
-                <input type="checkbox">
+                <input type="checkbox" name="agree" value="agree">
                 <span  class="contract" ></span>
             </label>
             <h1>더 테스터의 이용약관에 동의합니다.</h1>
-            <button>이용약관 보기</button>
-        </div>
-        <div class="testing-third-bottom-bottom" action="/testing/third" method="get" name="first">
-            <input value="수정하기" type="submit"/>
-            <input value="제출하기" type="submit"/>
+            </section>
+            <div><h1>이용약관 보기</h1></div>
         </div>
         </form>
+        <div class="testing-third-bottom-bottom" action="/testing/third" method="get" name="first">
+            <input value="수정하기" type="button" id ="modify"/>
+            <input value="제출하기" type="button" id ="submit"/>
+        </div>
     </div>
 </div>
+<div class="testing-third-loading">
+    <%=image_tag("preloader.svg")%>
+</div>
 
-
+<form type="hidden" action="/testing/submit" method="post" class="submit" >
+</form>
+<script>
+    $("#submit").click(function() {
+        var authe = true;
+        if (authe) {
+            $.ajax({
+                url: "https://script.google.com/macros/s/AKfycbw-GuG6SCIQbmALOfBmcOTOOHCg3dAXhOqe7NYJFg/exec",
+                type: 'POST',
+                data: $(".third-form").serialize(),
+                beforeSend: function(e) {
+                    authe = false;
+                    $(".testing-third-loading").css({"display":"flex"});
+                    $(".testing-third-loading").css({"display":"flex"});
+                },
+                error : function(error) {
+                    $(".testing-third-loading").css({"display":"none"});
+                    authe = false;
+                },
+                success : function(data) {
+                    $(".submit").submit();
+                },
+                fail: function() {
+                    authe = false;
+                    $(".testing-third-loading").css({"display":"none"});
+                },
+                complete : function() {  
+                }
+            })        
+        }
+           
+    });
+</script>

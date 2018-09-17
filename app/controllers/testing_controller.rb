@@ -1,5 +1,9 @@
 class TestingController < ApplicationController
   def first
+    respond_to do |format|
+      format.html
+      format.js
+    end  
   end
   def firsttest
     respond_to do |format|
@@ -7,11 +11,18 @@ class TestingController < ApplicationController
     end  
   end
   def second
+    
     @permitted_params = params.permit(:brandname, :name, :phonenumber, :email, :media, :testtype, :url)
     if @permitted_params[:brandname].empty? || @permitted_params[:name].empty? || @permitted_params[:phonenumber].empty? || @permitted_params[:email].empty? || @permitted_params[:media].empty? || @permitted_params[:testtype].empty? || @permitted_params[:url].empty? 
       then
       redirect_to "/"
+    else
+      respond_to do |format|
+        format.html
+        format.js
+      end 
     end
+    
   end
   def second1
     @purpose_count = params[:purpose_count]
@@ -39,9 +50,36 @@ class TestingController < ApplicationController
     end 
   end
   def third
-    if params[:customer] == nil then redirect_to "/" end
+    params.permit! 
+    @params = params
+    @permitted_params = params.require(:customer).permit(:brandname, :name, :phonenumber, :email, :media, :testtype, :url)
+    @permitted_params2 = params.require(:purpose)
+    @dl = [:brandname, :name, :phonenumber, :email, :media, :testtype, :url]
+    @c = false
+    @dl.each do |a|
+      if @permitted_params.has_key?(a)
+      then 
+        if @permitted_params[a].empty? 
+        then
+          @c = true
+        else
+        end
+      else
+        @c = true
+      end
+    end
+    if @permitted_params2.empty?
+      @c = true
+    else
+    end
+    if @c== true 
+    then
+      redirect_to "/"
+    end
   end
-  
+  def submit
+    
+  end
   def first1
     respond_to do |format|               
       format.js
@@ -49,12 +87,24 @@ class TestingController < ApplicationController
   end 
 
   def index
+    respond_to do |format|
+      format.html
+      format.js
+    end 
   end 
 
   def aboutus
+    respond_to do |format|
+      format.html
+      format.js
+    end 
   end
 
   def works
+    respond_to do |format|
+      format.html
+      format.js
+    end 
   end
 
   def recruit

@@ -1,0 +1,41 @@
+
+    $(document).on('click', '.purpose-add', function(){   
+        var purpose_count = $(".accordion").length;
+        
+        $.ajax ({
+            url: "/testing/second1",
+            method: "get",
+            data: {"purpose_count" : purpose_count}
+        });
+    });
+    $(document).on('click', '.card-submit a', function(){   
+        var a = $(this).parent().parent().parent().attr("id");
+        var purpose_number = a.replace(/[^0-9]/g,"");
+        var target_count = $(`#accordionExample${purpose_number} .card-body-2`).length;
+        var purpose_count = $(".accordion").length;
+        $.ajax ({
+            url: "/testing/second2",
+            method: "get",
+            data: {"target_count" : target_count, "purpose_number" : purpose_number, "purpose_count": purpose_count}
+        });
+    });
+   
+    $("#complete").click(function() {
+         $.ajax({
+            url: "/testing/secondtest",
+            method: "get"
+        })
+    }); 
+    $(document).on("click",".card-header", function() {
+        $(this).children("section").children("button").children(".purpose-arrow").toggleClass("arrow-rotate")
+    })
+    setInterval(function () {
+        $.ajax({
+            url: "/testing/second3",
+            method: "get",
+            data: {"purpose_count":$(".accordion").length}
+        })
+
+    }, 1000);
+
+
