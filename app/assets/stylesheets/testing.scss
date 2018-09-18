@@ -1105,6 +1105,14 @@
         height: 50px;
         border-right:1px solid rgba(0,0,0,.125);
     }
+    .underline {
+ 
+        margin: 0;
+        width: 90%;
+        height: 0;
+        border: none;
+        border-top:2px solid #e8454a;
+    }
 }
 
 .testing-third-top-box {
@@ -1164,12 +1172,19 @@
     h3 {
         font-size: 18px;
     }
+    h4 {
+        font-size: 18px;
+    }
+    
     
 }
 .testing-third-top-box-middle-target {
-    width: 71px;
-    height: 25px;
+    width: 80px;
+    height: 30px;
     position: absolute;
+    display:flex;
+    align-items: center;
+    justify-content: center;
     background-color: black;
     top: 36px;
     left: 0;
@@ -1178,19 +1193,32 @@
         text-align:center;
         font-size:15px;
         color: white;
-
+        vertical-align: center;
     }
 }
+.testing-third-top-box-middle-target.detail {
+    top: 85px;
+    background-color: white;
+    border: 1px solid #282828;
+    h1 {
+        color: #282828;
+    }
+}
+
 .testing-third-top-box-middle-left {
     width: 100%;
     h2 {
         margin-top: 31px;
     }
     h1 {
-        margin-bottom: 31px;
+        margin-bottom: 20px;
     }
     h3 {
         margin-top: 17px;
+    }
+    h4 {
+        margin-bottom: 31px;
+     
     }
 } 
 .testing-third-top-box-middle-right {

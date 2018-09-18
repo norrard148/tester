@@ -79,24 +79,48 @@
     $("#purpose-is").focus();
     $(document).on('click', '.purpose-add', function(){   
         var purpose_count = document.getElementsByClassName("accordion").length;
-        $(".testing-third-loading").css({"display":"flex"});
-        $.ajax ({
-            url: "/testing/second1",
-            method: "get",
-            data: {"purpose_count" : purpose_count}
-        });
+        if (purpose_count != 3 ) {
+            $(".testing-third-loading").css({"display":"flex"});
+            $.ajax ({
+                url: "/testing/second1",
+                method: "get",
+                data: {"purpose_count" : purpose_count}
+            });
+        }
+        else {
+            $(`<%=render 'help-purpose'%>`).appendTo("body");
+        }
     });
+    $(document).on('click', '.testing-help-purpose-box button', function(){  
+        $(".testing-help-purpose").remove();
+    })
     $(document).on('click', '.card-submit a', function(){   
         var a = $(this).parent().parent().parent().attr("id");
         var purpose_number = a.replace(/[^0-9]/g,"");
         var target_count = $(`#accordionExample${purpose_number} .card-body-2`).length;
         var purpose_count = document.getElementsByClassName("accordion").length;
-        $(".testing-third-loading").css({"display":"flex"});
-        $.ajax ({
-            url: "/testing/second2",
-            method: "get",
-            data: {"target_count" : target_count, "purpose_number" : purpose_number, "purpose_count": purpose_count}
-        });
+        if (target_count != 3 ) {
+            $(".testing-third-loading").css({"display":"flex"});
+            $.ajax ({
+                url: "/testing/second2",
+                method: "get",
+                data: {"target_count" : target_count, "purpose_number" : purpose_number, "purpose_count": purpose_count}
+            });
+        }
+        else {
+            alertify.alert()
+            .setting({
+                'frameless':false,
+                'title':"타겟 추가 제한",
+                'closableByDimmer':true,
+                'closable': false,
+                modal: false,
+                transition:'pulse',
+                'pinnable': false,
+                message: '타겟은 한 목표당 최대 3개만 추가할 수 있습니다.',
+                'label':'Ok'
+            }).show();
+        }
     });
    
     $("#complete").click(function() {
