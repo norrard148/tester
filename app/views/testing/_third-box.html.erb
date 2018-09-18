@@ -10,7 +10,7 @@
                 <h2>예상시간</h2>
                 <h3><%=b['minute']%>분 <%=b['second']%>초</h3>
             </span>
-            <h4>|</h4>
+            <div></div>
             <span>
                 <h2>예상 리워드</h2>
                 <h3>
@@ -24,17 +24,17 @@
                     p
                     </h3>
             </span>
-            <h4>|</h4>
+            <div></div>
             <span class="hidden">
                 <h2>타겟 수</h2>
                 <h3><%=b.keys.length-3%></h3>
             </span>
-            <h4 class="hidden">|</h4>
+            <div class="hidden"></div>
             <span>
                 <h2>테스터 수</h2>
                 <h3><%=@testernumber%></h3>
             </span>
-            <h4 class="hidden">|</h4>
+            <div class="hidden"></div>
             <span class="hidden">
                 <h2>인터뷰 질문</h2>
                 <h3><%=(b.keys.length-3)*4%></h3>
