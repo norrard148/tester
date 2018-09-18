@@ -1630,6 +1630,7 @@
     height: 32px;
     color: #fff;
     margin-bottom: 0;
+    padding-top: 4px;
 }
 .works-container {
     width: 1000px;
@@ -1638,6 +1639,7 @@
     position: relative;
     background-color: lightgrey;
     margin-top: 200px;
+    // margin-left: 150px;
     display:flex;
     flex-direction: column;
     align-items: flex-end;
@@ -1660,9 +1662,10 @@
     position: relative;
     background-color: lightgrey;
     margin-top: 200px;
+    // margin-left: 50px;
     display:flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start;
 
 }
 .works-small-box2 {
@@ -1788,9 +1791,50 @@
     }
 }
 
-.recruit-input {
+.recruit-input-box {
     border-bottom: 1px solid gray;
 }
-textarea:focus, input:focus{
-    outline: none;
+.recruit-input {
+    border: 0;
+    outline: 0;
+}
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+    z-index: -1;
+}
+
+.recruit-button {
+    width: 300px;
+    height: 50px;
+    border-style: solid;
+    border-width: 1.5px;
+    border-radius: 10px;
+    border-color: #282828;
+    color: #282828;
+    cursor: pointer;
+    margin-bottom: 6rem;
+}
+.recruit-button:hover {
+    background-color: #282828;
+    border-color: #282828;
+    color: #fff;
+}
+
+.recruit-inputfile-box {
+    border: 1px solid #282828;
+    border-radius: 2px;
+    width: 230px;
+}
+
+.contact-input-box {
+    border-bottom: 1px solid gray;
+}
+.contact-input {
+    border: 0;
+    outline: 0;
+    width: 19rem;
 }
