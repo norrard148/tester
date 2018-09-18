@@ -75,13 +75,13 @@
 </div>
 
 <script>
-
+$(".navbar-nav a:last-child()").addClass("color");
 $(".testing-first-bottom button").click(function() {
          $.ajax({
             url: "/testing/firsttest",
             method: "get"
         })
-    }); 
+}); 
 function OnCheckPhone(oTa) { 
     var oForm = oTa.form ; 
     var sMsg = oTa.value ; 

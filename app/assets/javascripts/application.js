@@ -26,8 +26,7 @@
 $(document).on('scroll', function (){
     var body = $("body")
   
-    if ($(".index-middle").length>0) {
-        console.log("index")
+    if ($(".index").length>0) {
         var bottom_of_object1 = $(".hideme").offset().top;
         var bottom_of_object2 = $(".index-middle").offset().top;
         var bottom_of_object3 = $(".index-bottom").offset().top ;
@@ -51,55 +50,61 @@ $(document).on('scroll', function (){
             }
         }
     }
-    else if ($(".card1").length>0) {
-        $('.hideme').each( function(i){
-            var bottom_of_object = $(this).offset().top + $(this).outerHeight();
+    else if ($(".aboutus-middle").length>0) {
+        
+            var bottom_of_object0 = $(".index-middle.aboutus").offset().top + 150;
+            var bottom_of_object1 = $(".aboutus-middle").offset().top + 150;
+            var bottom_of_object2 = $(".aboutus-middle2").offset().top + 150;
+            var bottom_of_object3 = $(".index-bottom.aboutus").offset().top;;
             var bottom_of_window = $(window).scrollTop() + $(window).height();
-        
-            if( bottom_of_window > bottom_of_object ){
-                $(this).animate({'opacity':'1'},1500);
-            }
-        }); 
-    
-        console.log("aboutus")
-        
-        $('.container').each( function(i){
-            var bottom_of_object = $(this).offset().top + $(this).outerHeight();
-            var bottom_of_window = $(window).scrollTop() + $(window).height();
-        
-            if( bottom_of_window > bottom_of_object ){
-                $('.card1').animate({'opacity':'1'},800).queue(function() {
-                    $('.card2').animate({'opacity':'1'},800).queue(function() {
-                        $('.card3').animate({'opacity':'1'},800).queue(function() {
-                            $('.card4').animate({'opacity':'1'},800);
-                        });
+            if( bottom_of_window > bottom_of_object0 ){
+                $('.card1').animate({'opacity':'1'},500).queue(function() {
+                    $('.card2').animate({'opacity':'1'},500).queue(function() {
+                        $('.card3').animate({'opacity':'1'},500);
                     });
                 });
             };
-        }); 
-
+            if( bottom_of_window > bottom_of_object1 ){
+                $(".aboutus-middle").addClass("show");
+            
+            };
+            if( bottom_of_window > bottom_of_object2 ){
+                $('.card4').animate({'opacity':'1'},500).queue(function() {
+                    $('.card5').animate({'opacity':'1'},500).queue(function() {
+                        $('.card6').animate({'opacity':'1'},500).queue(function() {
+                            $('.card7').animate({'opacity':'1'},500)
+                        });;
+                    });
+                });
+            
+            };
+            if( bottom_of_window > bottom_of_object3 ){
+                $(".index-bottom.aboutus h1, .index-bottom.aboutus button").addClass("show");
+            };
     }
-    else if ($("#hover0").length>0) {
+    else if ($("#works-container1").length>0) {
         console.log("works")
-         var bottom_of_object0 = $("#hover0").offset().top;
-        var bottom_of_object1 = $("#hover1").offset().top;
-        var bottom_of_object2 = $("#hover2").offset().top;
-        var bottom_of_object3 = $("#hover3").offset().top;
+        var bottom_of_object0 = $("#works-box1").offset().top + 150;
+        var bottom_of_object1 = $("#works-box2").offset().top + 150;
+        var bottom_of_object2 = $("#works-box3").offset().top + 150;
+        var bottom_of_object3 = $("#works-bottom").offset().top;;
         var bottom_of_window = $(window).scrollTop() + $(window).height();
         if( bottom_of_window > bottom_of_object0 ){
-            $("#draw1").addClass("draw")
+            $("#works-box1").addClass("draw")
+            $("#works-container1 h1, #works-container1 h2").addClass("show");
         };
         if( bottom_of_window > bottom_of_object1 ){
-            $("#draw1").addClass("btb-active")
-            $("#draw2").addClass("draw")
+            $("#works-box1").addClass("btb-active")
+            $("#works-container2 h1, #works-container2 h2").addClass("show");
+            $("#works-box2").addClass("draw")
         };
         if( bottom_of_window > bottom_of_object2 ){
-            $("#draw2").addClass("btb-active")
-            $("#draw3").addClass("draw")
+            $("#works-box2").addClass("btb-active")
+            $("#works-container3 h1, #works-container3 h2").addClass("show");
+            $("#works-box3").addClass("draw")
         };
         if( bottom_of_window > bottom_of_object3 ){
-            $("#draw3").addClass("btb-active")
-        
+            $("#works-bottom, #works-bottom h1, #works-bottom h2, #works-bottom button").addClass("show");
         };
      }
 });

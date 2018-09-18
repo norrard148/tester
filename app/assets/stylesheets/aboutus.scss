@@ -1,0 +1,205 @@
+
+
+.index-middle.aboutus {
+    margin-top: 100px;
+    h1 {
+        margin-top: 0;
+        font-size: 40px;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    h1, h2 {
+        text-align: center;
+    }
+    .index-middle-box {
+        margin: 80px 0;
+    }
+}
+
+.index-bottom.aboutus {
+    background-color: #4bb43c;
+    margin-top: 140px;
+}
+
+.aboutus-card {
+    opacity: 0;
+    width: 300px;
+    height: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.125);
+    margin: 0 10px;
+    img {
+        width: 100%;
+        height: auto;
+
+    }
+    h1, h2 {
+        text-align: center;
+    }
+    h1 {
+        font-size: 20px;
+        margin-top: 20px;
+    }
+    h2 {
+        margin-top: 15px;
+        font-size: 17px;
+    }
+}
+
+.aboutus-middle2 {
+    display: flex;
+}
+
+.aboutus-middle {
+    opacity: 0;
+    -webkit-transition: opacity 0.75s ease-in 0.75s;
+    -moz-transition: opacity 0.75s ease-in 0.75s;
+    -o-transition: opacity 0.75s ease-in 0.75s;
+    -ms-transition: opacity 0.75s ease-in 0.75s;
+    transition: opacity 0.75s ease-in 0.75s;
+    p {
+        font-size: 40px;
+        margin-bottom: 90px;
+        text-align:center;
+    }
+}
+.aboutus-middle-box {
+    display: flex;
+    margin-bottom: 100px;
+    h2 {
+        font-size: 22px;
+    }
+    h3 {
+        font-size: 17px;
+    }
+}
+.aboutus-middle-box-left, .aboutus-middle-box-right {
+    display: flex;
+    flex-direction: column;
+    
+}
+.aboutus-middle-box-left {
+    align-items: flex-start;
+    img {
+        width: 370px;
+        height: 300px;
+    }
+    margin-right: 50px;
+}
+.aboutus-middle-box-right {
+    align-items: flex-end;
+    img {
+        width: 170px;
+        height: 300px;
+    }
+    
+}
+.aboutus-middle-box-left-content {
+    width: 300px;
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    h2,h3 {
+        text-align: left;
+    }
+    >div {
+        margin: 30px 0;
+    }
+}
+.aboutus-middle-box-right-content {
+    width: 300px;
+    display:flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    h2, h3 {
+        text-align:right;
+    }
+    >div {
+        margin: 30px 0;
+    }
+}
+.aboutus-middle-box-left-top, .aboutus-middle-box-right-top {
+    background-color: #282828;
+    height: 40px;
+    width: 140px;
+    h1 {color: white;
+    font-size: 25px;
+    text-align: center;
+    }
+    border-radius: 20px;
+}
+.index-bottom.aboutus {
+    h1 {
+        opacity: 0;
+        -webkit-transition: opacity 0.75s ease-in 0.5s;
+        -moz-transition: opacity 0.75s ease-in 0.5s;
+        -o-transition: opacity 0.75s ease-in 0.5s;
+        -ms-transition: opacity 0.75s ease-in 0.5s;
+        transition: opacity 0.75s ease-in 0.5s;
+    }
+    button {
+        opacity: 0;
+        margin-top: 50px;
+        -webkit-transition: opacity 0.75s ease-in 0.75s;
+        -moz-transition: opacity 0.75s ease-in 0.75s;
+        -o-transition: opacity 0.75s ease-in 0.75s;
+        -ms-transition: opacity 0.75s ease-in 0.75s;
+        transition: opacity 0.75s ease-in 0.75s;
+    }
+}
+@media (max-width: 1250px) {
+
+    .index-middle.aboutus {
+        h1 {
+            font-size: 28px;
+        }
+        h2 {
+            font-size: 14px;
+            padding: 0 40px;
+        }
+    }
+
+    .aboutus-middle-box-right-middle, .aboutus-middle-box-left-middle {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+    }
+    .aboutus-middle-box-right, .aboutus-middle-box-left {
+        
+        align-items: center;
+        img {
+            height: 250px;
+            max-width: 300px;
+        }
+    }
+    .aboutus-middle-box-left {
+        margin-right: 0;
+        margin-bottom: 100px;
+    }
+    .aboutus-middle {
+        p {
+            padding: 0 40px;
+            margin-bottom: 40px;
+        }
+    }
+    .aboutus-middle-box {
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+    .aboutus-middle-box-left-content, .aboutus-middle-box-right-content {
+        align-items: center;
+        h2, h3 {
+            text-align: center;
+        }
+    }
+    .aboutus-middle2 {
+        flex-direction: column;
+    }
+    .aboutus-card {
+        margin: 20px 0;
+    }
+}
