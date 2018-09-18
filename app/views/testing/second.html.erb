@@ -3,7 +3,7 @@
     <%= render partial: "testing-top", locals: { testing: 'second' }%>
     <div class="testing-second-top">
         <div class="testing-second-top-top">
-            <h1>* 목표 설정 : 최대 3개  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  * 타겟 설정 : 목표 당 최대 3개 &nbsp;&nbsp;&nbsp;&nbsp;   * 테스터 수 : 타겟 당 최대 5명<Br>
+            <h1>* 목표 설정 : 최대 3개  &nbsp;&nbsp;  * 타겟 설정 : 목표 당 최대 3개 &nbsp;&nbsp;   * 테스터 수 : 타겟 당 최대 5명<Br>
             추가 테스트 진행을 원하시면 별도 문의 부탁드립니다. &nbsp;(약간의 추가금액이 발생합니다.)</h1>
             <button>
             <h2>도움이 필요하신가요?</h2>
@@ -75,7 +75,7 @@
 <script>
  $("#purpose-is").focus();
     $(document).on('click', '.purpose-add', function(){   
-        var purpose_count = $(".accordion").length;
+        var purpose_count = document.getElementsByClassName("accordion").length;
         $.ajax ({
             url: "/testing/second1",
             method: "get",
@@ -85,8 +85,8 @@
     $(document).on('click', '.card-submit a', function(){   
         var a = $(this).parent().parent().parent().attr("id");
         var purpose_number = a.replace(/[^0-9]/g,"");
-        var target_count = $(`#accordionExample${purpose_number} .card-body-2`).length;
-        var purpose_count = $(".accordion").length;
+        var target_count = document.getElementsById(`accordionExample${purpose_number} .card-body-2`).length;
+        var purpose_count = document.getElementsByClassName("accordion").length;
         $.ajax ({
             url: "/testing/second2",
             method: "get",

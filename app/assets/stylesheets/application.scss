@@ -17,6 +17,7 @@
 
 html {
     font-size: 15px;
+    position: relative;
 }
 body {
     display: flex;
@@ -58,6 +59,7 @@ h1, h2, h3, h4, a, input {
 .navbar {
     position:absolute;
     top: 0;
+    left: 0;
     width: 100%;
     z-index: 1000;
     padding: 0;
