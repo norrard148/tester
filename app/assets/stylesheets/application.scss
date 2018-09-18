@@ -17,6 +17,7 @@
 
 html {
     font-size: 15px;
+    position: relative;
 }
 body {
     display: flex;
@@ -51,13 +52,17 @@ h1, h2, h3, h4, a, input {
     text-align: left;
 }
 
-
+::placeholder { 
+    color: rgba(0,0,0,0.4);
+    opacity: 1;
+}
 
 
 /*header*/
 .navbar {
     position:absolute;
     top: 0;
+    left: 0;
     width: 100%;
     z-index: 1000;
     padding: 0;
@@ -178,3 +183,49 @@ footer {
     }
   
 }
+
+
+
+/*alertify*/
+.alertify .ajs-header {
+
+    color: #282828;
+   font-size: 20px;
+}
+
+.alertify .ajs-footer {
+    background-color:  white;
+    border: none;
+}
+.ajs-content {
+    font-size: 18px;
+}
+.alertify .ajs-button {
+    
+}
+@media (max-width: 500px) {
+    .alertify .ajs-header {
+     font-size: 18px;   
+    }
+    .ajs-content { 
+        font-size: 15px;
+    }
+}
+.alertify .ajs-footer .ajs-buttons .ajs-button  {
+    background-color:  white;
+    color: #282828;
+    outline:none;
+    cursor: pointer;
+    // border-radius: 5px;
+}
+.alertify .ajs-footer .ajs-buttons .ajs-button:hover {
+   
+}
+
+.alertify .ajs-footer .ajs-buttons .ajs-button.ajs-ok {
+    color: #282828;
+}
+.alertify .ajs-footer .ajs-buttons .ajs-button.ajs-ok:hover {
+    color: rgba(0,0,0,0.6);
+}
+

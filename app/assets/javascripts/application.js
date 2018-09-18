@@ -33,18 +33,18 @@ $(document).on('scroll', function (){
         var bottom_of_object3 = $(".index-bottom").offset().top ;
         var bottom_of_window = $(window).scrollTop() + $(window).height();
         if( bottom_of_window > bottom_of_object1 ){
-            $('.hideme').animate({'opacity':'1'},700)
+            $('.hideme').animate({'opacity':'1'},500)
             if( bottom_of_window > bottom_of_object2 ){
-                $('.card1').animate({'opacity':'1'},1000).queue(function() {
-                        $('.card2').animate({'opacity':'1'},700).queue(function() {
-                            $('.card3').animate({'opacity':'1'},700)
-                            $('.hideme2').animate({'opacity':'1'},700)
+                $('.card1').animate({'opacity':'1'},500).queue(function() {
+                        $('.card2').animate({'opacity':'1'},500).queue(function() {
+                            $('.card3').animate({'opacity':'1'},500)
+                            $('.hideme2').animate({'opacity':'1'},500)
                         });
                 });
                 if( bottom_of_window > bottom_of_object3+200 ){
-                    $('.card4').animate({'opacity':'1'},1000).queue(function() {
-                        $('.card5').animate({'opacity':'1'},700).queue(function() {
-                            $('.card6').animate({'opacity':'1'},700);
+                    $('.card4').animate({'opacity':'1'},500).queue(function() {
+                        $('.card5').animate({'opacity':'1'},500).queue(function() {
+                            $('.card6').animate({'opacity':'1'},500);
                         });
                     });
                 }; 

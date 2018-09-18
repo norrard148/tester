@@ -19,4 +19,4 @@ total += plus*calculate*labor_price;
 $(".reward-<%=@purnum%>").text((plus*calculate*labor_price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "P");
 <%end%>
 $(".reward-sum").text( total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+ "P");
-$(".reward-pay").text( total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "P");
+$(".reward-discount").text("-" + total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "P");

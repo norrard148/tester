@@ -3,7 +3,7 @@
     <%= render partial: "testing-top", locals: { testing: 'second' }%>
     <div class="testing-second-top">
         <div class="testing-second-top-top">
-            <h1>* 목표 설정 : 최대 3개  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  * 타겟 설정 : 목표 당 최대 3개 &nbsp;&nbsp;&nbsp;&nbsp;   * 테스터 수 : 타겟 당 최대 5명<Br>
+            <h1>* 목표 설정 : 최대 3개  &nbsp;&nbsp;  * 타겟 설정 : 목표 당 최대 3개 &nbsp;&nbsp;   * 테스터 수 : 타겟 당 최대 5명<Br>
             추가 테스트 진행을 원하시면 별도 문의 부탁드립니다. &nbsp;(약간의 추가금액이 발생합니다.)</h1>
             <button>
             <h2>도움이 필요하신가요?</h2>
@@ -72,26 +72,55 @@
   </div>
 </div>
 
+<div class="testing-third-loading second">
+    <%=image_tag("preloader.svg")%>
+</div>
 <script>
+    $("#purpose-is").focus();
     $(document).on('click', '.purpose-add', function(){   
-        var purpose_count = $(".accordion").length;
-        
-        $.ajax ({
-            url: "/testing/second1",
-            method: "get",
-            data: {"purpose_count" : purpose_count}
-        });
+        var purpose_count = document.getElementsByClassName("accordion").length;
+        if (purpose_count != 3 ) {
+            $(".testing-third-loading").css({"display":"flex"});
+            $.ajax ({
+                url: "/testing/second1",
+                method: "get",
+                data: {"purpose_count" : purpose_count}
+            });
+        }
+        else {
+            $(`<%=render 'help-purpose'%>`).appendTo("body");
+        }
     });
+    $(document).on('click', '.testing-help-purpose-box button', function(){  
+        $(".testing-help-purpose").remove();
+    })
     $(document).on('click', '.card-submit a', function(){   
         var a = $(this).parent().parent().parent().attr("id");
         var purpose_number = a.replace(/[^0-9]/g,"");
         var target_count = $(`#accordionExample${purpose_number} .card-body-2`).length;
-        var purpose_count = $(".accordion").length;
-        $.ajax ({
-            url: "/testing/second2",
-            method: "get",
-            data: {"target_count" : target_count, "purpose_number" : purpose_number, "purpose_count": purpose_count}
-        });
+        var purpose_count = document.getElementsByClassName("accordion").length;
+        if (target_count != 3 ) {
+            $(".testing-third-loading").css({"display":"flex"});
+            $.ajax ({
+                url: "/testing/second2",
+                method: "get",
+                data: {"target_count" : target_count, "purpose_number" : purpose_number, "purpose_count": purpose_count}
+            });
+        }
+        else {
+            alertify.alert()
+            .setting({
+                'frameless':false,
+                'title':"타겟 추가 제한",
+                'closableByDimmer':true,
+                'closable': false,
+                modal: false,
+                transition:'pulse',
+                'pinnable': false,
+                message: '타겟은 한 목표당 최대 3개만 추가할 수 있습니다.',
+                'label':'Ok'
+            }).show();
+        }
     });
    
     $("#complete").click(function() {
@@ -100,8 +129,8 @@
             method: "get"
         })
     }); 
-    $(document).on("click",".card-header", function() {
-        $(this).children("section").children("button").children(".purpose-arrow").toggleClass("arrow-rotate")
+    $(document).on("click",".card-button", function() {
+        $(this).children(".purpose-arrow").toggleClass("arrow-rotate")
     })
     setInterval(function () {
         $.ajax({

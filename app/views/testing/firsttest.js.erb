@@ -53,7 +53,7 @@ else if (phone_number == '') {
             'label':'Ok'
         }).show();
 }
-else if (!regPhone.test(phone_number)) {
+<%# else if (!regPhone.test(phone_number)) {
      alertify.alert()
         .setting({
             'frameless':false,
@@ -66,7 +66,7 @@ else if (!regPhone.test(phone_number)) {
             message: '올바른 전화번호를 입력하세요.',
             'label':'Ok'
         }).show();
-}
+} %>
 else if (email == '') {
     alertify.alert()
         .setting({
@@ -109,7 +109,7 @@ else if (url == '') {
             'label':'Ok'
         }).show();
 }
-else if (!regUrl.test(url)) {
+<%# else if (!regUrl.test(url)) {
 
               alertify.alert()
         .setting({
@@ -123,7 +123,7 @@ else if (!regUrl.test(url)) {
             message: '올바른 URL 주소를 입력하세요.',
             'label':'Ok'
         }).show();
-}
+} %>
 else {
     document.getElementById("first-form").submit();
 }

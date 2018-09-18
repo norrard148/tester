@@ -7,8 +7,6 @@
 <%@target_generator=@target_count.to_i()+1%>
 <%end%>
 
-<%if @target_generator != 4%>
-<%then%>
 <section class="card-body-2">
         <div class="card-body-2-target">
             <h1>타겟 <%=@target_generator%></h1>
@@ -141,23 +139,6 @@
             </div>
         </div>
 </section>
-<%else%> 
-<script>
-alertify.alert()
-            .setting({
-                'frameless':false,
-                'title':"타겟 추가 제한",
-                'closableByDimmer':true,
-                'closable': false,
-                modal: false,
-                transition:'pulse',
-                'pinnable': false,
-                message: '타겟은 한 목표당 최대 3개만 추가할 수 있습니다.',
-                'label':'Ok'
-            }).show();
-</script>
-<%end%>
-
 <script>
     function arrow_rotate() {
         $(".select-arrow").toggleClass("arrow-rotate");
