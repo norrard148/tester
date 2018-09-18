@@ -118,7 +118,11 @@
         margin-top: 110px;
         text-align:center;
         opacity: 0;
-        
+        -webkit-transition: opacity 0.75s ease-in 0.25s;
+        -moz-transition: opacity 0.75s ease-in 0.25s;
+        -o-transition: opacity 0.75s ease-in 0.25s;
+        -ms-transition: opacity 0.75s ease-in 0.25s;
+        transition: opacity 0.75s ease-in 0.25s;
     }
     h2 {
         margin-top: 40px;
@@ -126,6 +130,11 @@
         margin-bottom: 110px;
         text-align:center;
         opacity: 0;
+        -webkit-transition: opacity 0.75s ease-in 0.5s;
+        -moz-transition: opacity 0.75s ease-in 0.5s;
+        -o-transition: opacity 0.75s ease-in 0.5s;
+        -ms-transition: opacity 0.75s ease-in 0.5s;
+        transition: opacity 0.75s ease-in 0.5s;
     }
     button {
         opacity: 0;
@@ -138,6 +147,11 @@
         display:flex;
         align-items: center;
         justify-content: center;
+        -webkit-transition: opacity 0.75s ease-in 0.75s;
+        -moz-transition: opacity 0.75s ease-in 0.75s;
+        -o-transition: opacity 0.75s ease-in 0.75s;
+        -ms-transition: opacity 0.75s ease-in 0.75s;
+        transition: opacity 0.75s ease-in 0.75s;
         p {
             font-size :23px;
             margin-bottom: 0;
