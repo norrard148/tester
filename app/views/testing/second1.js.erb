@@ -1,7 +1,7 @@
 
     if (<%=@purpose_count%> == $(".accordion").length) {
         if (<%=@purpose_count%> != 3) {
-            toggle = false;
+            $(".testing-third-loading").css({"display":"none"});
             $(`<div class='d-flex justify-content-between align-items-center w-100'>
             <h1>목표 ${Number(<%=@purpose_count%>)+1}. 리워드 </h1>
             <h2 class='reward-${Number(<%=@purpose_count%>)+1}'>0P</h2>
@@ -13,6 +13,7 @@
             $('html, body').animate({scrollTop : scroll}, 600);
         }
         else {
+            $(".testing-third-loading").css({"display":"none"});
             $(`<%=render 'help-purpose'%>`).appendTo("body");
             <%# alertify.alert()
             .setting({

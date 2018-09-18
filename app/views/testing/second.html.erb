@@ -72,10 +72,14 @@
   </div>
 </div>
 
+<div class="testing-third-loading second">
+    <%=image_tag("preloader.svg")%>
+</div>
 <script>
- $("#purpose-is").focus();
+    $("#purpose-is").focus();
     $(document).on('click', '.purpose-add', function(){   
         var purpose_count = document.getElementsByClassName("accordion").length;
+        $(".testing-third-loading").css({"display":"flex"});
         $.ajax ({
             url: "/testing/second1",
             method: "get",
@@ -85,8 +89,9 @@
     $(document).on('click', '.card-submit a', function(){   
         var a = $(this).parent().parent().parent().attr("id");
         var purpose_number = a.replace(/[^0-9]/g,"");
-        var target_count = document.getElementsById(`accordionExample${purpose_number} .card-body-2`).length;
+        var target_count = $(`#accordionExample${purpose_number} .card-body-2`).length;
         var purpose_count = document.getElementsByClassName("accordion").length;
+        $(".testing-third-loading").css({"display":"flex"});
         $.ajax ({
             url: "/testing/second2",
             method: "get",
