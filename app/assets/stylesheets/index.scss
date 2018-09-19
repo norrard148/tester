@@ -10,6 +10,7 @@
     align-items: center;
     flex-direction: column;
     overflow: hidden;
+    text-align:center;
     h1, h2 {
         position: relative;
         color: white;
@@ -51,12 +52,10 @@
 .index-top-bg {
     position: absolute;
     height: 1700px;
-    width: auto;
-    left: auto;
     opacity: 0.35;
     top: -10%;
     z-index:0;
-
+    text-align:left;
 }
 .index-top-img {
     height: 82px;
@@ -197,7 +196,7 @@
     .index-top-bg {
         width: auto;
         height: 700px;
-        margin: 0 auto;
+        // margin: 0 auto;
     }
    
     .index-middle-box {
