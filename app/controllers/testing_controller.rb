@@ -11,7 +11,7 @@ class TestingController < ApplicationController
     end  
   end
   def second
-    
+   
     @permitted_params = params.permit(:brandname, :name, :phonenumber, :email, :media, :testtype, :url)
     if @permitted_params[:brandname].empty? || @permitted_params[:name].empty? || @permitted_params[:phonenumber].empty? || @permitted_params[:email].empty? || @permitted_params[:media].empty? || @permitted_params[:testtype].empty? || @permitted_params[:url].empty? 
       then

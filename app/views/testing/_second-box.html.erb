@@ -3,6 +3,7 @@
 <%if purpose_count == nil%>
     <% then %>
     <%@purpose_generator=1%>
+    <%while @purpose_generator <= 3 %>
     <%@purpose_number = @purpose_generator%>
     <div class="accordion" id="accordionExample<%=@purpose_generator%>">
         <div class="card">
@@ -17,7 +18,7 @@
                     </button>
                 </section>
             </div>
-            <div id="collapse<%=@purpose_generator%>" class="collapse show" aria-labelledby="heading<%=@purpose_generator%>" data-parent="#accordionExample<%=@purpose_generator%>" aria-expanded="false">
+            <div id="collapse<%=@purpose_generator%>" class="collapse <%if @purpose_generator ==1 then "show" else end%>" aria-labelledby="heading<%=@purpose_generator%>" data-parent="#accordionExample<%=@purpose_generator%>" aria-expanded="false">
 
                 <div class="card-body">
                     <div class="w-100">
@@ -33,6 +34,8 @@
             </div>
         </div>
     </div>
+    <%@purpose_generator +=1%>
+    <%end%>
 <%else%>
 <%@purpose_generator=@purpose_count.to_i()%>
 <%@purpose_generator +=1%>

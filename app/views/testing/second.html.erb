@@ -18,6 +18,7 @@
             <input type="hidden" value="<%=params[:testtype]%>" name="[customer][testtype]">
             <input type="hidden" value="<%=params[:url]%>" name="[customer][url]">
             <%= render "second-box"%>
+        
         </form>
     </div>
 <div class="testing-second-bottom">
@@ -29,6 +30,14 @@
             <div class=" d-flex justify-content-between align-items-center w-100">
                 <h1>목표 1. 리워드 </h1>
                 <h2 class="reward-1">0P</h2>
+            </div>
+            <div class=" d-flex justify-content-between align-items-center w-100">
+                <h1>목표 2. 리워드 </h1>
+                <h2 class="reward-2">0P</h2>
+            </div>
+            <div class=" d-flex justify-content-between align-items-center w-100">
+                <h1>목표 3. 리워드 </h1>
+                <h2 class="reward-3">0P</h2>
             </div>
         </div>
     </div>
@@ -75,7 +84,23 @@
 <div class="testing-third-loading second">
     <%=image_tag("preloader.svg")%>
 </div>
+
+<div class="testing-help-purpose">
+    <div class="testing-help-purpose-box">
+    
+        <h1>추가 진행이 필요하신가요?</h1>
+        <h2>아래 연락처로 별도 문의 주시면,<br>
+        추가 테스트 진행을 도와드릴게요!</h1>
+        <h3>추가비용이 발생할 수 있습니다.</h3>
+        <%=image_tag("help-purpose.PNG")%>
+        
+        <button>닫기</button>
+    </div>
+</div>
+
+
 <script>
+    $(".navbar-nav a:last-child()").addClass("color");
     $("#purpose-is").focus();
     $(document).on('click', '.purpose-add', function(){   
         var purpose_count = document.getElementsByClassName("accordion").length;
@@ -88,11 +113,11 @@
             });
         }
         else {
-            $(`<%=render 'help-purpose'%>`).appendTo("body");
+            $(".testing-help-purpose").css({"display":"block"});
         }
     });
     $(document).on('click', '.testing-help-purpose-box button', function(){  
-        $(".testing-help-purpose").remove();
+        $(".testing-help-purpose").css({"display":"none"});
     })
     $(document).on('click', '.card-submit a', function(){   
         var a = $(this).parent().parent().parent().attr("id");
@@ -122,16 +147,7 @@
             }).show();
         }
     });
-   
-    $("#complete").click(function() {
-         $.ajax({
-            url: "/testing/secondtest",
-            method: "get"
-        })
-    }); 
-    $(document).on("click",".card-button", function() {
-        $(this).children(".purpose-arrow").toggleClass("arrow-rotate")
-    })
+ 
     setInterval(function () {
         $.ajax({
             url: "/testing/second3",
@@ -140,6 +156,109 @@
         })
 
     }, 1000);
+
+    $("#complete").click(function() {
+        var toggle = true;
+    $(".purpose-is").each(function(element) {
+        var  subject =  $(this).parent().parent().parent().parent()
+        var subject_target = subject.find(".card-body-2")
+        var testernumber=0;
+        if ($(this).val() == '') {
+            alertify.alert()
+            .setting({
+                'frameless':false,
+                'title':"목표 작성 오류",
+                'closableByDimmer':true,
+                'closable': false,
+                modal: false,
+                transition:'pulse',
+                'pinnable': false,
+                message: '목표는 필수 입력 사항입니다.',
+                'label':'Ok'
+            }).show();
+            toggle = false; 
+        }
+        else if (Number(subject.find(".minute option:selected").val()) + Number(subject.find(".second option:selected").val()) == 0) {
+            alertify.alert()
+            .setting({
+                'frameless':false,
+                'title':"예상 시간 선택 오류",
+                'closableByDimmer':true,
+                'closable': false,
+                modal: false,
+                transition:'pulse',
+                'pinnable': false,
+                message: '예상 시간은 필수 선택 사항입니다.',
+                'label':'Ok'
+            }).show();
+            toggle = false; 
+            
+        }
+        else {
+            subject_target.each(function(i,e) {
+                testernumber += Number($(this).find(".testernumber option:selected").val());
+            
+                if  ($(this).find(".target").val() == '') {
+                    alertify.alert()
+                    .setting({
+                        'frameless':false,
+                        'title':"타겟명 작성 오류",
+                        'closableByDimmer':true,
+                        'closable': false,
+                        modal: false,
+                        transition:'pulse',
+                        'pinnable': false,
+                        message: '타겟명은 필수 작성 사항입니다.',
+                        'label':'Ok'
+                    }).show();
+                    toggle = false; 
+                }
+                else  {
+                    console.log(testernumber)
+                    if (testernumber > 5 ) {
+                        alertify.alert()
+                        .setting({
+                        'frameless':false,
+                        'title': "테스터수 선택 오류",
+                        'closableByDimmer':true,
+                        'closable': false,
+                        modal: false,
+                        transition:'pulse',
+                        'pinnable': false,
+                        message: '테스터수는 목표당 최대 5명입니다.',
+                        'label':'Ok'
+                        }).show();
+                        toggle = false; 
+                    }
+                }  
+            })
+            if  (testernumber == 0 ) {
+                console.log(testernumber)
+            
+                    alertify.alert()
+                    .setting({
+                    'frameless':false,
+                    'title': "테스터수 선택 오류",
+                    'closableByDimmer':true,
+                    'closable': false,
+                    modal: false,
+                    transition:'pulse',
+                    'pinnable': false,
+                    message: '테스터수는 필수 선택 사항입니다.',
+                    'label':'Ok'
+                    }).show();
+                    toggle = false; 
+                
+            } 
+                    
+        }
+    });
+    if (toggle == true) {
+        document.getElementById("second-form").submit();
+    }    
+    }); 
+    
+
 </script>
 
 

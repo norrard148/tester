@@ -140,28 +140,7 @@
         </div>
 </section>
 <script>
-    function arrow_rotate() {
-        $(".select-arrow").toggleClass("arrow-rotate");
-        console.log("dd")
-    }
-
     $('.ui.dropdown').dropdown();
     $(".select-content .select-arrow").remove();
     $('<img src="<%=asset_path('small-arrow-unfold.svg')%>" class="select-arrow">').appendTo($(".select-content .ui.dropdown"));
-    $(document).on("click",".select-content .ui.dropdown", function() {
-        if ($(this).hasClass("active")) {
-            $(this).children(".select-arrow").addClass("arrow-rotate")
-            $(this).parent().addClass("select-content-focus")
-        }
-        else {
-            $(this).children(".select-arrow").removeClass("arrow-rotate")
-            $(this).parent().removeClass("select-content-focus")
-        }
-    })
-    $("body").click(function(d) {
-        if (!$(d.target).hasClass("select-content")) {
-            $(".select-arrow").removeClass("arrow-rotate")
-            $(".select-content").removeClass("select-content-focus");
-        }
-    })
 </script>
