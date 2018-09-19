@@ -80,39 +80,7 @@ class TestingController < ApplicationController
   def submit
     
   end
-  def first1
-    respond_to do |format|               
-      format.js
-    end        
-  end 
 
-  def index
-    respond_to do |format|
-      format.html
-      format.js
-    end 
-  end 
-
-  def aboutus
-    respond_to do |format|
-      format.html
-      format.js
-    end 
-  end
-
-  def works
-    respond_to do |format|
-      format.html
-      format.js
-    end 
-  end
-
-  def recruit
-  end
-
-  def contact
-  end
-  
   private
   def t_params
     params.require(:first).permit(:target)
