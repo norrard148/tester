@@ -17,10 +17,10 @@
     <div class="index-middle-box">
         <div class="index-middle-box-content card1">
             <div class="d-flex flex-column align-items-center  w-100">
-                <%= image_tag('W_img_about_icon_1.svg', class:"card-img-top")%>
+                <%= image_tag('W_img_about_icon_1.svg')%>
                 <div class="card-body">
-                    <p class="card-text h5 text-center">내부직원, 지인에게 부탁</p>
-                    <ul class="ml-4">
+                    <p>내부직원, 지인에게 부탁</p>
+                    <ul>
                             <li>스타트업</li>
                             <li>시간과 인력 절감</li>
                             <li>타겟 고객 의견 반영 미비</li>
@@ -30,7 +30,7 @@
         </div> 
         <div class="index-middle-box-content card2">  
             <div class="d-flex flex-column align-items-center w-100">
-                <%= image_tag('W_img_about_icon_2.svg', class:"card-img-top")%>
+                <%= image_tag('W_img_about_icon_2.svg')%>
                 <div class="card-body">
                     <p class="card-text h5 text-center">자체테스트 진행</p>
                     <ul class="ml-5">
@@ -42,9 +42,9 @@
         </div>
         <div class="index-middle-box-content card3">  
             <div class="d-flex flex-column align-items-center w-100">
-                <%= image_tag('W_img_about_icon_3.svg', class:"card-img-top")%>
+                <%= image_tag('W_img_about_icon_3.svg')%>
                 <div class="card-body">
-                    <p class="card-text h5 text-center">UX 컨설팅 의뢰</p>
+                    <p>UX 컨설팅 의뢰</p>
                      <ul class="ml-5">
                                 <li>높은 신뢰도</li>
                                 <li>높은 비용</li>
@@ -113,28 +113,28 @@
 
 <div class="aboutus-middle2">
     <div class="aboutus-card card4" id="card1" >
-        <%= image_tag('dummy2.jpg', class:'card-img-top')%>
+        <%= image_tag('dummy2.jpg')%>
         <div class="card-body">
             <h1>타겟 고객에게 테스트</h1>
             <h2>불특정 다수 패널을 모집 후<br>더 테스터 자체 알고리즘으로<br>기업이 원하는 타겟에게 도달</h2>
         </div>
     </div>
     <div class="aboutus-card card5" id="card2">
-        <%= image_tag('dummy2.jpg', class:'card-img-top')%>
+        <%= image_tag('dummy2.jpg')%>
         <div class="card-body">
             <h1>간편한 등록</h1>
             <h2>기업은 파트너십 페이지에서<br>타겟, 목표, 리워드 등을 입력하여<br>간편하게 테스트 등록</h2>
         </div>
     </div>
     <div class="aboutus-card card6" id="card3">
-        <%= image_tag('dummy2.jpg', class:'card-img-top')%>
+        <%= image_tag('dummy2.jpg')%>
         <div class="card-body">
             <h1>10명보다 100명</h1>
             <h2>5~10명의 테스터라면 기업이<br>자체적으로 진행할 수 있으나,<br>더 테스터는 100명 이상에게<br>도달하여 보편적인 인사이트 제공</h2>
         </div>
     </div>
     <div class="aboutus-card card7" id="card4">
-        <%= image_tag('dummy2.jpg', class:'card-img-top')%>
+        <%= image_tag('dummy2.jpg')%>
         <div class="card-body">
             <h1>원격 테스트로 비용 절감</h1>
             <h2>오프라인 인터뷰에 비해<br>사례비용이 3~40% 저렴하며,<br>기업이 사정에 맞게, 원하는 만큼<br>예산 선정 가능</h2>
@@ -150,3 +150,7 @@
     </button>
 </div>
 
+
+<script>
+    $(".navbar-nav a:nth-child(1)").addClass("color");
+</script>
