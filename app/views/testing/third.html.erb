@@ -38,7 +38,7 @@
         <%=render 'third-box'%>
     </div>
     <div class="testing-third-bottom">
-        <form  class="third-form" method="POST" action="https://script.google.com/macros/s/AKfycbw-GuG6SCIQbmALOfBmcOTOOHCg3dAXhOqe7NYJFg/exec">
+        <form  class="third-form">
         <%@params[:customer].each do |a,b|%>
             <input name="<%=a%>" value="<%=b%>" type="hidden">
         <%end%>
@@ -54,6 +54,7 @@
                 <%end%>
             <%end%>
         <%end%>
+        </form>
         <div class="testing-third-bottom-top">
             <h1>추가 텍스트 입력</h1>
             <textarea name="message" placeholder="추가적으로 테스터들에게 궁금하거나 문의하실 사항이 있으시면 자유롭게 적어주세요.&#13;&#10;이 내용은 모든 테스트 진행을 마친 후, 각 테스터들에게 제공됩니다.&#13;&#10; *500자 내외"></textarea>
@@ -89,7 +90,7 @@
         var authe = true;
         if (authe) {
             $.ajax({
-                url: "https://script.google.com/macros/s/AKfycbw-GuG6SCIQbmALOfBmcOTOOHCg3dAXhOqe7NYJFg/exec",
+                url: "https://script.google.com/macros/s/AKfycbxy5a58WOmJFjujkawV8rWYtyCEg0j8wcSN_yFnrVcXyK0ZVw8/exec",
                 type: 'POST',
                 data: $(".third-form").serialize(),
                 beforeSend: function(e) {
