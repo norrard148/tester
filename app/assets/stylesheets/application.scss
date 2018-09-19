@@ -127,10 +127,13 @@ h1, h2, h3, h4, a, input {
 @media (max-width: 991px) {
     .navbar {
         justify-content: space-between;
-        padding-top: 10px;
+        padding-top: 15px;
     }
     .navbar .navbar-brand {
         margin-left: 25px;
+        img {
+            width: 120px;
+        }
     }
     .navbar-toggler {
         margin-right: 25px;

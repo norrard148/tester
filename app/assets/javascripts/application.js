@@ -24,8 +24,7 @@
 
 
 $(document).on('scroll', function (){
-    var body = $("body")
-  
+    var body = $("body");
     if ($(".index").length>0) {
         var bottom_of_object1 = $(".hideme").offset().top;
         var bottom_of_object2 = $(".index-middle").offset().top;
@@ -47,11 +46,10 @@ $(document).on('scroll', function (){
         }
     }
     else if ($(".aboutus-middle").length>0) {
-        
-            var bottom_of_object0 = $(".index-middle.aboutus").offset().top + 200;
+            var bottom_of_object0 = $(".index-middle.aboutus").offset().top;
             var bottom_of_object1 = $(".aboutus-middle").offset().top;
             var bottom_of_object2 = $(".aboutus-middle2").offset().top;
-            var bottom_of_object3 = $(".index-bottom.aboutus").offset().top+200;
+            var bottom_of_object3 = $(".index-bottom.aboutus").offset().top;
             var bottom_of_window = $(window).scrollTop() + $(window).height();
             if( bottom_of_window > bottom_of_object0 ){
                 $('.card1').animate({'opacity':'1'},500).queue(function() {
