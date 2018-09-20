@@ -1667,9 +1667,11 @@ button.card-button[aria-expanded=true] {
 
 .contact-input-box {
     border-bottom: 1px solid gray;
+    padding-left: 0;
 }
 .contact-input {
     border: 0;
     outline: 0;
     width: 19rem;
+    padding-left: 15px;
 }
