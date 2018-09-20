@@ -258,3 +258,13 @@
         }
     }
 }
+
+
+
+.card1, .card2, .card3, .card4, .card5, .card6, .card7, .aboutus-middle-box-left, .aboutus-middle-box-right, .hideme, .hideme2 {
+    -webkit-transition: opacity 0.5s ease-in 0s;
+    -moz-transition: opacity 0.5s ease-in 0s;
+    -o-transition: opacity 0.5s ease-in 0s;
+    -ms-transition: opacity 0.5s ease-in 0s;
+    transition: opacity 0.5s ease-in 0s;
+}

@@ -25,108 +25,101 @@
 
 $(document).on('scroll', function (){
     if ($(".index").length>0) {
-        var bottom_of_object1 = $(".hideme").offset().top;
         var bottom_of_window = $(window).scrollTop() + $(window).height();
-        if( bottom_of_window > bottom_of_object1 ){
-            var bottom_of_object2 = $(".index-middle").offset().top;
-           
-            var bottom_of_object2_1 = $(".mobile.card1").offset().top+$(".mobile.card1").outerHeight();
-            var bottom_of_object2_2 = $(".mobile.card2").offset().top+$(".mobile.card2").outerHeight();
-            var bottom_of_object2_3 = $(".mobile.card3").offset().top+$(".mobile.card3").outerHeight();
-            $('.hideme').animate({'opacity':'1'},500)
-            if( bottom_of_window > bottom_of_object2 ){
-                $('.pc.card1').animate({'opacity':'1'},500).queue(function() {
-                        $('.pc.card2').animate({'opacity':'1'},500).queue(function() {
-                            $('.pc.card3').animate({'opacity':'1'},500)
-                            $('.pc.hideme2').animate({'opacity':'1'},500)
-                        });
+        var bottom_of_object1 = $(".hideme").offset().top;
+        var bottom_of_object2 = $(".index-middle").offset().top;
+        var bottom_of_object2_1 = $(".mobile.card1").offset().top+$(".mobile.card1").outerHeight();
+        var bottom_of_object2_2 = $(".mobile.card2").offset().top+$(".mobile.card2").outerHeight();
+        var bottom_of_object2_3 = $(".mobile.card3").offset().top+$(".mobile.card3").outerHeight();
+        var bottom_of_object3 = $(".index-bottom").offset().top ;
+        if( bottom_of_window > bottom_of_object2 && bottom_of_window <= bottom_of_object3){
+            $('.hideme').addClass("show");
+            $('.pc.card1').addClass("show").queue(function() {
+                $('.pc.card2').addClass("show").queue(function() {
+                    $('.pc.card3').addClass("show")
+                    $('.pc.hideme2').addClass("show")
                 });
-                if (bottom_of_window > bottom_of_object2_1) {
-                    $('.mobile.card1').animate({'opacity':'1'},500)
-                    if (bottom_of_window > bottom_of_object2_2) {
-                        $('.mobile.card2').animate({'opacity':'1'},500)
-                        if (bottom_of_window > bottom_of_object2_3) {
-                            $('.mobile.card3').animate({'opacity':'1'},500).queue(function() {
-                                $('.mobile.hideme2').animate({'opacity':'1'},500)
-                            })
-                        }
+            });
+            if (bottom_of_window > bottom_of_object2_1) {
+                $('.mobile.card1').addClass("show")
+                if (bottom_of_window > bottom_of_object2_2) {
+                    $('.mobile.card2').addClass("show")
+                    if (bottom_of_window > bottom_of_object2_3) {
+                        $('.mobile.card3').addClass("show").queue(function() {
+                            $('.mobile.hideme2').addClass("show")
+                        })
                     }
                 }
-                var bottom_of_object3 = $(".index-bottom").offset().top ;
-                if( bottom_of_window > bottom_of_object3){
-                    $(".index-bottom h1, .index-bottom h2, .index-bottom button").addClass("show");
-                }; 
             }
-
+        }
+        else if( bottom_of_window > bottom_of_object3){ 
+                $(".index-bottom h1, .index-bottom h2, .index-bottom button").addClass("show");
         }
     }
     else if ($(".aboutus").length>0) {
-            var bottom_of_object0 = $(".index-middle.aboutus").offset().top+200;
-            var bottom_of_window = $(window).scrollTop() + $(window).height();
-            if( bottom_of_window > bottom_of_object0 ){
-                $('.hideme').animate({'opacity':'1'},500);
-                $('.pc.card1').animate({'opacity':'1'},500).queue(function() {
-                    $('.pc.card2').animate({'opacity':'1'},500).queue(function() {
-                        $('.pc.card3').animate({'opacity':'1'},500);
-                    });
-                });
-                var bottom_of_object0_1 = $(".mobile.card1").offset().top+$(".mobile.card1").outerHeight();
-                var bottom_of_object0_2 = $(".mobile.card2").offset().top+$(".mobile.card1").outerHeight();
-                var bottom_of_object0_3 = $(".mobile.card3").offset().top+$(".mobile.card1").outerHeight();
-                if (bottom_of_window > bottom_of_object0_1) {
-                    $('.mobile.card1').animate({'opacity':'1'},500)
-                }
-                if (bottom_of_window > bottom_of_object0_2) {
-                    $('.mobile.card2').animate({'opacity':'1'},500)
-                }
-                if (bottom_of_window > bottom_of_object0_3) {
-                    $('.mobile.card3').animate({'opacity':'1'},500)
-                }
-                var bottom_of_object1_1 = $(".aboutus-middle-box-left").offset().top;
-                var bottom_of_object1_2 = $(".aboutus-middle-box-right").offset().top;
-                if( bottom_of_window > bottom_of_object1_1 ){
-                    $('.aboutus-middle-box-left').animate({'opacity':'1'},500)
-                    $('.hideme2').animate({'opacity':'1'},500)
-                    if (bottom_of_window > bottom_of_object1_2) {
-                        $('.aboutus-middle-box-right').animate({'opacity':'1'},500)
-                        var bottom_of_object2 = $(".aboutus-middle2").offset().top;
-                        if( bottom_of_window > bottom_of_object2 ){
-                            var bottom_of_object2_1 = $(".mobile.card4").offset().top +$(".mobile.card4").outerHeight();
-                            var bottom_of_object2_2 = $(".mobile.card5").offset().top +$(".mobile.card5").outerHeight();
-                            var bottom_of_object2_3 = $(".mobile.card6").offset().top +$(".mobile.card6").outerHeight();
-                            var bottom_of_object2_4 = $(".mobile.card7").offset().top +$(".mobile.card7").outerHeight();
-                            $('.pc.card4').animate({'opacity':'1'},500).queue(function() {
-                                $('.pc.card5').animate({'opacity':'1'},500).queue(function() {
-                                    $('.pc.card6').animate({'opacity':'1'},500).queue(function() {
-                                        $('.pc.card7').animate({'opacity':'1'},500)
-                                    });;
-                                });
-                            });
-                            if (bottom_of_window > bottom_of_object2_1) {
-                                $('.mobile.card4').animate({'opacity':'1'},500)
-                                if (bottom_of_window > bottom_of_object2_2) {
-                                    $('.mobile.card5').animate({'opacity':'1'},500)
-                                    if (bottom_of_window > bottom_of_object2_3) {
-                                        $('.mobile.card6').animate({'opacity':'1'},500)
-                                        if (bottom_of_window > bottom_of_object2_4) {
-                                            $('.mobile.card7').animate({'opacity':'1'},500)
-                                            var bottom_of_object3 = $(".index-bottom.aboutus").offset().top;
-                                            if( bottom_of_window > bottom_of_object3 ){
-                                                $(".index-bottom.aboutus h1, .index-bottom.aboutus button").addClass("show");
-                                            };
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    };
-                
-                };
-            };
-    }
-    else if ($("#works-container1").length>0) {
-        var bottom_of_object0 = $("#works-box1").offset().top + 150;
         var bottom_of_window = $(window).scrollTop() + $(window).height();
+        var bottom_of_object0 = $(".index-middle.aboutus").offset().top+200;
+        var bottom_of_object1_1 = $(".aboutus-middle-box-left").offset().top;
+        var bottom_of_object2 = $(".aboutus-middle2").offset().top;
+        var bottom_of_object3 = $(".index-bottom.aboutus").offset().top;
+        if( bottom_of_window > bottom_of_object0 && bottom_of_window <= bottom_of_object1_1 ){
+            var bottom_of_object0_1 = $(".mobile.card1").offset().top+$(".mobile.card1").outerHeight()-150;
+            var bottom_of_object0_2 = $(".mobile.card2").offset().top+$(".mobile.card1").outerHeight()-150;
+            var bottom_of_object0_3 = $(".mobile.card3").offset().top+$(".mobile.card1").outerHeight()-150;
+            $('.hideme').addClass("show");
+            $('.pc.card1').addClass("show").queue(function() {
+                $('.pc.card2').addClass("show").queue(function() {
+                    $('.pc.card3').addClass("show");
+                });
+            });
+            if (bottom_of_window > bottom_of_object0_1) {
+                $('.mobile.card1').addClass("show");
+            }
+            if (bottom_of_window > bottom_of_object0_2) {
+                $('.mobile.card2').addClass("show");
+            }
+            if (bottom_of_window > bottom_of_object0_3) {
+                $('.mobile.card3').addClass("show");
+            }
+        }
+        else if( bottom_of_window > bottom_of_object1_1 && bottom_of_window <= bottom_of_object2 ){
+            var bottom_of_object1_2 = $(".aboutus-middle-box-right").offset().top;
+            $('.hideme2').addClass("show");
+            $('.aboutus-middle-box-left').addClass("show");
+            if (bottom_of_window > bottom_of_object1_2) {
+                $('.aboutus-middle-box-right').addClass("show");
+            };
+        }
+        else if( bottom_of_window > bottom_of_object2 && bottom_of_window <= bottom_of_object3 ){
+            var bottom_of_object2_1 = $(".mobile.card4").offset().top +$(".mobile.card4").outerHeight()-150;
+            var bottom_of_object2_2 = $(".mobile.card5").offset().top +$(".mobile.card5").outerHeight()-150;
+            var bottom_of_object2_3 = $(".mobile.card6").offset().top +$(".mobile.card6").outerHeight()-150;
+            var bottom_of_object2_4 = $(".mobile.card7").offset().top +$(".mobile.card7").outerHeight()-150;
+            $('.pc.card4').addClass("show")
+            $('.pc.card5').addClass("show")
+            $('.pc.card6').addClass("show")
+            $('.pc.card7').addClass("show")
+            if (bottom_of_window > bottom_of_object2_1) {
+                $('.mobile.card4').addClass("show");
+                if (bottom_of_window > bottom_of_object2_2) {
+                    $('.mobile.card5').addClass("show");
+                    if (bottom_of_window > bottom_of_object2_3) {
+                        $('.mobile.card6').addClass("show");
+                        if (bottom_of_window > bottom_of_object2_4) {
+                            $('.mobile.card7').addClass("show");
+                           
+                        }
+                    }
+                }
+            }
+        }
+        else if ( bottom_of_window > bottom_of_object3){
+            $(".index-bottom.aboutus h1, .index-bottom.aboutus button").addClass("show");
+        }    
+    }
+    else if ($(".works").length>0) {
+        var bottom_of_window = $(window).scrollTop() + $(window).height();
+        var bottom_of_object0 = $("#works-box1").offset().top + 150;
         if( bottom_of_window > bottom_of_object0 ){
             $("#works-box1").addClass("draw")
             $("#works-container1 h1, #works-container1 h2").addClass("show");
