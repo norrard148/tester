@@ -133,7 +133,8 @@
 .works-bottom {
     background-color: #e8454a;
     width: 100%;
-    padding: 80px 0;
+    
+    min-height: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -154,7 +155,7 @@
     }
     h2 {
         font-size: 20px;
-        margin-bottom: 70px;
+        margin-bottom: 30px;
         -webkit-transition: opacity 0.75s ease-in 0.5s;
         -moz-transition: opacity 0.75s ease-in 0.5s;
         -o-transition: opacity 0.75s ease-in 0.5s;
@@ -199,12 +200,13 @@
         width: 100%;
         height: auto;
         align-items: center;
-        padding: 150px 20px 70px 20px;
+        padding: 180px 0px 70px 0px;
         h1, h2 {
           text-align: center;
         }
         h1 {
             font-size: 28px;
+            margin-bottom: 37px;
         }
         h2 {
             font-size: 14px;
@@ -227,23 +229,42 @@
         top: -125px;
         width: 250px;
         height: 250px;
-        left: auto;
+        right: 0;
+        left: 0;
         margin: 0 auto;
+        h1 {
+            margin-bottom: 10px;
+        }
     }
     .works-container.last {
         margin-bottom: 0;
     }
     .works-bottom {
-        padding: 80px 40px;
+        padding: 80px 0px;
+        min-height: 470px;
         h1 {
             font-size: 28px;
             line-height: 120%;
         }
         h2 {
             font-size: 14px;
+            margin-bottom: 70px;
         }
         button {
             width: 280px;
+            p {
+                font-size: 20px;
+            }
         }
     }
+}
+
+
+
+.card1, .card2, .card3, .card4, .card5, .card6, .card7, .aboutus-middle-box-left, .aboutus-middle-box-right, .hideme, .hideme2 {
+    -webkit-transition: opacity 0.5s ease-in 0s;
+    -moz-transition: opacity 0.5s ease-in 0s;
+    -o-transition: opacity 0.5s ease-in 0s;
+    -ms-transition: opacity 0.5s ease-in 0s;
+    transition: opacity 0.5s ease-in 0s;
 }

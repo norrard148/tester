@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :posts
   get 'testing/first'
   get 'testing/firsttest'
   get 'testing/index'
@@ -11,11 +10,10 @@ Rails.application.routes.draw do
   get 'testing/third'
   get 'testing/submit'
   post 'testing/submit'
-  get 'testing/first1'
-  get 'testing/aboutus'
-  get 'testing/works'
-  get 'testing/recruit'
-  get 'testing/contact'
-  root 'testing#index'
+  get '/aboutus' => "main#aboutus"
+  get '/works' => "main#works"
+  get '/recruit' => "main#recruit"
+  get '/contact' => "main#contact"
+  root 'main#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

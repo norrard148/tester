@@ -7,6 +7,7 @@
         font-size: 40px;
     }
     h2 {
+        margin: 30px 0 ;
         font-size: 20px;
     }
     h1, h2 {
@@ -53,7 +54,7 @@
 }
 
 .aboutus-middle {
-    opacity: 0;
+    margin-top :40px;
     -webkit-transition: opacity 0.75s ease-in 0.75s;
     -moz-transition: opacity 0.75s ease-in 0.75s;
     -o-transition: opacity 0.75s ease-in 0.75s;
@@ -67,6 +68,7 @@
 }
 .aboutus-middle-box {
     display: flex;
+   
     margin-bottom: 100px;
     h2 {
         font-size: 22px;
@@ -78,6 +80,7 @@
 .aboutus-middle-box-left, .aboutus-middle-box-right {
     display: flex;
     flex-direction: column;
+    opacity: 0;
     
 }
 .aboutus-middle-box-left {
@@ -146,19 +149,28 @@
 @media (max-width: 1250px) {
 
     .index-middle.aboutus {
+        margin-top: 50px;
         h1 {
             font-size: 28px;
         }
         h2 {
             font-size: 14px;
-            padding: 0 40px;
+        }
+        p {
+            font-size: 20px;
         }
     }
-
+    .index-middle.aboutus .index-middle-box {
+        margin-top: 0px;
+        margin-bottom: 20px;
+    }
     .aboutus-middle-box-right-middle, .aboutus-middle-box-left-middle {
         flex-direction: column;
         align-items: center;
         margin-top: 50px;
+    }
+    .aboutus-middle-box-left-middle {
+        flex-direction: column-reverse!important;
     }
     .aboutus-middle-box-right, .aboutus-middle-box-left {
         
@@ -170,13 +182,18 @@
     }
     .aboutus-middle-box-left {
         margin-right: 0;
-        margin-bottom: 100px;
+        margin-bottom: 60px;
     }
     .aboutus-middle {
+        margin-top: 0px;
         p {
             padding: 0 40px;
-            margin-bottom: 40px;
+            margin-bottom: 70px;
+            font-size: 28px;
         }
+    }
+    .aboutus-middle-box-right-content > div {
+        margin:22px 0;
     }
     .aboutus-middle-box {
         flex-direction: column;
@@ -186,6 +203,10 @@
         align-items: center;
         h2, h3 {
             text-align: center;
+
+        }
+        h2 {
+            margin-bottom: 24px;
         }
     }
     .aboutus-middle2 {
@@ -193,5 +214,18 @@
     }
     .aboutus-card {
         margin: 20px 0;
+    }
+    .index-bottom.aboutus {
+        margin-top: 20px;
+        padding: 0;
+        .pc {
+            display: none;
+        }
+        .show {
+
+        }
+        h1 {
+            margin:60px  0;
+        }
     }
 }
