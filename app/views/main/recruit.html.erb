@@ -54,36 +54,42 @@
             <p>지원서류&nbsp;&nbsp;&nbsp;&nbsp;이력서, 자기소개서, 포트폴리오</p>
         </div>
         <div style="width: 345px;">
-            <form method="post" enctype="multipart/form-data" action="https://script.google.com/macros/s/AKfycbxy5a58WOmJFjujkawV8rWYtyCEg0j8wcSN_yFnrVcXyK0ZVw8/exec",
-                method='POST'>
-                <div class="recruit-input-box mb-3"><label>이름*&nbsp;&nbsp;</label><input class="recruit-input" type="text" id="uname" name="name"></div>
-                <div class="recruit-input-box mb-3"><label>연락처*&nbsp;&nbsp;</label><input class="recruit-input" type="text" id="phone"></div>
-                <div class="recruit-input-box mb-3"><label>이메일*&nbsp;&nbsp;</label><input class="recruit-input" id="emailAddress" type="email"></div>
-                <div class="d-flex recruit-input-box mb-3">
-                    <div><label for="file">파일 업로드*</label></div>
-                    <div class="d-flex flex-column ml-4">
-                        <div class="recruit-inputfile-box mb-3">
-                            <input type="file" name="file-1[]" id="file-1" class="inputfile" />
-                            <label for="file-1">&nbsp;&nbsp;첨부 1</label>
-                        </div>
-                        <div class="recruit-inputfile-box mb-3">
-                            <input type="file" name="file-2[]" id="file-2" class="inputfile" />
-                            <label for="file-2">&nbsp;&nbsp;첨부 2</label>
-                        </div>
-                        <div class="recruit-inputfile-box mb-3">
-                            <input type="file" name="file-3[]" id="file-3" class="inputfile" />
-                            <label for="file-3">&nbsp;&nbsp;첨부 3<span></span></label>
-                        </div>
-                        <div class="recruit-inputfile-box mb-3">
-                            <label for="file-3">&nbsp;&nbsp;첨부 3<input type="file" name="file-3[]" id="file-3" class="inputfile" /></label>
-                        </div>
-                    </div>
-                </div>
-                <div class="mb-5 ml-4">
-                    <button class="recruit-button">더 테스터 지원하기</button>
-                    
-                </div>
-            </form>
+            <%= form_with(model: @post, local: true, url: "/recruitsubmit") do |form| %>
+            <% if @post.errors.any? %>
+            <div id="error_explanation">
+            <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+            <ul>
+            <% @post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+            </ul>
+            </div>
+            <% end %>
+            <div class="recruit-input-box mb-3"><label>이름*&nbsp;&nbsp;</label><input class="recruit-input" type="text" id="uname" ></div>
+            <div class="recruit-input-box mb-3"><label>연락처*&nbsp;&nbsp;</label><input class="recruit-input" type="text" id="phone"></div>
+            <div class="recruit-input-box mb-3"><label>이메일*&nbsp;&nbsp;</label><input class="recruit-input" id="emailAddress" type="email"></div>
+            <div class="d-flex recruit-input-box mb-3">
+            <div><label for="file">파일 업로드*</label></div>
+            <div class="d-flex flex-column ml-4">
+            <div class="recruit-inputfile-box mb-3">
+            <%= form.label :attachment %>
+            <%= form.file_field :attachment %>
+            </div>
+            <div class="recruit-inputfile-box mb-3">
+                <%= form.label :attachment2 %>
+            <%= form.file_field :attachment2 %>
+            </div>
+            <div class="recruit-inputfile-box mb-3">
+            <%= form.label :attachment3 %>
+            <%= form.file_field :attachment3 %>
+            </div>
+            </div>
+            </div>
+            <div class="mb-5 ml-4">
+            <button class="recruit-button">더 테스터 지원하기</button>
+            </div>
+            <% end %>
         </div>
     </div>
     </div>
@@ -91,25 +97,4 @@
 
 <script>
     $(".navbar-nav a:nth-child(4)").addClass("color");
-
-    var inputs = document.querySelectorAll( '.inputfile' );
-    Array.prototype.forEach.call( inputs, function( input )
-    {
-        var label	 = input.nextElementSibling,
-            labelVal = label.innerHTML;
-
-        input.addEventListener( 'change', function( e )
-        {
-            var fileName = '';
-            // if( this.files && this.files.length = 1 ){
-            //     fileName = e.target.value.split( '\\' ).pop();
-            // }
-            if( fileName ) {
-                label.querySelector( 'span' ).innerHTML = fileName;
-            }
-            else {
-                label.innerHTML = labelVal;
-            }
-        });
-    });
 </script>
