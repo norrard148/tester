@@ -1613,74 +1613,9 @@ button.card-button[aria-expanded=true] {
     max-width: 100%;
 }
 
-.recruit-img {
-    width: 146px;
-    height: 146px;
-}
-
 .noto {
     font-family: 'Noto Sans KR', sans-serif;
     h1, h2, h3, h4, h5, h6, p, a, li, div {
         font-weight: lighter;
     }
-}
-
-.recruit-input-box {
-    border-bottom: 1px solid gray;
-}
-.recruit-input {
-    border: 0;
-    outline: 0;
-}
-.inputfile {
-	width: 0.1px;
-	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-    z-index: -1;
-}
-
-.inputfile + label {
-    cursor: pointer;
-    display: inline-block;
-}
-
-.inputfile:focus + label,
-.inputfile + label:hover {
-    background-color: red;
-}
-
-.recruit-button {
-    width: 300px;
-    height: 50px;
-    border-style: solid;
-    border-width: 1.5px;
-    border-radius: 10px;
-    border-color: #282828;
-    color: #282828;
-    cursor: pointer;
-    margin-bottom: 6rem;
-}
-.recruit-button:hover {
-    background-color: #282828;
-    border-color: #282828;
-    color: #fff;
-}
-
-.recruit-inputfile-box {
-    border: 1px solid #282828;
-    border-radius: 2px;
-    width: 230px;
-}
-
-.contact-input-box {
-    border-bottom: 1px solid gray;
-    padding-left: 0;
-}
-.contact-input {
-    border: 0;
-    outline: 0;
-    width: 19rem;
-    padding-left: 15px;
 }
