@@ -13,8 +13,8 @@
         <p class="h1">Members</p>
     </div>
 
-    <div class="container" style="margin-bottom: 150px; margin-top: 100px;">
-        <div class="row">
+    <div class="container">
+        <div class="row" style="margin-bottom: 150px; margin-top: 100px;">
             <div class="col-lg d-flex justify-content-center align-items-center" style="width: 450px;">
                 <div class="mr-5"><%= image_tag('W_img_recruit_jisoo.png', class:"recruit-img")%></div>
                 <div>
@@ -32,10 +32,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    
 
     <div class="mt-5 mb-5">
-        <p class="h1">Recruit</p>
+        <p class="h1 text-center">Recruit</p>
     </div>
 
     <div class="mb-5">
@@ -91,13 +91,13 @@
             </div>
             <% end %>
         </div>
-
     </div>
-
+    </div>
 </div>
 
 <script>
     $(".navbar-nav a:nth-child(4)").addClass("color");
+
     var inputs = document.querySelectorAll( '.inputfile' );
     Array.prototype.forEach.call( inputs, function( input )
     {
@@ -107,13 +107,9 @@
         input.addEventListener( 'change', function( e )
         {
             var fileName = '';
-            if( this.files && this.files.length > 1 ){
-                fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
-            }
-            else {
-                fileName = e.target.value.split( '\\' ).pop();
-
-            }
+            // if( this.files && this.files.length = 1 ){
+            //     fileName = e.target.value.split( '\\' ).pop();
+            // }
             if( fileName ) {
                 label.querySelector( 'span' ).innerHTML = fileName;
             }
