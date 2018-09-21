@@ -38,7 +38,7 @@
         <%=render 'third-box'%>
     </div>
     <div class="testing-third-bottom">
-        <form  class="third-form gform">
+        <form  class="third-form"  >
         <%@params[:customer].each do |a,b|%>
             <input name="<%=a%>" value="<%=b%>" type="hidden">
         <%end%>
@@ -80,11 +80,37 @@
     <%=image_tag("preloader.svg")%>
 </div>
 
-<form type="hidden" action="/testing/submit" method="post" class="submit" >
+<form type="hidden"action="/testing/submit" method="post" class="submit" >
+        <%@params[:customer].each do |a,b|%>
+            <input name="[customer][<%=a%>]" value="<%=b%>" type="hidden">
+        <%end%>
+        <%@params[:purpose].each do |a,b|%>
+            <%b.each do |c, d |%>
+                <%if c =="minute" || c == "second" || c == "goal" || c== "purpose-is"%>
+                <%then%>
+                    <input name="[purpose][<%=a%>][<%=c%>]" value="<%=d%>" type="hidden">
+                <%else%>
+                    <%d.each do |e,f|%>
+                        <input name="[purpose][<%=a%>][<%=c%>][<%=e%>]" value="<%=f%>" type="hidden">
+                    <%end%>
+                <%end%>
+            <%end%>
+        <%end%>
 </form>
 <form type="hidden" action="/testing/first" method="get" class="modify" >
 </form>
 <script>
+var vars = [], hash;
+        var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        for(var i = 0; i < hashes.length; i++) {
+            hash = hashes[i].split('=');
+            vars.push(hash[0]);
+            vars[hash[0]] = hash[1];
+        }
+
+
+
+console.log(vars)
     $(".navbar-nav a:last-child()").addClass("color");
     $("#submit").click(function() {
         var authe = true;
@@ -104,6 +130,7 @@
                 },
                 success : function(data) {
                     $(".submit").submit();
+                    
                 },
                 fail: function() {
                     authe = false;

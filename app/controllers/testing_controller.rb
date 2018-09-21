@@ -78,7 +78,9 @@ class TestingController < ApplicationController
     end
   end
   def submit
-    
+    params.permit! 
+    @params = params
+    SubmitmailerMailer.submit(@params).deliver
   end
 
   private
