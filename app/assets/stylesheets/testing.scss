@@ -389,7 +389,11 @@
     }
     .purpose-arrow {
         transition: transform 0.15s linear 0s;
-     
+        -moz-transform:rotateX(180deg);
+        -ms-transform:rotateX(180deg);
+        -webkit-trnsform:rotateX(180deg);
+        -o-transform:rotateX(180deg);
+        transform: rotateX(180deg);
     }
 }
 .card-header-left {
@@ -418,11 +422,11 @@
 }
 button.card-button[aria-expanded=true] {
     .purpose-arrow {
-        -moz-transform:rotateX(180deg);
-        -ms-transform:rotateX(180deg);
-        -webkit-trnsform:rotateX(180deg);
-        -o-transform:rotateX(180deg);
-        transform: rotateX(180deg);
+        -moz-transform:rotateX(0deg);
+        -ms-transform:rotateX(0deg);
+        -webkit-trnsform:rotateX(0deg);
+        -o-transform:rotateX(0deg);
+        transform: rotateX(0deg);
        
     }
 }
@@ -1056,9 +1060,15 @@ button.card-button[aria-expanded=true] {
         position:absolute;
         cursor: pointer;
     }
-    img {
-        width: 70%;
+    div {
+        width: 80%;
+        margin-top:50px;
+        margin-bottom:50px;
         height: auto;
+        img {
+            width: 45%;
+            height: auto;
+        }
     }
     h1 {
         font-size: 35px;
@@ -1088,10 +1098,14 @@ button.card-button[aria-expanded=true] {
     h2 {
         font-size: 13px;
     }
-    img {
+    div {
+        margin-top: 0px;
         width: 75%;
         height: auto;
         margin-bottom: 40px;
+        img {
+            margin: 0px 10px;
+        }
     }
     button {
         height: 35px;

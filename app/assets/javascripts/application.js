@@ -117,7 +117,7 @@ $(document).on('scroll', function (){
             $(".index-bottom.aboutus h1, .index-bottom.aboutus button").addClass("show");
         }    
     }
-    else if ($(".works").length>0) {
+    else if ($(".works-container").length>0) {
         var bottom_of_window = $(window).scrollTop() + $(window).height();
         var bottom_of_object0 = $("#works-box1").offset().top + 150;
         if( bottom_of_window > bottom_of_object0 ){

@@ -13,12 +13,12 @@
                     <h1>목표 (<%=@purpose_generator%>)</h1>
                     <input placeholder="목표를 입력해주세요." class="purpose-is" id="purpose-is" name="[purpose][purpose<%=@purpose_generator%>][purpose-is]">
                     </div>
-                    <button class="card-button collapsed" type="button" data-toggle="collapse" data-target="#collapse<%=@purpose_generator%>"  aria-controls="collapse<%=@purpose_generator%>">
+                    <button class="card-button <%=if @purpose_generator == 1 then  else "collapsed" end%>" type="button" data-toggle="collapse" data-target="#collapse<%=@purpose_generator%>"  aria-controls="collapse<%=@purpose_generator%>" aria-expanded="<%=if @purpose_generator == 1 then true else false end%>">
                     <%=image_tag("big-arrow-fold.svg", :class=>"purpose-arrow")%>
                     </button>
                 </section>
             </div>
-            <div id="collapse<%=@purpose_generator%>" class="collapse <%=if @purpose_generator == 1 then "show" else end%>" aria-labelledby="heading<%=@purpose_generator%>" data-parent="#accordionExample<%=@purpose_generator%>" aria-expanded="false">
+            <div id="collapse<%=@purpose_generator%>" class="collapse <%=if @purpose_generator == 1 then "show" else end%>" aria-labelledby="heading<%=@purpose_generator%>" data-parent="#accordionExample<%=@purpose_generator%>">
 
                 <div class="card-body">
                     <div class="w-100">
@@ -54,7 +54,7 @@
                     </button>
             </section>
         </div>
-        <div id="collapse<%=@purpose_generator%>" class="collapse show" aria-labelledby="heading<%=@purpose_generator%>" data-parent="#accordionExample<%=@purpose_generator%>" aria-expanded="false">
+        <div id="collapse<%=@purpose_generator%>" class="collapse show" aria-labelledby="heading<%=@purpose_generator%>" data-parent="#accordionExample<%=@purpose_generator%>">
        
             <div class="card-body">
                 <div class="w-100">
