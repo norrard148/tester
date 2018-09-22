@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get '/recruit' => "main#recruit"
   post '/recruitsubmit' => "main#recruitsubmit"
   get '/contact' => "main#contact"
+  post '/contactsubmit' => "main#contactsubmit"
   root 'main#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

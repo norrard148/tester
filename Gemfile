@@ -4,7 +4,7 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
-
+gem 'figaro'
 gem 'rails_db', '~> 2.0', '>= 2.0.3'
 gem 'carrierwave', '~> 1.0'
 gem 'bootstrap-sass', '~> 2.3.2'

@@ -15,7 +15,7 @@
 
     <div class="container">
         <div class="row" style="margin-bottom: 150px; margin-top: 100px;">
-            <div class="col-lg d-flex justify-content-center align-items-center" style="width: 450px;">
+            <div class="col-lg d-flex justify-content-center align-items-center" style="width: 250px;">
                 <div class="mr-5"><%= image_tag('W_img_recruit_jisoo.png', class:"recruit-img")%></div>
                 <div>
                     <p class="h6">CEO. Founder</p>
@@ -23,7 +23,7 @@
                     <p class="h6">편견없는 기획자</p>
                 </div>
             </div>
-            <div class="col-lg d-flex justify-content-center align-items-center" style="width: 450px;">
+            <div class="col-lg d-flex justify-content-center align-items-center" style="width: 250px;">
                 <div class="mr-5"><%= image_tag('W_img_recruit_ahram.png', class:"recruit-img")%></div>
                 <div>
                     <p class="h6">CDO. Co-Founder</p>
@@ -44,8 +44,8 @@
     </div>
     
 
-    <div class="d-flex justify-content-center mt-5">
-        <div style="margin-right: 8rem; margin-top: 1rem;">
+    <div class="d-flex justify-content-center" style="margin-top: 80px;">
+        <div class="recruit-explain" style="margin-right: 180px;margin-top: 20px;">
             <p>모집분야&nbsp;&nbsp;&nbsp;&nbsp;엔지니어</p>
             <p>모집인원&nbsp;&nbsp;&nbsp;&nbsp;0명</p>
             <p>자격요건 &nbsp;&nbsp;&nbsp;&nbsp;1. 플랫폼 개발 경력 2~3년 이상</p>
@@ -53,7 +53,7 @@
             <p>지원기간&nbsp;&nbsp;&nbsp;&nbsp;채용 시까지</p>
             <p>지원서류&nbsp;&nbsp;&nbsp;&nbsp;이력서, 자기소개서, 포트폴리오</p>
         </div>
-        <div style="width: 345px;">
+        <div style="width: 480px;">
             <%= form_with(model: @post, local: true, url: "/recruitsubmit") do |form| %>
             <% if @post.errors.any? %>
             <div id="error_explanation">
@@ -66,27 +66,27 @@
             </ul>
             </div>
             <% end %>
-            <div class="recruit-input-box mb-3"><label>이름*&nbsp;&nbsp;</label><input class="recruit-input" type="text" id="uname" ></div>
-            <div class="recruit-input-box mb-3"><label>연락처*&nbsp;&nbsp;</label><input class="recruit-input" type="text" id="phone"></div>
-            <div class="recruit-input-box mb-3"><label>이메일*&nbsp;&nbsp;</label><input class="recruit-input" id="emailAddress" type="email"></div>
-            <div class="d-flex recruit-input-box mb-3">
-            <div><label for="file">파일 업로드*</label></div>
-            <div class="d-flex flex-column ml-4">
-            <div class="recruit-inputfile-box mb-3">
-            <%= form.label :attachment %>
+            <div class="recruit-input-box"><label>이름*&nbsp;&nbsp;</label><input class="recruit-input" type="text" id="uname" name="name"></div>
+            <div class="recruit-input-box"><label>연락처*&nbsp;&nbsp;</label><input class="recruit-input" type="text" id="phone" name="phonenumber"></div>
+            <div class="recruit-input-box"><label>이메일*&nbsp;&nbsp;</label><input class="recruit-input" id="emailAddress" type="email" name="email"></div>
+            <div class="d-flex recruit-input-box">
+            <div style="margin-top: 10px;width: 30%"><label for="file ">파일 업로드*</label></div>
+            <div class="d-flex flex-column " style="width: 60%;">
+            <div class="recruit-inputfile-box">
+        
             <%= form.file_field :attachment %>
             </div>
-            <div class="recruit-inputfile-box mb-3">
-                <%= form.label :attachment2 %>
+            <div class="recruit-inputfile-box">
+                
             <%= form.file_field :attachment2 %>
             </div>
-            <div class="recruit-inputfile-box mb-3">
-            <%= form.label :attachment3 %>
+            <div class="recruit-inputfile-box">
+            
             <%= form.file_field :attachment3 %>
             </div>
             </div>
             </div>
-            <div class="mb-5 ml-4">
+            <div class="d-flex justify-content-center align-items-center">
             <button class="recruit-button">더 테스터 지원하기</button>
             </div>
             <% end %>
