@@ -6,110 +6,102 @@
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
     <style>
+    .customer, .purpose {
+        border: 1px solid #282828;
+        width: 80%;
+        margin: 30px 0;
+    }
+    .target {
+        border-top: 1px solid grey;
+        border-bottom: 1px solid grey;
+    }
     </style>
   </head>
    <body>
-        <%$b=0%>
-<%@params['purpose'].each do |a,b|%>
-<%$b+=1%>
- <div class="testing-third-top-box">
-    <div class="testing-third-top-box-top">
-       
-        <h1>목표 <%=$b%>. <%=b['purpose-is']%></h1>
-        <section>
-            <span>
-                <h2>예상시간</h2>
-                <h3><%=b['minute']%>분 <%=b['second']%>초</h3>
-            </span>
-            <div></div>
-            <span>
-                <h2>예상 리워드</h2>
-                <h3>
-                    <%@testernumber=0%>
-                    <%b.each do |c,d|%>
-                    <%if c != "goal" then%>
-                    <%@testernumber+=d['testernumber'].to_i()%>
-                    <%end%>
-                    <%end%>
-                    <%= number_with_delimiter((@testernumber.to_i()*(b['minute'].to_i()*60+b['second'].to_i())*1/2).to_s(), :delimiter => ',') %>
-                    p
-                    </h3>
-            </span>
-            <div></div>
-            <span class="hidden">
-                <h2>타겟 수</h2>
-                <h3><%=b.keys.length-3%></h3>
-            </span>
-            <div class="hidden"></div>
-            <span>
-                <h2>테스터 수</h2>
-                <h3><%=@testernumber%></h3>
-            </span>
-            <div class="hidden"></div>
-            <span class="hidden">
-                <h2>인터뷰 질문</h2>
-                <h3><%=(b.keys.length-3)*4%></h3>
-            </span>
-        </section>
-    </div>
-    <%@target=0%>
-    <%b.each do |c,d|%>
-        <%if c != "goal"  && c!= 'second' && c!='minute' && c!= "purpose-is" then%>
-            <div class="testing-third-top-box-middle">
-                <div class="testing-third-top-box-middle-target">
-                    <h1>타겟 <%=@target+=1%></h1>
-                </div>
-                <div class="testing-third-top-box-middle-target detail">
-                    <h1>상세기준</h1>
-                </div>
-                <div class="testing-third-top-box-middle-right">
-                <section class="d-flex justify-content-between">
-                    <span>
-                        <h2>성별</h2>
-                        <h3><%=d['sex']%></h3>
-                    </span>
-                    <div></div>
-                    <span>
-                        <h2>연령대</h2>
-                        <h3><%=d['age']%>대 <%=d['age2']%></h3>
-                    </span>
-                    <div></div>
-                    <span>
-                        <h2>테스터 수</h2>
-                        <h3><%=d['testernumber']%></h3>
-                    </span>
-                </section>
-                </div>
-                <div class="testing-third-top-box-middle-left">
-                    <h1><%=if d['target'] == '' then "타겟명" else d['target'] end%></h1>
-                    <h4><%=if d['detail'] == '' then "상세 기준" else d['detail'] end%></h4>
-                    <section class="w-100">
-                        <span class="w-100">
-                            <h2>인터뷰 질문 1</h2>
-                            <h3>[목표 달성 후] <%=d['question1']%></h3>
-                        </span>
-                        <span class="w-100">
-                            <h2>인터뷰 질문 2</h2>
-                            <h3>[목표 달성 후] <%=d['question2']%></h3>
-                        </span>
-                        <span class="w-100">
-                            <h2>인터뷰 질문 3</h2>
-                            <h3>[목표 실패 후] <%=d['question3']%></h3>
-                        </span>
-                        <span class="w-100">
-                            <h2>인터뷰 질문 4</h2>
-                            <h3>[목표 실패 후] <%=d['question4']%></h3>
-                        </span>
-                    </section>
-                </div>
-                
-            </div>
+   <div class="customer">
+        <%@params['customer'].each do |a,b|%>
+            <h1><%=a%></h1>
+            <h2><%=b%></h2>
         <%end%>
-    <%end%>
-</div>
+    </div>
+    <%$b=0%>
+    <%@params['purpose'].each do |a,b|%>
+        <%$b+=1%>
+        <div class="purpose">
+        <h1>목표 <%=$b%>. <%=b['purpose-is']%></h1>
+        <div style="display:Flex">
+            <div>
+            <h2>예상시간</h2>
+            <h3><%=b['minute']%>분 <%=b['second']%>초</h3>
+            </div>
+            <div>
+            <h2>예상 리워드</h2>
+            <h3>
+            <%@testernumber=0%>
+            <%b.each do |c,d|%>
+            <%if c != "goal" then%>
+            <%@testernumber+=d['testernumber'].to_i()%>
+            <%end%>
+            <%end%>
+            <%= number_with_delimiter((@testernumber.to_i()*(b['minute'].to_i()*60+b['second'].to_i())*1/2).to_s(), :delimiter => ',') %>
+            p
+            </h3>
+            </div>
+            <div>
+            <h2>타겟 수</h2>
+            <h3><%=b.keys.length-3%></h3>
+            </div>
+            <div>
+            <h2>테스터 수</h2>
+            <h3><%=@testernumber%></h3>
+            <div>
+            <h2>인터뷰 질문</h2>
+            <h3><%=(b.keys.length-3)*4%></h3>
+            </div>
+        </div>
+        <%@target=0%>
+        <%b.each do |c,d|%>
+            <%if c != "goal"  && c!= 'second' && c!='minute' && c!= "purpose-is" then%>
+                <div class="target">
+                <h2>타겟 <%=@target+=1%></h2>
+                <div style="display:flex">
+                    <div>
+                    <h3>타겟명</h3>
+                    <h4><%=if d['target'] == '' then "타겟명 미기입" else d['target'] end%></h4>
+                    </div>
+                    <div>
+                    <h3>상세기준</h3>
+                    <h4><%=if d['detail'] == '' then "상세 기준 미기입" else d['detail'] end%></h4>
+                    </div>
+                    <div>
+                    <h3>성별</h3>
+                    <h4><%=d['sex']%></h4>
+                    </div>
+                    <div>
+                    <h3>연령대</h3>
+                    <h4><%=d['age']%>대 <%=d['age2']%></h4>
+                    </div>
+                    <div>
+                    <h3>테스터 수</h3>
+                    <h4><%=d['testernumber']%></h4>
+                    </div>
+                </div>
+                <h3>인터뷰 질문 1</h3>
+                <h4>[목표 달성 후] <%=d['question1']%></h4>
 
-<%end%>
-  </body>
-  
+                <h3>인터뷰 질문 2</h3>
+                <h4>[목표 달성 후] <%=d['question2']%></h4>
+
+                <h3>인터뷰 질문 3</h3>
+                <h4>[목표 실패 후] <%=d['question3']%></h4>
+
+                <h3>인터뷰 질문 4</h3>
+                <h4>[목표 실패 후] <%=d['question4']%></h4>
+                </div>
+            <%end%>
+        <%end%>
+        </div>
+    <%end%>
+    </body>
 </html>
 
