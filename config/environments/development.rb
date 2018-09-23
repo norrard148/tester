@@ -33,8 +33,8 @@ Rails.application.configure do
     address:              'smtp.gmail.com',
     port:                 587,
     domain:               'mail.google.com',
-    user_name:            '',
-    password:             '',
+    user_name:            'jihyuunn710@gmail.com',
+    password:             'Dlwlgus710-',
     authentication:       'plain',
     enable_starttls_auto: true }
   # config.action_mailer.perform_caching = false
