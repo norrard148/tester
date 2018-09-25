@@ -20,6 +20,9 @@
 .hide {
     display: none !important;
 }
+.map-box {
+    padding: 0;
+}
 .map {
     width:700px; 
     height:400px;
@@ -43,6 +46,12 @@
         margin-top: 15px;
         border: 1px solid gray;
     }
+    .contact-input-box {
+        border-bottom: 1px solid gray;
+        padding-left: 0;
+        width: 100%;
+        // margin: 20px 0;
+    }
     .contact-input-button {
         width: 290px;
         height: 50px;
@@ -61,7 +70,7 @@
         }
     }
     .mobile-map {
-        width: 100%;
+        width: 380px;
         height: 300px;
     }
 }

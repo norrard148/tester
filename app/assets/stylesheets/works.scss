@@ -172,6 +172,7 @@
     border: 1px solid white;
     border-radius: 10px;
     background-color: transparent;
+    cursor: pointer;
     display:flex;
     align-items: center;
     justify-content: center;
@@ -185,7 +186,14 @@
         margin-bottom: 0;
         color: white;
     }
-
+    }
+    button:hover {
+        background-color: #fff;
+        p {
+            font-size :23px;
+            margin-bottom: 0;
+            color: #e8454a;
+        }
     }
 }
 @media( max-width: 1100px) {
