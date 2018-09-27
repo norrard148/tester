@@ -152,9 +152,14 @@
         }
     }
 }
-.aboutus-arrow {
-    width: 80px;
-    height: 60px;
+.aboutus-button:hover {
+    color: #4bb43c;
+}
+.aboutus-middle-pc {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    
 }
 
 @media (max-width: 1250px) {
@@ -180,9 +185,9 @@
         align-items: center;
         margin-top: 50px;
     }
-    .aboutus-middle-box-left-middle {
-        flex-direction: column-reverse!important;
-    }
+    // .aboutus-middle-box-left-middle {
+    //     flex-direction: column-reverse!important;
+    // }
     .aboutus-middle-box-right, .aboutus-middle-box-left {
         
         align-items: center;
@@ -239,4 +244,5 @@
             margin:60px  0;
         }
     }
+
 }
