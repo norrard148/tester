@@ -15,12 +15,11 @@
        margin-bottom: 0;
     }
     label, input {
-        font-size: 20px;
+        font-size: 18px;
     }
     
 }
 .recruit-input {
-    
     border: 0;
     outline: 0;
 }
@@ -36,11 +35,6 @@
 .inputfile + label {
     cursor: pointer;
     display: inline-block;
-}
-
-.inputfile:focus + label,
-.inputfile + label:hover {
-    background-color: red;
 }
 
 .recruit-button {
@@ -120,6 +114,17 @@
         border: 1px solid #282828;
         border-radius: 2px;
         width: 290px;
+    }
+    .recruit-button {
+        width: 290px;
+        height: 50px;
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 10px;
+        border-color: #282828;
+        color: #282828;
+        margin-top: 0;
+        margin-bottom: 6rem;
     }
     
 }
