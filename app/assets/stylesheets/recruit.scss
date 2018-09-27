@@ -2,48 +2,112 @@
     width: 146px;
     height: 146px;
 }
-.recruit-explain {
-    p {
+
+.recruit-bottom {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px; 
+}
+.recruit-bottom-left {
+    margin-right: 200px;
+    margin-top: 20px;
+    p,h1 {
         font-size: 20px;
+        margin: 5px 0;
+    }
+    h1 {
+        margin-right: 40px;
+        font-weight: 500!important;
+    }
+
+}
+.recruit-bottom-left-box {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+.recruit-bottom-left-box.other {
+    align-items: flex-start;
+}
+.recruit-bottom-right {
+    width: 500px;
+    display:Flex;
+    flex-direction: column;
+    align-items: center;
+    form {
+        width: 100%;
     }
 }
 .recruit-input-box {
-    padding: 15px 0;
-    border-bottom: 1px solid gray;
+    width: 100%;
+    border-bottom: 1.5px solid rgba(0,0,0, 0.4);
     display:flex;
-    label {
-       margin-bottom: 0;
-    }
+    margin-bottom: 10px;
+    padding-bottom: 2px;
+    justify-content: space-between;
     label, input {
-        font-size: 18px;
+        font-size: 20px;
+        padding: 10px;
     }
     
+    label {
+        margin-bottom: 0;
+    }
+    input {
+        width: 70%;
+    }
 }
+
 .recruit-input {
     border: 0;
-    outline: 0;
+    outline: none;
 }
-.inputfile {
-	width: 0.1px;
-	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-    z-index: -1;
+.recruit-inputfile-box {
+    border: 1px solid #282828;
+    border-radius: 2px;
+    margin: 20px 0;
+    margin-right: 40px;
+    height: 35px;
+    width: 100%;
+    display: flex;
+    position: relative;
+    align-items: center;
+    input {
+        cursor: pointer;
+        width: 100%;  
+        padding: 0;
+        opacity: 0;
+        position: absolute;
+        z-index: 5;
+    }
+    h1 {
+        position: relative;
+        z-index: 0;
+        font-size: 14px;
+        margin-left: 5px;
+        height: 100%;
+        vertical-align: middle;
+
+    }
 }
 
-.inputfile + label {
-    cursor: pointer;
-    display: inline-block;
+.recruit-input-box.file {
+    label {
+        margin-top: 5px;
+    }
 }
+.recruit-input-box-file {
+    width:60%;
+    margin-right: 30px;
 
+}
 .recruit-button {
     width: 350px;
     height: 70px;
     border-style: solid;
     border-width: 1.5px;
     border-radius: 10px;
-    border-color: #282828;
+    border-color: rgba(0,0,0,0.4);
     color: #282828;
     background-color: white;
     cursor: pointer;
@@ -56,21 +120,7 @@
     border-color: #282828;
     color: #fff;
 }
-
-.recruit-inputfile-box {
-    border: 1px solid #282828;
-    border-radius: 2px;
-    margin:10px 0;
-    width: 100%;
-    input {
-        height: 30px;
-        width: 100%;
-        
-       
-    }
-}
-
-@media (max-width: 1000px) {
+@media (max-width: 1006px) {
     .recruit-img {
         width: 146px;
         height: 146px;
@@ -88,32 +138,53 @@
             margin-bottom: 13px;
         }
     }
-    .recruit-mobile {
-        margin-bottom: 60px;
-    }
     .recruit-box {
         font-size: 28px;
     }
-    .recruit-qualification {
-        margin-left: 20px;
-        margin-bottom: 80px;
-        .bold {
-            font-weight: normal;
-        }
-        p {
-            font-size: 20px;
-        }
+    .recruit-bottom {
+        width: 85%;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+
     }
-    .recruit-input {
-        width: 320px;
-        label {
-            font-size: 20px;
+    .recruit-bottom-left {
+        margin: 0;
+        margin-top: 30px;
+        width: 90%;
+    }
+    .recruit-bottom-left-box {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .recruit-bottom-right {
+        margin-top: 40px;
+        width: 100%;
+        form {
+            width: 100%;
         }
+        
+    }
+    .recruit-input-box.file {
+        flex-direction: column;
+        margin: 0;
+    }
+    .recruit-input-box-file {
+        width: 100%;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
     }
     .recruit-inputfile-box {
-        border: 1px solid #282828;
-        border-radius: 2px;
-        width: 290px;
+        margin-right: 0;
+        width: 90%;
+        margin: 10px 0;
+    }
+    .recruit-button {
+        width: 100%;
+        margin-bottom: 50px;
+        margin-top: 30px;
     }
     .recruit-button {
         width: 290px;
@@ -128,3 +199,4 @@
     }
     
 }
+

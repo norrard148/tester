@@ -8,7 +8,6 @@
     저희는 세상이 아직 깨닫지 못한 옳은 일, 해야하는 일을 하고, 그 가치를 전달합니다. </h2>
 </div>
 
-<div class="d-flex flex-column justify-content-center align-items-center">
     <div style="margin-top: 80px;">
         <p class="h1">Members</p>
     </div>
@@ -58,116 +57,96 @@
         <p class="h1 text-center">Recruit</p>
     </div>
 
-    <div class="mb-5">
+    <div>
         <p class="pc h2 text-center">“사용성 테스트에 대한 이해와 관심을 가지고 있고,</p>
         <p class="pc h2 text-center">자유로운 분위기 속에서 함께 즐기며 일할 수 있는 엔지니어를 찾습니다”</p>
-        <p class="text-center mobile recruit-box">“사용성 테스트에 대한<br>이해와 관심을 가지고 있고,<br>자유로운 분위기 속에서<br>함께 즐기며 일할 수 있는<br>개발자를 찾습니다”</p>
+        <p class="text-center mobile recruit-box">“사용성 테스트에 대한<br>이해와 관심을 가지고 있고,<br>자유로운 분위기 속에서<br>함께 즐기며 일할 수 있는<br> 개발자를 찾습니다”</p>
     </div>
     
 
-    <div class="mt-5">
-      <div class="d-flex justify-content-center">
-        <div class="pc" style="margin-right: 8rem; margin-top: 1rem;">
-            <p>모집분야&nbsp;&nbsp;&nbsp;&nbsp;엔지니어</p>
-            <p>모집인원&nbsp;&nbsp;&nbsp;&nbsp;0명</p>
-            <p>자격요건 &nbsp;&nbsp;&nbsp;&nbsp;1. 플랫폼 개발 경력 2~3년 이상</p>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. 빅데이터 분석 처리 경험 有</p>
-            <p>지원기간&nbsp;&nbsp;&nbsp;&nbsp;채용 시까지</p>
-            <p>지원서류&nbsp;&nbsp;&nbsp;&nbsp;이력서, 자기소개서, 포트폴리오</p>
-        </div>
-
-        <div class="pc" style="width: 345px;">
-            <%= form_with(model: @post, local: true, url: "/recruitsubmit") do |form| %>
-            <% if @post.errors.any? %>
-                <div id="error_explanation">
-                    <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-                    <ul>
-                    <% @post.errors.full_messages.each do |message| %>
-                        <li><%= message %></li>
-                    <% end %>
-                    </ul>
+    <div class="recruit-bottom">
+        <div class="recruit-bottom-left">
+            <div class="recruit-bottom-left-box">
+                <h1>모집분야</h1>
+                <p>엔지니어</p>
+            </div>
+            <div class="recruit-bottom-left-box">
+                <h1>모집인원</h1>
+                <p>0명</p>
+            </div>
+            <div class="recruit-bottom-left-box other">
+                <h1>자격요건</h1>
+                <div>
+                <p>1. 플랫폼 개발 경력 2~3년 이상</p>
+                <p>2. 빅데이터 분석 처리 경험 有</p>
                 </div>
-            <% end %>
-            <div class="recruit-input-box"><label>이름*&nbsp;&nbsp;</label><input class="recruit-input" type="text" id="name" name="name"></div>
-            <div class="recruit-input-box"><label>연락처*&nbsp;&nbsp;</label><input class="recruit-input" type="text" id="phonenumber" name="phonenumber"></div>
-            <div class="recruit-input-box"><label>이메일*&nbsp;&nbsp;</label><input class="recruit-input" id="email" type="email" name="email"></div>
-            <div class="d-flex recruit-input-box">
-            <div style="margin-top: 10px; width: 35%"><label for="file ">파일 업로드*</label></div>
-            <div class="d-flex flex-column " style="width: 65%;">
-            <div class="recruit-inputfile-box">
-            <%= form.file_field :attachment%>
             </div>
-            <div class="recruit-inputfile-box">
-            <%= form.file_field :attachment2 %>
+            <div class="recruit-bottom-left-box">
+                <h1>지원기간</h1>
+                <p>채용 시까지</p>
             </div>
-            <div class="recruit-inputfile-box">
-            <%= form.file_field :attachment3 %>
+            <div class="recruit-bottom-left-box">
+                <h1>지원서류</h1>
+                <p>이력서, 자기소개서, 포트폴리오</p>
             </div>
-            </div>
-            </div>
-            <% end %>
-            <div class="d-flex justify-content-center align-items-center">
-            <button class="recruit-button">더 테스터 지원하기</button>
-            </div>
-        </div>
-      </div>
-        <!--mobile-->
-      <div class="mobile">
-        <div class="mobile recruit-qualification">
-            <p class="bold">모집분야</p>
-            <p>엔지니어</p>
-            <p class="bold">모집인원</p>
-            <p>0명</p>
-            <p class="bold">자격요건</p>
-            <p>1. 플랫폼 개발 경력 2~3년 이상</p>
-            <p>2. 빅데이터 분석 처리 경험 有</p>
-            <p class="bold">지원기간</p>
-            <p>채용 시까지</p>
-            <p class="bold">지원서류</p>
-            <p>이력서, 자기소개서, 포트폴리오</p>
         </div>
 
-        <div class="recruit-input">
+        <div class="recruit-bottom-right">
             <%= form_with(model: @post, local: true, url: "/recruitsubmit") do |form| %>
                 <% if @post.errors.any? %>
                     <div id="error_explanation">
                         <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
                         <ul>
-                            <% @post.errors.full_messages.each do |message| %>
+                        <% @post.errors.full_messages.each do |message| %>
                             <li><%= message %></li>
-                            <% end %>
+                        <% end %>
                         </ul>
                     </div>
                 <% end %>
-            <div class="recruit-input-box mb-3"><input required class="recruit-input" type="text" id="uname" placeholder="이름 *"></div>
-            <div class="recruit-input-box mb-3"><input required class="recruit-input" type="text" id="phone" placeholder="연락처 *"></div>
-            <div class="recruit-input-box mb-3"><input required class="recruit-input" id="emailAddress" type="email" placeholder="이메일 *"></div>
-            <div class="mb-3"><label for="file">파일 업로드*</label></div>
-                <div class="d-flex flex-column align-items-center recruit-input-box mb-5">
-                    <div class="recruit-inputfile-box mb-3">
-                        <%= form.file_field :attachment %>
-                    </div>
-                    <div class="recruit-inputfile-box mb-3">
-                        <%= form.file_field :attachment2 %>
-                    </div>
-                    <div class="recruit-inputfile-box mb-3">
-                        <%= form.file_field :attachment3 %>
+                <div class="recruit-input-box">
+                    <label>이름*&nbsp;&nbsp;</label>
+                    <input class="recruit-input" type="text" id="name" name="name">
+                </div>
+                <div class="recruit-input-box">
+                    <label>연락처*&nbsp;&nbsp;</label>
+                    <input class="recruit-input" type="text" id="phonenumber" name="phonenumber">
+                </div>
+                <div class="recruit-input-box">
+                    <label>이메일*&nbsp;&nbsp;</label>
+                    <input class="recruit-input" id="email" type="email" name="email">
+                </div>
+                <div class="recruit-input-box file">
+                    <label for="file ">파일 업로드*</label>
+                    <div class="recruit-input-box-file">
+                        <div class="recruit-inputfile-box">
+                            <div>
+                            <h1>첨부1</h1>
+                            <%= form.file_field :attachment %>
+                            </div>
+                            <div class="recruit-inputfile-box">
+                            <h1>첨부2</h1>
+        
+                            <%= form.file_field :attachment2 %>
+                            </div>
+                            <div class="recruit-inputfile-box">
+                            <h1>첨부3</h1> 
+                            <%= form.file_field :attachment3 %>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            <div class="d-flex flex-column align-items-center">
-                <button class="recruit-button">더 테스터 지원하기</button>
-            </div>
             <% end %>
+            <button class="recruit-button">더 테스터 지원하기</button>
         </div>
-      </div>
+    </div>  
 
-    </div>
-
-</div>
 
 <script>
+    $(document).ready(function(){ var fileTarget = $('.filebox .upload-hidden'); fileTarget.on('change', function(){  if(window.FileReader){  var filename = $(this)[0].files[0].name; } else { var filename = $(this).val().split('/').pop().split('\\').pop();  } $(this).siblings('.upload-name').val(filename); }); }); 
+
+
+
     $(".navbar-nav a:nth-child(4)").addClass("color");
     $(".recruit-button").click(function() {
         if ($("#name").val() == '') {
