@@ -119,19 +119,21 @@
                 <div class="recruit-input-box file">
                     <label for="file ">파일 업로드*</label>
                     <div class="recruit-input-box-file">
-                        <div class="recruit-inputfile-box">
-                        
+                        <div class="recruit-inputfile-box">            
                         <h1>첨부1</h1>
-                        <%= form.file_field :attachment %>
+                        <%= form.file_field :attachment, :class=>"attachment1" %>
+                        <h1 class="attachment1-name"></h1>
                         </div>
                         <div class="recruit-inputfile-box">
                         <h1>첨부2</h1>
     
-                        <%= form.file_field :attachment2 %>
+                        <%= form.file_field :attachment2, :class=>"attachment2"%>
+                        <h1 class="attachment2-name"></h1>
                         </div>
                         <div class="recruit-inputfile-box">
                         <h1>첨부3</h1> 
-                        <%= form.file_field :attachment3 %>
+                        <%= form.file_field :attachment3, :class=>"attachment3" %>
+                        <h1 class="attachment3-name"></h1>
                         </div>
                     </div>
                 </div>
@@ -142,8 +144,13 @@
 
 
 <script>
-    $(document).ready(function(){ var fileTarget = $('.filebox .upload-hidden'); fileTarget.on('change', function(){  if(window.FileReader){  var filename = $(this)[0].files[0].name; } else { var filename = $(this).val().split('/').pop().split('\\').pop();  } $(this).siblings('.upload-name').val(filename); }); }); 
-
+    
+    var fileTarget1 = $('.attachment1');
+    var fileTarget2 = $('.attachment2');
+    var fileTarget3 = $('.attachment3');
+    fileTarget1.on('change', function(){  if (window.FileReader){  var filename = $(this)[0].files[0].name; } else { var filename = $(this).val().split('/').pop().split('\\').pop();  } $(this).siblings('.attachment1-name').text(filename);});
+    fileTarget2.on('change', function(){  if (window.FileReader){  var filename = $(this)[0].files[0].name; } else { var filename = $(this).val().split('/').pop().split('\\').pop();  } $(this).siblings('.attachment2-name').text(filename);});
+    fileTarget3.on('change', function(){  if (window.FileReader){  var filename = $(this)[0].files[0].name; } else { var filename = $(this).val().split('/').pop().split('\\').pop();  } $(this).siblings('.attachment3-name').text(filename);});
 
 
     $(".navbar-nav a:nth-child(4)").addClass("color");

@@ -152,11 +152,17 @@
         }
     }
 }
-.aboutus-arrow {
-    width: 80px;
-    height: 60px;
+.aboutus-button:hover {
+    color: #4bb43c;
 }
-
+.aboutus-middle-pc {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+.aboutus-middle-box-right-content .aboutus-middle-pc {
+    margin-left: 60px;
+}
 @media (max-width: 1250px) {
 
     .index-middle.aboutus {
@@ -202,6 +208,14 @@
             margin-bottom: 70px;
             font-size: 28px;
         }
+        .pc {
+            display: none;
+        }
+    }
+    .aboutus-middle-pc {
+        justify-content: center;
+        margin: 0!important;
+        width: 100%;
     }
     .aboutus-middle-box-right-content > div {
         margin:22px 0;
@@ -239,4 +253,5 @@
             margin:60px  0;
         }
     }
+
 }

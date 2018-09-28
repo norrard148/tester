@@ -24,6 +24,20 @@
 
 
 $(document).on('scroll', function (){
+    var bottom_of_window = $(window).scrollTop() + $(window).height();
+    var index_top = $(".index-top").offset().top +$(".index-top").outerHeight();
+    if (bottom_of_window > index_top + 400) {
+        $(".footer-up-btn").addClass("show")
+    }
+    else {
+        $(".footer-up-btn").removeClass("show")
+    }
+    if (bottom_of_window > $("footer").offset().top + 50) {
+        $(".footer-up-btn").addClass("fixed")
+    }
+    else {
+        $(".footer-up-btn").removeClass("fixed")
+    }
     if ($(".index").length>0) {
         var bottom_of_window = $(window).scrollTop() + $(window).height();
         var bottom_of_object1 = $(".hideme").offset().top;

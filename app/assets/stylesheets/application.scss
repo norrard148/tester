@@ -216,23 +216,31 @@ h1, h2, h3, h4, a, input {
         overflow:hidden;
     }
 }
-/*footer*/
 
 /*footer*/
 .footer-up-btn {
     width: 81px;
     height: 81px;
-    position: absolute;
-    top:-130px;
-    right: 100px; 
+    position: fixed;
+    bottom:100px;
+    right: 150px; 
     cursor:pointer;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s ease-in 0s;
+    -moz-transition: opacity 0.3s ease-in 0s;
+    -o-transition: opacity 0.3s ease-in 0s;
+    -ms-transition: opacity 0.3s ease-in 0s;
+    transition: opacity 0.3s ease-in 0s;
+}
+.fixed {
+    position: absolute;
+    top: -131px;
 }
 footer {
     position:relative;
     bottom: 0;
     width: 100%;
     background-color: black;
-    
     display:flex;
     flex-direction: column;
     align-items: center;

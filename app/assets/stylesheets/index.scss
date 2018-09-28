@@ -26,14 +26,14 @@
     }
     h2 {
         line-height: 2;
-        margin-top: 40px;
+        margin-top: 15px;
         font-size: 17px;
     }
     button {
         height: 70px;
         width: 350px;
         margin-top: 170px;
-        margin-bottom: 110px;
+        margin-bottom: 130px;
         border: 1px solid white;
         border-radius: 10px;
         background-color: transparent;
@@ -41,11 +41,17 @@
         align-items: center;
         justify-content: center;
         position: relative;
+        cursor: pointer;
         p {
             font-size :23px;
             margin-bottom: 0;
         }
         
+    }
+    button:hover {
+        background-color:#282828;
+        border: 1px solid #282828;
+        color:#fff;
     }
 }
 .index-top.works {  
@@ -143,6 +149,7 @@
         height: 70px;
         width: 350px;
         margin-bottom: 110px;
+        color: white;
         border: 1px solid white;
         border-radius: 10px;
         background-color: transparent;
@@ -160,6 +167,10 @@
         }
         
     }
+}
+.index-button:hover {
+    background-color:#fff;
+    color:#e8454a;
 }
 
 @media (max-width: 991px) {
