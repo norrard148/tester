@@ -38,8 +38,8 @@
                 <label>컨설팅, 제휴 문의 등 *</label>
                 <textarea class="contact-textarea" id="question" name="question" placeholder="내용을 입력해주세요."></textarea>
         </div>
-        <button class="contact-button">의뢰하기</button>
     </form>
+    <button class="contact-button">의뢰하기</button>
 </div>
 
 <div class="contact-bottom">
@@ -66,6 +66,7 @@
             </div>
         </div>
         <div id="map2" class="map mobile-map"></div>
+        <div id="map" class="map hide mobile-map"></div>
 </div>
 
     
@@ -73,11 +74,13 @@
 <script>
     $(".navbar-nav a:nth-child(3)").addClass("color");
 
-    $(".btn2").click((event) => {
-        $("div.one").attr("class", "one hide").parent().find("div.two").attr("class", "two")
-    });
     $(".btn1").click((event) => {
-        $("div.two").attr("class","two hide").parent().find("div.one").attr("class", "one")
+        $("#map").addClass("hide")
+        $("#map2").removeClass("hide")
+    });
+    $(".btn2").click((event) => {
+        $("#map2").addClass("hide")
+        $("#map").removeClass("hide")
     });
 </script>
 <script>

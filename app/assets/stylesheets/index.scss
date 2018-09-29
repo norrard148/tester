@@ -57,7 +57,9 @@
 .index-top.works {  
         height: 650px;
 }
-
+.index-top-arrow {
+    position: relative;
+}
 .index-top-bg {
     position: absolute;
     height: 1700px;
@@ -192,6 +194,10 @@
             display:none;
         }
     }
+    .index-top-arrow {
+        position: absolute;
+        bottom: 15px;
+    }
     .index-top.works {
         height: 450px;
         h1 {
@@ -276,7 +282,4 @@
 }
 .index-button:hover {
     color: #e8454a;
-}
-.index-bottom-arrow {
-    margin-top: 90px;
 }
