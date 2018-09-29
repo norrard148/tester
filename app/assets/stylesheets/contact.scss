@@ -61,13 +61,18 @@
 .contact-button {
     width: 350px;
     height: 60px;
-    border: 1.5px solid #282828;
+    border: 1px solid #282828;
     border-radius: 10px;
     margin-top: 100px;
     margin-bottom: 200px;
     background-color: white;
     cursor: pointer;
     font-size: 23px;
+}
+.contact-button:hover {
+    background-color: #282828;
+    border-color: #282828;
+    color: #fff;
 }
 .map-box {
     padding: 0;
