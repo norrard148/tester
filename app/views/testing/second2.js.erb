@@ -1,2 +1,4 @@
-$(`<%=render 'card2'%>`).appendTo($("#collapse"+ "<%=@purpose_number%>").children(".card-body").children(".w-100"));   
+$(`<%=render 'card2'%>`).appendTo($("#collapse"+ "<%=@purpose_number%>").children(".card-body").children(".w-100"));  
+$("#accordionExample1 input").attr("disabled", false);
+$("#accordionExample1 .ui.dropdown").removeClass("disabled"); 
 $(".testing-third-loading").css({"display":"none"});
