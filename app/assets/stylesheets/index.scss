@@ -66,6 +66,7 @@
     height: 1700px;
     opacity: 0.35;
     top: -10%;
+    
     z-index:0;
     text-align:left;
 }
@@ -159,6 +160,7 @@
         display:flex;
         align-items: center;
         justify-content: center;
+        cursor: pointer;
         -webkit-transition: opacity 0.75s ease-in 0.75s;
         -moz-transition: opacity 0.75s ease-in 0.75s;
         -o-transition: opacity 0.75s ease-in 0.75s;

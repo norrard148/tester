@@ -53,7 +53,7 @@ h1, h2, h3, h4, a, input {
 }
 
 ::placeholder { 
-    color: rgba(0,0,0,0.4);
+    color: #c8c8c8c8;
     opacity: 1;
 }
 
@@ -245,6 +245,7 @@ footer {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    z-index: 500;
     h1,h2, a {
         color: white;
         font-size: 15px;
