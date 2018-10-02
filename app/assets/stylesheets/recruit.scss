@@ -54,10 +54,12 @@
         margin-bottom: 0;
     }
     input {
-        width: 70%;
+        width: 80%;
     }
 }
-
+.recruit-input::placeholder {
+    font-size: 17px;
+}
 .recruit-input {
     border: 0;
     outline: none;

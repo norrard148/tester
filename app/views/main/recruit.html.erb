@@ -92,7 +92,7 @@
         </div>
 
         <div class="recruit-bottom-right">
-            <%= form_with(model: @post, local: true, url: "/recruitsubmit") do |form| %>
+            <%= form_with(model: @post, local: true, url: "/recruitsubmit", :html => { :onsubmit => "myFunction()" }) do |form| %>
                 <% if @post.errors.any? %>
                     <div id="error_explanation">
                         <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -106,15 +106,15 @@
                 <% end %>
                 <div class="recruit-input-box">
                     <label>이름*&nbsp;&nbsp;</label>
-                    <input class="recruit-input" type="text" id="name" name="name">
+                    <input class="recruit-input" type="text" id="name" name="name" placeholder="이름을 입력해주세요">
                 </div>
                 <div class="recruit-input-box">
                     <label>연락처*&nbsp;&nbsp;</label>
-                    <input class="recruit-input" type="text" id="phonenumber" name="phonenumber">
+                    <input class="recruit-input" type="text" id="phonenumber" name="phonenumber" placeholder="연락처를 입력해주세요">
                 </div>
                 <div class="recruit-input-box">
                     <label>이메일*&nbsp;&nbsp;</label>
-                    <input class="recruit-input" id="email" type="email" name="email">
+                    <input class="recruit-input" id="email" type="email" name="email" placeholder="이메일을 입력해주세요">
                 </div>
                 <div class="recruit-input-box file">
                     <label for="file ">파일 업로드*</label>
@@ -142,7 +142,11 @@
         </div>
     </div>  
 
-
+<script>
+function myFunction() {
+    alert("지원이 완료되었습니다.");
+    };
+</script>
 <script>
     
     var fileTarget1 = $('.attachment1');
