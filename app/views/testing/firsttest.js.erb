@@ -125,5 +125,6 @@ else if (url == '') {
         }).show();
 } %>
 else {
+    $("#first-form").attr({"action":"/testing/second"})
     document.getElementById("first-form").submit();
 }

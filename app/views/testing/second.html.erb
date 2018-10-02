@@ -9,14 +9,14 @@
             <h2>도움이 필요하신가요?</h2>
             </button>
         </div> 
-        <form action="/testing/third" id="second-form" name="second-form" class="second-form">
-            <input type="hidden" value="<%=params[:brandname]%>" name="[customer][brandname]">
-            <input type="hidden" value="<%=params[:name]%>" name="[customer][name]">
-            <input type="hidden" value="<%=params[:phonenumber]%>" name="[customer][phonenumber]">
-            <input type="hidden" value="<%=params[:email]%>" name="[customer][email]">
-            <input type="hidden" value="<%=params[:media]%>" name="[customer][media]">
-            <input type="hidden" value="<%=params[:testtype]%>" name="[customer][testtype]">
-            <input type="hidden" value="<%=params[:url]%>" name="[customer][url]">
+        <form  id="second-form" name="second-form" class="second-form">
+            <input type="hidden" value="<%=params[:customer][:brandname]%>" name="[customer][brandname]">
+            <input type="hidden" value="<%=params[:customer][:name]%>" name="[customer][name]">
+            <input type="hidden" value="<%=params[:customer][:phonenumber]%>" name="[customer][phonenumber]">
+            <input type="hidden" value="<%=params[:customer][:email]%>" name="[customer][email]">
+            <input type="hidden" value="<%=params[:customer][:media]%>" name="[customer][media]">
+            <input type="hidden" value="<%=params[:customer][:testtype]%>" name="[customer][testtype]">
+            <input type="hidden" value="<%=params[:customer][:url]%>" name="[customer][url]">
             <%= render "second-box"%>
         
         </form>
@@ -100,6 +100,13 @@
 
 
 <script>
+    if(navigator.userAgent.match(/Mobile|iP(hone|od)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)){
+        console.log("Mobile"); 
+       $(".testing").remove();
+       $(".testing-mobile").css({"display":"block"});
+    } else {
+        console.log("PC");
+    }
     $(".navbar-nav a:nth-child(5)").addClass("color");
     $("#purpose-is").focus();
     $("html, body").scrollTop($(".testing-top").offset().top)
@@ -126,6 +133,13 @@
         $(".card-button").not(this).parent().parent().parent().find(".collapse").removeClass("show")
         $(".card-button").not(this).attr({"aria-expanded":"false"})
     })
+    $(document).on('focus', '.purpose-is', function(){  
+        $(".purpose-is").not(this).parent().parent().parent().parent().find(".collapse").removeClass("show")
+        $(".purpose-is").not(this).parent().parent().find(".card-button").attr({"aria-expanded":"false"})
+        $(this).parent().parent().parent().parent().find(".collapse").addClass("show")
+        $(this).parent().parent().find(".card-button").attr({"aria-expanded":"true"})
+            $('html, body').animate({scrollTop : $(this).parent().parent().parent().parent().offset().top}, 000);
+    });
     $(document).on('click', '.card-submit a', function(){   
         var a = $(this).parent().parent().parent().attr("id");
         var purpose_number = a.replace(/[^0-9]/g,"");
@@ -246,8 +260,9 @@
     $(document).on("click","#accordionExample2 .ui.dropdown, #accordionExample2 input", function(a) {
        purpose_2_test(a);
     })
-    $(document).on("keypress","#accordionExample2 input", function(a) {
+    $(document).on("keydown","#accordionExample2 input", function(a) {
        purpose_2_test(a);
+       
     })
   
     function purpose_3_test(a) {
@@ -338,7 +353,14 @@
             purpose_3_test(a)
        }
     })
-  
+    $(".testing-top-box.first").click(function() {
+            $("#second-form").attr({"action":"/testing/first"})
+            document.getElementById("second-form").submit();
+    })
+    $(".testing-top-box.third").click(function() {
+            $("#second-form").attr({"action":"/testing/third"})
+            document.getElementById("second-form").submit();
+    })
     $("#complete").click(function() {
     // var toggle = true;
     // $(".purpose-is").each(function(element) {
@@ -436,6 +458,7 @@
     //     }
     // });
     // if (toggle == true) {
+        $("#second-form").attr({"action":"/testing/third"})
         document.getElementById("second-form").submit();
     // }    
     }); 

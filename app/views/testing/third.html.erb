@@ -6,7 +6,7 @@
     <%@total_test =0%>
     <%@total_reward = 0%>
     <%@total_purpose = 0%>
-    <%params['purpose'].each do |a,b|%>
+    <%params[:purpose].each do |a,b|%>
     <%@testernumber=0%>
     <%if b['purpose-is'] != ''%>
     <%@total_purpose+=1%>
@@ -40,7 +40,7 @@
         <%=render 'third-box'%>
     </div>
     <div class="testing-third-bottom">
-        <form  class="third-form"  >
+        <form  class="third-form">
         <%@params[:customer].each do |a,b|%>
             <input name="<%=a%>" value="<%=b%>" type="hidden">
         <%end%>
@@ -52,6 +52,23 @@
                 <%else%>
                     <%d.each do |e,f|%>
                         <input name="<%=a%>-<%=c%>-<%=e%>" value="<%=f%>" type="hidden">
+                    <%end%>
+                <%end%>
+            <%end%>
+        <%end%>
+        </form>
+        <form  id="third-form">
+        <%@params[:customer].each do |a,b|%>
+            <input name="[customer][<%=a%>]" value="<%=b%>" type="hidden">
+        <%end%>
+        <%@params[:purpose].each do |a,b|%>
+            <%b.each do |c, d |%>
+                <%if c =="minute" || c == "second" || c == "goal" || c== "purpose-is"%>
+                <%then%>
+                    <input name="[purpose][<%=a%>][<%=c%>]" value="<%=d%>" type="hidden">
+                <%else%>
+                    <%d.each do |e,f|%>
+                        <input name="[purpose][<%=a%>][<%=c%>][<%=e%>]" value="<%=f%>" type="hidden">
                     <%end%>
                 <%end%>
             <%end%>
@@ -102,6 +119,14 @@
 <form type="hidden" action="/testing/first" method="get" class="modify" >
 </form>
 <script>
+$(".testing-top-box.first").click(function() {
+        $("#third-form").attr({"action":"/testing/first"})
+        document.getElementById("third-form").submit();
+})
+$(".testing-top-box.second").click(function() {
+        $("#third-form").attr({"action":"/testing/second"})
+        document.getElementById("third-form").submit();
+})
 if(navigator.userAgent.match(/Mobile|iP(hone|od)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)){
         console.log("Mobile"); 
        $(".testing").remove();

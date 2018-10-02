@@ -30,7 +30,7 @@
     </div>
     <div class="card-body-1-right d-flex flex-column">
         <label>이 목표를 통해 어떤 것을 알고 싶으신가요?</label>
-        <input class="purpose" type="text" name="[purpose][purpose<%=@purpose_generator%>][goal]">
+        <input class="purpose" type="text" name="[purpose][purpose<%=@purpose_generator%>][goal]" value="<%=if defined? params[:purpose]["purpose" + @purpose_generator.to_s()]["goal"] then params[:purpose]["purpose" + @purpose_generator.to_s()]["goal"] end%>">
     </div>
 </section>
 
