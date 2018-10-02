@@ -80,7 +80,13 @@
     PC를 이용해 주세요.</h2>
 </div>
 <script>
-
+if(navigator.userAgent.match(/Mobile|iP(hone|od)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)){
+        console.log("Mobile"); 
+       $(".testing").remove();
+       $(".testing-mobile").css({"display":"block"});
+    } else {
+        console.log("PC");
+    }
 $(".navbar-nav a:nth-child(5)").addClass("color");
 $(".testing-first-bottom button").click(function() {
          $.ajax({
