@@ -13,15 +13,15 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
-
-// if(navigator.userAgent.match(/Mobile|iP(hone|od)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)){
-//     console.log("Mobile"); 
-// } else {
-//     console.log("PC");
-//     $(".testing").remove();
-// }
-
-
+$(document).ready(function() {
+    if(navigator.userAgent.match(/Mobile|iP(hone|od)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)){
+        console.log("Mobile"); 
+       $(".testing").remove();
+       $(".testing-mobile").css({"display":"block"});
+    } else {
+        console.log("PC");
+    }
+})
 
 $(document).on('scroll', function (){
     var bottom_of_window = $(window).scrollTop() + $(window).height();
@@ -32,7 +32,7 @@ $(document).on('scroll', function (){
     else {
         $(".footer-up-btn").removeClass("show")
     }
-    if (bottom_of_window > $("footer").offset().top + 50) {
+    if (bottom_of_window > $("footer").offset().top) {
         $(".footer-up-btn").addClass("fixed")
     }
     else {
