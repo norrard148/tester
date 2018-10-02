@@ -361,13 +361,20 @@
        
         border-bottom: 1px solid rgba(0,0,0,.125);
     }
-    button {
-      
-    
-    }
-  
+
 }
 
+.disabled::placeholder  {
+    text-decoration: line-through;
+    // color: #f0f0f0f0;
+}
+.ui.disabled.dropdown {
+    pointer-events: initial;
+    cursor: pointer;
+}
+input.disabled {
+    text-decoration: line-through;
+}
 .card-header {
     background-color: transparent;
     min-height: 75px;
@@ -508,6 +515,7 @@ button.card-button[aria-expanded=true] {
         width: calc(100%);
        
     }
+
     ::-webkit-scrollbar {
       display: none;
     }
@@ -689,7 +697,7 @@ button.card-button[aria-expanded=true] {
         padding: 10px 0;
         margin-left: 3%;
         width: 97%;
-        font-sizE: 18px;
+        font-sizE: 18px; 
     }
     .select-arrow {
         position: absolute;
@@ -811,6 +819,12 @@ button.card-button[aria-expanded=true] {
                     background-color: #282828;
                 }
                 border-color: #282828;
+            }
+            input:checked.disabled~ .big {
+                .small {
+                    background-color: rgba(0, 0, 0, 0.25);
+                }
+                border-color: rgba(0, 0, 0, 0.25);
             }
             h1 {
                 font-size: 18px;

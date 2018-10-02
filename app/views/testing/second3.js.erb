@@ -20,3 +20,71 @@ $(".reward-<%=@purnum%>").text((plus*calculate*labor_price).toString().replace(/
 <%end%>
 $(".reward-sum").text( total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+ "P");
 $(".reward-discount").text("-" + total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "P");
+
+
+
+function purpose_test(a,b) {
+        var element = $(`#accordionExample${a}`)
+        var testernumber=0;
+        toggle = false;
+        if (
+        element.find(".purpose-is").val() =='' || Number(element.find(".minute option:selected").val()) + Number(element.find(".second option:selected").val()) == 0
+        ) {
+           toggle = true;
+        }
+        else {
+            $(`#accordionExample${a} .card-body-2`).each(function () {
+                        testernumber += Number($(this).find(".testernumber option:selected").val());
+                        if  ($(this).find(".target").val() == '') {
+                            toggle = true;
+                            return false;
+                        }
+            });
+            if  (testernumber == 0 ) {
+                   
+                     toggle = true;
+            } 
+        }
+        if (toggle) {
+            $(`#accordionExample${b} input`).addClass("disabled"); 
+            $(`#accordionExample${b} .ui.dropdown`).addClass("disabled"); 
+            return false;
+        }
+        else {
+            $(`#accordionExample${b} .ui.dropdown`).removeClass("disabled");
+            $(`#accordionExample${b} input`).removeClass("disabled");
+            return true;
+        }
+    }
+
+purpose_test(1,2);
+if (purpose_test(1,3)) {
+    purpose_test(2,3);
+}
+<%# 
+var element = $("#accordionExample1")
+if (
+element.find(".purpose-is").val() !='' && Number(element.find(".minute option:selected").val()) + Number(element.find(".second option:selected").val()) > 0 && element.find(".target").val() != '' && element.find(".testernumber option:selected").val() != '0'
+) {
+    $("#accordionExample2 .ui.dropdown").removeClass("disabled");
+    $("#accordionExample2 input").removeClass("disabled");
+    
+}
+else {
+    $("#accordionExample2 input").addClass("disabled"); 
+    $("#accordionExample2 .ui.dropdown").addClass("disabled"); 
+
+}
+var element2 = $("#accordionExample2")
+if (
+element.find(".purpose-is").val() !='' && Number(element.find(".minute option:selected").val()) + Number(element.find(".second option:selected").val()) > 0 && element.find(".target").val() != '' && element.find(".testernumber option:selected").val() != '0' &&element2.find(".purpose-is").val() !='' && Number(element2.find(".minute option:selected").val()) + Number(element2.find(".second option:selected").val()) > 0 && element2.find(".target").val() != '' && element2.find(".testernumber option:selected").val() != '0'
+) {
+    $("#accordionExample3 .sex input").attr("disabled",false)
+    $("#accordionExample3 .ui.dropdown").removeClass("disabled"); 
+    $("#accordionExample3 input").removeClass("disabled"); 
+}
+else {
+    $("#accordionExample3 .ui.dropdown").addClass("disabled"); 
+    $("#accordionExample3 input").addClass("disabled"); 
+    $("#accordionExample3 .sex input").attr("disabled",true)
+} %>

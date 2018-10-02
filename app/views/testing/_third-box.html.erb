@@ -1,9 +1,9 @@
 <%$b=0%>
 <%params['purpose'].each do |a,b|%>
+<%if b['purpose-is'] != ''%>
 <%$b+=1%>
  <div class="testing-third-top-box">
     <div class="testing-third-top-box-top">
-       
         <h1>목표 <%=$b%>. <%=b['purpose-is']%></h1>
         <section>
             <span>
@@ -96,5 +96,5 @@
         <%end%>
     <%end%>
 </div>
-
+<%end%>
 <%end%>
