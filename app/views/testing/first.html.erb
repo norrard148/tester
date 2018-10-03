@@ -239,8 +239,172 @@ $(".testing-top-box.second").click(function() {
     }
 })
 $(".testing-top-box.third").click(function() {
-    $("#first-form").attr({"action":"/testing/third"})
-    document.getElementById("first-form").submit();
+    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    var regPhone = /^((01[1|6|7|8|9])[1-9]+[0-9]{6,7})|(010[1-9][0-9]{7})$/;
+    var regUrl = /^(https?|ftp|torrent|image|irc):\/\/(-\.)?([^\s\/?\.#-]+\.?)+(\/[^\s]*)?$/i;
+    var brandname = document.getElementById('brandname').value;
+    var name = document.getElementById('name').value;
+    var phone_number = document.getElementById('phone-number').value;
+    var email = document.getElementById('email').value;
+    var url = document.getElementById('url').value;
+    phone_number = phone_number.split('-').join('');
+    if (brandname == '') {
+            alertify.alert()
+            .setting({
+                'frameless':false,
+                'title':"회사명 작성 오류",
+                'closableByDimmer':true,
+                'closable': false,
+                modal: false,
+                transition:'pulse',
+                'pinnable': false,
+                message: '회사명은 필수 입력 사항입니다.',
+                'label':'Ok'
+                
+            }).show();
+            
+    }
+    else if (name == '') {
+            alertify.alert()
+            .setting({
+                'frameless':false,
+                'title':"담당자명 작성 오류",
+                'closableByDimmer':true,
+                'closable': false,
+                modal: false,
+                transition:'pulse',
+                'pinnable': false,
+                message: '담당자명은 필수 입력 사항입니다.',
+                'label':'Ok'
+            }).show();
+    }
+    else if (phone_number == '') {
+            alertify.alert()
+            .setting({
+                'frameless':false,
+                'title':"담당자 연락처 작성 오류",
+                'closableByDimmer':true,
+                'closable': false,
+                modal: false,
+                transition:'pulse',
+                'pinnable': false,
+                message: '담당자 연락처는 필수 입력 사항입니다.',
+                'label':'Ok'
+            }).show();
+    }
+    <%# else if (!regPhone.test(phone_number)) {
+        alertify.alert()
+            .setting({
+                'frameless':false,
+                'title':"담당자 연락처 작성 오류",
+                'closableByDimmer':true,
+                'closable': false,
+                modal: false,
+                transition:'pulse',
+                'pinnable': false,
+                message: '올바른 전화번호를 입력하세요.',
+                'label':'Ok'
+            }).show();
+    } %>
+    else if (email == '') {
+        alertify.alert()
+            .setting({
+                'frameless':false,
+                'title':"담당자 이메일 작성 오류",
+                'closableByDimmer':true,
+                'closable': false,
+                modal: false,
+                transition:'pulse',
+                'pinnable': false,
+                message: '담당자 이메일은 필수 입력 사항입니다.',
+                'label':'Ok'
+            }).show();
+    }
+    else if (!re.test(email)) {
+                alertify.alert()
+            .setting({
+                'frameless':false,
+                'title':"담당자 이메일 작성 오류",
+                'closableByDimmer':true,
+                'closable': false,
+                modal: false,
+                transition:'pulse',
+                'pinnable': false,
+                message: '올바른 이메일 주소를 입력하세요.',
+                'label':'Ok'
+            }).show();
+    }
+    else if (url == '') {
+        alertify.alert()
+            .setting({
+                'frameless':false,
+                'title':"URL 작성 오류",
+                'closableByDimmer':true,
+                'closable': false,
+                modal: false,
+                transition:'pulse',
+                'pinnable': false,
+                message: 'URL은 필수 입력 사항입니다.',
+                'label':'Ok'
+            }).show();
+    }
+    <%# else if (!regUrl.test(url)) {
+                alertify.alert()
+            .setting({
+                'frameless':false,
+                'title':"URL 작성 오류",
+                'closableByDimmer':true,
+                'closable': false,
+                modal: false,
+                transition:'pulse',
+                'pinnable': false,
+                message: '올바른 URL 주소를 입력하세요.',
+                'label':'Ok'
+            }).show();
+    } %>
+    else {
+        if (getUrlVars().includes("%5Bsecond-step%5D")) {
+            $("#first-form").attr({"action":"/testing/third"})
+            document.getElementById("first-form").submit();
+        }
+        else {
+            if (getUrlVars().includes("%5Bpurpose%5D%5Bpurpose1%5D%5Bpurpose-is%5D")) {
+                alertify.alert()
+                    .setting({
+                        'frameless':false,
+                        'title':"순서 오류",
+                        'closableByDimmer':true,
+                        'closable': false,
+                        modal: false,
+                        transition:'pulse',
+                        'pinnable': false,
+                        message: '[테스트 정보] 필수 입력 사항 점검을 위해 [테스터 정보 입력] 단계로 이동합니다.',
+                        'label':'Ok',
+                        'onok':function() {
+                            $("#first-form").attr({"action":"/testing/second"})
+                            document.getElementById("first-form").submit();
+                        }
+                    }).show();
+            }
+            else {
+                $("#first-form").attr({"action":"/testing/second"})
+                document.getElementById("first-form").submit();
+            }
+        }
+    }
+    function getUrlVars()
+	{
+	    var vars = [], hash;
+	    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+	    for(var i = 0; i < hashes.length; i++)
+	    {
+	        hash = hashes[i].split('=');
+	        vars.push(hash[0]);
+	        vars[hash[0]] = hash[1];
+	    }
+	    return vars;
+	}
+    
 })
 function OnCheckPhone(oTa) { 
     var oForm = oTa.form ; 

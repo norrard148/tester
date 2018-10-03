@@ -352,13 +352,18 @@
             var testernumber=0;
             var no_error = true;
             function input_check() {
-                var input_check = false;
-                element.find("input").not('input[type="radio"]').each(function(c) { if ($(this).val() !=''){console.log($(this).val()); input_check = true; return false}})
-                if (input_check == true) {
-                    return true;
+                if (a != 1) {
+                    var input_check = false;
+                    element.find("input").not('input[type="radio"]').each(function(c) { if ($(this).val() !=''){console.log($(this).val()); input_check = true; return false}})
+                    if (input_check == true) {
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
                 }
                 else {
-                    return false;
+                    return true;
                 }
             }
             if (input_check())
@@ -496,13 +501,18 @@
             var testernumber=0;
             var no_error = true;
             function input_check() {
-                var input_check = false;
-                element.find("input").not('input[type="radio"]').each(function(c) { if ($(this).val() !=''){console.log($(this).val()); input_check = true; return false}})
-                if (input_check == true) {
-                    return true;
+                if (a != 1) {
+                    var input_check = false;
+                    element.find("input").not('input[type="radio"]').each(function(c) { if ($(this).val() !=''){console.log($(this).val()); input_check = true; return false}})
+                    if (input_check == true) {
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
                 }
                 else {
-                    return false;
+                    return true;
                 }
             }
             if (input_check())
