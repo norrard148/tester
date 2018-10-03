@@ -29,7 +29,7 @@ class MainController < ApplicationController
       if @post.save
         if RecruitMailer.recruit_email(@post, post_params2).deliver
         then
-          format.html { redirect_to '/', notice: 'Post was successfully created.' }
+          format.html { redirect_to '/recruit', notice: 'Post was successfully created.' }
           format.json { render :show, status: :created, location: @post }
         else
           format.html { redirect_to '/recruit' }
@@ -45,7 +45,7 @@ class MainController < ApplicationController
   def contactsubmit
     if ContactMailer.contact_email(params).deliver
       respond_to do |format|
-      format.html { redirect_to '/', notice: 'Post was successfully created.' }
+      format.html { redirect_to '/contact', notice: 'Post was successfully created.' }
       end
     else
       respond_to do |format|
