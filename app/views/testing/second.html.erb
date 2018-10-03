@@ -84,7 +84,7 @@
     <%=image_tag("preloader.svg")%>
 </div>
 
-<div class="testing-help-purpose">
+<div class="testing-help-purpose purpose">
     <div class="testing-help-purpose-box">
         <h1>추가 진행이 필요하신가요?</h1>
         <h2>아래 연락처로 별도 문의 주시면,<br>
@@ -97,9 +97,85 @@
         <button>닫기</button>
     </div>
 </div>
-
+<div class="testing-help-purpose help">
+    <div class="testing-help-purpose-box help">
+        <p>도움이 필요하신가요?</p>
+        <div class="testing-help-purpose-box-tab">
+            <div class="focus"> 
+                <h3>이용방법 문의</h3>
+            </div>
+            <div> 
+                <h3>추가 테스트 문의</h3>
+            </div>
+        </div>
+        <div class="testing-help-purpose-box-left w-100 flex-column align-items-center">
+            <div class="d-flex align-items-center justify-content-between">
+                <%=image_tag("W_img_popup_goal_1.svg")%>
+                <h1>‘목표’에 서비스를 이용하는 고객에게<br>
+                기대하는 일련의 행동을 입력해주세요.<br>
+                테스터가 목표를 보고 여러분의 서비스를<br>
+                경험하기 때문에, 명확하게 작성해주셔야 해요!!</h1>
+            </div>
+            <div class="d-flex align-items-center justify-content-between">
+                <h1>앞서 입력한 ‘목표’를 누구에게 테스트할지<br>
+                정해주세요! 서비스를 이용하는 타겟 고객을<Br>
+                입력하시면 됩니다.</h1>
+                <%=image_tag("W_img_popup_target_1.svg")%>
+            </div>
+            <div class="d-flex align-items-center justify-content-between">
+                <%=image_tag("W_img_popup_tester_1.svg")%>
+                <h1>서비스를 경험하고 목표를 달성한 (혹은 실패한)<br>
+                타겟에게 궁금한 사항이 있으신가요?<Br>
+                더 테스터가 대신 질문해드립니다!!!</h1>
+            </div>
+            <h2>제출한 테스트 결과는 접수일로부터 5~6일 정도 소요됩니다.<br>
+            그 외 문의사항은 더 테스터로 연락바랍니다.</h2>
+        </div>
+        <div class="testing-help-purpose-box-right w-100  flex-column align-items-center" style="display:none!important">
+             <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex flex-column">
+                    <%=image_tag("W_img_popup_freetest.svg")%>
+                    <h5>무료 테스트<br>1개</h5>
+                </div>
+                <div class="d-flex flex-column">
+                    <%=image_tag("W_img_popup_goal_2.svg")%>
+                    <h5>목표 설정<br>최대 3개</h5>
+                </div>
+                <div class="d-flex flex-column">
+                    <%=image_tag("W_img_popup_target_2.svg")%>
+                    <h5>타겟 설정<br>목표당 3개</h5>
+                </div>
+                <div class="d-flex flex-column">
+                    <%=image_tag("W_img_popup_tester_2.svg")%>
+                    <h5>테스터 수<br>목표당 5명</h5>
+                </div>
+            </div>
+            <h2>한 기업 당, 한번의 무료 테스트를 진행해드립니다.<Br>
+            다음과 같은 추가 진행 사항은 별도 문의 부탁드려요.</h2>
+            <h4>1. 무료 테스트 외 추가 테스트 진행을 원할 경우</h4>
+            <h4>2. 무료 테스트 내 기본 제공 횟수보다 이상을 원할 경우</h4>
+            <div class=" d-flex justify-content-around">
+                <%=image_tag("popup-manager.svg")%>
+                <%=image_tag("popup-manager2.svg")%>
+            </div>
+        </div>
+        <button>닫기</button>
+    </div>
+</div>
 
 <script>
+    $(".testing-help-purpose-box-tab div:first-child").click(function() {
+        $(this).addClass("focus")
+        $(".testing-help-purpose-box-tab div:last-child").removeClass("focus")
+        $(".testing-help-purpose-box-left").css({"display":"flex"})
+        $(".testing-help-purpose-box-right").css({"display":"none"})
+    })
+    $(".testing-help-purpose-box-tab div:last-child").click(function() {
+        $(this).addClass("focus")
+        $(".testing-help-purpose-box-tab div:first-child").removeClass("focus")
+        $(".testing-help-purpose-box-left").css({"display":"none"})
+        $(".testing-help-purpose-box-right").css({"display":"flex"})
+    })
     if(navigator.userAgent.match(/Mobile|iP(hone|od)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)){
        $(".testing").remove();
        $(".testing-mobile").css({"display":"block"});
@@ -141,8 +217,11 @@
             });
         }
         else {
-            $(".testing-help-purpose").css({"display":"block"});
+            $(".testing-help-purpose.purpose").css({"display":"block"});
         }
+    });
+    $(document).on('click', '.testing-second-top-top button', function(){  
+        $(".testing-help-purpose.help").css({"display":"block"});
     });
     $(document).on('click', '.testing-help-purpose-box button', function(){  
         $(".testing-help-purpose").css({"display":"none"});
@@ -263,8 +342,8 @@
     $(document).on("click","#accordionExample2 .ui.dropdown, #accordionExample2 input", function(a) {
        purpose_2_test(a);
     })
-    $(document).on("keydown","#accordionExample2 input", function(a) {
-       purpose_2_test(a);
+    $(document).on("keypress","#accordionExample2 input", function(a) {
+        purpose_2_test(a);
        
     })
   
@@ -337,7 +416,7 @@
             purpose_3_test(a)
        }
     })
-    $(document).on("keypress","#accordionExample3 input", function(a) {
+    $(document).on("keydown","#accordionExample3 input", function(a) {
        if (purpose_2_test(a)) {
             purpose_3_test(a)
        }
