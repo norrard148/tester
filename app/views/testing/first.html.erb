@@ -72,10 +72,10 @@
                 <%b.each do |c, d |%>
                     <%if c =="minute" || c == "second" || c == "goal" || c== "purpose-is"%>
                     <%then%>
-                        <input name="[purpose][<%=a%>][<%=c%>]" value="<%=d%>" type="hidden">
+                        <input class="<%=c%>" name="[purpose][<%=a%>][<%=c%>]" value="<%=d%>" type="hidden">
                     <%else%>
                         <%d.each do |e,f|%>
-                            <input name="[purpose][<%=a%>][<%=c%>][<%=e%>]" value="<%=f%>" type="hidden">
+                            <input class="<%=e%>" name="[purpose][<%=a%>][<%=c%>][<%=e%>]" value="<%=f%>" type="hidden">
                         <%end%>
                     <%end%>
                 <%end%>
