@@ -1,24 +1,24 @@
 <%=render "testing-start"%>
 <div class="testing w-100 d-flex flex-column align-items-center">
-    <form  class="w-100 d-flex flex-column align-items-center" id="first-form" name="first_form" action="/testing/second" method="get">
+    <form  class="w-100 d-flex flex-column align-items-center" id="first-form" name="first_form" method="get" data-remote="true">
         <%= render partial: "testing-top", locals: { testing: 'first' }%>
         <div class="testing-first-top">
             <div class="testing-first-top-left"> 
                 <div class="testing-first-top-left-box">
                     <label>회사명*</label>
-                    <input id="brandname" placeholder="카카오" name="brandname">
+                    <input id="brandname" placeholder="카카오" name="[customer][brandname]" value="<%=if (defined? params[:customer][:brandname]) then  params[:customer][:brandname] end%>">
                 </div>
                 <div class="testing-first-top-left-box">
                     <label>담당자명*</label>
-                    <input id="name" placeholder="김○○" name="name">
+                    <input id="name" placeholder="김○○" name="[customer][name]" value="<%=if (defined? params[:customer][:name]) then  params[:customer][:name] end%>">
                 </div>
                 <div class="testing-first-top-left-box">
                     <label>담당자 연락처*</label>
-                    <input onfocus="OnCheckPhone(this)" onKeyup="OnCheckPhone(this)" size=14 id="phone-number" placeholder="010-1234-5678" name="phonenumber">
+                    <input onfocus="OnCheckPhone(this)" onKeyup="OnCheckPhone(this)" size=14 id="phone-number" placeholder="010-1234-5678" name="[customer][phonenumber]" value="<%=if (defined? params[:customer][:phonenumber]) then  params[:customer][:phonenumber] end%>">
                 </div>
                 <div class="testing-first-top-left-box">
                     <label>담당자 이메일*</label>
-                    <input id="email" placeholder="kakao@kakao.com" name="email">
+                    <input id="email" placeholder="kakao@kakao.com" name="[customer][email]" value="<%=if (defined? params[:customer][:email]) then  params[:customer][:email] end%>">
                 </div>
             </div>
             <div class="testing-first-top-right">
@@ -27,14 +27,14 @@
                     <div class="d-flex justify-content-start first-select">
                         <div class="d-flex align-items-center">
                             <div class="position-relative media">
-                                <input name="media" value="desktop" type="radio" checked="checked"/>
+                                <input name="[customer][media]" value="desktop" type="radio" <%=if (defined? params[:customer][:media]) then  if params[:customer][:media] =="desktop" then "checked" end else "checked" end%>/>
                                 <span class="big"><span class="small"></span></span>
                             </div>
                             <h1>데스크탑</h1>
                         </div>
                         <div class="d-flex align-items-center">
                             <div class="position-relative media">
-                                <input name="media" value="mobile" type="radio"/>
+                                <input name="[customer][media]" value="mobile" type="radio" <%=if (defined? params[:customer][:media]) then  if params[:customer][:media] =="mobile" then "checked" end  end%>/>
                                 <span class="big"><span class="small"></span></span>
                             </div>
                             <h1>모바일</h1>
@@ -46,14 +46,14 @@
                     <div class="d-flex justify-content-start first-select">
                         <div class="d-flex align-items-center testing-first-top-right-box-content">
                             <div class="position-relative testtype">
-                                <input name="testtype" value="image-pro" type="radio"  checked="checked"/>
+                                <input name="[customer][testtype]" value="image-pro" type="radio" <%=if (defined? params[:customer][:testtype]) then  if params[:customer][:testtype] =="image-pro" then "checked" end else "checked" end%>/>
                                 <span class="big"><span class="small"></span></span>
                             </div>
                             <h1>이미지 프로토타입</h1>
                         </div>
                         <div class="d-flex align-items-center testing-first-top-right-box-content ">
                             <div class="position-relative testtype">
-                                <input name="testtype" value="product" type="radio"/>
+                                <input name="[customer][testtype]" value="product" type="radio" <%=if (defined? params[:customer][:testtype]) then  if params[:customer][:testtype] =="product" then "checked" end else end%>/>
                                 <span class="big"><span class="small"></span></span>
                             </div>
                             <h1>구동가능한 제품 또는 시제품</h1>
@@ -62,11 +62,25 @@
                 </div>
                 <div class="testing-first-top-right-box url">
                     <label>URL*</label>
-                    <input class="url" id="url" name="url" placeholder="http://melon.com">
+                    <input class="url" id="url" name="[customer][url]" placeholder="http://melon.com"value="<%=if (defined? params[:customer][:url]) then  params[:customer][:url] end%>">
                 </div>
             </div>
         </div>
-   
+        
+        <%if (defined? params[:purpose]) && !(params[:purpose] == nil) then %>
+            <%params[:purpose].each do |a,b|%>
+                <%b.each do |c, d |%>
+                    <%if c =="minute" || c == "second" || c == "goal" || c== "purpose-is"%>
+                    <%then%>
+                        <input class="<%=c%>" name="[purpose][<%=a%>][<%=c%>]" value="<%=d%>" type="hidden">
+                    <%else%>
+                        <%d.each do |e,f|%>
+                            <input class="<%=e%>" name="[purpose][<%=a%>][<%=c%>][<%=e%>]" value="<%=f%>" type="hidden">
+                        <%end%>
+                    <%end%>
+                <%end%>
+            <%end%>
+        <%end%>
     </form>
     <div class="testing-first-bottom">
             <button>시작하기</button>
@@ -79,13 +93,14 @@
     PC에서만 가능합니다.<br>
     PC를 이용해 주세요.</h2>
 </div>
+
+
 <script>
 if(navigator.userAgent.match(/Mobile|iP(hone|od)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)){
-        console.log("Mobile"); 
        $(".testing").remove();
        $(".testing-mobile").css({"display":"block"});
     } else {
-        console.log("PC");
+    
     }
 $(".navbar-nav a:nth-child(5)").addClass("color");
 $(".testing-first-bottom button").click(function() {
@@ -94,6 +109,303 @@ $(".testing-first-bottom button").click(function() {
             method: "get"
         })
 }); 
+$(".testing-top-box.second").click(function() {
+    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    var regPhone = /^((01[1|6|7|8|9])[1-9]+[0-9]{6,7})|(010[1-9][0-9]{7})$/;
+    var regUrl = /^(https?|ftp|torrent|image|irc):\/\/(-\.)?([^\s\/?\.#-]+\.?)+(\/[^\s]*)?$/i;
+    var brandname = document.getElementById('brandname').value;
+    var name = document.getElementById('name').value;
+    var phone_number = document.getElementById('phone-number').value;
+    var email = document.getElementById('email').value;
+    var url = document.getElementById('url').value;
+    phone_number = phone_number.split('-').join('');
+    if (brandname == '') {
+            alertify.alert()
+            .setting({
+                'frameless':false,
+                'title':"회사명 작성 오류",
+                'closableByDimmer':true,
+                'closable': false,
+                modal: false,
+                transition:'pulse',
+                'pinnable': false,
+                message: '회사명은 필수 입력 사항입니다.',
+                'label':'Ok'
+                
+            }).show();
+            
+    }
+    else if (name == '') {
+            alertify.alert()
+            .setting({
+                'frameless':false,
+                'title':"담당자명 작성 오류",
+                'closableByDimmer':true,
+                'closable': false,
+                modal: false,
+                transition:'pulse',
+                'pinnable': false,
+                message: '담당자명은 필수 입력 사항입니다.',
+                'label':'Ok'
+            }).show();
+    }
+    else if (phone_number == '') {
+            alertify.alert()
+            .setting({
+                'frameless':false,
+                'title':"담당자 연락처 작성 오류",
+                'closableByDimmer':true,
+                'closable': false,
+                modal: false,
+                transition:'pulse',
+                'pinnable': false,
+                message: '담당자 연락처는 필수 입력 사항입니다.',
+                'label':'Ok'
+            }).show();
+    }
+    <%# else if (!regPhone.test(phone_number)) {
+        alertify.alert()
+            .setting({
+                'frameless':false,
+                'title':"담당자 연락처 작성 오류",
+                'closableByDimmer':true,
+                'closable': false,
+                modal: false,
+                transition:'pulse',
+                'pinnable': false,
+                message: '올바른 전화번호를 입력하세요.',
+                'label':'Ok'
+            }).show();
+    } %>
+    else if (email == '') {
+        alertify.alert()
+            .setting({
+                'frameless':false,
+                'title':"담당자 이메일 작성 오류",
+                'closableByDimmer':true,
+                'closable': false,
+                modal: false,
+                transition:'pulse',
+                'pinnable': false,
+                message: '담당자 이메일은 필수 입력 사항입니다.',
+                'label':'Ok'
+            }).show();
+    }
+    else if (!re.test(email)) {
+                alertify.alert()
+            .setting({
+                'frameless':false,
+                'title':"담당자 이메일 작성 오류",
+                'closableByDimmer':true,
+                'closable': false,
+                modal: false,
+                transition:'pulse',
+                'pinnable': false,
+                message: '올바른 이메일 주소를 입력하세요.',
+                'label':'Ok'
+            }).show();
+    }
+    else if (url == '') {
+        alertify.alert()
+            .setting({
+                'frameless':false,
+                'title':"URL 작성 오류",
+                'closableByDimmer':true,
+                'closable': false,
+                modal: false,
+                transition:'pulse',
+                'pinnable': false,
+                message: 'URL은 필수 입력 사항입니다.',
+                'label':'Ok'
+            }).show();
+    }
+    <%# else if (!regUrl.test(url)) {
+                alertify.alert()
+            .setting({
+                'frameless':false,
+                'title':"URL 작성 오류",
+                'closableByDimmer':true,
+                'closable': false,
+                modal: false,
+                transition:'pulse',
+                'pinnable': false,
+                message: '올바른 URL 주소를 입력하세요.',
+                'label':'Ok'
+            }).show();
+    } %>
+    else {
+        $("#first-form").attr({"action":"/testing/second"})
+        document.getElementById("first-form").submit();
+    }
+})
+$(".testing-top-box.third").click(function() {
+    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    var regPhone = /^((01[1|6|7|8|9])[1-9]+[0-9]{6,7})|(010[1-9][0-9]{7})$/;
+    var regUrl = /^(https?|ftp|torrent|image|irc):\/\/(-\.)?([^\s\/?\.#-]+\.?)+(\/[^\s]*)?$/i;
+    var brandname = document.getElementById('brandname').value;
+    var name = document.getElementById('name').value;
+    var phone_number = document.getElementById('phone-number').value;
+    var email = document.getElementById('email').value;
+    var url = document.getElementById('url').value;
+    phone_number = phone_number.split('-').join('');
+    if (brandname == '') {
+            alertify.alert()
+            .setting({
+                'frameless':false,
+                'title':"회사명 작성 오류",
+                'closableByDimmer':true,
+                'closable': false,
+                modal: false,
+                transition:'pulse',
+                'pinnable': false,
+                message: '회사명은 필수 입력 사항입니다.',
+                'label':'Ok'
+                
+            }).show();
+            
+    }
+    else if (name == '') {
+            alertify.alert()
+            .setting({
+                'frameless':false,
+                'title':"담당자명 작성 오류",
+                'closableByDimmer':true,
+                'closable': false,
+                modal: false,
+                transition:'pulse',
+                'pinnable': false,
+                message: '담당자명은 필수 입력 사항입니다.',
+                'label':'Ok'
+            }).show();
+    }
+    else if (phone_number == '') {
+            alertify.alert()
+            .setting({
+                'frameless':false,
+                'title':"담당자 연락처 작성 오류",
+                'closableByDimmer':true,
+                'closable': false,
+                modal: false,
+                transition:'pulse',
+                'pinnable': false,
+                message: '담당자 연락처는 필수 입력 사항입니다.',
+                'label':'Ok'
+            }).show();
+    }
+    <%# else if (!regPhone.test(phone_number)) {
+        alertify.alert()
+            .setting({
+                'frameless':false,
+                'title':"담당자 연락처 작성 오류",
+                'closableByDimmer':true,
+                'closable': false,
+                modal: false,
+                transition:'pulse',
+                'pinnable': false,
+                message: '올바른 전화번호를 입력하세요.',
+                'label':'Ok'
+            }).show();
+    } %>
+    else if (email == '') {
+        alertify.alert()
+            .setting({
+                'frameless':false,
+                'title':"담당자 이메일 작성 오류",
+                'closableByDimmer':true,
+                'closable': false,
+                modal: false,
+                transition:'pulse',
+                'pinnable': false,
+                message: '담당자 이메일은 필수 입력 사항입니다.',
+                'label':'Ok'
+            }).show();
+    }
+    else if (!re.test(email)) {
+                alertify.alert()
+            .setting({
+                'frameless':false,
+                'title':"담당자 이메일 작성 오류",
+                'closableByDimmer':true,
+                'closable': false,
+                modal: false,
+                transition:'pulse',
+                'pinnable': false,
+                message: '올바른 이메일 주소를 입력하세요.',
+                'label':'Ok'
+            }).show();
+    }
+    else if (url == '') {
+        alertify.alert()
+            .setting({
+                'frameless':false,
+                'title':"URL 작성 오류",
+                'closableByDimmer':true,
+                'closable': false,
+                modal: false,
+                transition:'pulse',
+                'pinnable': false,
+                message: 'URL은 필수 입력 사항입니다.',
+                'label':'Ok'
+            }).show();
+    }
+    <%# else if (!regUrl.test(url)) {
+                alertify.alert()
+            .setting({
+                'frameless':false,
+                'title':"URL 작성 오류",
+                'closableByDimmer':true,
+                'closable': false,
+                modal: false,
+                transition:'pulse',
+                'pinnable': false,
+                message: '올바른 URL 주소를 입력하세요.',
+                'label':'Ok'
+            }).show();
+    } %>
+    else {
+        if (getUrlVars().includes("%5Bsecond-step%5D")) {
+            $("#first-form").attr({"action":"/testing/third"})
+            document.getElementById("first-form").submit();
+        }
+        else {
+            if (getUrlVars().includes("%5Bpurpose%5D%5Bpurpose1%5D%5Bpurpose-is%5D")) {
+                alertify.alert()
+                    .setting({
+                        'frameless':false,
+                        'title':"순서 오류",
+                        'closableByDimmer':true,
+                        'closable': false,
+                        modal: false,
+                        transition:'pulse',
+                        'pinnable': false,
+                        message: '[테스트 정보] 필수 입력 사항 점검을 위해 [테스터 정보 입력] 단계로 이동합니다.',
+                        'label':'Ok',
+                        'onok':function() {
+                            $("#first-form").attr({"action":"/testing/second"})
+                            document.getElementById("first-form").submit();
+                        }
+                    }).show();
+            }
+            else {
+                $("#first-form").attr({"action":"/testing/second"})
+                document.getElementById("first-form").submit();
+            }
+        }
+    }
+    function getUrlVars()
+	{
+	    var vars = [], hash;
+	    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+	    for(var i = 0; i < hashes.length; i++)
+	    {
+	        hash = hashes[i].split('=');
+	        vars.push(hash[0]);
+	        vars[hash[0]] = hash[1];
+	    }
+	    return vars;
+	}
+    
+})
 function OnCheckPhone(oTa) { 
     var oForm = oTa.form ; 
     var sMsg = oTa.value ; 
@@ -102,7 +414,6 @@ function OnCheckPhone(oTa) {
     onlynum = RemoveDash2(sMsg);  //하이픈 입력시 자동으로 삭제함 
     onlynum =  checkDigit(onlynum);  // 숫자만 입력받게 함 
     var retValue = ""; 
-
     if(event.keyCode != 12 ) { 
         if(onlynum.substring(0,2) == 02) {  // 서울전화번호일 경우  10자리까지만 나타나교 그 이상의 자리수는 자동삭제 
                 if (GetMsgLen(onlynum) <= 1) oTa.value = onlynum ; 
@@ -145,8 +456,7 @@ function OnCheckPhone(oTa) {
                 if (GetMsgLen(onlynum) == 12) oTa.value = onlynum.substring(0,3) + "-" + onlynum.substring(3,7) + "-" + onlynum.substring(7,11) ; 
           } 
         } 
-
-        if(onlynum.substring(0,2) == 03 || onlynum.substring(0,2) == 04  || onlynum.substring(0,2) == 06  || onlynum.substring(0,2) == 07  || onlynum.substring(0,2) == 08 ) {  // 서울전화번호가 아닌 번호일 경우(070,080포함 // 050번호가 문제군요) 
+        if(onlynum.substring(0,2) == 03 || onlynum.substring(0,2) == 04  || onlynum.substring(0,2) == 06  || onlynum.substring(0,2) == 07  || onlynum.substring(0,2) == 08 ) {  // 서울전화번호가 아닌 번호일 경우(070,080포함) 
                 if (GetMsgLen(onlynum) <= 2) oTa.value = onlynum ; 
                 if (GetMsgLen(onlynum) == 3) oTa.value = onlynum + "-"; 
                 if (GetMsgLen(onlynum) == 4) oTa.value = onlynum.substring(0,3) + "-" + onlynum.substring(3,4) ; 
@@ -188,7 +498,6 @@ function OnCheckPhone(oTa) {
         } 
     } 
 } 
-
 function RemoveDash2(sNo) { 
 var reNo = "" 
 for(var i=0; i<sNo.length; i++) { 
@@ -198,7 +507,6 @@ for(var i=0; i<sNo.length; i++) {
 } 
 return reNo 
 } 
-
 function GetMsgLen(sMsg) { // 0-127 1byte, 128~ 2byte 
 var count = 0 
     for(var i=0; i<sMsg.length; i++) { 
@@ -211,7 +519,6 @@ var count = 0
     } 
 return count 
 } 
-
 function checkDigit(num) { 
     var Digit = "1234567890"; 
     var string = num; 

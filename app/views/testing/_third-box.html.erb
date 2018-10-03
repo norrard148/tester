@@ -16,7 +16,7 @@
                 <h3>
                     <%@testernumber=0%>
                     <%b.each do |c,d|%>
-                    <%if c != "goal" then%>
+                    <%if c != "goal" ||  c != "purpose-is" ||  c != "minute" ||  c != "second" then%>
                     <%@testernumber+=d['testernumber'].to_i()%>
                     <%end%>
                     <%end%>
@@ -27,7 +27,7 @@
             <div></div>
             <span class="hidden">
                 <h2>타겟 수</h2>
-                <h3><%=b.keys.length-3%></h3>
+                <h3><%=b.keys.length-4%></h3>
             </span>
             <div class="hidden"></div>
             <span>
@@ -37,7 +37,7 @@
             <div class="hidden"></div>
             <span class="hidden">
                 <h2>인터뷰 질문</h2>
-                <h3><%=(b.keys.length-3)*4%></h3>
+                <h3><%=(b.keys.length-4)*4%></h3>
             </span>
         </section>
     </div>

@@ -118,10 +118,12 @@
     align-items: center;
     height: 89px;
     width: 180px;
-    
+    cursor:pointer;
 }
+
 .testing-top-box.active {
     border-bottom: 8px solid #282828;
+    cursor:initial;
 }
 @media (max-width:800px) {
     .testing-top-box {
@@ -365,7 +367,7 @@
 }
 
 .disabled::placeholder  {
-    text-decoration: line-through;
+    // text-decoration: line-through;
     // color: #f0f0f0f0;
 }
 .ui.disabled.dropdown {
@@ -373,7 +375,7 @@
     cursor: pointer;
 }
 input.disabled {
-    text-decoration: line-through;
+    // text-decoration: line-through;
 }
 .card-header {
     background-color: transparent;
@@ -600,6 +602,14 @@ button.card-button[aria-expanded=true] {
     label {
         font-size: 12px;
     }
+}
+.card-delete {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 20px;
+    cursor: pointer;
+    z-index: 500;
 }
 .card-body-2-target {
 

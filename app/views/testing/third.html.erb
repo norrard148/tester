@@ -6,7 +6,7 @@
     <%@total_test =0%>
     <%@total_reward = 0%>
     <%@total_purpose = 0%>
-    <%params['purpose'].each do |a,b|%>
+    <%params[:purpose].each do |a,b|%>
     <%@testernumber=0%>
     <%if b['purpose-is'] != ''%>
     <%@total_purpose+=1%>
@@ -40,7 +40,25 @@
         <%=render 'third-box'%>
     </div>
     <div class="testing-third-bottom">
-        <form  class="third-form"  >
+        <form  id="third-form">
+        <%@params[:customer].each do |a,b|%>
+            <input name="[customer][<%=a%>]" value="<%=b%>" type="hidden">
+        <%end%>
+        <%@params[:purpose].each do |a,b|%>
+            <%b.each do |c, d |%>
+                <%if c =="minute" || c == "second" || c == "goal" || c== "purpose-is"%>
+                <%then%>
+                    <input name="[purpose][<%=a%>][<%=c%>]" value="<%=d%>" type="hidden">
+                <%else%>
+                    <%d.each do |e,f|%>
+                        <input name="[purpose][<%=a%>][<%=c%>][<%=e%>]" value="<%=f%>" type="hidden">
+                    <%end%>
+                <%end%>
+            <%end%>
+        <%end%>
+        <input type="hidden" value="complete" name="[second-step]">
+        </form>
+        <form class="third-form">
         <%@params[:customer].each do |a,b|%>
             <input name="<%=a%>" value="<%=b%>" type="hidden">
         <%end%>
@@ -56,7 +74,6 @@
                 <%end%>
             <%end%>
         <%end%>
-        </form>
         <div class="testing-third-bottom-top">
             <h1>추가 텍스트 입력</h1>
             <textarea name="message" placeholder="추가적으로 테스터들에게 궁금하거나 문의하실 사항이 있으시면 자유롭게 적어주세요.&#13;&#10;이 내용은 모든 테스트 진행을 마친 후, 각 테스터들에게 제공됩니다.&#13;&#10; *500자 내외"></textarea>
@@ -64,7 +81,7 @@
         <div class="testing-third-bottom-middle d-flex align-items-center">
             <section class="d-flex align-items-center">
             <label>
-                <input type="checkbox" name="agree" value="agree">
+                <input class="agree" type="checkbox" name="agree" value="agree">
                 <span  class="contract" ></span>
             </label>
             <h1>더 테스터의 이용약관에 동의합니다.</h1>
@@ -72,7 +89,7 @@
             <div><h1>이용약관 보기</h1></div>
         </div>
         </form>
-        <div class="testing-third-bottom-bottom" action="/testing/third" method="get" name="first">
+        <div class="testing-third-bottom-bottom">
             <input value="수정하기" type="button" id ="modify"/>
             <input value="제출하기" type="button" id ="submit"/>
         </div>
@@ -99,28 +116,26 @@
             <%end%>
         <%end%>
 </form>
-<form type="hidden" action="/testing/first" method="get" class="modify" >
-</form>
+
 <script>
+$(".testing-top-box.first").click(function() {
+        $("#third-form").attr({"action":"/testing/first"})
+        document.getElementById("third-form").submit();
+})
+$(".testing-top-box.second").click(function() {
+        $("#third-form").attr({"action":"/testing/second"})
+        document.getElementById("third-form").submit();
+})
 if(navigator.userAgent.match(/Mobile|iP(hone|od)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)){
-        console.log("Mobile"); 
-       $(".testing").remove();
-       $(".testing-mobile").css({"display":"block"});
-    } else {
-        console.log("PC");
-    }
-var vars = [], hash;
-    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-    for(var i = 0; i < hashes.length; i++) {
-        hash = hashes[i].split('=');
-        vars.push(hash[0]);
-        vars[hash[0]] = hash[1];
-    }
-console.log(vars)
-   
+    $(".testing").remove();
+    $(".testing-mobile").css({"display":"block"});
+}
+else {
+}
 $(".navbar-nav a:nth-child(5)").addClass("color");
 $("html, body").scrollTop($(".testing-top").offset().top)
-    $("#submit").click(function() {
+$("#submit").click(function() {
+    if ($(".agree").is(":checked")) {
         var authe = true;
         if (authe) {
             $.ajax({
@@ -148,9 +163,24 @@ $("html, body").scrollTop($(".testing-top").offset().top)
                 }
             })        
         }
-           
+    }  
+    else {
+         alertify.alert()
+            .setting({
+                'frameless':false,
+                'title':"이용약관 동의",
+                'closableByDimmer':true,
+                'closable': false,
+                modal: false,
+                transition:'pulse',
+                'pinnable': false,
+                message: '이용약관을 동의해야 제출할 수 있습니다.',
+                'label':'Ok'
+        }).show();
+    }  
+});
+$("#modify").click(function() {
+    $("#third-form").attr({"action":"/testing/first"})
+    document.getElementById("third-form").submit();
     });
-    $("#modify").click(function() {
-        $(".modify").submit();
-        });
 </script>
