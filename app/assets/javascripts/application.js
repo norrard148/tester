@@ -71,7 +71,7 @@ $(document).on('scroll', function (){
             var bottom_of_object0_1 = $(".mobile.card1").offset().top+$(".mobile.card1").outerHeight()-150;
             var bottom_of_object0_2 = $(".mobile.card2").offset().top+$(".mobile.card1").outerHeight()-150;
             var bottom_of_object0_3 = $(".mobile.card3").offset().top+$(".mobile.card1").outerHeight()-150;
-            $('.hideme').addClass("show");
+            // $('.hideme').addClass("show");
             $('.pc.card1').addClass("show").queue(function() {
                 $('.pc.card2').addClass("show").queue(function() {
                     $('.pc.card3').addClass("show");
