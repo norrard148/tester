@@ -8,8 +8,16 @@
                 <select class="minute minute<%=@purpose_generator%> ui search dropdown" name="[purpose][purpose<%=@purpose_generator%>][minute]" form="second-form">
                 <%@time=0%>
                 <%while @time < 60%>
-                    <option value="<%=@time%>"><%=@time%></option>
-                    <%@time+=1%>
+                    <%if defined? params[:purpose]["purpose" + @purpose_generator.to_s()]["minute"] then%>
+                        <%if params[:purpose]["purpose" + @purpose_generator.to_s()]["minute"] == @time.to_s() then%>
+                        <option value="<%=@time%>" selected><%=@time%></option>
+                        <%else%>
+                        <option value="<%=@time%>"><%=@time%></option>
+                        <%end%>
+                    <%else%>
+                        <option value="<%=@time%>"><%=@time%></option>
+                    <%end%>
+                        <%@time+=1%>
                 <%end%>
                 </select>
                 <%=image_tag("testing-topbottom-arrow.svg", :class=>"select-arrow")%>
@@ -19,8 +27,16 @@
                 <select class="second second<%=@purpose_generator%> ui search dropdown"  name="[purpose][purpose<%=@purpose_generator%>][second]" form="second-form">
                 <%@time=0%>
                 <%while @time < 60%>
-                    <option value="<%=@time%>"><%=@time%></option>
-                    <%=@time+=1%>
+                    <%if defined? params[:purpose]["purpose" + @purpose_generator.to_s()]["second"] then%>
+                        <%if params[:purpose]["purpose" + @purpose_generator.to_s()]["second"] == @time.to_s() then%>
+                        <option value="<%=@time%>" selected><%=@time%></option>
+                        <%else%>
+                        <option value="<%=@time%>"><%=@time%></option>
+                        <%end%>
+                    <%else%>
+                        <option value="<%=@time%>"><%=@time%></option>
+                    <%end%>
+                        <%@time+=1%>
                 <%end%>
                 </select>
                 <%=image_tag("testing-topbottom-arrow.svg", :class=>"select-arrow")%>

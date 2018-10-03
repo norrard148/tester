@@ -128,54 +128,45 @@ $(".testing-top-box.second").click(function() {
         document.getElementById("third-form").submit();
 })
 if(navigator.userAgent.match(/Mobile|iP(hone|od)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)){
-        console.log("Mobile"); 
-       $(".testing").remove();
-       $(".testing-mobile").css({"display":"block"});
-    } else {
-        console.log("PC");
-    }
-var vars = [], hash;
-    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-    for(var i = 0; i < hashes.length; i++) {
-        hash = hashes[i].split('=');
-        vars.push(hash[0]);
-        vars[hash[0]] = hash[1];
-    }
-console.log(vars)
-   
+    $(".testing").remove();
+    $(".testing-mobile").css({"display":"block"});
+}
+else {
+}
 $(".navbar-nav a:nth-child(5)").addClass("color");
 $("html, body").scrollTop($(".testing-top").offset().top)
-    $("#submit").click(function() {
-        var authe = true;
-        if (authe) {
-            $.ajax({
-                url: "https://script.google.com/macros/s/AKfycbz-puVX2a8R0CZQv9B-LuvAZ6lf_l7GkT0mI18IkQ/exec",
-                type: 'POST',
-                data: $(".third-form").serialize(),
-                beforeSend: function(e) {
-                    authe = false;
-                    $(".testing-third-loading").css({"display":"flex"});
-                    $(".testing-third-loading").css({"display":"flex"});
-                },
-                error : function(error) {
-                    $(".testing-third-loading").css({"display":"none"});
-                    authe = false;
-                },
-                success : function(data) {
-                    $(".submit").submit();
-                    
-                },
-                fail: function() {
-                    authe = false;
-                    $(".testing-third-loading").css({"display":"none"});
-                },
-                complete : function() {  
-                }
-            })        
-        }
-           
+$("#submit").click(function() {
+    var authe = true;
+    if (authe) {
+        $.ajax({
+            url: "https://script.google.com/macros/s/AKfycbz-puVX2a8R0CZQv9B-LuvAZ6lf_l7GkT0mI18IkQ/exec",
+            type: 'POST',
+            data: $(".third-form").serialize(),
+            beforeSend: function(e) {
+                authe = false;
+                $(".testing-third-loading").css({"display":"flex"});
+                $(".testing-third-loading").css({"display":"flex"});
+            },
+            error : function(error) {
+                $(".testing-third-loading").css({"display":"none"});
+                authe = false;
+            },
+            success : function(data) {
+                $(".submit").submit();
+                
+            },
+            fail: function() {
+                authe = false;
+                $(".testing-third-loading").css({"display":"none"});
+            },
+            complete : function() {  
+            }
+        })        
+    }
+        
+});
+$("#modify").click(function() {
+    $("#third-form").attr({"action":"/testing/first"})
+    document.getElementById("third-form").submit();
     });
-    $("#modify").click(function() {
-        $(".modify").submit();
-        });
 </script>

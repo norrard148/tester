@@ -101,11 +101,9 @@
 
 <script>
     if(navigator.userAgent.match(/Mobile|iP(hone|od)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)){
-        console.log("Mobile"); 
        $(".testing").remove();
        $(".testing-mobile").css({"display":"block"});
     } else {
-        console.log("PC");
     }
     $(".navbar-nav a:nth-child(5)").addClass("color");
     $("#purpose-is").focus();
@@ -179,8 +177,9 @@
     }, 1000);
 
     function purpose_2_test(a) {
-        var element = $("#accordionExample1")
+        var element = $("#accordionExample1");
         var testernumber=0;
+        var no_error = true;
         if (
         element.find(".purpose-is").val() =='' || Number(element.find(".minute option:selected").val()) + Number(element.find(".second option:selected").val()) == 0
         ) {
@@ -197,46 +196,12 @@
                 'label':'Ok'
             }).show();
             a.preventDefault();
+            no_error = false;
         }
         else {
             $("#accordionExample1 .card-body-2").each(function (i,e) {
-                        testernumber += Number($(this).find(".testernumber option:selected").val());
-                        if  ($(this).find(".target").val() == '') {
-                            alertify.alert()
-                            .setting({
-                                'frameless':false,
-                                'title':"작성 오류",
-                                'closableByDimmer':true,
-                                'closable': false,
-                                modal: false,
-                                transition:'pulse',
-                                'pinnable': false,
-                                message: '이전 목표 필수 입력 사항을 모두 입력하세요.',
-                                'label':'Ok'
-                            }).show();
-                            a.preventDefault();
-                            return false;
-                        }
-                        else  {
-                            if (testernumber > 5 ) {
-                                alertify.alert()
-                                .setting({
-                                'frameless':false,
-                                'title':"작성 오류",
-                                'closableByDimmer':true,
-                                'closable': false,
-                                modal: false,
-                                transition:'pulse',
-                                'pinnable': false,
-                                message: '이전 목표 필수 입력 사항을 모두 입력하세요.',
-                                'label':'Ok'
-                                }).show();
-                                a.preventDefault();
-                                return false;
-                            }
-                        }  
-            });
-            if  (testernumber == 0 ) {
+                testernumber += Number($(this).find(".testernumber option:selected").val());
+                if  ($(this).find(".target").val() == '') {
                     alertify.alert()
                     .setting({
                         'frameless':false,
@@ -248,11 +213,29 @@
                         'pinnable': false,
                         message: '이전 목표 필수 입력 사항을 모두 입력하세요.',
                         'label':'Ok'
-                    }).show(); 
+                    }).show();
                     a.preventDefault();
-                
-            } 
-            else {
+                    no_error = false;
+                    return false;
+                }
+                else if  ($(this).find(".testernumber option:selected").val() == 0 ) {
+                    alertify.alert()
+                    .setting({
+                        'frameless':false,
+                        'title':"작성 오류",
+                        'closableByDimmer':true,
+                        'closable': false,
+                        modal: false,
+                        transition:'pulse',
+                        'pinnable': false,
+                        message: `[목표 ${a}] [타겟 ${b+1}]의 테스터수는 1명 이상이어야 합니다.`,
+                        'label':'Ok'
+                    }).show(); 
+                    no_error = false;
+                    return false;
+                } 
+            });
+            if (no_error) {
                 return true;
             }
         }
@@ -268,6 +251,7 @@
     function purpose_3_test(a) {
         var element = $("#accordionExample2");
         var testernumber=0;
+        var no_error = true;
         if (
         element.find(".purpose-is").val() =='' || Number(element.find(".minute option:selected").val()) + Number(element.find(".second option:selected").val()) == 0
         ) {
@@ -284,46 +268,12 @@
                 'label':'Ok'
             }).show();
             a.preventDefault();
+            no_error = false;
         }
         else {
             $("#accordionExample2 .card-body-2").each(function (i,e) {
-                        testernumber += Number($(this).find(".testernumber option:selected").val());
-                        if  ($(this).find(".target").val() == '') {
-                            alertify.alert()
-                            .setting({
-                                'frameless':false,
-                                'title':"작성 오류",
-                                'closableByDimmer':true,
-                                'closable': false,
-                                modal: false,
-                                transition:'pulse',
-                                'pinnable': false,
-                                message: '이전 목표 필수 입력 사항을 모두 입력하세요.',
-                                'label':'Ok'
-                            }).show();
-                            a.preventDefault();
-                            return false;
-                        }
-                        else  {
-                            if (testernumber > 5 ) {
-                                alertify.alert()
-                                .setting({
-                                'frameless':false,
-                                'title':"작성 오류",
-                                'closableByDimmer':true,
-                                'closable': false,
-                                modal: false,
-                                transition:'pulse',
-                                'pinnable': false,
-                                message: '이전 목표 필수 입력 사항을 모두 입력하세요.',
-                                'label':'Ok'
-                                }).show();
-                                a.preventDefault();
-                                return false;
-                            }
-                        }  
-            });
-            if  (testernumber == 0 ) {
+                testernumber += Number($(this).find(".testernumber option:selected").val());
+                if  ($(this).find(".target").val() == '') {
                     alertify.alert()
                     .setting({
                         'frameless':false,
@@ -335,10 +285,29 @@
                         'pinnable': false,
                         message: '이전 목표 필수 입력 사항을 모두 입력하세요.',
                         'label':'Ok'
-                    }).show(); 
+                    }).show();
                     a.preventDefault();
-            } 
-            else {
+                    no_error = false;
+                    return false;
+                }
+                else if  ($(this).find(".testernumber option:selected").val() == 0 ) {
+                    alertify.alert()
+                    .setting({
+                        'frameless':false,
+                        'title':"작성 오류",
+                        'closableByDimmer':true,
+                        'closable': false,
+                        modal: false,
+                        transition:'pulse',
+                        'pinnable': false,
+                        message: `[목표 ${a}] [타겟 ${b+1}]의 테스터수는 1명 이상이어야 합니다.`,
+                        'label':'Ok'
+                    }).show(); 
+                    no_error = false;
+                    return false;
+                } 
+            });
+            if (no_error) {
                 return true;
             }
         }
@@ -358,112 +327,270 @@
             document.getElementById("second-form").submit();
     })
     $(".testing-top-box.third").click(function() {
-            $("#second-form").attr({"action":"/testing/third"})
-            document.getElementById("second-form").submit();
+            function purpose_test(a) {
+            var element = $(`#accordionExample${a}`);
+            var testernumber=0;
+            var no_error = true;
+            function input_check() {
+                var input_check = false;
+                element.find("input").not('input[type="radio"]').each(function(c) { if ($(this).val() !=''){console.log($(this).val()); input_check = true; return false}})
+                if (input_check == true) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+            if (input_check())
+            {
+                if (element.find(".purpose-is").val() =='')
+                {
+                    alertify.alert()
+                    .setting({
+                        'frameless':false,
+                        'title':"목표 작성 오류",   
+                        'closableByDimmer':true,
+                        'closable': false,
+                        modal: false,
+                        transition:'pulse',
+                        'pinnable': false,
+                        message: `[목표 ${a}]의 목표는 필수 작성 사항입니다.`,
+                        'label':'Ok'
+                    }).show();
+                    no_error = false;
+                }
+                else if ( Number(element.find(".minute option:selected").val())*60 + Number(element.find(".second option:selected").val()) == 0) {
+                    alertify.alert()
+                    .setting({
+                        'frameless':false,
+                        'title':"예상 시간 선택 오류",   
+                        'closableByDimmer':true,
+                        'closable': false,
+                        modal: false,
+                        transition:'pulse',
+                        'pinnable': false,
+                        message: `[목표 ${a}]의 예상 시간은 필수 선택 사항입니다.`,
+                        'label':'Ok'
+                    }).show();
+                    no_error = false;
+                }
+                else {
+                    $(`#accordionExample${a} .card-body-2`).each(function(b) {
+                        testernumber += Number($(this).find(".testernumber option:selected").val());
+                        if  ($(this).find(".target").val() == '') {
+                            alertify.alert()
+                            .setting({
+                                'frameless':false,
+                                'title':"타겟명 작성 오류",   
+                                'closableByDimmer':true,
+                                'closable': false,
+                                modal: false,
+                                transition:'pulse',
+                                'pinnable': false,
+                                message:`[목표 ${a}] [타겟 ${b+1}]의 타겟명은 필수 작성 사항입니다 .`,
+                                'label':'Ok'
+                            }).show();
+                            no_error = false;
+                            return false;
+                        }
+                        else if  ($(this).find(".testernumber option:selected").val() == 0 ) {
+                            alertify.alert()
+                            .setting({
+                                'frameless':false,
+                                'title':"작성 오류",
+                                'closableByDimmer':true,
+                                'closable': false,
+                                modal: false,
+                                transition:'pulse',
+                                'pinnable': false,
+                                message: `[목표 ${a}] [타겟 ${b+1}]의 테스터수는 1명 이상이어야 합니다.`,
+                                'label':'Ok'
+                            }).show(); 
+                            no_error = false;
+                            return false;
+                        } 
+                        else if (testernumber > 5 ) {
+                            alertify.alert()
+                            .setting({
+                            'frameless':false,
+                            'title':"테스터수 선택 오류",
+                            'closableByDimmer':true,
+                            'closable': false,
+                            modal: false,
+                            transition:'pulse',
+                            'pinnable': false,
+                            message: `[목표 ${a}]의 총 테스터수가 5명을 초과했습니다.`,
+                            'label':'Ok'
+                            }).show();
+                            no_error = false;
+                            return false;
+                        }  
+                    });
+                    if (no_error) {
+                        return true;
+                    }
+                }
+            }
+            else {
+                return true;
+            }    
+        }
+            
+        if (purpose_test(1)) {
+            if (purpose_test(2)) {
+                if (purpose_test(3)) {
+                    $("#second-form").attr({"action":"/testing/third"})
+                    document.getElementById("second-form").submit();
+                }
+            }
+        }
     })
-    $("#complete").click(function() {
-    // var toggle = true;
-    // $(".purpose-is").each(function(element) {
-    //     var  subject =  $(this).parent().parent().parent().parent()
-    //     var subject_target = subject.find(".card-body-2")
-    //     var testernumber=0;
-    //     if ($(this).val() == '') {
-    //         alertify.alert()
-    //         .setting({
-    //             'frameless':false,
-    //             'title':"목표 작성 오류",
-    //             'closableByDimmer':true,
-    //             'closable': false,
-    //             modal: false,
-    //             transition:'pulse',
-    //             'pinnable': false,
-    //             message: '목표는 필수 입력 사항입니다.',
-    //             'label':'Ok'
-    //         }).show();
-    //         toggle = false; 
-    //     }
-    //     else if (Number(subject.find(".minute option:selected").val()) + Number(subject.find(".second option:selected").val()) == 0) {
-    //         alertify.alert()
-    //         .setting({
-    //             'frameless':false,
-    //             'title':"예상 시간 선택 오류",
-    //             'closableByDimmer':true,
-    //             'closable': false,
-    //             modal: false,
-    //             transition:'pulse',
-    //             'pinnable': false,
-    //             message: '예상 시간은 필수 선택 사항입니다.',
-    //             'label':'Ok'
-    //         }).show();
-    //         toggle = false; 
-            
-    //     }
-    //     else {
-    //         subject_target.each(function(i,e) {
-    //             testernumber += Number($(this).find(".testernumber option:selected").val());
-            
-    //             if  ($(this).find(".target").val() == '') {
-    //                 alertify.alert()
-    //                 .setting({
-    //                     'frameless':false,
-    //                     'title':"타겟명 작성 오류",
-    //                     'closableByDimmer':true,
-    //                     'closable': false,
-    //                     modal: false,
-    //                     transition:'pulse',
-    //                     'pinnable': false,
-    //                     message: '타겟명은 필수 작성 사항입니다.',
-    //                     'label':'Ok'
-    //                 }).show();
-    //                 toggle = false; 
-    //             }
-    //             else  {
-    //                 console.log(testernumber)
-    //                 if (testernumber > 5 ) {
-    //                     alertify.alert()
-    //                     .setting({
-    //                     'frameless':false,
-    //                     'title': "테스터수 선택 오류",
-    //                     'closableByDimmer':true,
-    //                     'closable': false,
-    //                     modal: false,
-    //                     transition:'pulse',
-    //                     'pinnable': false,
-    //                     message: '테스터수는 목표당 최대 5명입니다.',
-    //                     'label':'Ok'
-    //                     }).show();
-    //                     toggle = false; 
-    //                 }
-    //             }  
-    //         })
-    //         if  (testernumber == 0 ) {
-    //             console.log(testernumber)
-            
-    //                 alertify.alert()
-    //                 .setting({
-    //                 'frameless':false,
-    //                 'title': "테스터수 선택 오류",
-    //                 'closableByDimmer':true,
-    //                 'closable': false,
-    //                 modal: false,
-    //                 transition:'pulse',
-    //                 'pinnable': false,
-    //                 message: '테스터수는 필수 선택 사항입니다.',
-    //                 'label':'Ok'
-    //                 }).show();
-    //                 toggle = false; 
-                
-    //         } 
-                    
-    //     }
-    // });
-    // if (toggle == true) {
-        $("#second-form").attr({"action":"/testing/third"})
-        document.getElementById("second-form").submit();
-    // }    
-    }); 
     
+    $(document).on("click",".testernumber.ui.dropdown .item", function() {
+        var testernumber = 0;
+        $(this).parent().parent().parent().parent().parent().parent().parent().find(".card-body-2").each(function(a) {
+            testernumber += Number($(this).find(".testernumber option:selected").val());
+          if (testernumber > 5 ) {
+                alertify.alert()
+                .setting({
+                'frameless':false,
+                'title':"테스터수 선택 오류",
+                'closableByDimmer':true,
+                'closable': false,
+                modal: false,
+                transition:'pulse',
+                'pinnable': false,
+                message: `한 목표당 최대 5명의 테스터수를 선택할 수 있습니다.`,
+                'label':'Ok'
+                }).show();
+                no_error = false;
+                return false;
+            }  
+        });
+    })
+    
+    $("#complete").click(function() {
+        
+        function purpose_test(a) {
+            var element = $(`#accordionExample${a}`);
+            var testernumber=0;
+            var no_error = true;
+            function input_check() {
+                var input_check = false;
+                element.find("input").not('input[type="radio"]').each(function(c) { if ($(this).val() !=''){console.log($(this).val()); input_check = true; return false}})
+                if (input_check == true) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+            if (input_check())
+            {
+                if (element.find(".purpose-is").val() =='')
+                {
+                    alertify.alert()
+                    .setting({
+                        'frameless':false,
+                        'title':"목표 작성 오류",   
+                        'closableByDimmer':true,
+                        'closable': false,
+                        modal: false,
+                        transition:'pulse',
+                        'pinnable': false,
+                        message: `[목표 ${a}]의 목표는 필수 작성 사항입니다.`,
+                        'label':'Ok'
+                    }).show();
+                    no_error = false;
+                }
+                else if ( Number(element.find(".minute option:selected").val())*60 + Number(element.find(".second option:selected").val()) == 0) {
+                    alertify.alert()
+                    .setting({
+                        'frameless':false,
+                        'title':"예상 시간 선택 오류",   
+                        'closableByDimmer':true,
+                        'closable': false,
+                        modal: false,
+                        transition:'pulse',
+                        'pinnable': false,
+                        message: `[목표 ${a}]의 예상 시간은 필수 선택 사항입니다.`,
+                        'label':'Ok'
+                    }).show();
+                    no_error = false;
+                }
+                else {
+                    $(`#accordionExample${a} .card-body-2`).each(function(b) {
+                        testernumber += Number($(this).find(".testernumber option:selected").val());
+                        if  ($(this).find(".target").val() == '') {
+                            alertify.alert()
+                            .setting({
+                                'frameless':false,
+                                'title':"타겟명 작성 오류",   
+                                'closableByDimmer':true,
+                                'closable': false,
+                                modal: false,
+                                transition:'pulse',
+                                'pinnable': false,
+                                message:`[목표 ${a}] [타겟 ${b+1}]의 타겟명은 필수 작성 사항입니다 .`,
+                                'label':'Ok'
+                            }).show();
+                            no_error = false;
+                            return false;
+                        }
+                        else if  ($(this).find(".testernumber option:selected").val() == 0 ) {
+                            alertify.alert()
+                            .setting({
+                                'frameless':false,
+                                'title':"작성 오류",
+                                'closableByDimmer':true,
+                                'closable': false,
+                                modal: false,
+                                transition:'pulse',
+                                'pinnable': false,
+                                message: `[목표 ${a}] [타겟 ${b+1}]의 테스터수는 1명 이상이어야 합니다.`,
+                                'label':'Ok'
+                            }).show(); 
+                            no_error = false;
+                            return false;
+                        } 
+                        else if (testernumber > 5 ) {
+                            alertify.alert()
+                            .setting({
+                            'frameless':false,
+                            'title':"테스터수 선택 오류",
+                            'closableByDimmer':true,
+                            'closable': false,
+                            modal: false,
+                            transition:'pulse',
+                            'pinnable': false,
+                            message: `[목표 ${a}]의 총 테스터수가 5명을 초과했습니다.`,
+                            'label':'Ok'
+                            }).show();
+                            no_error = false;
+                            return false;
+                        }  
+                    });
+                    if (no_error) {
+                        return true;
+                    }
+                }
+            }
+            else {
+                return true;
+            }    
+        }
 
+        if (purpose_test(1)) {
+            if (purpose_test(2)) {
+                if (purpose_test(3)) {
+                    $("#second-form").attr({"action":"/testing/third"})
+                    document.getElementById("second-form").submit();
+                }
+            }
+        }
+    });  
+
+        
 </script>
 
 
