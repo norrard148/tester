@@ -110,6 +110,26 @@
     $("html, body").scrollTop($(".testing-top").offset().top)
     $("#accordionExample1 input").attr("disabled", false);
     $("#accordionExample1 .ui.dropdown").removeClass("disabled");
+    $(document).on('click', '.card-delete', function(){   
+        $(this).parent().parent().find(".card-body-2").each(function(v) {
+            if (v == 2) {
+                var a = $(this).parent().parent().parent().attr("id");
+                var purpose_number = a.replace(/[^0-9]/g,"");
+                $(this).find(".card-body-2-target h1").text(`타겟 2`)
+                $(this).find(".target").attr({"name":`[purpose][purpose${purpose_number}][exp2][target]`})
+                $(this).find(".detail").attr({"name":`[purpose][purpose${purpose_number}][exp2][detail]`})
+                $(this).find(".testernumber select").attr({"name":`[purpose][purpose${purpose_number}][exp2][testernumber]`})
+                $(this).find(".sex").attr({"name":`[purpose][purpose${purpose_number}][exp2][sex]`})
+                $(this).find(".age select").attr({"name":`[purpose][purpose${purpose_number}][exp2][age]`})
+                $(this).find(".age2 select").attr({"name":`[purpose][purpose${purpose_number}][exp2][age2]`})
+                $(this).find(".question1").attr({"name":`[purpose][purpose${purpose_number}][exp2][question1]`})
+                $(this).find(".question2").attr({"name":`[purpose][purpose${purpose_number}][exp2][question2]`})
+                $(this).find(".question3").attr({"name":`[purpose][purpose${purpose_number}][exp2][question3]`})
+                $(this).find(".question4").attr({"name":`[purpose][purpose${purpose_number}][exp2][question4]`})
+            }
+        });
+        $(this).parent().remove();
+    });
     $(document).on('click', '.purpose-add', function(){   
         var purpose_count = document.getElementsByClassName("accordion").length;
         if (purpose_count != 3 ) {
