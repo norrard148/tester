@@ -1,45 +1,13 @@
-<%if testing == "first"%>
 <div class="testing-top">
-    <div class="testing-top-box active first">
+    <div class="testing-top-box first <%=if testing == 'first' then "active" end%>">
         <h1>기본 정보 등록</h1>
     </div>
     <%=image_tag("testing-top-arrow.svg")%>
-    <div class="testing-top-box second">
+    <div class="testing-top-box second <%=if testing == 'second' then "active" end%>">
         <h1>테스트 정보 입력</h1>
     </div>
     <%=image_tag("testing-top-arrow.svg")%>
-    <div class="testing-top-box third">
+    <div class="testing-top-box third <%=if testing == 'third' then "active" end%>">
         <h1>검토 및 제출</h1>
     </div>
 </div>
-<%end%>
-<%if testing == "second"%>
-<div class="testing-top">
-    <div class="testing-top-box first">
-        <h1>기본 정보 등록</h1>
-    </div>
-    <%=image_tag("testing-top-arrow.svg")%>
-    <div class="testing-top-box active second">
-        <h1>테스트 정보 입력</h1>
-    </div>
-    <%=image_tag("testing-top-arrow.svg")%>
-    <div class="testing-top-box third">
-        <h1>검토 및 제출</h1>
-    </div>
-</div>
-<%end%>
-<%if testing == "third"%>
-<div class="testing-top">
-    <div class="testing-top-box first" >
-        <h1>기본 정보 등록</h1>
-    </div>
-    <%=image_tag("testing-top-arrow.svg")%>
-    <div class="testing-top-box second">
-        <h1>테스트 정보 입력</h1>
-    </div>
-    <%=image_tag("testing-top-arrow.svg")%>
-    <div class="testing-top-box active third">
-        <h1>검토 및 제출</h1>
-    </div>
-</div>
-<%end%>

@@ -1,23 +1,22 @@
 
 <%=render "testing-start"%>
 <div class="testing w-100 d-flex flex-column align-items-center">
-<%@testing_page = {"third"=>"third"}%>
     <%= render partial: "testing-top", locals: { testing: 'third' }%>
-    <%@total_test =0%>
+    <%@total_testernumber =0%>
     <%@total_reward = 0%>
     <%@total_purpose = 0%>
     <%params[:purpose].each do |a,b|%>
-    <%@testernumber=0%>
-    <%if b['purpose-is'] != ''%>
-    <%@total_purpose+=1%>
-    <%end%>
-    <%b.each do |c,d|%>
-    <%if c != "goal" then%>
-    <%@testernumber+=d['testernumber'].to_i()%>
-    <%end%>
-    <%end%>
-    <%@total_test += @testernumber%>
-    <%@total_reward += (@testernumber.to_i()*(b['minute'].to_i()*60+b['second'].to_i())*1/2)%>
+        <%@testernumber=0%>
+        <%if b['purpose-is'] != ''%>
+            <%@total_purpose+=1%>
+        <%end%>
+        <%b.each do |c,d|%>
+            <%if c != "goal" then%>
+                <%@testernumber+=d['testernumber'].to_i()%>
+            <%end%>
+        <%end%>
+        <%@total_testernumber += @testernumber%>
+        <%@total_reward += (@testernumber.to_i()*(b['minute'].to_i()*60+b['second'].to_i())*1/2)%>
     <%end%>
     <div class="testing-third-top">
         <div class="testing-third-top-top">
@@ -28,7 +27,7 @@
             <span></span>
             <div class="d-flex flex-column align-items-center">
                 <h1>총 테스터수</h1>
-                <h2><%=@total_test%></h2>
+                <h2><%=@total_testernumber%></h2>
             </div>
             <span></span>
             <div class="d-flex flex-column align-items-center">
@@ -40,54 +39,54 @@
         <%=render 'third-box'%>
     </div>
     <div class="testing-third-bottom">
-        <form  id="third-form">
-        <%@params[:customer].each do |a,b|%>
-            <input name="[customer][<%=a%>]" value="<%=b%>" type="hidden">
-        <%end%>
-        <%@params[:purpose].each do |a,b|%>
-            <%b.each do |c, d |%>
-                <%if c =="minute" || c == "second" || c == "goal" || c== "purpose-is"%>
-                <%then%>
-                    <input name="[purpose][<%=a%>][<%=c%>]" value="<%=d%>" type="hidden">
-                <%else%>
-                    <%d.each do |e,f|%>
-                        <input name="[purpose][<%=a%>][<%=c%>][<%=e%>]" value="<%=f%>" type="hidden">
+        <form id="third-form">
+            <%@params[:customer].each do |a,b|%>
+                <input name="[customer][<%=a%>]" value="<%=b%>" type="hidden">
+            <%end%>
+            <%@params[:purpose].each do |a,b|%>
+                <%b.each do |c, d |%>
+                    <%if c =="minute" || c == "second" || c == "goal" || c== "purpose-is"%>
+                    <%then%>
+                        <input name="[purpose][<%=a%>][<%=c%>]" value="<%=d%>" type="hidden">
+                    <%else%>
+                        <%d.each do |e,f|%>
+                            <input name="[purpose][<%=a%>][<%=c%>][<%=e%>]" value="<%=f%>" type="hidden">
+                        <%end%>
                     <%end%>
                 <%end%>
             <%end%>
-        <%end%>
-        <input type="hidden" value="complete" name="[second-step]">
+            <input type="hidden" value="complete" name="[second-step]">
         </form>
         <form class="third-form">
-        <%@params[:customer].each do |a,b|%>
-            <input name="<%=a%>" value="<%=b%>" type="hidden">
-        <%end%>
-        <%@params[:purpose].each do |a,b|%>
-            <%b.each do |c, d |%>
-                <%if c =="minute" || c == "second" || c == "goal" || c== "purpose-is"%>
-                <%then%>
-                    <input name="<%=a%>-<%=c%>" value="<%=d%>" type="hidden">
-                <%else%>
-                    <%d.each do |e,f|%>
-                        <input name="<%=a%>-<%=c%>-<%=e%>" value="<%=f%>" type="hidden">
+            <%@params[:customer].each do |a,b|%>
+                <input name="<%=a%>" value="<%=b%>" type="hidden">
+            <%end%>
+            <%@params[:purpose].each do |a,b|%>
+                <%b.each do |c, d |%>
+                    <%if c =="minute" || c == "second" || c == "goal" || c== "purpose-is"%>
+                    <%then%>
+                        <input name="<%=a%>-<%=c%>" value="<%=d%>" type="hidden">
+                    <%else%>
+                        <%d.each do |e,f|%>
+                            <input name="<%=a%>-<%=c%>-<%=e%>" value="<%=f%>" type="hidden">
+                        <%end%>
                     <%end%>
                 <%end%>
             <%end%>
-        <%end%>
-        <div class="testing-third-bottom-top">
-            <h1>추가 텍스트 입력</h1>
-            <textarea name="message" placeholder="추가적으로 테스터들에게 궁금하거나 문의하실 사항이 있으시면 자유롭게 적어주세요.&#13;&#10;이 내용은 모든 테스트 진행을 마친 후, 각 테스터들에게 제공됩니다.&#13;&#10; *500자 내외"></textarea>
-        </div>
-        <div class="testing-third-bottom-middle d-flex align-items-center">
-            <section class="d-flex align-items-center">
-            <label>
-                <input class="agree" type="checkbox" name="agree" value="agree">
-                <span  class="contract" ></span>
-            </label>
-            <h1>더 테스터의 이용약관에 동의합니다.</h1>
-            </section>
-            <div><h1>이용약관 보기</h1></div>
-        </div>
+            <div class="testing-third-bottom-top">
+                <h1>추가 텍스트 입력</h1>
+                <textarea name="message" placeholder="추가적으로 테스터들에게 궁금하거나 문의하실 사항이 있으시면 자유롭게 적어주세요.&#13;&#10;이 내용은 모든 테스트 진행을 마친 후, 각 테스터들에게 제공됩니다.&#13;&#10; *500자 내외"></textarea>
+            </div>
+            <div class="testing-third-bottom-middle d-flex align-items-center">
+                <section class="d-flex align-items-center">
+                <label>
+                    <input class="agree" type="checkbox" name="agree" value="agree">
+                    <span  class="contract" ></span>
+                </label>
+                <h1>더 테스터의 이용약관에 동의합니다.</h1>
+                </section>
+                <div><h1>이용약관 보기</h1></div>
+            </div>
         </form>
         <div class="testing-third-bottom-bottom">
             <input value="수정하기" type="button" id ="modify"/>
@@ -98,9 +97,6 @@
 <div class="testing-third-loading">
     <%=image_tag("preloader.svg")%>
 </div>
-
-
-
 <div class="submit" style="display:none;">
     <div class="submit-box">
          <%=image_tag("submit.svg")%>
@@ -113,114 +109,5 @@
 </div>
 <form class="redirect" type="hidden" action="/" method="get">
 </form>
-<script>
-$(".testing-top-box.first").click(function() {
-        $("#third-form").attr({"action":"/testing/first"})
-        document.getElementById("third-form").submit();
-})
-$(".testing-top-box.second").click(function() {
-        $("#third-form").attr({"action":"/testing/second"})
-        document.getElementById("third-form").submit();
-})
 
-if(navigator.userAgent.match(/Mobile|iP(hone|od)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)){
-    $(".testing").remove();
-    $(".testing-mobile").css({"display":"block"});
-}
-else {
-}
-var submitted = false;
-var authe = true;
-$(".navbar-nav a:nth-child(5)").addClass("color");
-$("html, body").scrollTop($(".testing-top").offset().top)
-$("#submit").click(function() {
-    if ($(".agree").is(":checked")) {
-        if (submitted== false) {
-            if (authe) {
-                $.ajax({
-                    url: "https://script.google.com/macros/s/AKfycbz-puVX2a8R0CZQv9B-LuvAZ6lf_l7GkT0mI18IkQ/exec",
-                    type: 'POST',
-                    data: $(".third-form").serialize(),
-                    beforeSend: function(e) {
-                        authe = false;
-                        $(".testing-third-loading").css({"display":"flex"});
-                    },
-                    error : function(error) {
-                        $(".testing-third-loading").css({"display":"none"});
-                        authe = true;
-                    },
-                    success : function(data) {
-                        $(".testing-third-loading").css({"display":"none"});
-                        $(".submit").css({"display":"block"});
-                        $.ajax({
-                            url: "/testing/submit",
-                            type: 'POST',
-                            data: $("#third-form").serialize(),
-                            beforeSend: function(e) {
-                                
-                            },
-                            error : function(error) {
-                                $(".testing-third-loading").css({"display":"none"});
-                                authe = true;
-                            },
-                            success : function(data) {
-                                $(".testing-third-loading").css({"display":"none"});
-                                $(".submit").css({"display":"block"});
-                                submitted = true;
-                            },
-                            fail: function() {
-                                authe = true;
-                                $(".testing-third-loading").css({"display":"none"});
-                            },
-                            complete : function() {  
-                            }
-                        })        
-                    },
-                    fail: function() {
-                        authe = true;
-                        $(".testing-third-loading").css({"display":"none"});
-                    },
-                    complete : function() {  
-                    }
-                })        
-            }
-        }
-        else {
-             alertify.alert()
-            .setting({
-                'frameless':false,
-                'title':"제출 오류",
-                'closableByDimmer':true,
-                'closable': false,
-                modal: false,
-                transition:'pulse',
-                'pinnable': false,
-                message: '이미 제출했습니다.',
-                'label':'Ok'
-        }).show();
-        }
-        
-    }  
-    else {
-         alertify.alert()
-            .setting({
-                'frameless':false,
-                'title':"이용약관 동의",
-                'closableByDimmer':true,
-                'closable': false,
-                modal: false,
-                transition:'pulse',
-                'pinnable': false,
-                message: '이용약관을 동의해야 제출할 수 있습니다.',
-                'label':'Ok'
-        }).show();
-    }  
-});
-$("#modify").click(function() {
-    $("#third-form").attr({"action":"/testing/first"})
-    document.getElementById("third-form").submit();
-});
-$(document).on('click', '.submit button', function(){  
-    $(".redirect").submit();
-})
-</script>
+<%=javascript_include_tag "testing_third"%>

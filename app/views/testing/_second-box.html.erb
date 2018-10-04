@@ -1,41 +1,73 @@
 
-<%purpose_count = defined? @purpose_count %>
+<%if defined? @purpose_count then purpose_count = @purpose_count end%>
 <%if purpose_count == nil%>
-    <% then %>
+<% then %>
     <%@purpose_generator=1%>
     <%while @purpose_generator <= 3 %>
+        <%@purpose_number = @purpose_generator%>
+        <div class="accordion" id="accordionExample<%=@purpose_generator%>">
+            <div class="card">
+                <div class="card-header" id="heading<%=@purpose_generator%>">
+                    <section class="mb-0 d-flex align-items-center h-100 w-100">
+                        <div class="card-header-left">
+                        <h1>목표 (<%=@purpose_generator%>)</h1>
+                        <input placeholder="목표를 입력해주세요." class="purpose-is" id="purpose-is" name="[purpose][purpose<%=@purpose_generator%>][purpose-is]" value="<%=if defined? params[:purpose]["purpose" + @purpose_generator.to_s()]["purpose-is"] then params[:purpose]["purpose" + @purpose_generator.to_s()]["purpose-is"] end%>">
+                        </div>
+                        <button class="card-button <%=if @purpose_generator == 1 then  else "collapsed" end%>" type="button" data-toggle="collapse" data-target="#collapse<%=@purpose_generator%>"  aria-controls="collapse<%=@purpose_generator%>" aria-expanded="<%=if @purpose_generator == 1 then true else false end%>">
+                        <%=image_tag("big-arrow-fold.svg", :class=>"purpose-arrow")%>
+                        </button>
+                    </section>
+                </div>
+                <div id="collapse<%=@purpose_generator%>" class="collapse <%=if @purpose_generator == 1 then "show" else end%>" aria-labelledby="heading<%=@purpose_generator%>" data-parent="#accordionExample<%=@purpose_generator%>">
+                    <div class="card-body">
+                        <div class="w-100">
+                            <%= render "card1"%>
+                            <%if (defined? params[:purpose]) && !(params[:purpose] == nil) then %>
+                                <%@target_count = -1%>
+                                <%params[:purpose]["purpose#{@purpose_generator}"].each do |a,b|%>
+                                        <%if a =="minute" || a == "second" || a == "goal" || a == "purpose-is"%>
+                                        <%then%>
+                                        <%else%>
+                                            <%@target_count +=1%>
+                                            <%= render "card2"%>
+                                        <%end%>
+                                <%end%>
+                            <%else%>
+                                <%= render "card2"%>
+                            <%end%>
+                        </div>
+                        <div class="card-submit">
+                            <a><h1>+ 타겟 추가하기</h1></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%@purpose_generator +=1%>
+    <%end%>
+<%else%>
+    <%@purpose_generator=@purpose_count.to_i()+1%>
     <%@purpose_number = @purpose_generator%>
+    <%if @purpose_generator !=4%>
     <div class="accordion" id="accordionExample<%=@purpose_generator%>">
         <div class="card">
             <div class="card-header" id="heading<%=@purpose_generator%>">
                 <section class="mb-0 d-flex align-items-center h-100 w-100">
                     <div class="card-header-left">
-                    <h1>목표 (<%=@purpose_generator%>)</h1>
-                    <input placeholder="목표를 입력해주세요." class="purpose-is" id="purpose-is" name="[purpose][purpose<%=@purpose_generator%>][purpose-is]" value="<%=if defined? params[:purpose]["purpose" + @purpose_generator.to_s()]["purpose-is"] then params[:purpose]["purpose" + @purpose_generator.to_s()]["purpose-is"] end%>">
-                    </div>
-                    <button class="card-button <%=if @purpose_generator == 1 then  else "collapsed" end%>" type="button" data-toggle="collapse" data-target="#collapse<%=@purpose_generator%>"  aria-controls="collapse<%=@purpose_generator%>" aria-expanded="<%=if @purpose_generator == 1 then true else false end%>">
-                    <%=image_tag("big-arrow-fold.svg", :class=>"purpose-arrow")%>
-                    </button>
+                        <h1>목표 (<%=@purpose_generator%>)</h1>
+                        <input placeholder="목표를 입력해주세요." disabled>
+                        </div>
+                        <button class="card-button collapsed" type="button" data-toggle="collapse" data-target="#collapse<%=@purpose_generator%>"  aria-controls="collapse<%=@purpose_generator%>">
+                        <%=image_tag("big-arrow-fold.svg", :class=>"purpose-arrow")%>
+                        </button>
                 </section>
             </div>
-            <div id="collapse<%=@purpose_generator%>" class="collapse <%=if @purpose_generator == 1 then "show" else end%>" aria-labelledby="heading<%=@purpose_generator%>" data-parent="#accordionExample<%=@purpose_generator%>">
-
+            <div id="collapse<%=@purpose_generator%>" class="collapse show" aria-labelledby="heading<%=@purpose_generator%>" data-parent="#accordionExample<%=@purpose_generator%>">
+        
                 <div class="card-body">
                     <div class="w-100">
                         <%= render "card1"%>
-                        <%if (defined? params[:purpose]) && !(params[:purpose] == nil) then %>
-                            <%@target_count = -1%>
-                            <%params[:purpose]["purpose#{@purpose_generator}"].each do |a,b|%>
-                                    <%if a =="minute" || a == "second" || a == "goal" || a == "purpose-is"%>
-                                    <%then%>
-                                    <%else%>
-                                        <%@target_count +=1%>
-                                        <%= render "card2"%>
-                                    <%end%>
-                            <%end%>
-                        <%else%>
-                            <%= render "card2"%>
-                        <%end%>
+                        <%= render "card2"%>
                     </div>
 
                     <div class="card-submit">
@@ -45,42 +77,6 @@
             </div>
         </div>
     </div>
-    <%@purpose_generator +=1%>
+    <%else%>
     <%end%>
-<%else%>
-<%@purpose_generator=@purpose_count.to_i()%>
-<%@purpose_generator +=1%>
-<%@purpose_number = @purpose_generator%>
-<%if @purpose_generator !=4%>
-<div class="accordion" id="accordionExample<%=@purpose_generator%>">
-    <div class="card">
-        <div class="card-header" id="heading<%=@purpose_generator%>">
-            <section class="mb-0 d-flex align-items-center h-100 w-100">
-                <div class="card-header-left">
-                    <h1>목표 (<%=@purpose_generator%>)</h1>
-                    <input placeholder="목표를 입력해주세요." disabled>
-                    </div>
-                    <button class="card-button collapsed" type="button" data-toggle="collapse" data-target="#collapse<%=@purpose_generator%>"  aria-controls="collapse<%=@purpose_generator%>">
-                    <%=image_tag("big-arrow-fold.svg", :class=>"purpose-arrow")%>
-                    </button>
-            </section>
-        </div>
-        <div id="collapse<%=@purpose_generator%>" class="collapse show" aria-labelledby="heading<%=@purpose_generator%>" data-parent="#accordionExample<%=@purpose_generator%>">
-       
-            <div class="card-body">
-                <div class="w-100">
-                    <%= render "card1"%>
-                    <%= render "card2"%>
-                </div>
-
-                <div class="card-submit">
-                    <a><h1>+ 타겟 추가하기</h1></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<%else%>
-
-<%end%>
 <%end%>

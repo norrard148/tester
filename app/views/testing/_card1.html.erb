@@ -1,43 +1,41 @@
-
 <section class="card-body-1">
     <div class="card-body-1-left d-flex flex-column">
         <label>예상 시간*</label>
         <div class="d-flex align-items-center card-body-1-left-content">
             <div class="card-body-1-left-hour">
-               
                 <select class="minute minute<%=@purpose_generator%> ui search dropdown" name="[purpose][purpose<%=@purpose_generator%>][minute]" form="second-form">
-                <%@time=0%>
-                <%while @time < 60%>
-                    <%if defined? params[:purpose]["purpose" + @purpose_generator.to_s()]["minute"] then%>
-                        <%if params[:purpose]["purpose" + @purpose_generator.to_s()]["minute"] == @time.to_s() then%>
-                        <option value="<%=@time%>" selected><%=@time%></option>
+                    <%@time=0%>
+                    <%while @time < 60%>
+                        <%if defined? params[:purpose]["purpose" + @purpose_generator.to_s()]["minute"] then%>
+                            <%if params[:purpose]["purpose" + @purpose_generator.to_s()]["minute"] == @time.to_s() then%>
+                                <option value="<%=@time%>" selected><%=@time%></option>
+                            <%else%>
+                                <option value="<%=@time%>"><%=@time%></option>
+                            <%end%>
                         <%else%>
-                        <option value="<%=@time%>"><%=@time%></option>
+                            <option value="<%=@time%>"><%=@time%></option>
                         <%end%>
-                    <%else%>
-                        <option value="<%=@time%>"><%=@time%></option>
+                            <%@time+=1%>
                     <%end%>
-                        <%@time+=1%>
-                <%end%>
                 </select>
                 <%=image_tag("testing-topbottom-arrow.svg", :class=>"select-arrow")%>
             </div>
             <h1>분</h1>
             <div class="card-body-1-left-minute">
                 <select class="second second<%=@purpose_generator%> ui search dropdown"  name="[purpose][purpose<%=@purpose_generator%>][second]" form="second-form">
-                <%@time=0%>
-                <%while @time < 60%>
-                    <%if defined? params[:purpose]["purpose" + @purpose_generator.to_s()]["second"] then%>
-                        <%if params[:purpose]["purpose" + @purpose_generator.to_s()]["second"] == @time.to_s() then%>
-                        <option value="<%=@time%>" selected><%=@time%></option>
+                    <%@time=0%>
+                    <%while @time < 60%>
+                        <%if defined? params[:purpose]["purpose" + @purpose_generator.to_s()]["second"] then%>
+                            <%if params[:purpose]["purpose" + @purpose_generator.to_s()]["second"] == @time.to_s() then%>
+                                <option value="<%=@time%>" selected><%=@time%></option>
+                            <%else%>
+                                <option value="<%=@time%>"><%=@time%></option>
+                            <%end%>
                         <%else%>
-                        <option value="<%=@time%>"><%=@time%></option>
+                            <option value="<%=@time%>"><%=@time%></option>
                         <%end%>
-                    <%else%>
-                        <option value="<%=@time%>"><%=@time%></option>
+                            <%@time+=1%>
                     <%end%>
-                        <%@time+=1%>
-                <%end%>
                 </select>
                 <%=image_tag("testing-topbottom-arrow.svg", :class=>"select-arrow")%>
             </div>

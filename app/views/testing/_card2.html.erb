@@ -1,26 +1,25 @@
 <%@target_generator=@target_count.to_i()+1%>
 <section class="card-body-2">
         <%if @target_generator != 1 then%>
-        <%=image_tag("W_btn_testing_delete.svg", :class=>"card-delete")%>
+            <%=image_tag("W_btn_testing_delete.svg", :class=>"card-delete")%>
         <%end%>
         <div class="card-body-2-target">
             <h1>타겟 <%=@target_generator%></h1>
         </div>
         <div class="card-body-2-left">
-        <%if @purpose_number== 1 && @target_generator == 1 then %>
-            <div class="card-body-2-left-ask">
-                <h1>?</h1>
-                <div class="card-body-2-left-ask-box">
-                    <h2>누가 이 목표를 할지 알려주세요!</h2>
-                    <h3>* 타겟명은 테스트 결과 리포트에 들어갈 별명입니다.</h3>
-                    <h3>* 상세 기준은 성별과 연령대 이외에
-                    추가 기준이 있다면 알려주세요:)</h3>
-                    <h3>* 너무 표본이 적은 테스터는 어려워요ㅠㅠ</h3>
-                    <h3>ex. 람보르기니를 소유한 소상공인</h3>
+            <%if @purpose_number== 1 && @target_generator == 1 then %>
+                <div class="card-body-2-left-ask">
+                    <h1>?</h1>
+                    <div class="card-body-2-left-ask-box">
+                        <h2>누가 이 목표를 할지 알려주세요!</h2>
+                        <h3>* 타겟명은 테스트 결과 리포트에 들어갈 별명입니다.</h3>
+                        <h3>* 상세 기준은 성별과 연령대 이외에
+                        추가 기준이 있다면 알려주세요:)</h3>
+                        <h3>* 너무 표본이 적은 테스터는 어려워요ㅠㅠ</h3>
+                        <h3>ex. 람보르기니를 소유한 소상공인</h3>
+                    </div>
                 </div>
-            </div>
-        <%else end%>
-           
+            <%else end%>
             <div class="card-body-2-left-box first">
                 <label>타겟명*</label>
                 <input class="target" placeholder="20대 후반 여성"  type="text" name="[purpose][purpose<%=@purpose_number%>][exp<%=@target_generator%>][target]" value="<%=if defined? $params[:purpose]["purpose" + @purpose_number.to_s()]["exp" + @target_generator.to_s()]["target"] then $params[:purpose]["purpose" + @purpose_number.to_s()]["exp" + @target_generator.to_s()]["target"] end%>"/>
@@ -28,101 +27,96 @@
             <div class="card-body-2-left-box">
                 <label>테스터 수*</label>
                 <div class="position-relative select-content">
-                <select class="testernumber ui dropdown select-arrow-control testernumber-<%=@purpose_number%>-<%=@target_generator%>" onclick="select_arrow_rotate(this)" name="[purpose][purpose<%=@purpose_number%>][exp<%=@target_generator%>][testernumber]" form="second-form" >
-                <%if defined? $params["purpose"]["purpose#{@purpose_number}"]["exp#{@target_generator}"]["testernumber"] then%>
-                        <%testernumber = $params["purpose"]["purpose#{@purpose_number}"]["exp#{@target_generator}"]["testernumber"]%>
-                        <option value="0" <%=if testernumber == "0" then "selected" end%>>선택</option>
-                        <option value="1" <%=if testernumber == "1" then "selected" end%>>1</option>
-                        <option value="2" <%=if testernumber == "2" then "selected" end%>>2</option>
-                        <option value="3" <%=if testernumber == "3" then "selected" end%>>3</option>
-                        <option value="4" <%=if testernumber == "4" then "selected" end%>>4</option>
-                        <option value="5" <%=if testernumber == "5" then "selected" end%>>5</option>  
-                <%else%>
-                        <option value="0" selected>선택</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>  
-                <%end%>
-                </select>       
-             
+                    <select class="testernumber ui dropdown select-arrow-control testernumber-<%=@purpose_number%>-<%=@target_generator%>" onclick="select_arrow_rotate(this)" name="[purpose][purpose<%=@purpose_number%>][exp<%=@target_generator%>][testernumber]" form="second-form" >
+                    <%if defined? $params["purpose"]["purpose#{@purpose_number}"]["exp#{@target_generator}"]["testernumber"] then%>
+                            <%testernumber = $params["purpose"]["purpose#{@purpose_number}"]["exp#{@target_generator}"]["testernumber"]%>
+                            <option value="0" <%=if testernumber == "0" then "selected" end%>>선택</option>
+                            <option value="1" <%=if testernumber == "1" then "selected" end%>>1</option>
+                            <option value="2" <%=if testernumber == "2" then "selected" end%>>2</option>
+                            <option value="3" <%=if testernumber == "3" then "selected" end%>>3</option>
+                            <option value="4" <%=if testernumber == "4" then "selected" end%>>4</option>
+                            <option value="5" <%=if testernumber == "5" then "selected" end%>>5</option>  
+                    <%else%>
+                            <option value="0" selected>선택</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>  
+                    <%end%>
+                    </select>       
                 </div>
             </div>
             <div class="card-body-2-left-box sex">
                 <label>성별</label>
                 <div>
-                <span class="d-flex align-items-center">
-                    <div class="position-relative">
-                    <input  class="sex" name="[purpose][purpose<%=@purpose_number%>][exp<%=@target_generator%>][sex]" value="무관" type="radio" <%=if defined? $params["purpose"]["purpose#{@purpose_number}"]["exp#{@target_generator}"]["sex"] then if $params["purpose"]["purpose#{@purpose_number}"]["exp#{@target_generator}"]["sex"] == "무관" then "checked" end else "checked" end%>/>
-                    <span class="big"><span class="small"></span></span>
-                    </div >
-                    <h1>무관</h1>
-                </span>
-                <span class="d-flex align-items-center">
-                    <div class="position-relative">
-                    <input  class="sex" name="[purpose][purpose<%=@purpose_number%>][exp<%=@target_generator%>][sex]" value="여자" type="radio" <%=if defined? $params["purpose"]["purpose#{@purpose_number}"]["exp#{@target_generator}"]["sex"] then if $params["purpose"]["purpose#{@purpose_number}"]["exp#{@target_generator}"]["sex"] == "여자" then "checked" end end%>/>
-                    <span class="big"><span class="small"></span></span>
-                    
-                    </div>
-                    <h1>여자</h1>
-                </span>
-                <span class="d-flex align-items-center">
-                    <div class="position-relative">
-                    <input  class="sex" name="[purpose][purpose<%=@purpose_number%>][exp<%=@target_generator%>][sex]" value="남자" type="radio" <%=if defined? $params["purpose"]["purpose#{@purpose_number}"]["exp#{@target_generator}"]["sex"] then if $params["purpose"]["purpose#{@purpose_number}"]["exp#{@target_generator}"]["sex"] == "남자" then "checked" end end%>/>
-                    <span class="big"><span class="small"></span></span>
-                    </div>
-                    <h1>남자</h1>
-                </span>
+                    <span class="d-flex align-items-center">
+                        <div class="position-relative">
+                            <input  class="sex" name="[purpose][purpose<%=@purpose_number%>][exp<%=@target_generator%>][sex]" value="무관" type="radio" <%=if defined? $params["purpose"]["purpose#{@purpose_number}"]["exp#{@target_generator}"]["sex"] then if $params["purpose"]["purpose#{@purpose_number}"]["exp#{@target_generator}"]["sex"] == "무관" then "checked" end else "checked" end%>/>
+                            <span class="big"><span class="small"></span></span>
+                        </div >
+                        <h1>무관</h1>
+                    </span>
+                    <span class="d-flex align-items-center">
+                        <div class="position-relative">
+                            <input  class="sex" name="[purpose][purpose<%=@purpose_number%>][exp<%=@target_generator%>][sex]" value="여자" type="radio" <%=if defined? $params["purpose"]["purpose#{@purpose_number}"]["exp#{@target_generator}"]["sex"] then if $params["purpose"]["purpose#{@purpose_number}"]["exp#{@target_generator}"]["sex"] == "여자" then "checked" end end%>/>
+                            <span class="big"><span class="small"></span></span>  
+                        </div>
+                        <h1>여자</h1>
+                    </span>
+                    <span class="d-flex align-items-center">
+                        <div class="position-relative">
+                            <input  class="sex" name="[purpose][purpose<%=@purpose_number%>][exp<%=@target_generator%>][sex]" value="남자" type="radio" <%=if defined? $params["purpose"]["purpose#{@purpose_number}"]["exp#{@target_generator}"]["sex"] then if $params["purpose"]["purpose#{@purpose_number}"]["exp#{@target_generator}"]["sex"] == "남자" then "checked" end end%>/>
+                            <span class="big"><span class="small"></span></span>
+                        </div>
+                        <h1>남자</h1>
+                    </span>
                 </div>
             </div>
             <div class="card-body-2-left-box" >
                 <label>연령대</label>
                 <span class="d-flex justify-content-between">
                     <div class="position-relative select-box select-content">
-                    <select class="age ui dropdown select-arrow-control" onclick="select_arrow_rotate(this)" name="[purpose][purpose<%=@purpose_number%>][exp<%=@target_generator%>][age]" form="second-form">
-                        <%if defined?  $params[:purpose]["purpose" + @purpose_number.to_s()]["exp" + @target_generator.to_s()]["age"] then%>
-                                <%age = $params[:purpose]["purpose" + @purpose_number.to_s()]["exp" + @target_generator.to_s()]["age"]%>
-                                <option value="none" <%=if age == "none" then "selected" end%>>선택</option>
-                                <option value="전체" <%=if age == "전체" then "selected" end%>>전체</option>
-                                <option value="10" <%=if age == "10" then "selected" end%>>10대</option>
-                                <option value="20" <%=if age == "20" then "selected" end%>>20대</option>
-                                <option value="30" <%=if age == "30" then "selected" end%>>30대</option>
-                                <option value="40" <%=if age == "40" then "selected" end%>>40대</option>
-                                <option value="50" <%=if age == "50" then "selected" end%>>50대</option>  
-                                <option value="60" <%=if age == "60" then "selected" end%>>60대</option>  
-                        <%else%>
-                                <option value="none" selected>선택</option>
-                                <option value="전체">전체</option>
-                                <option value="10">10대</option>
-                                <option value="20">20대</option>
-                                <option value="30">30대</option>
-                                <option value="40">40대</option>
-                                <option value="50">50대</option>
-                                <option value="60">60대</option> 
-                        <%end%>
-                    </select>
-                    
+                        <select class="age ui dropdown select-arrow-control" onclick="select_arrow_rotate(this)" name="[purpose][purpose<%=@purpose_number%>][exp<%=@target_generator%>][age]" form="second-form">
+                            <%if defined?  $params[:purpose]["purpose" + @purpose_number.to_s()]["exp" + @target_generator.to_s()]["age"] then%>
+                                    <%age = $params[:purpose]["purpose" + @purpose_number.to_s()]["exp" + @target_generator.to_s()]["age"]%>
+                                    <option value="none" <%=if age == "none" then "selected" end%>>선택</option>
+                                    <option value="전체" <%=if age == "전체" then "selected" end%>>전체</option>
+                                    <option value="10" <%=if age == "10" then "selected" end%>>10대</option>
+                                    <option value="20" <%=if age == "20" then "selected" end%>>20대</option>
+                                    <option value="30" <%=if age == "30" then "selected" end%>>30대</option>
+                                    <option value="40" <%=if age == "40" then "selected" end%>>40대</option>
+                                    <option value="50" <%=if age == "50" then "selected" end%>>50대</option>  
+                                    <option value="60" <%=if age == "60" then "selected" end%>>60대</option>  
+                            <%else%>
+                                    <option value="none" selected>선택</option>
+                                    <option value="전체">전체</option>
+                                    <option value="10">10대</option>
+                                    <option value="20">20대</option>
+                                    <option value="30">30대</option>
+                                    <option value="40">40대</option>
+                                    <option value="50">50대</option>
+                                    <option value="60">60대</option> 
+                            <%end%>
+                        </select>
                     </div>
                     <div class="position-relative select-box select-content">
-                    <select class="age2 ui dropdown select-arrow-control" onclick="select_arrow_rotate(this)" name="[purpose][purpose<%=@purpose_number%>][exp<%=@target_generator%>][age2]" form="second-form">
-                         <%if defined?  $params[:purpose]["purpose" + @purpose_number.to_s()]["exp" + @target_generator.to_s()]["age2"] then%>
-                                <%age2 = $params[:purpose]["purpose" + @purpose_number.to_s()]["exp" + @target_generator.to_s()]["age2"]%>
-                                <option value="none" <%=if age2 == "none" then "selected" end%>>선택</option>
-                                <option value="전체" <%=if age2 == "전체" then "selected" end%>>전체</option>
-                                <option value="초반" <%=if age2 == "초반" then "selected" end%>>초반</option>
-                                <option value="중반" <%=if age2 == "중반" then "selected" end%>>중반</option>
-                                <option value="후반" <%=if age2 == "후반" then "selected" end%>>후반</option>
-                        <%else%>
-                                <option value="none" selected>선택</option>
-                                <option value="전체">전체</option>
-                                <option value="초반">초반</option>
-                                <option value="중반">중반</option>
-                                <option value="후반">후반</option>
-                        <%end%>
-                       
-                    </select>
-                    
+                        <select class="age2 ui dropdown select-arrow-control" onclick="select_arrow_rotate(this)" name="[purpose][purpose<%=@purpose_number%>][exp<%=@target_generator%>][age2]" form="second-form">
+                            <%if defined?  $params[:purpose]["purpose" + @purpose_number.to_s()]["exp" + @target_generator.to_s()]["age2"] then%>
+                                    <%age2 = $params[:purpose]["purpose" + @purpose_number.to_s()]["exp" + @target_generator.to_s()]["age2"]%>
+                                    <option value="none" <%=if age2 == "none" then "selected" end%>>선택</option>
+                                    <option value="전체" <%=if age2 == "전체" then "selected" end%>>전체</option>
+                                    <option value="초반" <%=if age2 == "초반" then "selected" end%>>초반</option>
+                                    <option value="중반" <%=if age2 == "중반" then "selected" end%>>중반</option>
+                                    <option value="후반" <%=if age2 == "후반" then "selected" end%>>후반</option>
+                            <%else%>
+                                    <option value="none" selected>선택</option>
+                                    <option value="전체">전체</option>
+                                    <option value="초반">초반</option>
+                                    <option value="중반">중반</option>
+                                    <option value="후반">후반</option>
+                            <%end%>
+                        </select>
                     </div>
                 </span>
             </div>  
@@ -133,32 +127,29 @@
         </div>
         <div class="card-body-2-right">
             <%if @purpose_number == 1 && @target_generator == 1 then %>
-            <div class="card-body-2-left-ask">
-                <h1>?</h1>
-                <div class="card-body-2-left-ask-box">
-                    <h2>테스터에게 궁금한점을 적어주세요!</h2>
-                    <h3>- 목표를 달성한 테스터, 달성에 실패한
-                    테스터에게 각각 2개씩 질문하실 수 있어요.</h3>
-                    <h3>- 질문에 대한 답변은 테스트 결과 리포트에서
-                    확인가능합니다!</h3>
+                <div class="card-body-2-left-ask">
+                    <h1>?</h1>
+                    <div class="card-body-2-left-ask-box">
+                        <h2>테스터에게 궁금한점을 적어주세요!</h2>
+                        <h3>- 목표를 달성한 테스터, 달성에 실패한
+                        테스터에게 각각 2개씩 질문하실 수 있어요.</h3>
+                        <h3>- 질문에 대한 답변은 테스트 결과 리포트에서
+                        확인가능합니다!</h3>
+                    </div>
                 </div>
-            </div>
             <%else end%>  
             <div class="card-body-2-right-box first">
                 <span><h1>목표를 달성한 경우</h1><h2>인터뷰 질문 (1)</h2></span>
                 <input class="question1" placeholder="테스터에게 할 질문을 입력해주세요." name="[purpose][purpose<%=@purpose_number%>][exp<%=@target_generator%>][question1]" value="<%=if defined? $params[:purpose]["purpose" + @purpose_number.to_s()]["exp" + @target_generator.to_s()]["question1"] then $params[:purpose]["purpose" + @purpose_number.to_s()]["exp" + @target_generator.to_s()]["question1"] end%>">
             </div>
-
             <div class="card-body-2-right-box">
                 <span><h1>목표를 달성한 경우</h1><h2>인터뷰 질문 (2)</h2></span>
                 <input class="question2" placeholder="테스터에게 할 질문을 입력해주세요." name="[purpose][purpose<%=@purpose_number%>][exp<%=@target_generator%>][question2]" value="<%=if defined? $params[:purpose]["purpose" + @purpose_number.to_s()]["exp" + @target_generator.to_s()]["question2"] then $params[:purpose]["purpose" + @purpose_number.to_s()]["exp" + @target_generator.to_s()]["question2"] end%>">
             </div>
-
             <div class="card-body-2-right-box">
                 <span><h1>목표를 실패한 경우</h1><h2>인터뷰 질문 (1)</h2></span>
                 <input class="question3" placeholder="테스터에게 할 질문을 입력해주세요." name="[purpose][purpose<%=@purpose_number%>][exp<%=@target_generator%>][question3]" value="<%=if defined? $params[:purpose]["purpose" + @purpose_number.to_s()]["exp" + @target_generator.to_s()]["question3"] then $params[:purpose]["purpose" + @purpose_number.to_s()]["exp" + @target_generator.to_s()]["question3"] end%>">
             </div>
-
             <div class="card-body-2-right-box">
                 <span><h1>목표를 실패한 경우</h1><h2>인터뷰 질문 (2)</h2></span>
                 <input class="question4" placeholder="테스터에게 할 질문을 입력해주세요." name="[purpose][purpose<%=@purpose_number%>][exp<%=@target_generator%>][question4]" value="<%=if defined? $params[:purpose]["purpose" + @purpose_number.to_s()]["exp" + @target_generator.to_s()]["question4"] then $params[:purpose]["purpose" + @purpose_number.to_s()]["exp" + @target_generator.to_s()]["question4"] end%>">

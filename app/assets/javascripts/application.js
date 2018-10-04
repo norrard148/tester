@@ -12,7 +12,6 @@
 //
 //= require rails-ujs
 //= require turbolinks
-//= require_tree .
 
 $(document).on('scroll', function (){
     var bottom_of_window = $(window).scrollTop() + $(window).height();

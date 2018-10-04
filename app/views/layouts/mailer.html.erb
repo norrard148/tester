@@ -3,10 +3,26 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <style>
-      /* Email styles need to be inline */
+      .customer, .purpose {
+          border: 1px solid rgba(0,0,0,0.3);
+          width: 80%;
+          margin: 30px 0;
+      }
+      .target {
+          border-top: 1px solid rgba(0,0,0,0.3);
+          border-bottom: 1px solid rgba(0,0,0,0.3);
+      }
+      .purpose-information div {
+          margin: 0 15px;
+      }
+      .target-information div {
+          margin: 0 15px;
+      }
+      .purpose-information h2,  .purpose-information h3, .purpose-information h4, .target-information h2,  .target-information h3, .target-information h4 {
+          text-align: center;
+      }
     </style>
   </head>
-
   <body>
     <%= yield %>
   </body>

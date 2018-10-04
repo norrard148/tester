@@ -23,6 +23,7 @@ class MainController < ApplicationController
   def recruit
     @post = Post.new
   end
+
   def recruitsubmit 
     @post = Post.new(post_params)
     if @post.save
@@ -34,7 +35,6 @@ class MainController < ApplicationController
         respond_to do |format|
           format.js {render 'recruitfail'}
         end
-        
       end
     else
       respond_to do |format|
@@ -42,19 +42,19 @@ class MainController < ApplicationController
       end
     end
   end
+
   def contact
   end
+
   def contactsubmit
      ContactMailer.contact_email(params).deliver
   end
-  private
-    # Use callbacks to share common setup or constraints between actions.
-   
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+  private
     def post_params
       if !params[:post].blank? then params.require(:post).permit(:attachment, :attachment2, :attachment3) end
     end
+
     def post_params2
       params.permit(:name, :phonenumber, :email)
     end

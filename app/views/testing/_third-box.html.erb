@@ -1,10 +1,10 @@
-<%$b=0%>
+<%purpose=0%>
 <%params['purpose'].each do |a,b|%>
-<%if b['purpose-is'] != ''%>
-<%$b+=1%>
- <div class="testing-third-top-box">
+    <%if b['purpose-is'] != ''%>
+        <%purpose+=1%>
+<div class="testing-third-top-box">
     <div class="testing-third-top-box-top">
-        <h1>목표 <%=$b%>. <%=b['purpose-is']%></h1>
+        <h1>목표 <%=purpose%>. <%=b['purpose-is']%></h1>
         <section>
             <span>
                 <h2>예상시간</h2>
@@ -16,13 +16,12 @@
                 <h3>
                     <%@testernumber=0%>
                     <%b.each do |c,d|%>
-                    <%if c != "goal" ||  c != "purpose-is" ||  c != "minute" ||  c != "second" then%>
-                    <%@testernumber+=d['testernumber'].to_i()%>
+                        <%if c != "goal" ||  c != "purpose-is" ||  c != "minute" ||  c != "second" then%>
+                            <%@testernumber+=d['testernumber'].to_i()%>
+                        <%end%>
                     <%end%>
-                    <%end%>
-                    <%= number_with_delimiter((@testernumber.to_i()*(b['minute'].to_i()*60+b['second'].to_i())*1/2).to_s(), :delimiter => ',') %>
-                    p
-                    </h3>
+                    <%= number_with_delimiter((@testernumber.to_i()*(b['minute'].to_i()*60+b['second'].to_i())*1/2).to_s(), :delimiter => ',') %>p
+                 </h3>
             </span>
             <div></div>
             <span class="hidden">
@@ -38,53 +37,51 @@
             <span class="hidden">
                 <h2>인터뷰 질문</h2>
                 <h3>
-                <h3>
                     <%question_count = 0%>
                     <%b.each do |c,d|%>
-                    <%if c != "goal"  && c!= 'second' && c!='minute' && c!= "purpose-is" then%>
-                        <%if d['question1'] != "" then question_count +=1 end%>
-                        <%if d['question2'] != "" then question_count +=1 end%>
-                        <%if d['question3'] != "" then question_count +=1 end%>
-                        <%if d['question4'] != "" then question_count +=1 end%>
-                    <%end%>
+                        <%if c != "goal"  && c!= 'second' && c!='minute' && c!= "purpose-is" then%>
+                            <%if d['question1'] != "" then question_count +=1 end%>
+                            <%if d['question2'] != "" then question_count +=1 end%>
+                            <%if d['question3'] != "" then question_count +=1 end%>
+                            <%if d['question4'] != "" then question_count +=1 end%>
+                        <%end%>
                     <%end%>
                     <%=question_count%>
-                    
                 </h3>
             </span>
         </section>
     </div>
-    <%@target=0%>
+    <%target=0%>
     <%b.each do |c,d|%>
         <%if c != "goal"  && c!= 'second' && c!='minute' && c!= "purpose-is" then%>
             <div class="testing-third-top-box-middle">
                 <div class="testing-third-top-box-middle-target">
-                    <h1>타겟 <%=@target+=1%></h1>
+                    <h1>타겟 <%=target+=1%></h1>
                 </div>
                 <div class="testing-third-top-box-middle-target detail">
                     <h1>상세기준</h1>
                 </div>
                 <div class="testing-third-top-box-middle-right">
-                <section class="d-flex justify-content-between">
-                    <span>
-                        <h2>성별</h2>
-                        <h3><%=d['sex']%></h3>
-                    </span>
-                    <div></div>
-                    <span>
-                        <h2>연령대</h2>
-                        <h3><%if d['age'] == "none" ||  d['age'] == "전체" then%><%= "전체 연령" %><%else%><%= d['age']%><% end %>대 <%if d['age2'] == "none" ||  d['age2'] == "전체" then%><%= "전체" %><%else%><%= d['age2']%><% end %></h3>
-                    </span>
-                    <div></div>
-                    <span>
-                        <h2>테스터 수</h2>
-                        <h3><%=d['testernumber']%></h3>
-                    </span>
-                </section>
+                    <section class="d-flex justify-content-between">
+                        <span>
+                            <h2>성별</h2>
+                            <h3><%=d['sex']%></h3>
+                        </span>
+                        <div></div>
+                        <span>
+                            <h2>연령대</h2>
+                            <h3><%if d['age'] == "none" ||  d['age'] == "전체" then%><%= "전체 연령" %><%else%><%= d['age']%><% end %>대 <%if d['age2'] == "none" ||  d['age2'] == "전체" then%><%= "전체" %><%else%><%= d['age2']%><% end %></h3>
+                        </span>
+                        <div></div>
+                        <span>
+                            <h2>테스터 수</h2>
+                            <h3><%=d['testernumber']%></h3>
+                        </span>
+                    </section>
                 </div>
                 <div class="testing-third-top-box-middle-left">
-                    <h1><%=if d['target'] == '' then "타겟명" else d['target'] end%></h1>
-                    <h4><%=if d['detail'] == '' then "상세 기준" else d['detail'] end%></h4>
+                    <h1><%=if d['target'] == '' then "타겟명 미기입" else d['target'] end%></h1>
+                    <h4><%=if d['detail'] == '' then "상세기준 미기입" else d['detail'] end%></h4>
                     <section class="w-100">
                         <span class="w-100">
                             <h2>인터뷰 질문 1</h2>

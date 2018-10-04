@@ -5,35 +5,33 @@
     min-height: 700px;
     width: 100%;
     position: relative;
-    background-color: black;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    background-color: black;
     overflow: hidden;
     text-align:center;
     h1, h2 {
         position: relative;
+        padding: 0 80px;
         color: white;
         text-align: center; 
-        padding: 0 80px;
-        text-align: center;
     }
     h1 {
+        margin-top: 20%;
         line-height: 1.5;
         font-size: 33px;
-        margin-top: 150px;
     }
     h2 {
-        line-height: 2;
         margin-top: 15px;
+        line-height: 2;
         font-size: 17px;
     }
     button {
         height: 70px;
         width: 350px;
         margin-top: 170px;
-        margin-bottom: 180px;
         border: 1px solid white;
         border-radius: 10px;
         background-color: transparent;
@@ -66,25 +64,35 @@
            
         }
 }
-.index-top-arrow {
-    position: relative;
-    cursor: pointer;
-}
 .index-top-bg {
-    position: absolute;
-    height: 1700px;
-    opacity: 0.35;
-    top: -10%;
-    
     z-index:0;
-    text-align:left;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left: 0;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    img {
+        height: 1700px;
+        opacity: 0.35;
+        top: -10%;
+    }
+  
 }
 .index-top-img {
     height: 82px;
     width: auto;
     position: relative;
 }
-/*ddd*/
+.index-top-arrow {
+    position: relative;
+    cursor: pointer;
+    margin-bottom: auto;
+    margin-top: auto;
+}
+
+/*index-middle*/
 .index-middle {
     width: 100%;
     h1 {
@@ -106,10 +114,7 @@
     width: 100%;
     margin: 120px 0;
     display: flex;
-    justify-content: center;
-    
-    // align-items: flex-start;
-    
+    justify-content: center; 
 }
 .index-middle-box-content {
     opacity: 0;
@@ -119,11 +124,9 @@
         width: auto;
         margin-bottom: 20px;
     }
-    
-    
 }
 
-/*idnex-bottom*/
+/*index-bottom*/
 .index-bottom {
     width: 100%;
     display:flex;
