@@ -85,7 +85,7 @@
                 </label>
                 <h1>더 테스터의 이용약관에 동의합니다.</h1>
                 </section>
-                <div><h1>이용약관 보기</h1></div>
+                <div id="term-of-use-open2"><h1>이용약관 보기</h1></div>
             </div>
         </form>
         <div class="testing-third-bottom-bottom">
@@ -111,3 +111,10 @@
 </form>
 
 <%=javascript_include_tag "testing_third"%>
+
+<Script>
+    var btn2 = document.getElementById("term-of-use-open2");
+    btn2.onclick = function() {
+    modal.style.display = "block";
+    }   
+</script>

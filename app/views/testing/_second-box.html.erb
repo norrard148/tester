@@ -30,10 +30,20 @@
                                         <%else%>
                                             <%@target_count +=1%>
                                             <%= render "card2"%>
+                                            <script>
+                                                $('.ui.dropdown').dropdown();
+                                                $(".select-content .select-arrow").remove();
+                                                $('<img src="<%=asset_path('small-arrow-unfold.svg')%>" class="select-arrow">').appendTo($(".select-content .ui.dropdown"));
+                                            </script>
                                         <%end%>
                                 <%end%>
                             <%else%>
                                 <%= render "card2"%>
+                                <script>
+                                    $('.ui.dropdown').dropdown();
+                                    $(".select-content .select-arrow").remove();
+                                    $('<img src="<%=asset_path('small-arrow-unfold.svg')%>" class="select-arrow">').appendTo($(".select-content .ui.dropdown"));
+                                </script>
                             <%end%>
                         </div>
                         <div class="card-submit">

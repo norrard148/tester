@@ -174,7 +174,9 @@
         -ms-transition: opacity 0.75s ease-in 0.5s;
         transition: opacity 0.75s ease-in 0.5s;
     }
-
+    button:focus {
+        outline: none;
+    }
     button {
     opacity: 0;
     height: 70px;
@@ -195,19 +197,16 @@
     -o-transition: opacity 0.75s ease-in 0.75s;
     -ms-transition: opacity 0.75s ease-in 0.75s;
     transition: opacity 0.75s ease-in 0.75s;
-    p {
-        font-size :23px;
-        margin-bottom: 0;
-        color: white;
+    font-size :23px;
     }
+    a:hover {
+        text-decoration: none;
+
     }
     button:hover {
         background-color: #fff;
-        p {
-            font-size :23px;
-            margin-bottom: 0;
-            color: #e8454a;
-        }
+        color: #e8454a;
+    
     }
 }
 .button-text {

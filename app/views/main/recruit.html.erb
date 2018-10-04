@@ -123,7 +123,7 @@
                 <label for="file ">파일 업로드*</label>
                 <div class="recruit-input-box-file">
                     <div class="recruit-inputfile-box">            
-                    `    <h1>첨부1</h1>
+                        <h1>첨부1</h1>
                         <%= form.file_field :attachment, :class=>"attachment1", onchange: "validateFiles(this);",
                         data: { max_file_size: 30.megabytes } %>
                         <h1 class="attachment1-name"></h1>
@@ -138,13 +138,14 @@
                         <h1>첨부3</h1> 
                         <%= form.file_field :attachment3, :class=>"attachment3", onchange: "validateFiles(this);",
                         data: { max_file_size: 30.megabytes } %>
-                        <h1 class="attachment3-name"></h1>`
+                        <h1 class="attachment3-name"></h1>
                     </div>
                 </div>
             </div>
             <input class="recruit-submit" type="submit" style="visibility:hidden;width:0;height:0;">
         <% end %>
         <button class="recruit-button">더 테스터 지원하기</button>
+        
     </div>
 </div>  
 

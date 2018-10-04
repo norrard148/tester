@@ -52,12 +52,15 @@ h1, h2, h3, h4, a, input {
     text-align: left;
 }
 
-::placeholder { 
+::placeholder{ 
     color: #c8c8c8c8;
     opacity: 1;
 }
 
-
+:-ms-input-placeholder {
+    color: rgb(211, 211, 211)!important;
+    opacity: 1;
+}
 /*header*/
 .navbar {
     position:absolute;
@@ -279,11 +282,11 @@ footer {
         margin: 0 10px;
     }
 }
-#myBtn {
+#term-of-use-open {
     color: white;
     font-size: 15px;
 }
-#myBtn:hover {
+#term-of-use-open:hover {
     color: rgb(156, 156, 156);
     cursor: pointer;
 }
@@ -293,7 +296,7 @@ footer {
     padding: 20px;
     width: 80%;
 }
-.modal {
+#term-of-use {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -308,7 +311,9 @@ footer {
 }
 .close {
     color: #aaaaaa;
-    float: right;
+    position: absolute;
+    top: 3px;
+    right: 10px;
     font-size: 28px;
     font-weight: bold;
 }

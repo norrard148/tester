@@ -8,7 +8,7 @@
     타겟 고객에게 직접 서비스를 경험시키고, 생생한 피드백을 받아보세요.</h2>
     <h2 class="mobile">고객이 단순히 사용하는 서비스가 아닌,<br> 고객이 좋아하는 서비스를 만들 수 있도록<br> 지원해드립니다.
     타겟 고객에게 직접 서비스를<Br> 경험시키고, 생생한 피드백을 받아보세요.</h2>
-    <button><%= link_to'무료 사용성 테스트 하기', testing_first_path ,class:"text-white aboutus-button-text h4", style:"text-decoration: none; font-size :23px;"%></button>
+    <a href="/testing/first"><button>무료 사용성 테스트 하기</button></a>
     <%= image_tag('arrow-double-down-white.svg', class:"index-top-arrow", style:"width: 35px;", onclick: "move()")%>
 </div>
 <div class="index-middle">
@@ -74,9 +74,9 @@
         UX,UI 컨설팅과 온라인 서비스의 기획, 디자인을 맡겨주세요.</h2>
         <h2 class="mobile">이제는 생략하지 마세요. 잠시 미뤄두었던,<br> 잊고 있었던 고객 중심의 가치를 찾아드립니다.<br>
         UX,UI 컨설팅과 온라인 서비스의<Br> 기획, 디자인을 맡겨주세요.</h2>
-        <button class="index-button">
-            <%= link_to'컨설팅, 외주 의뢰하기', contact_path ,class:"index-button aboutus-button-text h4", style:"text-decoration: none; font-size :23px;"%>
-        </button>
+        <a href="/contact">
+            <button class="index-button">컨설팅, 외주 의뢰하기</button>
+        </a>
 </div>
 <script>
   function move() {

@@ -1,4 +1,13 @@
-$(`<%=render 'card2'%>`).appendTo($("#collapse"+ "<%=@purpose_number%>").children(".card-body").children(".w-100"));  
+var MultiString = function(f) {
+  return f.toString().split('\n').slice(1, -1).join('\n');
+}
+var ms = MultiString(function() {/**
+<%=render 'card2'%>
+**/});
+$(ms).appendTo($("#collapse"+ "<%=@purpose_number%>").children(".card-body").children(".w-100"));  
+$('.ui.dropdown').dropdown();
+$(".select-content .select-arrow").remove();
+$('<img src="<%=asset_path('small-arrow-unfold.svg')%>" class="select-arrow">').appendTo($(".select-content .ui.dropdown"));
 $("#accordionExample1 input").attr("disabled", false);
 $("#accordionExample1 .ui.dropdown").removeClass("disabled"); 
 $(".testing-third-loading").css({"display":"none"});

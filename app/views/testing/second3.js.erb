@@ -7,8 +7,8 @@ var total = 0;
     calculate = Number($(".minute<%=@purnum%> option:selected").val()*60)+Number($(".second<%=@purnum%> option:selected").val());
     var tarnum = 1
     var plus = 0;
-    while ($(`.testernumber-<%=@purnum%>-${tarnum}`).length == 1) {
-        plus = plus + Number($(`.testernumber-<%=@purnum%>-${tarnum} option:selected`).val());
+    while ($('.testernumber-<%=@purnum%>-' + tarnum).length == 1) {
+        plus = plus + Number($('.testernumber-<%=@purnum%>-' + tarnum + ' option:selected').val());
         tarnum +=1;
     }
     total += plus*calculate*labor_price;
@@ -17,7 +17,7 @@ var total = 0;
 $(".reward-sum").text( total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+ "P");
 $(".reward-discount").text("-" + total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "P");
 function purpose_test(a,b) {
-    var element = $(`#accordionExample${a}`)
+    var element = $('#accordionExample' + a)
     var testernumber=0;
     toggle = false;
     if (
@@ -26,7 +26,7 @@ function purpose_test(a,b) {
         toggle = true;
     }
     else {
-        $(`#accordionExample${a} .card-body-2`).each(function () {
+        $('#accordionExample' + a + ' .card-body-2').each(function () {
             testernumber += Number($(this).find(".testernumber option:selected").val());
             if  ($(this).find(".target").val() == '') {
                 toggle = true;
@@ -38,13 +38,13 @@ function purpose_test(a,b) {
         } 
     }
     if (toggle) {
-        $(`#accordionExample${b} input`).addClass("disabled"); 
-        $(`#accordionExample${b} .ui.dropdown`).addClass("disabled"); 
+        $('#accordionExample' + b + ' input').addClass("disabled"); 
+        $('#accordionExample' + b + ' .ui.dropdown').addClass("disabled"); 
         return false;
     }
     else {
-        $(`#accordionExample${b} .ui.dropdown`).removeClass("disabled");
-        $(`#accordionExample${b} input`).removeClass("disabled");
+        $('#accordionExample' + b + ' .ui.dropdown').removeClass("disabled");
+        $('#accordionExample' + b + ' input').removeClass("disabled");
         return true;
     }
 }

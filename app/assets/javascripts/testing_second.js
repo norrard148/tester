@@ -10,7 +10,7 @@ $(".testing-help-purpose-box-tab div:last-child").click(function() {
     $(".testing-help-purpose-box-left").css({"display":"none"})
     $(".testing-help-purpose-box-right").css({"display":"flex"})
 })
-console.log("Ss")
+
 if(navigator.userAgent.match(/Mobile|iP(hone|od)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)){
    $(".testing").remove();
    $(".testing-mobile").css({"display":"block"});
@@ -26,17 +26,17 @@ $(document).on('click', '.card-delete', function(){
         if (v == 2) {
             var a = $(this).parent().parent().parent().attr("id");
             var purpose_number = a.replace(/[^0-9]/g,"");
-            $(this).find(".card-body-2-target h1").text(`타겟 2`)
-            $(this).find(".target").attr({"name":`[purpose][purpose${purpose_number}][exp2][target]`})
-            $(this).find(".detail").attr({"name":`[purpose][purpose${purpose_number}][exp2][detail]`})
-            $(this).find(".testernumber select").attr({"name":`[purpose][purpose${purpose_number}][exp2][testernumber]`})
-            $(this).find(".sex").attr({"name":`[purpose][purpose${purpose_number}][exp2][sex]`})
-            $(this).find(".age select").attr({"name":`[purpose][purpose${purpose_number}][exp2][age]`})
-            $(this).find(".age2 select").attr({"name":`[purpose][purpose${purpose_number}][exp2][age2]`})
-            $(this).find(".question1").attr({"name":`[purpose][purpose${purpose_number}][exp2][question1]`})
-            $(this).find(".question2").attr({"name":`[purpose][purpose${purpose_number}][exp2][question2]`})
-            $(this).find(".question3").attr({"name":`[purpose][purpose${purpose_number}][exp2][question3]`})
-            $(this).find(".question4").attr({"name":`[purpose][purpose${purpose_number}][exp2][question4]`})
+            $(this).find(".card-body-2-target h1").text("타겟 2")
+            $(this).find(".target").attr({"name":'[purpose][purpose' + purpose_number+ '][exp2][target]'})
+            $(this).find(".detail").attr({"name":'[purpose][purpose' +purpose_number + '][exp2][detail]'})
+            $(this).find(".testernumber select").attr({"name":'[purpose][purpose' + purpose_number + '][exp2][testernumber]'})
+            $(this).find(".sex").attr({"name":'[purpose][purpose' + purpose_number + '][exp2][sex]'})
+            $(this).find(".age select").attr({"name":'[purpose][purpose' + purpose_number + '][exp2][age]'})
+            $(this).find(".age2 select").attr({"name":'[purpose][purpose' + purpose_number +'][exp2][age2]'})
+            $(this).find(".question1").attr({"name":'[purpose][purpose' +purpose_number + '][exp2][question1]'})
+            $(this).find(".question2").attr({"name":'[purpose][purpose' +purpose_number + '][exp2][question2]'})
+            $(this).find(".question3").attr({"name":'[purpose][purpose' +purpose_number + '][exp2][question3]'})
+            $(this).find(".question4").attr({"name":'[purpose][purpose' +purpose_number + '][exp2][question4]'})
         }
     });
     $(this).parent().remove();
@@ -75,7 +75,7 @@ $(document).on('focus', '.purpose-is', function(){
 $(document).on('click', '.card-submit a', function(){   
     var a = $(this).parent().parent().parent().attr("id");
     var purpose_number = a.replace(/[^0-9]/g,"");
-    var target_count = $(`#accordionExample${purpose_number} .card-body-2`).length;
+    var target_count = $('#accordionExample' + purpose_number + ' .card-body-2').length;
     var purpose_count = document.getElementsByClassName("accordion").length;
     if (target_count != 3 ) {
         $(".testing-third-loading").css({"display":"flex"});
@@ -162,7 +162,7 @@ function purpose_2_test(a) {
                     modal: false,
                     transition:'pulse',
                     'pinnable': false,
-                    message: `이전 목표 필수 입력 사항을 모두 입력하세요.`,
+                    message: '이전 목표 필수 입력 사항을 모두 입력하세요.',
                     'label':'Ok'
                 }).show(); 
                 no_error = false;
@@ -234,7 +234,7 @@ function purpose_3_test(a) {
                     modal: false,
                     transition:'pulse',
                     'pinnable': false,
-                    message: `이전 목표 필수 입력 사항을 모두 입력하세요.`,
+                    message: '이전 목표 필수 입력 사항을 모두 입력하세요.',
                     'label':'Ok'
                 }).show(); 
                 no_error = false;
@@ -262,7 +262,7 @@ $(".testing-top-box.first").click(function() {
 })
 $(".testing-top-box.third").click(function() {
         function purpose_test(a) {
-        var element = $(`#accordionExample${a}`);
+        var element = $('#accordionExample' + a);
         var testernumber=0;
         var no_error = true;
         function input_check() {
@@ -293,7 +293,7 @@ $(".testing-top-box.third").click(function() {
                     modal: false,
                     transition:'pulse',
                     'pinnable': false,
-                    message: `[목표 ${a}]의 목표는 필수 작성 사항입니다.`,
+                    message: '[목표 ' + a + ']의 목표는 필수 작성 사항입니다.',
                     'label':'Ok'
                 }).show();
                 no_error = false;
@@ -308,13 +308,13 @@ $(".testing-top-box.third").click(function() {
                     modal: false,
                     transition:'pulse',
                     'pinnable': false,
-                    message: `[목표 ${a}]의 예상 시간은 필수 선택 사항입니다.`,
+                    message: '[목표 ' + a + ']의 예상 시간은 필수 선택 사항입니다.',
                     'label':'Ok'
                 }).show();
                 no_error = false;
             }
             else {
-                $(`#accordionExample${a} .card-body-2`).each(function(b) {
+                $('#accordionExample' + a + ' .card-body-2').each(function(b) {
                     testernumber += Number($(this).find(".testernumber option:selected").val());
                     if  ($(this).find(".target").val() == '') {
                         alertify.alert()
@@ -326,7 +326,7 @@ $(".testing-top-box.third").click(function() {
                             modal: false,
                             transition:'pulse',
                             'pinnable': false,
-                            message:`[목표 ${a}] [타겟 ${b+1}]의 타겟명은 필수 작성 사항입니다 .`,
+                            message:'[목표 ' + a + '] [타겟 ' + (b+1) + ']의 타겟명은 필수 작성 사항입니다.',
                             'label':'Ok'
                         }).show();
                         no_error = false;
@@ -342,7 +342,7 @@ $(".testing-top-box.third").click(function() {
                             modal: false,
                             transition:'pulse',
                             'pinnable': false,
-                            message: `[목표 ${a}] [타겟 ${b+1}]의 테스터수는 1명 이상이어야 합니다.`,
+                            message: '[목표 ' + a + '] [타겟 ' + (b+1) + ']의 테스터수는 1명 이상이어야 합니다.',
                             'label':'Ok'
                         }).show(); 
                         no_error = false;
@@ -358,7 +358,7 @@ $(".testing-top-box.third").click(function() {
                         modal: false,
                         transition:'pulse',
                         'pinnable': false,
-                        message: `[목표 ${a}]의 총 테스터수가 5명을 초과했습니다.`,
+                        message: '[목표 ' + a + ']의 총 테스터수가 5명을 초과했습니다.',
                         'label':'Ok'
                         }).show();
                         no_error = false;
@@ -399,7 +399,7 @@ $(document).on("click",".testernumber.ui.dropdown .item", function() {
             modal: false,
             transition:'pulse',
             'pinnable': false,
-            message: `한 목표당 최대 5명의 테스터수를 선택할 수 있습니다.`,
+            message: '한 목표당 최대 5명의 테스터수를 선택할 수 있습니다.',
             'label':'Ok'
             }).show();
             no_error = false;
@@ -411,7 +411,7 @@ $(document).on("click",".testernumber.ui.dropdown .item", function() {
 $("#complete").click(function() {
     
     function purpose_test(a) {
-        var element = $(`#accordionExample${a}`);
+        var element = $('#accordionExample' + a);
         var testernumber=0;
         var no_error = true;
         function input_check() {
@@ -442,7 +442,7 @@ $("#complete").click(function() {
                     modal: false,
                     transition:'pulse',
                     'pinnable': false,
-                    message: `[목표 ${a}]의 목표는 필수 작성 사항입니다.`,
+                    message: '[목표 ' + a + ']의 목표는 필수 작성 사항입니다.',
                     'label':'Ok'
                 }).show();
                 no_error = false;
@@ -457,13 +457,13 @@ $("#complete").click(function() {
                     modal: false,
                     transition:'pulse',
                     'pinnable': false,
-                    message: `[목표 ${a}]의 예상 시간은 필수 선택 사항입니다.`,
+                    message: '[목표 ' + a + ']의 예상 시간은 필수 선택 사항입니다.',
                     'label':'Ok'
                 }).show();
                 no_error = false;
             }
             else {
-                $(`#accordionExample${a} .card-body-2`).each(function(b) {
+                $('#accordionExample' + a + ' .card-body-2').each(function(b) {
                     testernumber += Number($(this).find(".testernumber option:selected").val());
                     if  ($(this).find(".target").val() == '') {
                         alertify.alert()
@@ -475,7 +475,7 @@ $("#complete").click(function() {
                             modal: false,
                             transition:'pulse',
                             'pinnable': false,
-                            message:`[목표 ${a}] [타겟 ${b+1}]의 타겟명은 필수 작성 사항입니다 .`,
+                            message:'[목표 ' + a + '] [타겟 ' + (b+1) + ']의 타겟명은 필수 작성 사항입니다 .',
                             'label':'Ok'
                         }).show();
                         no_error = false;
@@ -491,7 +491,7 @@ $("#complete").click(function() {
                             modal: false,
                             transition:'pulse',
                             'pinnable': false,
-                            message: `[목표 ${a}] [타겟 ${b+1}]의 테스터수는 1명 이상이어야 합니다.`,
+                            message: '[목표 ' + a + '] [타겟 ' + (b+1) + ']의 테스터수는 1명 이상이어야 합니다.',
                             'label':'Ok'
                         }).show(); 
                         no_error = false;
@@ -507,7 +507,7 @@ $("#complete").click(function() {
                         modal: false,
                         transition:'pulse',
                         'pinnable': false,
-                        message: `[목표 ${a}]의 총 테스터수가 5명을 초과했습니다.`,
+                        message: '[목표 ' + a + ']의 총 테스터수가 5명을 초과했습니다.',
                         'label':'Ok'
                         }).show();
                         no_error = false;

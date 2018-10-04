@@ -70,7 +70,7 @@
     <div class="testing-help-purpose-box">
         <h1>추가 진행이 필요하신가요?</h1>
         <h2>아래 연락처로 별도 문의 주시면,<br>
-        추가 테스트 진행을 도와드릴게요!</h1>
+        추가 테스트 진행을 도와드릴게요!</h2>
         <h3>추가비용이 발생할 수 있습니다.</h3>
         <div class="d-flex justify-content-center">
             <%=image_tag("popup-manager2.svg")%>
@@ -113,7 +113,7 @@
             <h2>제출한 테스트 결과는 접수일로부터 5~6일 정도 소요됩니다.<br>
             그 외 문의사항은 더 테스터로 연락바랍니다.</h2>
         </div>
-        <div class="testing-help-purpose-box-right w-100  flex-column align-items-center" style="display:none!important">
+        <div class="testing-help-purpose-box-right w-100  flex-column align-items-center" style="display:none;">
             <div class="d-flex align-items-center justify-content-between">
                 <div class="d-flex flex-column">
                     <%=image_tag("W_img_popup_freetest.svg")%>
@@ -146,3 +146,14 @@
 </div>
 
 <%=javascript_include_tag "testing_second"%>
+
+<script>
+var MultiString = function(f) {
+  return f.toString().split('\n').slice(1, -1).join('\n');
+}
+
+var ms = MultiString(function() {/**
+ddd<%=render 'card2'%>
+**/});
+console.log(ms)
+</script>
