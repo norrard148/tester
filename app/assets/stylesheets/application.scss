@@ -92,9 +92,10 @@ h1, h2, h3, h4, a, input {
 }
 .navbar-light .navbar-toggler-icon {
     color:white;
-    background-image: none;
+    background-image: url("burder.svg");
     width: 45px;
     height: 45px;
+    margin-top: 5px;
 }
 .navbar-collapse {
     width:initial;
@@ -173,17 +174,14 @@ h1, h2, h3, h4, a, input {
     .navbar-toggler {
         margin-right: 25px;
         padding: 0;
-        
     }
-    .navbar-toggler-icon {
-        background-image: url('burder.svg');
-    }
+
     .navbar-toggler[aria-expanded=true] {
         margin-right: 0px;
         position: fixed;
         top: 23px;
         right: 34px;
-
+        background-color: transparent;
     }
     .navbar-nav {
         flex-direction: column;
@@ -191,6 +189,7 @@ h1, h2, h3, h4, a, input {
         height: 100vh;
         a {
         font-size: 28px;
+        // margin-left: 50px;
         }
         h2 {
             display: block;
