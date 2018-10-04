@@ -22,9 +22,20 @@
 
                 <div class="card-body">
                     <div class="w-100">
-                        
                         <%= render "card1"%>
-                        <%= render "card2"%>
+                        <%if (defined? params[:purpose]) && !(params[:purpose] == nil) then %>
+                            <%@target_count = -1%>
+                            <%params[:purpose]["purpose#{@purpose_generator}"].each do |a,b|%>
+                                    <%if a =="minute" || a == "second" || a == "goal" || a == "purpose-is"%>
+                                    <%then%>
+                                    <%else%>
+                                        <%@target_count +=1%>
+                                        <%= render "card2"%>
+                                    <%end%>
+                            <%end%>
+                        <%else%>
+                            <%= render "card2"%>
+                        <%end%>
                     </div>
 
                     <div class="card-submit">

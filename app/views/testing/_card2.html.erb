@@ -1,12 +1,4 @@
-
-<%target_count = defined? @target_count %>
-<%if target_count == nil%>
-<% then %>
-<%@target_generator=1%>
-<%else%>
 <%@target_generator=@target_count.to_i()+1%>
-<%end%>
-
 <section class="card-body-2">
         <%if @target_generator != 1 then%>
         <%=image_tag("W_btn_testing_delete.svg", :class=>"card-delete")%>

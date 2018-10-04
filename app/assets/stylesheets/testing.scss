@@ -1081,6 +1081,9 @@ button.card-button[aria-expanded=true] {
     background-color: rgba(0,0,0, 0.15);
     display:none;
 }
+
+
+
 .testing-help-purpose-box {
     margin: 0 auto;
     top: 100px;
@@ -1128,6 +1131,104 @@ button.card-button[aria-expanded=true] {
         font-size: 17px;
         color: #e8454a;
         font-weight: 500;
+    }
+}
+.testing-help-purpose-box.help {
+    padding-top: 40px; 
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: auto;
+    width: 550px;
+    top: 30px;
+    p {
+        font-size: 20px;
+        margin-bottom: 30px;
+    }
+    h1 {
+        font-size: 13px;
+        text-align: left;
+    }
+    h3 {
+        text-align: center;
+        font-size: 13px;
+        color: white;
+    }
+    img {
+        width: 130px;
+        margin: 0;
+    }
+    div {
+        width: 75%;
+        margin: 0;
+    }
+    h2 {
+        margin-top: 40px;
+        margin-bottom: 100px;
+        font-size: 15px;
+    }
+    button {
+        
+    }
+}
+.testing-help-purpose-box-tab {
+    display: flex;
+    margin-bottom: 40px!important;
+    div {
+        cursor: pointer;
+        background-color: #cacaca;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        height: 35px;
+        width: 50%;
+    }
+    .focus {
+        background-color: #282828;
+    }
+}
+.testing-help-purpose-box-left {
+    display: flex;
+    div:nth-child(2) {
+        margin: 40px 0;
+    }
+}
+.testing-help-purpose-box-right {
+    display: flex;
+    div:nth-child(1) {
+        div {
+            width: auto;
+            img {
+                width: 80px;
+            }
+            h5 {
+                margin-top: 10px;
+                line-height: 150%;
+                font-size: 13px;
+                text-align: center;
+            }
+        }
+        div:last-child {
+            margin: 0;
+        }
+    }
+    div:last-child {
+        margin-top: 40px;
+        margin-bottom: 80px;
+    }
+    h2 {
+        margin-top: 30px!important;
+        margin-bottom: 30px!important;
+    }
+    h4 {
+        margin: 8px 0;
+        width: 350px;
+        background-color: #282828;
+        border-radius: 30px;
+        padding: 0 15px;
+        font-size: 13px;
+        color: white;
     }
 }
 @media (max-width: 800px) {
@@ -1483,7 +1584,7 @@ button.card-button[aria-expanded=true] {
     flex-direction: column;
     padding: 0 15px;
     img {
-        margin-top:30px;
+        margin-top:50px;
     }
     h1 {
         font-size: 38px;text-align:center;
@@ -1493,7 +1594,7 @@ button.card-button[aria-expanded=true] {
     h2 {
         text-align:center;
         font-size: 23px;
-        margin-bottom: 60px;
+        margin-bottom: 70px;
     }
 }
 
