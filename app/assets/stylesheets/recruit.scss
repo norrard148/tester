@@ -1,8 +1,9 @@
+/* recruit */
 .recruit-img {
     width: 146px;
     height: 146px;
 }
-
+/* recruit 모집분야 - */
 .recruit-bottom {
     display: flex;
     justify-content: center;
@@ -38,6 +39,7 @@
         width: 100%;
     }
 }
+/* recruit form */
 .recruit-input-box {
     width: 100%;
     border-bottom: 1.5px solid rgba(0,0,0, 0.4);
