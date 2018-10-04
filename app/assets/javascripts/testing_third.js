@@ -22,7 +22,7 @@ if ($(".agree").is(":checked")) {
     if (submitted== false) {
         if (authe) {
             $.ajax({
-                url: "https://script.google.com/macros/s/AKfycbz-puVX2a8R0CZQv9B-LuvAZ6lf_l7GkT0mI18IkQ/exec",
+                url: "https://script.google.com/macros/s/AKfycbxxu2UVy6xoxVgoYlsPxHDLRllwbPdfKV0CZRwSUQ2HrJ8Oibw_/exec",
                 type: 'POST',
                 data: $(".third-form").serialize(),
                 beforeSend: function(e) {

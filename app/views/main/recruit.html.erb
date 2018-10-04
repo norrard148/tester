@@ -1,16 +1,13 @@
-
 <div class="index-top works" >
     <div class="index-top-bg">
-    <%= image_tag("dummy1.jpg")%>
+        <%= image_tag("dummy1.jpg")%>
     </div>
-
     <%=image_tag("W_img_title_recruit.svg", {:class=>"index-top-img"})%>
     <h1 class="pc">"더 테스터와 함께 완벽을 만들어 나갈 인재를 모십니다.”</h1>
     <h1 class="mobile">"더 테스터와 함께<br> 완벽을 만들어 나갈<br> 인재를 모십니다.”</h1>
     <h2>사용자 중심으로 서비스를 만드는 것은 필수적이지만 많은 기업이 생략하고 있습니다.<Br>
     저희는 세상이 아직 깨닫지 못한 옳은 일, 해야하는 일을 하고, 그 가치를 전달합니다. </h2>
 </div>
-
 <div class="submit" style="display:none;">
     <div class="submit-box">
          <%=image_tag("submit.svg")%>
@@ -21,148 +18,135 @@
         <button>확인</button>
     </div>
 </div>
-
 <form class="redirect" type="hidden" action="/recruit" method="get">
 </form>
-
 <div class="testing-third-loading">
     <%=image_tag("preloader.svg")%>
 </div>
-
-
-    <div style="margin-top: 80px;">
-        <h1>Members</h1>
-    </div>
-
-    <div class="container">
-        <div class="row pc" style="margin-bottom: 150px; margin-top: 100px;">
-            <div class="col-lg d-flex justify-content-center align-items-center" style="width: 450px;">
-                <div class="mr-5"><%= image_tag('W_img_recruit_jisoo.png', class:"recruit-img")%></div>
-                <div>
-                    <p class="h6">CEO. Founder</p>
-                    <p class="h4">강 지 수</p>
-                    <p class="h6">편견없는 기획자</p>
-                </div>
-            </div>
-            <div class="col-lg d-flex justify-content-center align-items-center" style="width: 250px;">
-                <div class="mr-5"><%= image_tag('W_img_recruit_ahram.png', class:"recruit-img")%></div>
-                <div>
-                    <p class="h6">CDO. Co-Founder</p>
-                    <p class="h4">김 아 람</p>
-                    <p class="h6">아직 젊은 디자이너</p>
-                </div>
+<div style="margin-top: 80px;">
+    <h1>Members</h1>
+</div>
+<div class="container">
+    <div class="row pc" style="margin-bottom: 150px; margin-top: 100px;">
+        <div class="col-lg d-flex justify-content-center align-items-center" style="width: 450px;">
+            <div class="mr-5"><%= image_tag('W_img_recruit_jisoo.png', class:"recruit-img")%></div>
+            <div>
+                <p class="h6">CEO. Founder</p>
+                <p class="h4">강 지 수</p>
+                <p class="h6">편견없는 기획자</p>
             </div>
         </div>
-            <!-- mobile -->
-        <div class="mobile d-flex flex-column justify-content-center align-items-center recruit-mobile">
-            <div class="mobile recruit-profile">
-                <div class="col-sm mt-5 mb-4"><%= image_tag('W_img_recruit_jisoo.png', class:"recruit-img")%></div>
-                <h6 class="text-center">CEO. Founder</h6>
-                <h4 class="text-center">강 지 수</h4>
-                <h6 class="text-center">편견없는 기획자</h6>
-            </div>
-            <div class="mobile recruit-profile">
-                <div class="col-sm mt-5 mb-4"><%= image_tag('W_img_recruit_ahram.png', class:"recruit-img")%></div>
-                <h6 class="text-center">CDO. Co-Founder</h6>
-                <h4 class="text-center">김 아 람</h4>
-                <h6 class="text-center">아직 젊은 디자이너</h6>
+        <div class="col-lg d-flex justify-content-center align-items-center" style="width: 250px;">
+            <div class="mr-5"><%= image_tag('W_img_recruit_ahram.png', class:"recruit-img")%></div>
+            <div>
+                <p class="h6">CDO. Co-Founder</p>
+                <p class="h4">김 아 람</p>
+                <p class="h6">아직 젊은 디자이너</p>
             </div>
         </div>
     </div>
-    
-
-    <div class="mt-5 mb-5">
-        <h1 class="text-center">Recruit</h1>
+        <!-- mobile -->
+    <div class="mobile d-flex flex-column justify-content-center align-items-center recruit-mobile">
+        <div class="mobile recruit-profile">
+            <div class="col-sm mt-5 mb-4"><%= image_tag('W_img_recruit_jisoo.png', class:"recruit-img")%></div>
+            <h6 class="text-center">CEO. Founder</h6>
+            <h4 class="text-center">강 지 수</h4>
+            <h6 class="text-center">편견없는 기획자</h6>
+        </div>
+        <div class="mobile recruit-profile">
+            <div class="col-sm mt-5 mb-4"><%= image_tag('W_img_recruit_ahram.png', class:"recruit-img")%></div>
+            <h6 class="text-center">CDO. Co-Founder</h6>
+            <h4 class="text-center">김 아 람</h4>
+            <h6 class="text-center">아직 젊은 디자이너</h6>
+        </div>
     </div>
-
-    <div>
-        <p class="pc h2 text-center">“사용성 테스트에 대한 이해와 관심을 가지고 있고,</p>
-        <p class="pc h2 text-center">자유로운 분위기 속에서 함께 즐기며 일할 수 있는 엔지니어를 찾습니다”</p>
-        <h2 class="text-center mobile recruit-box">“사용성 테스트에 대한<br>이해와 관심을 가지고 있고,<br>자유로운 분위기 속에서<br>함께 즐기며 일할 수 있는<br> 개발자를 찾습니다”</h2>
-    </div>
-    
-
-    <div class="recruit-bottom">
-        <div class="recruit-bottom-left">
-            <div class="recruit-bottom-left-box">
-                <h1>모집분야</h1>
-                <p>엔지니어</p>
-            </div>
-            <div class="recruit-bottom-left-box">
-                <h1>모집인원</h1>
-                <p>0명</p>
-            </div>
-            <div class="recruit-bottom-left-box other">
-                <h1>자격요건</h1>
-                <div>
-                <p>1. 플랫폼 개발 경력 2~3년 이상</p>
-                <p>2. 빅데이터 분석 처리 경험 有</p>
-                </div>
-            </div>
-            <div class="recruit-bottom-left-box">
-                <h1>지원기간</h1>
-                <p>채용 시까지</p>
-            </div>
-            <div class="recruit-bottom-left-box">
-                <h1>지원서류</h1>
-                <p>이력서, 자기소개서, 포트폴리오</p>
+</div>
+<div class="mt-5 mb-5">
+    <h1 class="text-center">Recruit</h1>
+</div>
+<div>
+    <p class="pc h2 text-center">“사용성 테스트에 대한 이해와 관심을 가지고 있고,</p>
+    <p class="pc h2 text-center">자유로운 분위기 속에서 함께 즐기며 일할 수 있는 엔지니어를 찾습니다”</p>
+    <h2 class="text-center mobile recruit-box">“사용성 테스트에 대한<br>이해와 관심을 가지고 있고,<br>자유로운 분위기 속에서<br>함께 즐기며 일할 수 있는<br> 개발자를 찾습니다”</h2>
+</div>
+<div class="recruit-bottom">
+    <div class="recruit-bottom-left">
+        <div class="recruit-bottom-left-box">
+            <h1>모집분야</h1>
+            <p>엔지니어</p>
+        </div>
+        <div class="recruit-bottom-left-box">
+            <h1>모집인원</h1>
+            <p>0명</p>
+        </div>
+        <div class="recruit-bottom-left-box other">
+            <h1>자격요건</h1>
+            <div>
+            <p>1. 플랫폼 개발 경력 2~3년 이상</p>
+            <p>2. 빅데이터 분석 처리 경험 有</p>
             </div>
         </div>
-
-        <div class="recruit-bottom-right">
-            <%= form_with(model: @post, method: "post", remote: true, url: "/recruitsubmit") do |form| %>
-                <% if @post.errors.any? %>
-                    <div id="error_explanation">
-                        <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-                        <ul>
-                        <% @post.errors.full_messages.each do |message| %>
-                            <li><%= message %></li>
-                        <% end %>
-                        </ul>
-                    </div>
-                <% end %>
-                <div class="recruit-input-box">
-                    <label>이름*&nbsp;&nbsp;</label>
-                    <input class="recruit-input" type="text" id="name" name="name" placeholder="이름을 입력해주세요">
+        <div class="recruit-bottom-left-box">
+            <h1>지원기간</h1>
+            <p>채용 시까지</p>
+        </div>
+        <div class="recruit-bottom-left-box">
+            <h1>지원서류</h1>
+            <p>이력서, 자기소개서, 포트폴리오</p>
+        </div>
+    </div>
+    <div class="recruit-bottom-right">
+        <%= form_with(model: @post, method: "post", remote: true, url: "/recruitsubmit") do |form| %>
+            <% if @post.errors.any? %>
+                <div id="error_explanation">
+                    <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+                    <ul>
+                    <% @post.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                    <% end %>
+                    </ul>
                 </div>
-                <div class="recruit-input-box">
-                    <label>연락처*&nbsp;&nbsp;</label>
-                    <input class="recruit-input" type="text" id="phonenumber" name="phonenumber" placeholder="연락처를 입력해주세요">
-                </div>
-                <div class="recruit-input-box">
-                    <label>이메일*&nbsp;&nbsp;</label>
-                    <input class="recruit-input" id="email" type="text" name="email" placeholder="이메일을 입력해주세요">
-                </div>
-                <div class="recruit-input-box file">
-                    <label for="file ">파일 업로드*</label>
-                    <div class="recruit-input-box-file">
-                        <div class="recruit-inputfile-box">            
-                        <h1>첨부1</h1>
+            <% end %>
+            <div class="recruit-input-box">
+                <label>이름*&nbsp;&nbsp;</label>
+                <input class="recruit-input" type="text" id="name" name="name" placeholder="이름을 입력해주세요">
+            </div>
+            <div class="recruit-input-box">
+                <label>연락처*&nbsp;&nbsp;</label>
+                <input class="recruit-input" type="text" id="phonenumber" name="phonenumber" placeholder="연락처를 입력해주세요">
+            </div>
+            <div class="recruit-input-box">
+                <label>이메일*&nbsp;&nbsp;</label>
+                <input class="recruit-input" id="email" type="text" name="email" placeholder="이메일을 입력해주세요">
+            </div>
+            <div class="recruit-input-box file">
+                <label for="file ">파일 업로드*</label>
+                <div class="recruit-input-box-file">
+                    <div class="recruit-inputfile-box">            
+                    `    <h1>첨부1</h1>
                         <%= form.file_field :attachment, :class=>"attachment1", onchange: "validateFiles(this);",
                         data: { max_file_size: 30.megabytes } %>
                         <h1 class="attachment1-name"></h1>
-                        </div>
-                        <div class="recruit-inputfile-box">
+                    </div>
+                    <div class="recruit-inputfile-box">
                         <h1>첨부2</h1>
-    
                         <%= form.file_field :attachment2, :class=>"attachment2", onchange: "validateFiles(this);",
                         data: { max_file_size: 30.megabytes }%>
                         <h1 class="attachment2-name"></h1>
-                        </div>
-                        <div class="recruit-inputfile-box">
+                    </div>
+                    <div class="recruit-inputfile-box">
                         <h1>첨부3</h1> 
                         <%= form.file_field :attachment3, :class=>"attachment3", onchange: "validateFiles(this);",
                         data: { max_file_size: 30.megabytes } %>
-                        <h1 class="attachment3-name"></h1>
-                        </div>
+                        <h1 class="attachment3-name"></h1>`
                     </div>
                 </div>
-                <input class="recruit-submit" type="submit" style="visibility:hidden;width:0;height:0;">
-            <% end %>
-            <button class="recruit-button">더 테스터 지원하기</button>
-        </div>
-    </div>  
+            </div>
+            <input class="recruit-submit" type="submit" style="visibility:hidden;width:0;height:0;">
+        <% end %>
+        <button class="recruit-button">더 테스터 지원하기</button>
+    </div>
+</div>  
 
 
 <script>
