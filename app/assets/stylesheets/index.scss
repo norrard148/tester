@@ -19,7 +19,7 @@
         text-align: center; 
     }
     h1 {
-        margin-top: 15%;
+        margin-top: 5%;
         line-height: 1.5;
         font-size: 33px;
     }
@@ -32,7 +32,7 @@
         height: 70px;
         width: 350px;
         margin-top: 170px;
-        margin-bottom: 7%;
+        
         border: 1px solid white;
         border-radius: 10px;
         background-color: transparent;
@@ -75,10 +75,10 @@
     position: relative;
 }
 .index-top-arrow {
-    position: relative;
+    position: absolute;
     cursor: pointer;
-    margin-bottom: auto;
-    margin-top: auto;
+    bottom: 8%;
+
 }
 
 /*index-middle*/
