@@ -25,31 +25,27 @@ class MainController < ApplicationController
   end
   def recruitsubmit 
     @post = Post.new(post_params)
-    respond_to do |format|
-      if @post.save
-        if RecruitMailer.recruit_email(@post, post_params2).deliver
-        then
-          format.html { redirect_to '/recruit', notice: "submitted" }
-        else
-          format.html { redirect_to '/recruit' }
+    if @post.save
+      if RecruitMailer.recruit_email(@post, post_params2).deliver
+        respond_to do |format|
+          format.js
         end
       else
-        format.html { redirect_to '/recruit' }
+        respond_to do |format|
+          format.js {render 'recruitfail'}
+        end
+        
+      end
+    else
+      respond_to do |format|
+        format.js {render 'recruitfail'}
       end
     end
   end
   def contact
   end
   def contactsubmit
-    if ContactMailer.contact_email(params).deliver
-      respond_to do |format|
-      format.html { redirect_to '/contact', notice: "submitted"}
-      end
-    else
-      respond_to do |format|
-        format.html { redirect_to '/contact' }
-       end
-    end
+     ContactMailer.contact_email(params).deliver
   end
   private
     # Use callbacks to share common setup or constraints between actions.

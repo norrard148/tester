@@ -10,10 +10,8 @@
     UX,UI 컨설팅과 온라인 서비스의 기획, 디자인을 맡겨주세요.</h2>
 </div>
 
-<%if (defined? notice) && notice == "submitted" %>
-<%then%>
-<%notice = '' %>
-<div class="submit">
+
+<div class="submit" style="display:none;">
     <div class="submit-box">
          <%=image_tag("submit.svg")%>
         <h1>제출이 완료되었습니다.</h1>
@@ -23,7 +21,8 @@
         <button>확인</button>
     </div>
 </div>
-<%end%>
+<form class="redirect" type="hidden" action="/contact" method="get">
+</form>
 
 <div class="testing-third-loading">
     <%=image_tag("preloader.svg")%>
@@ -118,7 +117,7 @@
     $(".testing-third-loading").css({"display":"flex"});
     };
     $(document).on('click', '.submit button', function(){  
-        $(".submit").css({"display":"none"});
+        $(".redirect").submit();
     })
     
 </script>
@@ -151,6 +150,7 @@
       });
 </script>
 <script>
+    var submitted = false;
       var map2 = new naver.maps.Map('map2');
       var myaddress2 = '태봉로 114';// 도로명 주소나 지번 주소만 가능 (건물명 불가!!!!)
       naver.maps.Service.geocode({address: myaddress2}, function(status, response) {
@@ -258,7 +258,37 @@
                     toggle = false; 
         }   
         else {
-           $("form").submit();
+           if (submitted== false) {
+                var authe = true;
+                if (authe) {
+                    $.ajax({
+                        url: "/contactsubmit",
+                        type: 'POST',
+                        data: $("form").serialize(),
+                        beforeSend: function(e) {
+                            authe = false;
+                            $(".testing-third-loading").css({"display":"flex"});
+                        },
+                        error : function(error) {
+                            $(".testing-third-loading").css({"display":"none"});
+                            authe = false;
+                            
+                        },
+                        success : function(data) {
+                            $(".testing-third-loading").css({"display":"none"});
+                            $(".submit").css({"display":"block"});
+                            submitted = true;
+                        },
+                        fail: function() {
+                            authe = false;
+                            $(".testing-third-loading").css({"display":"none"});
+                            
+                        },
+                        complete : function() {  
+                        }
+                    })        
+                }
+            }
         } 
       
     });

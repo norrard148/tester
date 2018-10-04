@@ -37,7 +37,20 @@
             <div class="hidden"></div>
             <span class="hidden">
                 <h2>인터뷰 질문</h2>
-                <h3><%=(b.keys.length-4)*4%></h3>
+                <h3>
+                <h3>
+                    <%question_count = 0%>
+                    <%b.each do |c,d|%>
+                    <%if c != "goal"  && c!= 'second' && c!='minute' && c!= "purpose-is" then%>
+                        <%if d['question1'] != "" then question_count +=1 end%>
+                        <%if d['question2'] != "" then question_count +=1 end%>
+                        <%if d['question3'] != "" then question_count +=1 end%>
+                        <%if d['question4'] != "" then question_count +=1 end%>
+                    <%end%>
+                    <%end%>
+                    <%=question_count%>
+                    
+                </h3>
             </span>
         </section>
     </div>
@@ -60,7 +73,7 @@
                     <div></div>
                     <span>
                         <h2>연령대</h2>
-                        <h3><%=d['age']%>대 <%=d['age2']%></h3>
+                        <h3><%if d['age'] == "none" ||  d['age'] == "전체" then%><%= "전체 연령" %><%else%><%= d['age']%><% end %>대 <%if d['age2'] == "none" ||  d['age2'] == "전체" then%><%= "전체" %><%else%><%= d['age2']%><% end %></h3>
                     </span>
                     <div></div>
                     <span>

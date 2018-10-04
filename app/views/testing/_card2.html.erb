@@ -84,6 +84,7 @@
                         <%if defined?  $params[:purpose]["purpose" + @purpose_number.to_s()]["exp" + @target_generator.to_s()]["age"] then%>
                                 <%age = $params[:purpose]["purpose" + @purpose_number.to_s()]["exp" + @target_generator.to_s()]["age"]%>
                                 <option value="none" <%=if age == "none" then "selected" end%>>선택</option>
+                                <option value="전체" <%=if age == "전체" then "selected" end%>>전체</option>
                                 <option value="10" <%=if age == "10" then "selected" end%>>10대</option>
                                 <option value="20" <%=if age == "20" then "selected" end%>>20대</option>
                                 <option value="30" <%=if age == "30" then "selected" end%>>30대</option>
@@ -92,6 +93,7 @@
                                 <option value="60" <%=if age == "60" then "selected" end%>>60대</option>  
                         <%else%>
                                 <option value="none" selected>선택</option>
+                                <option value="전체">전체</option>
                                 <option value="10">10대</option>
                                 <option value="20">20대</option>
                                 <option value="30">30대</option>
@@ -107,16 +109,16 @@
                          <%if defined?  $params[:purpose]["purpose" + @purpose_number.to_s()]["exp" + @target_generator.to_s()]["age2"] then%>
                                 <%age2 = $params[:purpose]["purpose" + @purpose_number.to_s()]["exp" + @target_generator.to_s()]["age2"]%>
                                 <option value="none" <%=if age2 == "none" then "selected" end%>>선택</option>
+                                <option value="전체" <%=if age2 == "전체" then "selected" end%>>전체</option>
                                 <option value="초반" <%=if age2 == "초반" then "selected" end%>>초반</option>
                                 <option value="중반" <%=if age2 == "중반" then "selected" end%>>중반</option>
                                 <option value="후반" <%=if age2 == "후반" then "selected" end%>>후반</option>
-                                <option value="무관" <%=if age2 == "무관" then "selected" end%>>무관</option>
                         <%else%>
                                 <option value="none" selected>선택</option>
+                                <option value="전체">전체</option>
                                 <option value="초반">초반</option>
                                 <option value="중반">중반</option>
                                 <option value="후반">후반</option>
-                                <option value="무관">무관</option>
                         <%end%>
                        
                     </select>
