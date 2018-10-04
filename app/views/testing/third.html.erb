@@ -99,23 +99,18 @@
     <%=image_tag("preloader.svg")%>
 </div>
 
-<form type="hidden" action="/testing/submit" method="post" class="submit" >
-        <%@params[:customer].each do |a,b|%>
-            <input name="[customer][<%=a%>]" value="<%=b%>" type="hidden">
-        <%end%>
-        <%@params[:purpose].each do |a,b|%>
-            <%b.each do |c, d |%>
-                <%if c =="minute" || c == "second" || c == "goal" || c== "purpose-is"%>
-                <%then%>
-                    <input name="[purpose][<%=a%>][<%=c%>]" value="<%=d%>" type="hidden">
-                <%else%>
-                    <%d.each do |e,f|%>
-                        <input name="[purpose][<%=a%>][<%=c%>][<%=e%>]" value="<%=f%>" type="hidden">
-                    <%end%>
-                <%end%>
-            <%end%>
-        <%end%>
-</form>
+
+
+<div class="submit" style="display:none;">
+    <div class="submit-box">
+         <%=image_tag("submit.svg")%>
+        <h1>제출이 완료되었습니다.</h1>
+        <h2>담당 매니저가 접수 내용을 확인한 후,<br>
+        별 다른 이상이 없을 시 테스트 진행을 도와드릴거예요.<br>
+        테스트 기간은 5~6일 정도 소요됩니다. </h2>
+        <button>확인</button>
+    </div>
+</div>
 
 <script>
 $(".testing-top-box.first").click(function() {
@@ -126,43 +121,64 @@ $(".testing-top-box.second").click(function() {
         $("#third-form").attr({"action":"/testing/second"})
         document.getElementById("third-form").submit();
 })
+ $(document).on('click', '.submit button', function(){  
+        $(".submit").css({"display":"none"});
+    })
 if(navigator.userAgent.match(/Mobile|iP(hone|od)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)){
     $(".testing").remove();
     $(".testing-mobile").css({"display":"block"});
 }
 else {
 }
+var submitted = false;
 $(".navbar-nav a:nth-child(5)").addClass("color");
 $("html, body").scrollTop($(".testing-top").offset().top)
 $("#submit").click(function() {
     if ($(".agree").is(":checked")) {
-        var authe = true;
-        if (authe) {
-            $.ajax({
-                url: "https://script.google.com/macros/s/AKfycbz-puVX2a8R0CZQv9B-LuvAZ6lf_l7GkT0mI18IkQ/exec",
-                type: 'POST',
-                data: $(".third-form").serialize(),
-                beforeSend: function(e) {
-                    authe = false;
-                    $(".testing-third-loading").css({"display":"flex"});
-                    $(".testing-third-loading").css({"display":"flex"});
-                },
-                error : function(error) {
-                    $(".testing-third-loading").css({"display":"none"});
-                    authe = false;
-                },
-                success : function(data) {
-                    $(".submit").submit();
-                    
-                },
-                fail: function() {
-                    authe = false;
-                    $(".testing-third-loading").css({"display":"none"});
-                },
-                complete : function() {  
-                }
-            })        
+        if (submitted== false) {
+            var authe = true;
+            if (authe) {
+                $.ajax({
+                    url: "https://script.google.com/macros/s/AKfycbz-puVX2a8R0CZQv9B-LuvAZ6lf_l7GkT0mI18IkQ/exec",
+                    type: 'POST',
+                    data: $(".third-form").serialize(),
+                    beforeSend: function(e) {
+                        authe = false;
+                        $(".testing-third-loading").css({"display":"flex"});
+                    },
+                    error : function(error) {
+                        $(".testing-third-loading").css({"display":"none"});
+                        authe = false;
+                    },
+                    success : function(data) {
+                        $(".testing-third-loading").css({"display":"none"});
+                        $(".submit").css({"display":"block"});
+                        submitted = true;
+                    },
+                    fail: function() {
+                        authe = false;
+                        $(".testing-third-loading").css({"display":"none"});
+                    },
+                    complete : function() {  
+                    }
+                })        
+            }
         }
+        else {
+             alertify.alert()
+            .setting({
+                'frameless':false,
+                'title':"제출 오류",
+                'closableByDimmer':true,
+                'closable': false,
+                modal: false,
+                transition:'pulse',
+                'pinnable': false,
+                message: '이미 제출했습니다.',
+                'label':'Ok'
+        }).show();
+        }
+        
     }  
     else {
          alertify.alert()

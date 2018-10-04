@@ -408,3 +408,91 @@ footer {
         display: block;
     }
 }
+
+
+
+
+.submit {
+    position:fixed;
+    z-index: 900;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0, 0.15);
+}
+.submit-box {
+    margin: 0 auto;
+    top: 100px;
+    left: 0;
+    position: relative;
+    width: 800px;
+    height: 600px;
+    background-color: white;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.125);
+    img {
+        margin-top: -60px;
+    }
+    button {
+        width: 100%;
+        background-color: #282828;
+        height: 50px;
+        text-align: center;
+        border: none;
+        bottom: 0;
+        color:white;
+        position:absolute;
+        cursor: pointer;
+    }
+    h1 {
+        font-size: 38px;
+        text-align:Center;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        font-weight: 500;
+    }
+    h2 {
+        font-size: 23px;
+        text-align:Center;
+    }
+}
+@media (max-width: 800px) {
+    .submit-box {
+    width: 90%;
+    height: auto;
+    padding: 0 10px;
+    img {
+        margin-top: 30px;
+    }
+    h1 {
+        margin-top: 0px;
+        font-size: 23px;
+        margin-bottom: 5px; 
+
+    }
+    h2 {
+        font-size: 13px;
+        margin-bottom: 70px;
+    }
+    button {
+        height: 35px;
+    }
+   
+ }
+}
+@media (max-width: 450px) {
+    img {
+        width: 30%;
+    }
+    h1 {
+       
+        font-size: 18px;
+    }
+    h2 {
+        font-size: 10px;
+    }
+}

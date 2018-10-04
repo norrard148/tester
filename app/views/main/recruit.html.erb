@@ -8,6 +8,26 @@
     저희는 세상이 아직 깨닫지 못한 옳은 일, 해야하는 일을 하고, 그 가치를 전달합니다. </h2>
 </div>
 
+<%if (defined? notice) && notice == "submitted" %>
+<%then%>
+<%notice = '' %>
+<div class="submit">
+    <div class="submit-box">
+         <%=image_tag("submit.svg")%>
+        <h1>제출이 완료되었습니다.</h1>
+        <h2>담당 매니저가 접수 내용을 확인한 후,<br>
+        별 다른 이상이 없을 시 테스트 진행을 도와드릴거예요.<br>
+        테스트 기간은 5~6일 정도 소요됩니다. </h2>
+        <button>확인</button>
+    </div>
+</div>
+<%end%>
+
+<div class="testing-third-loading">
+    <%=image_tag("preloader.svg")%>
+</div>
+
+
     <div style="margin-top: 80px;">
         <h1>Members</h1>
     </div>
@@ -138,13 +158,12 @@
         </div>
     </div>  
 
+
 <script>
-function myFunction() {
-    alert("지원이 완료되었습니다.");
-    };
-</script>
-<script>
-    
+     $(document).on('click', '.submit button', function(){  
+        $(".submit").css({"display":"none"});
+    })
+
     var fileTarget1 = $('.attachment1');
     var fileTarget2 = $('.attachment2');
     var fileTarget3 = $('.attachment3');
@@ -155,6 +174,7 @@ function myFunction() {
 
     $(".navbar-nav a:nth-child(4)").addClass("color");
     $(".recruit-button").click(function() {
+         
         if ($("#name").val() == '') {
             alertify.alert()
             .setting({
@@ -204,8 +224,11 @@ function myFunction() {
         }
                
         else {
-           $("form").submit();
+            $("form").submit();
         } 
       
     });
+    function myFunction() {
+    $(".testing-third-loading").css({"display":"flex"});
+    };
 </script>

@@ -91,8 +91,8 @@
         추가 테스트 진행을 도와드릴게요!</h1>
         <h3>추가비용이 발생할 수 있습니다.</h3>
         <div class="d-flex justify-content-center">
-        <%=image_tag("popup-manager.svg")%>
         <%=image_tag("popup-manager2.svg")%>
+        <%=image_tag("popup-manager.svg")%>
         </div>
         <button>닫기</button>
     </div>
@@ -155,8 +155,8 @@
             <h4>1. 무료 테스트 외 추가 테스트 진행을 원할 경우</h4>
             <h4>2. 무료 테스트 내 기본 제공 횟수보다 이상을 원할 경우</h4>
             <div class=" d-flex justify-content-around">
-                <%=image_tag("popup-manager.svg")%>
                 <%=image_tag("popup-manager2.svg")%>
+                <%=image_tag("popup-manager.svg")%>
             </div>
         </div>
         <button>닫기</button>
@@ -342,7 +342,7 @@
     $(document).on("click","#accordionExample2 .ui.dropdown, #accordionExample2 input", function(a) {
        purpose_2_test(a);
     })
-    $(document).on("keypress","#accordionExample2 input", function(a) {
+    $(document).on("keydown","#accordionExample2 input", function(a) {
         purpose_2_test(a);
        
     })

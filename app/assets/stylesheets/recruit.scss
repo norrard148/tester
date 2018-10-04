@@ -42,21 +42,17 @@
     width: 100%;
     border-bottom: 1.5px solid rgba(0,0,0, 0.4);
     display:flex;
-    margin-bottom: 10px;
     padding-bottom: 2px;
     justify-content: space-between;
+    align-items: center;
     label, input {
         font-size: 20px;
-        padding: 10px;
-    }
-    
-    label {
-        margin-bottom: 0;
-        padding: 0;
+        margin: 3px 0;
+        
+        margin: 10px 0;
     }
     input {
         width: 74%;
-        padding: 0;
     }
 }
 .recruit-input::placeholder {
@@ -117,9 +113,13 @@
     color: #282828;
     background-color: white;
     cursor: pointer;
+    outline: none;
     margin-top: 60px;
     margin-bottom: 140px;
     font-size: 23px;
+}
+.recruit-button:focus {
+    outline: none;
 }
 .recruit-button:hover {
     background-color: #282828;

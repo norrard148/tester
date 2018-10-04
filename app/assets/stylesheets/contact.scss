@@ -68,11 +68,15 @@
     background-color: white;
     cursor: pointer;
     font-size: 23px;
+    outline: none;
     -webkit-transition: opacity 0.75s ease-in 0.75s;
     -moz-transition: opacity 0.75s ease-in 0.75s;
     -o-transition: opacity 0.75s ease-in 0.75s;
     -ms-transition: opacity 0.75s ease-in 0.75s;
     transition: opacity 0.75s ease-in 0.75s;
+}
+.contact-button:focus {
+    outline: none;
 }
 .contact-button:hover {
     background-color: #282828;
