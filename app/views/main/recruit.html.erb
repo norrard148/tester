@@ -137,18 +137,21 @@
                     <div class="recruit-input-box-file">
                         <div class="recruit-inputfile-box">            
                         <h1>첨부1</h1>
-                        <%= form.file_field :attachment, :class=>"attachment1" %>
+                        <%= form.file_field :attachment, :class=>"attachment1", onchange: "validateFiles(this);",
+                        data: { max_file_size: 30.megabytes } %>
                         <h1 class="attachment1-name"></h1>
                         </div>
                         <div class="recruit-inputfile-box">
                         <h1>첨부2</h1>
     
-                        <%= form.file_field :attachment2, :class=>"attachment2"%>
+                        <%= form.file_field :attachment2, :class=>"attachment2", onchange: "validateFiles(this);",
+                        data: { max_file_size: 30.megabytes }%>
                         <h1 class="attachment2-name"></h1>
                         </div>
                         <div class="recruit-inputfile-box">
                         <h1>첨부3</h1> 
-                        <%= form.file_field :attachment3, :class=>"attachment3" %>
+                        <%= form.file_field :attachment3, :class=>"attachment3", onchange: "validateFiles(this);",
+                        data: { max_file_size: 30.megabytes } %>
                         <h1 class="attachment3-name"></h1>
                         </div>
                     </div>
@@ -160,7 +163,30 @@
 
 
 <script>
-     $(document).on('click', '.submit button', function(){  
+    function validateFiles(inputFile) {
+        var maxFileSize = $(inputFile).data('max-file-size');
+        $.each(inputFile.files, function() {
+            if (this.size > parseInt(maxFileSize)) {
+                $(inputFile).val('');
+                alertify.alert()
+                .setting({
+                    'frameless':false,
+                    'title':"파일 업로드 오류",
+                    'closableByDimmer':true,
+                    'closable': false,
+                    modal: false,
+                    transition:'pulse',
+                    'pinnable': false,
+                    message: '파일 최대 용량은 30MB입니다.',
+                    'label':'Ok'
+                }).show();
+            
+            };
+
+        });
+    }
+
+    $(document).on('click', '.submit button', function(){  
         $(".submit").css({"display":"none"});
     })
 
