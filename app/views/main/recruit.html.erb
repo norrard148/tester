@@ -8,10 +8,7 @@
     저희는 세상이 아직 깨닫지 못한 옳은 일, 해야하는 일을 하고, 그 가치를 전달합니다. </h2>
 </div>
 
-<%if (defined? notice) && notice == "submitted" %>
-<%then%>
-<%notice = '' %>
-<div class="submit">
+<div class="submit" style="display:none;">
     <div class="submit-box">
          <%=image_tag("submit.svg")%>
         <h1>제출이 완료되었습니다.</h1>
@@ -21,7 +18,9 @@
         <button>확인</button>
     </div>
 </div>
-<%end%>
+
+<form class="redirect" type="hidden" action="/recruit" method="get">
+</form>
 
 <div class="testing-third-loading">
     <%=image_tag("preloader.svg")%>
@@ -108,7 +107,7 @@
         </div>
 
         <div class="recruit-bottom-right">
-            <%= form_with(model: @post, local: true, url: "/recruitsubmit", :html => { :onsubmit => "myFunction()" }) do |form| %>
+            <%= form_with(model: @post, method: "post", remote: true, url: "/recruitsubmit") do |form| %>
                 <% if @post.errors.any? %>
                     <div id="error_explanation">
                         <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -130,7 +129,7 @@
                 </div>
                 <div class="recruit-input-box">
                     <label>이메일*&nbsp;&nbsp;</label>
-                    <input class="recruit-input" id="email" type="email" name="email" placeholder="이메일을 입력해주세요">
+                    <input class="recruit-input" id="email" type="text" name="email" placeholder="이메일을 입력해주세요">
                 </div>
                 <div class="recruit-input-box file">
                     <label for="file ">파일 업로드*</label>
@@ -156,6 +155,7 @@
                         </div>
                     </div>
                 </div>
+                <input class="recruit-submit" type="submit" style="visibility:hidden;width:0;height:0;">
             <% end %>
             <button class="recruit-button">더 테스터 지원하기</button>
         </div>
@@ -187,7 +187,7 @@
     }
 
     $(document).on('click', '.submit button', function(){  
-        $(".submit").css({"display":"none"});
+        $(".redirect").submit();
     })
 
     var fileTarget1 = $('.attachment1');
@@ -197,8 +197,8 @@
     fileTarget2.on('change', function(){  if (window.FileReader){  var filename = $(this)[0].files[0].name; } else { var filename = $(this).val().split('/').pop().split('\\').pop();  } $(this).siblings('.attachment2-name').text(filename);});
     fileTarget3.on('change', function(){  if (window.FileReader){  var filename = $(this)[0].files[0].name; } else { var filename = $(this).val().split('/').pop().split('\\').pop();  } $(this).siblings('.attachment3-name').text(filename);});
 
-
     $(".navbar-nav a:nth-child(4)").addClass("color");
+    var authe = true;
     $(".recruit-button").click(function() {
          
         if ($("#name").val() == '') {
@@ -250,11 +250,13 @@
         }
                
         else {
-            $("form").submit();
+            if (authe) {
+                authe = false;
+                $(".testing-third-loading").css({"display":"flex"});
+                $(".recruit-submit").click();      
+            }
+            
         } 
       
     });
-    function myFunction() {
-    $(".testing-third-loading").css({"display":"flex"});
-    };
 </script>
