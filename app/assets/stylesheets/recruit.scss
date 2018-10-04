@@ -47,8 +47,6 @@
     align-items: center;
     label, input {
         font-size: 20px;
-        margin: 3px 0;
-        
         margin: 10px 0;
     }
     input {
@@ -95,8 +93,9 @@
 
 .recruit-input-box.file {
     label {
-        margin-top: 5px;
+        margin-top: 13px;
     }
+    align-items:flex-start;
 }
 .recruit-input-box-file {
     width:60%;
