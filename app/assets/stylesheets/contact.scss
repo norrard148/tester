@@ -1,6 +1,6 @@
 
 
-
+/* contact 더 테스터는 - */
 .contact-middle {
     width: 1200px;
     display:flex;
@@ -20,6 +20,7 @@
         font-size: 14px;
     }
 }
+/* contact form */
 .contact-middle-box {
     width: 100%;
     display: flex;
@@ -40,7 +41,6 @@
     width: 47%;
     
 }
-
 .contact-input {
     padding: 15px;
     border-bottom: 1.3px solid rgba(0,0,0,0.125);
@@ -83,6 +83,7 @@
     border-color: #282828;
     color: #fff;
 }
+/* contact 주소 부분 */
 .contact-bottom {
     display: flex;
     width: 1200px;
@@ -99,7 +100,6 @@
         border-bottom: 1px solid gray;
         padding-left: 0;
         width: 100%;
-        // margin: 20px 0;
     }
     .contact-input-button {
         width: 290px;
@@ -113,7 +113,6 @@
     }
     
 }
-
 .map-box {
     padding: 0;
 }
