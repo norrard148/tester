@@ -19,7 +19,7 @@
         text-align: center; 
     }
     h1 {
-        margin-top: 20%;
+        margin-top: 15%;
         line-height: 1.5;
         font-size: 33px;
     }
@@ -32,6 +32,7 @@
         height: 70px;
         width: 350px;
         margin-top: 170px;
+        margin-bottom: 7%;
         border: 1px solid white;
         border-radius: 10px;
         background-color: transparent;
@@ -230,8 +231,10 @@
     }
     
     .index-top-bg {
+        img {
         width: auto;
         height: 700px;
+        }
         // margin: 0 auto;
     }
    

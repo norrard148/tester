@@ -1,8 +1,5 @@
 class TestingController < ApplicationController
-  def first
-    respond_to do |format|
-      format.html
-    end  
+  def first 
   end
 
   def firsttest
@@ -16,12 +13,8 @@ class TestingController < ApplicationController
     @permitted_params = params.require(:customer).permit(:brandname, :name, :phonenumber, :email, :media, :testtype, :url)
     if @permitted_params[:brandname].empty? || @permitted_params[:name].empty? || @permitted_params[:phonenumber].empty? || @permitted_params[:email].empty? || @permitted_params[:media].empty? || @permitted_params[:testtype].empty? || @permitted_params[:url].empty? 
       then
-      redirect_to "/"
+      redirect_to "/testing/first"
     else
-      respond_to do |format|
-        format.html
-        format.js {}
-      end 
     end
     
   end

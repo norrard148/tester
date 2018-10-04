@@ -3,60 +3,51 @@ var labor_price = 1800/3600;
 var total = 0;
 <%@purnum=0%>
 <%while @purnum != @purpose_count.to_i()%>
-<%@purnum+=1%>
-
-calculate = Number($(".minute<%=@purnum%> option:selected").val()*60)+Number($(".second<%=@purnum%> option:selected").val());
-
-var tarnum = 1
-var plus = 0;
-while ($(`.testernumber-<%=@purnum%>-${tarnum}`).length == 1) {
-plus = plus + Number($(`.testernumber-<%=@purnum%>-${tarnum} option:selected`).val());
-tarnum +=1;
-
-}
-
-total += plus*calculate*labor_price;
-$(".reward-<%=@purnum%>").text((plus*calculate*labor_price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "P");
+    <%@purnum+=1%>
+    calculate = Number($(".minute<%=@purnum%> option:selected").val()*60)+Number($(".second<%=@purnum%> option:selected").val());
+    var tarnum = 1
+    var plus = 0;
+    while ($(`.testernumber-<%=@purnum%>-${tarnum}`).length == 1) {
+        plus = plus + Number($(`.testernumber-<%=@purnum%>-${tarnum} option:selected`).val());
+        tarnum +=1;
+    }
+    total += plus*calculate*labor_price;
+    $(".reward-<%=@purnum%>").text((plus*calculate*labor_price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "P");
 <%end%>
 $(".reward-sum").text( total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+ "P");
 $(".reward-discount").text("-" + total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "P");
-
-
-
 function purpose_test(a,b) {
-        var element = $(`#accordionExample${a}`)
-        var testernumber=0;
-        toggle = false;
-        if (
-        element.find(".purpose-is").val() =='' || Number(element.find(".minute option:selected").val()) + Number(element.find(".second option:selected").val()) == 0
-        ) {
-           toggle = true;
-        }
-        else {
-            $(`#accordionExample${a} .card-body-2`).each(function () {
-                        testernumber += Number($(this).find(".testernumber option:selected").val());
-                        if  ($(this).find(".target").val() == '') {
-                            toggle = true;
-                            return false;
-                        }
-            });
-            if  (testernumber == 0 ) {
-                   
-                     toggle = true;
-            } 
-        }
-        if (toggle) {
-            $(`#accordionExample${b} input`).addClass("disabled"); 
-            $(`#accordionExample${b} .ui.dropdown`).addClass("disabled"); 
-            return false;
-        }
-        else {
-            $(`#accordionExample${b} .ui.dropdown`).removeClass("disabled");
-            $(`#accordionExample${b} input`).removeClass("disabled");
-            return true;
-        }
+    var element = $(`#accordionExample${a}`)
+    var testernumber=0;
+    toggle = false;
+    if (
+    element.find(".purpose-is").val() =='' || Number(element.find(".minute option:selected").val()) + Number(element.find(".second option:selected").val()) == 0
+    ) {
+        toggle = true;
     }
-
+    else {
+        $(`#accordionExample${a} .card-body-2`).each(function () {
+            testernumber += Number($(this).find(".testernumber option:selected").val());
+            if  ($(this).find(".target").val() == '') {
+                toggle = true;
+                return false;
+            }
+        });
+        if  (testernumber == 0 ) {
+            toggle = true;
+        } 
+    }
+    if (toggle) {
+        $(`#accordionExample${b} input`).addClass("disabled"); 
+        $(`#accordionExample${b} .ui.dropdown`).addClass("disabled"); 
+        return false;
+    }
+    else {
+        $(`#accordionExample${b} .ui.dropdown`).removeClass("disabled");
+        $(`#accordionExample${b} input`).removeClass("disabled");
+        return true;
+    }
+}
 purpose_test(1,2);
 if (purpose_test(1,3)) {
     purpose_test(2,3);
