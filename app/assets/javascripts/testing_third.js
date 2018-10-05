@@ -49,7 +49,7 @@ if ($(".agree").is(":checked")) {
                     $.ajax({
                         url: "/testing/submit",
                         type: 'POST',
-                        data: $("#third-form").serialize(),
+                        data: $("#third-form, .message").serialize(),
                         beforeSend: function(e) {
                         },
                         error : function(error) {
