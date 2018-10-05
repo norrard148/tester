@@ -16,6 +16,8 @@
     <%= javascript_include_tag 'semantic.min'%>
     <%= javascript_include_tag 'alertify.min'%>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%# <link rel="icon" href="thetester_favicon.svg" type="image/gif" sizes="16x16"> %>
+    <%= favicon_link_tag asset_path('thetester_favicon.svg') %>
   </head>
   <body class="noto">
     <%=render partial: 'layouts/header'%>
