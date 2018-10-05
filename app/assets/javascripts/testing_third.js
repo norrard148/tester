@@ -32,20 +32,41 @@ if ($(".agree").is(":checked")) {
                 error : function(error) {
                     $(".testing-third-loading").css({"display":"none"});
                     authe = true;
+                    alertify.alert()
+                    .setting({
+                        'frameless':false,
+                        'title':"서버 오류",
+                        'closableByDimmer':true,
+                        'closable': false,
+                        modal: false,
+                        transition:'pulse',
+                        'pinnable': false,
+                        message: '일시적인 서버 오류이므로 네트워크 점검 후 다시 전송하십시오.',
+                        'label':'Ok'
+                    }).show();
                 },
                 success : function(data) {
-                    $(".testing-third-loading").css({"display":"none"});
-                    $(".submit").css({"display":"block"});
                     $.ajax({
                         url: "/testing/submit",
                         type: 'POST',
                         data: $("#third-form").serialize(),
                         beforeSend: function(e) {
-                            
                         },
                         error : function(error) {
                             $(".testing-third-loading").css({"display":"none"});
                             authe = true;
+                            alertify.alert()
+                            .setting({
+                                'frameless':false,
+                                'title':"서버 오류",
+                                'closableByDimmer':true,
+                                'closable': false,
+                                modal: false,
+                                transition:'pulse',
+                                'pinnable': false,
+                                message: '일시적인 서버 오류이므로 네트워크 점검 후 다시 전송하십시오.',
+                                'label':'Ok'
+                            }).show();
                         },
                         success : function(data) {
                             $(".testing-third-loading").css({"display":"none"});
@@ -55,6 +76,18 @@ if ($(".agree").is(":checked")) {
                         fail: function() {
                             authe = true;
                             $(".testing-third-loading").css({"display":"none"});
+                            alertify.alert()
+                            .setting({
+                                'frameless':false,
+                                'title':"서버 오류",
+                                'closableByDimmer':true,
+                                'closable': false,
+                                modal: false,
+                                transition:'pulse',
+                                'pinnable': false,
+                                message: '일시적인 서버 오류이므로 네트워크 점검 후 다시 전송하십시오.',
+                                'label':'Ok'
+                            }).show();
                         },
                         complete : function() {  
                         }
@@ -63,6 +96,18 @@ if ($(".agree").is(":checked")) {
                 fail: function() {
                     authe = true;
                     $(".testing-third-loading").css({"display":"none"});
+                    alertify.alert()
+                    .setting({
+                        'frameless':false,
+                        'title':"서버 오류",
+                        'closableByDimmer':true,
+                        'closable': false,
+                        modal: false,
+                        transition:'pulse',
+                        'pinnable': false,
+                        message: '일시적인 서버 오류이므로 네트워크 점검 후 다시 전송하십시오.',
+                        'label':'Ok'
+                    }).show();
                 },
                 complete : function() {  
                 }

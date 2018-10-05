@@ -27,15 +27,22 @@ class MainController < ApplicationController
   def recruitsubmit 
     @post = Post.new(post_params)
     if @post.save
-      if RecruitMailer.recruit_email(@post, post_params2).deliver
-        respond_to do |format|
-          format.js
-        end
-      else
-        respond_to do |format|
-          format.js {render 'recruitfail'}
-        end
+      begin
+        RecruitMailer.recruit_email(@post, post_params2).deliver_now
+      rescue 
+          respond_to do |format|
+            format.js {render 'recruitfail'}
+          end
       end
+      # if RecruitMailer.recruit_email(@post, post_params2).deliver
+      #   respond_to do |format|
+      #     format.js
+      #   end
+      # else
+      #   respond_to do |format|
+      #     format.js {render 'recruitfail'}
+      #   end
+      # end
     else
       respond_to do |format|
         format.js {render 'recruitfail'}
