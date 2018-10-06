@@ -1,3 +1,4 @@
+
 var calculate;
 var labor_price = 1800/3600; 
 var total = 0;
@@ -17,35 +18,47 @@ var total = 0;
 $(".reward-sum").text( total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+ "P");
 $(".reward-discount").text("-" + total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "P");
 function purpose_test(a,b) {
-    var element = $('#accordionExample' + a)
+    var element = $('#accordionExample' + a);
     var testernumber=0;
-    toggle = false;
+    var no_error = true;
     if (
     element.find(".purpose-is").val() =='' || Number(element.find(".minute option:selected").val()) + Number(element.find(".second option:selected").val()) == 0
     ) {
-        toggle = true;
+        $('#accordionExample' + b + ' input').addClass("disabled"); 
+        <%# $('#accordionExample' + b + ' input').attr({"readonly":"readonly"});  %>
+        $('#accordionExample' + b + ' .ui.dropdown').addClass("disabled");
+        no_error = false;
     }
     else {
-        $('#accordionExample' + a + ' .card-body-2').each(function () {
+        $('#accordionExample' + a + ' .card-body-2').each(function (i,e) {
             testernumber += Number($(this).find(".testernumber option:selected").val());
             if  ($(this).find(".target").val() == '') {
-                toggle = true;
+                a.preventDefault();
+                $('#accordionExample' + b + ' input').addClass("disabled"); 
+                <%# $('#accordionExample' + b + ' input').attr({"readonly":"readonly"});  %>
+                $('#accordionExample' + b + ' .ui.dropdown').addClass("disabled");
+                no_error = false;
                 return false;
             }
+            else if  ($(this).find(".testernumber option:selected").val() == 0 ) {
+                $('#accordionExample' + b + ' input').addClass("disabled"); 
+                <%# $('#accordionExample' + b + ' input').attr({"readonly":"readonly"});  %>
+                $('#accordionExample' + b + ' .ui.dropdown').addClass("disabled");
+                no_error = false;
+                return false;
+            } 
         });
-        if  (testernumber == 0 ) {
-            toggle = true;
-        } 
-    }
-    if (toggle) {
-        $('#accordionExample' + b + ' input').addClass("disabled"); 
-        $('#accordionExample' + b + ' .ui.dropdown').addClass("disabled"); 
-        return false;
-    }
-    else {
-        $('#accordionExample' + b + ' .ui.dropdown').removeClass("disabled");
-        $('#accordionExample' + b + ' input').removeClass("disabled");
-        return true;
+        if (no_error) {
+            <%# $('#accordionExample' + b + ' input').attr({"readonly":""});  %>
+            $('#accordionExample' + b + ' .ui.dropdown').removeClass("disabled");
+            $('#accordionExample' + b + ' input').removeClass("disabled");
+            return true;
+        }
+        else {
+            $('#accordionExample' + b + ' input').addClass("disabled"); 
+            <%# $('#accordionExample' + b + ' input').attr({"readonly":"readonly"});  %>
+            $('#accordionExample' + b + ' .ui.dropdown').addClass("disabled");
+        }
     }
 }
 purpose_test(1,2);

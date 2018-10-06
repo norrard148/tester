@@ -110,10 +110,11 @@ setInterval(function () {
 
 }, 1000);
 
-function purpose_2_test(a) {
+function purpose_2_test(a, b) {
     var element = $("#accordionExample1");
-    var testernumber=0;
+    var testernumber = 0;
     var no_error = true;
+    
     if (
     element.find(".purpose-is").val() =='' || Number(element.find(".minute option:selected").val()) + Number(element.find(".second option:selected").val()) == 0
     ) {
@@ -129,6 +130,7 @@ function purpose_2_test(a) {
             message: '이전 목표 필수 입력 사항을 모두 입력하세요.',
             'label':'Ok'
         }).show();
+        
         a.preventDefault();
         no_error = false;
     }
@@ -177,8 +179,10 @@ function purpose_2_test(a) {
 $(document).on("click","#accordionExample2 .ui.dropdown, #accordionExample2 input", function(a) {
    purpose_2_test(a);
 })
+
 $(document).on("keydown","#accordionExample2 input", function(a) {
-    purpose_2_test(a);
+    var b = $(this);
+    purpose_2_test(a, b);
    
 })
 

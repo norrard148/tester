@@ -188,7 +188,6 @@
     $(".navbar-nav a:nth-child(4)").addClass("color");
     var authe = true;
     $(".recruit-button").click(function() {
-         
         if ($("#name").val() == '') {
             alertify.alert()
             .setting({
@@ -242,8 +241,7 @@
                 authe = false;
                 $(".testing-third-loading").css({"display":"flex"});
                 $(".recruit-submit").click();      
-            }
-            
+            } 
         } 
       
     });

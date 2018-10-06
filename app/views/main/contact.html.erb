@@ -262,7 +262,18 @@
                         error : function(error) {
                             $(".testing-third-loading").css({"display":"none"});
                             authe = false;
-                            
+                            alertify.alert()
+                            .setting({
+                                'frameless':false,
+                                'title':"서버 오류",
+                                'closableByDimmer':true,
+                                'closable': false,
+                                modal: false,
+                                transition:'pulse',
+                                'pinnable': false,
+                                message: '일시적인 서버 오류이므로 네트워크 점검 후 다시 전송하십시오.',
+                                'label':'Ok'
+                            }).show();
                         },
                         success : function(data) {
                             $(".testing-third-loading").css({"display":"none"});
@@ -272,7 +283,18 @@
                         fail: function() {
                             authe = false;
                             $(".testing-third-loading").css({"display":"none"});
-                            
+                            alertify.alert()
+                            .setting({
+                                'frameless':false,
+                                'title':"서버 오류",
+                                'closableByDimmer':true,
+                                'closable': false,
+                                modal: false,
+                                transition:'pulse',
+                                'pinnable': false,
+                                message: '일시적인 서버 오류이므로 네트워크 점검 후 다시 전송하십시오.',
+                                'label':'Ok'
+                            }).show();  
                         },
                         complete : function() {  
                         }
